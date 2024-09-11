@@ -1,0 +1,916 @@
+[
+    {
+        "commit": "f594c20dc5f3547578835e32c2a48cc37f2d6cfd",
+        "source": [
+            {
+                "element": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java",
+                "local": "L[111,125], C[5,5]"
+            }
+        ],
+        "target": [
+            {
+                "element": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java",
+                "local": "L[182,196], C[5,5]"
+            }
+        ],
+        "type": "PULL_UP",
+        "related": [
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy",
+                "Local": "L[182,196], C[5,5]",
+                "Detail": {
+                    "method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                    "blockPos": "L[182,196], C[122,5]"
+                },
+                "Code": "protected Map<String,Set<String>> createHostToSupervisorMap(final List<String> blacklistedNodeIds,Cluster cluster){\n  Map<String,Set<String>> hostToSupervisorMap=new TreeMap<>();\n  for (  String supervisorId : blacklistedNodeIds) {\n    String hostname=cluster.getHost(supervisorId);\n    if (hostname != null) {\n      Set<String> supervisorIds=hostToSupervisorMap.get(hostname);\n      if (supervisorIds == null) {\n        supervisorIds=new HashSet<>();\n        hostToSupervisorMap.put(hostname,supervisorIds);\n      }\n      supervisorIds.add(supervisorId);\n    }\n  }\n  return hostToSupervisorMap;\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy",
+                "Local": "L[111,125], C[5,5]",
+                "Detail": {
+                    "method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                    "blockPos": "L[111,125], C[120,5]"
+                },
+                "Code": "private Map<String,Set<String>> createHostToSupervisorMap(final List<String> blacklistedNodeIds,Cluster cluster){\n  Map<String,Set<String>> hostToSupervisorMap=new TreeMap<>();\n  for (  String supervisorId : blacklistedNodeIds) {\n    String hostname=cluster.getHost(supervisorId);\n    if (hostname != null) {\n      Set<String> supervisorIds=hostToSupervisorMap.get(hostname);\n      if (supervisorIds == null) {\n        supervisorIds=new HashSet<>();\n        hostToSupervisorMap.put(hostname,supervisorIds);\n      }\n      supervisorIds.add(supervisorId);\n    }\n  }\n  return hostToSupervisorMap;\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "METHOD_CALL_ARGUMENTS_CHANGE",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>).get(UNKNOWN)",
+                "Local": "L[148,148], C[48,85]",
+                "Detail": {
+                    "previousVar": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>)>>>supervisorId[147,156]"
+                },
+                "Code": "availableSupervisors.get(supervisorId)",
+                "relationType": "VAR_RELATED",
+                "distance": 4,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[187,187], C[17,27]",
+                "Detail": null,
+                "Code": "Set<String>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[186,193], C[35,13]",
+                "Detail": null,
+                "Code": "{\n  Set<String> supervisorIds=hostToSupervisorMap.get(hostname);\n  if (supervisorIds == null) {\n    supervisorIds=new HashSet<>();\n    hostToSupervisorMap.put(hostname,supervisorIds);\n  }\n  supervisorIds.add(supervisorId);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[188,191], C[44,17]",
+                "Detail": null,
+                "Code": "{\n  supervisorIds=new HashSet<>();\n  hostToSupervisorMap.put(hostname,supervisorIds);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[182,182], C[5,13]",
+                "Detail": null,
+                "Code": "protected",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[182,182], C[15,38]",
+                "Detail": null,
+                "Code": "Map<String,Set<String>>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster).SingleVariableDeclaration",
+                "Local": "L[182,182], C[66,70]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster).SingleVariableDeclaration",
+                "Local": "L[182,182], C[72,83]",
+                "Detail": null,
+                "Code": "List<String>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[189,189], C[37,51]",
+                "Detail": null,
+                "Code": "new HashSet<>()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[189,189], C[37,51]",
+                "Detail": null,
+                "Code": "new HashSet<>()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[182,182], C[27,37]",
+                "Detail": null,
+                "Code": "Set<String>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "CHANGED_VARIABLE",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>)",
+                "Local": "L[148,148], C[25,86]",
+                "Detail": {
+                    "previousVar": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>)>>>supervisorId[147,156]"
+                },
+                "Code": "SupervisorDetails sd=availableSupervisors.get(supervisorId);\n",
+                "relationType": "VAR_RELATED",
+                "distance": 4,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_NullLiteral",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[186,186], C[29,32]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster).HashSet<>",
+                "Local": "L[189,189], C[41,49]",
+                "Detail": null,
+                "Code": "HashSet<>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>)",
+                "Local": "L[146,146], C[50,77]",
+                "Detail": {
+                    "previousVar": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>)>>>hostToSupervisorIds[145,162]"
+                },
+                "Code": "hostToSupervisorIds.values()",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[183,183], C[9,71]",
+                "Detail": null,
+                "Code": "Map<String,Set<String>> hostToSupervisorMap=new TreeMap<>();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_ENHANCEDFORSTATEMENT",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[184,194], C[9,9]",
+                "Detail": null,
+                "Code": "for (String supervisorId : blacklistedNodeIds) {\n  String hostname=cluster.getHost(supervisorId);\n  if (hostname != null) {\n    Set<String> supervisorIds=hostToSupervisorMap.get(hostname);\n    if (supervisorIds == null) {\n      supervisorIds=new HashSet<>();\n      hostToSupervisorMap.put(hostname,supervisorIds);\n    }\n    supervisorIds.add(supervisorId);\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[195,195], C[9,35]",
+                "Detail": null,
+                "Code": "return hostToSupervisorMap;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster).TreeMap<>",
+                "Local": "L[183,183], C[60,68]",
+                "Detail": null,
+                "Code": "TreeMap<>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[183,183], C[56,70]",
+                "Detail": null,
+                "Code": "new TreeMap<>()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[183,183], C[56,70]",
+                "Detail": null,
+                "Code": "new TreeMap<>()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "CHANGED_EXISTING_IF_BLOCK",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>)",
+                "Local": "L[123,163], C[44,9]",
+                "Detail": null,
+                "Code": "{\n  int availableSlots=cluster.getNonBlacklistedAvailableSlots(blacklistedNodeIds).size();\n  int neededSlots=0;\n  for (  TopologyDetails td : cluster.needsSchedulingTopologies()) {\n    int slots=td.getNumWorkers();\n    int assignedSlots=cluster.getAssignedNumWorkers(td);\n    int tdSlotsNeeded=slots - assignedSlots;\n    neededSlots+=tdSlotsNeeded;\n  }\n  Map<String,SupervisorDetails> availableSupervisors=cluster.getSupervisors();\n  int shortageSlots=neededSlots - availableSlots;\n  LOG.debug(\"Need {} slots.\",neededSlots);\n  LOG.debug(\"Available {} slots.\",availableSlots);\n  LOG.debug(\"Shortage {} slots.\",shortageSlots);\n  if (shortageSlots > 0) {\n    LOG.info(\"Need {} slots more. Releasing some blacklisted nodes to cover it.\",shortageSlots);\n    Map<String,Set<String>> hostToSupervisorIds=createHostToSupervisorMap(blacklistedNodeIds,cluster);\n    for (    Set<String> supervisorIds : hostToSupervisorIds.values()) {\n      for (      String supervisorId : supervisorIds) {\n        SupervisorDetails sd=availableSupervisors.get(supervisorId);\n        if (sd != null) {\n          int sdAvailableSlots=cluster.getAvailablePorts(sd).size();\n          readyToRemove.add(supervisorId);\n          shortageSlots-=sdAvailableSlots;\n          LOG.debug(\"Releasing {} with {} slots leaving {} slots to go\",supervisorId,sdAvailableSlots,shortageSlots);\n        }\n      }\n      if (shortageSlots <= 0) {\n        break;\n      }\n    }\n  }\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 5,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "CHANGED_EXISTING_IF_BLOCK",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>)",
+                "Local": "L[141,162], C[36,13]",
+                "Detail": null,
+                "Code": "{\n  LOG.info(\"Need {} slots more. Releasing some blacklisted nodes to cover it.\",shortageSlots);\n  Map<String,Set<String>> hostToSupervisorIds=createHostToSupervisorMap(blacklistedNodeIds,cluster);\n  for (  Set<String> supervisorIds : hostToSupervisorIds.values()) {\n    for (    String supervisorId : supervisorIds) {\n      SupervisorDetails sd=availableSupervisors.get(supervisorId);\n      if (sd != null) {\n        int sdAvailableSlots=cluster.getAvailablePorts(sd).size();\n        readyToRemove.add(supervisorId);\n        shortageSlots-=sdAvailableSlots;\n        LOG.debug(\"Releasing {} with {} slots leaving {} slots to go\",supervisorId,sdAvailableSlots,shortageSlots);\n      }\n    }\n    if (shortageSlots <= 0) {\n      break;\n    }\n  }\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 3,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "CHANGED_EXISTING_IF_BLOCK",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>)",
+                "Local": "L[149,155], C[41,25]",
+                "Detail": {
+                    "previousVar": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>)>>>cluster[115,165]"
+                },
+                "Code": "{\n  int sdAvailableSlots=cluster.getAvailablePorts(sd).size();\n  readyToRemove.add(supervisorId);\n  shortageSlots-=sdAvailableSlots;\n  LOG.debug(\"Releasing {} with {} slots leaving {} slots to go\",supervisorId,sdAvailableSlots,shortageSlots);\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[188,188], C[21,41]",
+                "Detail": null,
+                "Code": "supervisorIds == null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[192,192], C[17,47]",
+                "Detail": null,
+                "Code": "supervisorIds.add(supervisorId)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>)",
+                "Local": "L[145,145], C[17,118]",
+                "Detail": null,
+                "Code": "Map<String,Set<String>> hostToSupervisorIds=createHostToSupervisorMap(blacklistedNodeIds,cluster);\n",
+                "relationType": "CALL_TARGET",
+                "distance": 2,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_ENHANCEDFORSTATEMENT",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>)",
+                "Local": "L[146,161], C[17,17]",
+                "Detail": {
+                    "previousVar": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>)>>>cluster[115,165]"
+                },
+                "Code": "for (Set<String> supervisorIds : hostToSupervisorIds.values()) {\n  for (  String supervisorId : supervisorIds) {\n    SupervisorDetails sd=availableSupervisors.get(supervisorId);\n    if (sd != null) {\n      int sdAvailableSlots=cluster.getAvailablePorts(sd).size();\n      readyToRemove.add(supervisorId);\n      shortageSlots-=sdAvailableSlots;\n      LOG.debug(\"Releasing {} with {} slots leaving {} slots to go\",supervisorId,sdAvailableSlots,shortageSlots);\n    }\n  }\n  if (shortageSlots <= 0) {\n    break;\n  }\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[183,183], C[21,31]",
+                "Detail": null,
+                "Code": "Set<String>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[186,186], C[17,32]",
+                "Detail": null,
+                "Code": "hostname != null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "CHANGED_ENHANCEDFORSTATEMENT",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>)",
+                "Local": "L[147,156], C[21,21]",
+                "Detail": {
+                    "previousVar": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>)>>>cluster[115,165]"
+                },
+                "Code": "for (String supervisorId : supervisorIds) {\n  SupervisorDetails sd=availableSupervisors.get(supervisorId);\n  if (sd != null) {\n    int sdAvailableSlots=cluster.getAvailablePorts(sd).size();\n    readyToRemove.add(supervisorId);\n    shortageSlots-=sdAvailableSlots;\n    LOG.debug(\"Releasing {} with {} slots leaving {} slots to go\",supervisorId,sdAvailableSlots,shortageSlots);\n  }\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[185,185], C[31,59]",
+                "Detail": null,
+                "Code": "cluster.getHost(supervisorId)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[187,187], C[17,78]",
+                "Detail": null,
+                "Code": "Set<String> supervisorIds=hostToSupervisorMap.get(hostname);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[183,183], C[9,32]",
+                "Detail": null,
+                "Code": "Map<String,Set<String>>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[185,185], C[13,60]",
+                "Detail": null,
+                "Code": "String hostname=cluster.getHost(supervisorId);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_NullLiteral",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[188,188], C[38,41]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[189,189], C[21,52]",
+                "Detail": null,
+                "Code": "supervisorIds=new HashSet<>();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>)",
+                "Local": "L[145,145], C[64,117]",
+                "Detail": null,
+                "Code": "createHostToSupervisorMap(blacklistedNodeIds,cluster)",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[187,187], C[45,77]",
+                "Detail": null,
+                "Code": "hostToSupervisorMap.get(hostname)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[190,190], C[21,68]",
+                "Detail": null,
+                "Code": "hostToSupervisorMap.put(hostname,supervisorIds)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "CHANGED_VAR_VALUE",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>)",
+                "Local": "L[148,148], C[43,85]",
+                "Detail": {
+                    "previousVar": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>)>>>supervisorId[147,156]"
+                },
+                "Code": "sd=availableSupervisors.get(supervisorId)",
+                "relationType": "VAR_RELATED",
+                "distance": 4,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "METHOD_CALL_ARGUMENTS_CHANGE",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>).add(String)",
+                "Local": "L[151,151], C[29,59]",
+                "Detail": {
+                    "previousVar": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>)>>>supervisorId[147,156]"
+                },
+                "Code": "readyToRemove.add(supervisorId)",
+                "relationType": "VAR_RELATED",
+                "distance": 4,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>)",
+                "Local": "L[153,154], C[29,68]",
+                "Detail": {
+                    "previousVar": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>)>>>supervisorId[147,156]"
+                },
+                "Code": "LOG.debug(\"Releasing {} with {} slots leaving {} slots to go\",supervisorId,sdAvailableSlots,shortageSlots)",
+                "relationType": "VAR_RELATED",
+                "distance": 4,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[117,117], C[21,41]",
+                "Detail": null,
+                "Code": "supervisorIds == null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[112,112], C[56,70]",
+                "Detail": null,
+                "Code": "new TreeMap<>()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[112,112], C[56,70]",
+                "Detail": null,
+                "Code": "new TreeMap<>()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[111,111], C[5,11]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[111,111], C[13,36]",
+                "Detail": null,
+                "Code": "Map<String,Set<String>>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[115,122], C[35,13]",
+                "Detail": null,
+                "Code": "{\n  Set<String> supervisorIds=hostToSupervisorMap.get(hostname);\n  if (supervisorIds == null) {\n    supervisorIds=new HashSet<>();\n    hostToSupervisorMap.put(hostname,supervisorIds);\n  }\n  supervisorIds.add(supervisorId);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[117,120], C[44,17]",
+                "Detail": null,
+                "Code": "{\n  supervisorIds=new HashSet<>();\n  hostToSupervisorMap.put(hostname,supervisorIds);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster).SingleVariableDeclaration",
+                "Local": "L[111,111], C[64,68]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster).SingleVariableDeclaration",
+                "Local": "L[111,111], C[70,81]",
+                "Detail": null,
+                "Code": "List<String>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[116,116], C[17,27]",
+                "Detail": null,
+                "Code": "Set<String>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[112,112], C[9,32]",
+                "Detail": null,
+                "Code": "Map<String,Set<String>>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[118,118], C[21,52]",
+                "Detail": null,
+                "Code": "supervisorIds=new HashSet<>();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[112,112], C[9,71]",
+                "Detail": null,
+                "Code": "Map<String,Set<String>> hostToSupervisorMap=new TreeMap<>();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_ENHANCEDFORSTATEMENT",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[113,123], C[9,9]",
+                "Detail": null,
+                "Code": "for (String supervisorId : blacklistedNodeIds) {\n  String hostname=cluster.getHost(supervisorId);\n  if (hostname != null) {\n    Set<String> supervisorIds=hostToSupervisorMap.get(hostname);\n    if (supervisorIds == null) {\n      supervisorIds=new HashSet<>();\n      hostToSupervisorMap.put(hostname,supervisorIds);\n    }\n    supervisorIds.add(supervisorId);\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[124,124], C[9,35]",
+                "Detail": null,
+                "Code": "return hostToSupervisorMap;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[114,114], C[31,59]",
+                "Detail": null,
+                "Code": "cluster.getHost(supervisorId)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[116,116], C[17,78]",
+                "Detail": null,
+                "Code": "Set<String> supervisorIds=hostToSupervisorMap.get(hostname);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[112,112], C[21,31]",
+                "Detail": null,
+                "Code": "Set<String>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[119,119], C[21,68]",
+                "Detail": null,
+                "Code": "hostToSupervisorMap.put(hostname,supervisorIds)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[111,111], C[25,35]",
+                "Detail": null,
+                "Code": "Set<String>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[114,114], C[13,60]",
+                "Detail": null,
+                "Code": "String hostname=cluster.getHost(supervisorId);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster).TreeMap<>",
+                "Local": "L[112,112], C[60,68]",
+                "Detail": null,
+                "Code": "TreeMap<>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[118,118], C[37,51]",
+                "Detail": null,
+                "Code": "new HashSet<>()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[118,118], C[37,51]",
+                "Detail": null,
+                "Code": "new HashSet<>()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[115,115], C[17,32]",
+                "Detail": null,
+                "Code": "hostname != null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_NullLiteral",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[117,117], C[38,41]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster).HashSet<>",
+                "Local": "L[118,118], C[41,49]",
+                "Detail": null,
+                "Code": "HashSet<>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[121,121], C[17,47]",
+                "Detail": null,
+                "Code": "supervisorIds.add(supervisorId)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[116,116], C[45,77]",
+                "Detail": null,
+                "Code": "hostToSupervisorMap.get(hostname)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_NullLiteral",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy.createHostToSupervisorMap(List<String>, Cluster)",
+                "Local": "L[115,115], C[29,32]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "REMOVED_IMPORT",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.CompilationUnit",
+                "Local": "L[27,27], C[1,45]",
+                "Detail": null,
+                "Code": "import org.apache.storm.scheduler.WorkerSlot;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_ImportDeclaration",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.CompilationUnit",
+                "Local": "L[27,27], C[1,45]",
+                "Detail": null,
+                "Code": "import org.apache.storm.scheduler.WorkerSlot;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>)",
+                "Local": "L[152,153], C[25,60]",
+                "Detail": null,
+                "Code": "LOG.debug(\"Releasing {} with {} slots leaving {} slots to go\",supervisor,sdAvailableSlots,shortageSlots)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>)",
+                "Local": "L[145,145], C[29,39]",
+                "Detail": null,
+                "Code": "Set<String>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>).SingleVariableDeclaration",
+                "Local": "L[146,146], C[22,32]",
+                "Detail": null,
+                "Code": "Set<String>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>)",
+                "Local": "L[157,160], C[45,21]",
+                "Detail": null,
+                "Code": "{\n  break;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy.releaseBlacklistWhenNeeded(Cluster, List<String>)",
+                "Local": "L[145,145], C[17,40]",
+                "Detail": null,
+                "Code": "Map<String,Set<String>>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_IMPORT",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.CompilationUnit",
+                "Local": "L[25,25], C[1,25]",
+                "Detail": null,
+                "Code": "import java.util.TreeMap;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            },
+            {
+                "Metric": "REMOVED_ImportDeclaration",
+                "Method": "org.apache.storm.scheduler.blacklist.strategies.CompilationUnit",
+                "Local": "L[25,25], C[1,25]",
+                "Detail": null,
+                "Code": "import java.util.TreeMap;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java"
+            }
+        ],
+        "metadata": {
+            "type": "Pull Up Method",
+            "description": "Pull Up Method private createHostToSupervisorMap(blacklistedNodeIds List<String>, cluster Cluster) : Map<String,Set<String>> from class org.apache.storm.scheduler.blacklist.strategies.RasBlacklistStrategy to protected createHostToSupervisorMap(blacklistedNodeIds List<String>, cluster Cluster) : Map<String,Set<String>> from class org.apache.storm.scheduler.blacklist.strategies.DefaultBlacklistStrategy",
+            "leftSideLocations": [
+                {
+                    "filePath": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/RasBlacklistStrategy.java",
+                    "startLine": 111,
+                    "endLine": 125,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private createHostToSupervisorMap(blacklistedNodeIds List<String>, cluster Cluster) : Map<String,Set<String>>"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java",
+                    "startLine": 182,
+                    "endLine": 196,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "pulled up method declaration",
+                    "codeElement": "protected createHostToSupervisorMap(blacklistedNodeIds List<String>, cluster Cluster) : Map<String,Set<String>>"
+                }
+            ]
+        }
+    }
+]

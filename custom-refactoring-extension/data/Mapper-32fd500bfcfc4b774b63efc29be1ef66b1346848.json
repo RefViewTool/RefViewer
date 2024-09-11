@@ -1,0 +1,1012 @@
+[
+    {
+        "commit": "32fd500bfcfc4b774b63efc29be1ef66b1346848",
+        "source": [
+            {
+                "element": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java",
+                "local": "L[91,148], C[5,5]"
+            }
+        ],
+        "target": [
+            {
+                "element": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java",
+                "local": "L[90,135], C[5,5]"
+            }
+        ],
+        "type": "RENAME_METHOD",
+        "related": [
+            {
+                "Metric": "CHANGED_RETURN_TYPE",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper",
+                "Local": "L[90,135], C[5,5]",
+                "Detail": {
+                    "method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                    "blockPos": "L[97,135], C[80,5]"
+                },
+                "Code": "/** \n * 通过通用Mapper接口获取对应的MapperTemplate\n * @param mapperClass\n * @return\n * @throws Exception\n */\nprivate Collection<MapperTemplate> fromMapperClasses(Class<?> mapperClass){\n  Map<Class<?>,MapperTemplate> templateMap=new ConcurrentHashMap<Class<?>,MapperTemplate>();\n  Method[] methods=mapperClass.getDeclaredMethods();\n  for (  Method method : methods) {\n    Class<?> templateClass=null;\n    if (method.isAnnotationPresent(SelectProvider.class)) {\n      SelectProvider provider=method.getAnnotation(SelectProvider.class);\n      templateClass=provider.type();\n    }\n else     if (method.isAnnotationPresent(InsertProvider.class)) {\n      InsertProvider provider=method.getAnnotation(InsertProvider.class);\n      templateClass=provider.type();\n    }\n else     if (method.isAnnotationPresent(DeleteProvider.class)) {\n      DeleteProvider provider=method.getAnnotation(DeleteProvider.class);\n      templateClass=provider.type();\n    }\n else     if (method.isAnnotationPresent(UpdateProvider.class)) {\n      UpdateProvider provider=method.getAnnotation(UpdateProvider.class);\n      templateClass=provider.type();\n    }\n    if (templateClass == null || !MapperTemplate.class.isAssignableFrom(templateClass)) {\n      templateClass=EmptyProvider.class;\n    }\n    MapperTemplate mapperTemplate;\n    try {\n      mapperTemplate=templateMap.getOrDefault(templateClass,(MapperTemplate)templateClass.getConstructor(Class.class,MapperHelper.class).newInstance(mapperClass,this));\n      ;\n      templateMap.put(templateClass,mapperTemplate);\n    }\n catch (    Exception e) {\n      log.error(\"实例化MapperTemplate对象失败:\" + e,e);\n      throw new MapperException(\"实例化MapperTemplate对象失败:\" + e.getMessage());\n    }\n    try {\n      mapperTemplate.addMethodMap(method.getName(),templateClass.getMethod(method.getName(),MappedStatement.class));\n    }\n catch (    NoSuchMethodException e) {\n      log.error(templateClass.getName() + \"中缺少\" + method.getName()+ \"方法!\",e);\n      throw new MapperException(templateClass.getName() + \"中缺少\" + method.getName()+ \"方法!\");\n    }\n  }\n  return templateMap.values();\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "RENAME_ELEMENT",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper",
+                "Local": "L[90,135], C[5,5]",
+                "Detail": {
+                    "method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                    "blockPos": "L[97,135], C[80,5]"
+                },
+                "Code": "/** \n * 通过通用Mapper接口获取对应的MapperTemplate\n * @param mapperClass\n * @return\n * @throws Exception\n */\nprivate Collection<MapperTemplate> fromMapperClasses(Class<?> mapperClass){\n  Map<Class<?>,MapperTemplate> templateMap=new ConcurrentHashMap<Class<?>,MapperTemplate>();\n  Method[] methods=mapperClass.getDeclaredMethods();\n  for (  Method method : methods) {\n    Class<?> templateClass=null;\n    if (method.isAnnotationPresent(SelectProvider.class)) {\n      SelectProvider provider=method.getAnnotation(SelectProvider.class);\n      templateClass=provider.type();\n    }\n else     if (method.isAnnotationPresent(InsertProvider.class)) {\n      InsertProvider provider=method.getAnnotation(InsertProvider.class);\n      templateClass=provider.type();\n    }\n else     if (method.isAnnotationPresent(DeleteProvider.class)) {\n      DeleteProvider provider=method.getAnnotation(DeleteProvider.class);\n      templateClass=provider.type();\n    }\n else     if (method.isAnnotationPresent(UpdateProvider.class)) {\n      UpdateProvider provider=method.getAnnotation(UpdateProvider.class);\n      templateClass=provider.type();\n    }\n    if (templateClass == null || !MapperTemplate.class.isAssignableFrom(templateClass)) {\n      templateClass=EmptyProvider.class;\n    }\n    MapperTemplate mapperTemplate;\n    try {\n      mapperTemplate=templateMap.getOrDefault(templateClass,(MapperTemplate)templateClass.getConstructor(Class.class,MapperHelper.class).newInstance(mapperClass,this));\n      ;\n      templateMap.put(templateClass,mapperTemplate);\n    }\n catch (    Exception e) {\n      log.error(\"实例化MapperTemplate对象失败:\" + e,e);\n      throw new MapperException(\"实例化MapperTemplate对象失败:\" + e.getMessage());\n    }\n    try {\n      mapperTemplate.addMethodMap(method.getName(),templateClass.getMethod(method.getName(),MappedStatement.class));\n    }\n catch (    NoSuchMethodException e) {\n      log.error(templateClass.getName() + \"中缺少\" + method.getName()+ \"方法!\",e);\n      throw new MapperException(templateClass.getName() + \"中缺少\" + method.getName()+ \"方法!\");\n    }\n  }\n  return templateMap.values();\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>).error(UNKNOWN, UNKNOWN)",
+                "Local": "L[130,130], C[27,84]",
+                "Detail": null,
+                "Code": "templateClass.getName() + \"中缺少\" + method.getName()+ \"方法!\"",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "CHANGED_EXISTING_IF_BLOCK",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[102,105], C[67,13]",
+                "Detail": null,
+                "Code": "{\n  SelectProvider provider=method.getAnnotation(SelectProvider.class);\n  templateClass=provider.type();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "CHANGED_EXISTING_IF_BLOCK",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[105,108], C[74,13]",
+                "Detail": null,
+                "Code": "{\n  InsertProvider provider=method.getAnnotation(InsertProvider.class);\n  templateClass=provider.type();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "CHANGED_EXISTING_IF_BLOCK",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[108,111], C[74,13]",
+                "Detail": null,
+                "Code": "{\n  DeleteProvider provider=method.getAnnotation(DeleteProvider.class);\n  templateClass=provider.type();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "CHANGED_EXISTING_IF_BLOCK",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[111,114], C[74,13]",
+                "Detail": null,
+                "Code": "{\n  UpdateProvider provider=method.getAnnotation(UpdateProvider.class);\n  templateClass=provider.type();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[121,123], C[40,13]",
+                "Detail": null,
+                "Code": "{\n  templateClass=tempClass;\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[123,126], C[52,13]",
+                "Detail": null,
+                "Code": "{\n  log.error(\"一个通用Mapper中只允许存在一个MapperTemplate子类!\");\n  throw new MapperException(\"一个通用Mapper中只允许存在一个MapperTemplate子类!\");\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[97,97], C[13,38]",
+                "Detail": null,
+                "Code": "Collection<MapperTemplate>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[107,107], C[17,47]",
+                "Detail": null,
+                "Code": "methodSet.add(method.getName())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[124,124], C[17,64]",
+                "Detail": null,
+                "Code": "log.error(\"一个通用Mapper中只允许存在一个MapperTemplate子类!\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "CHANGED_EXISTING_IF_BLOCK",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.registerMapper(Class<?>)",
+                "Local": "L[143,146], C[55,9]",
+                "Detail": null,
+                "Code": "{\n  registerClass.add(mapperClass);\n  fromMapperClasses(mapperClass).forEach(c -> registerMapper.put(mapperClass,c));\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 3,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[121,121], C[17,62]",
+                "Detail": null,
+                "Code": "templateMap.put(templateClass,mapperTemplate)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_THROWSTATEMENT",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[125,125], C[17,81]",
+                "Detail": null,
+                "Code": "throw new MapperException(\"一个通用Mapper中只允许存在一个MapperTemplate子类!\");\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "CHANGED_EXISTING_IF_BLOCK",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.setProperties(Properties)",
+                "Local": "L[338,348], C[33,9]",
+                "Detail": {
+                    "previousVar": "tk.mybatis.mapper.mapperhelper.MapperHelper>>>log[49,381]"
+                },
+                "Code": "{\n  String resolveClass=properties.getProperty(\"resolveClass\");\n  if (StringUtil.isNotEmpty(resolveClass)) {\n    try {\n      EntityHelper.setResolve((EntityResolve)Class.forName(resolveClass).newInstance());\n    }\n catch (    Exception e) {\n      log.error(\"创建 \" + resolveClass + \" 实例失败!\",e);\n      throw new MapperException(\"创建 \" + resolveClass + \" 实例失败!\",e);\n    }\n  }\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.setProperties(Properties)",
+                "Local": "L[350,360], C[33,9]",
+                "Detail": {
+                    "previousVar": "tk.mybatis.mapper.mapperhelper.MapperHelper.setProperties(Properties)>>>properties[330,361]"
+                },
+                "Code": "{\n  String mapper=properties.getProperty(\"mappers\");\n  if (StringUtil.isNotEmpty(mapper)) {\n    String[] mappers=mapper.split(\",\");\n    for (    String mapperClass : mappers) {\n      if (mapperClass.length() > 0) {\n        registerMapper(mapperClass);\n      }\n    }\n  }\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[98,98], C[9,36]",
+                "Detail": null,
+                "Code": "Map<Class<?>,MapperTemplate>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[128,128], C[17,127]",
+                "Detail": null,
+                "Code": "mapperTemplate.addMethodMap(method.getName(),templateClass.getMethod(method.getName(),MappedStatement.class))",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[141,141], C[57,114]",
+                "Detail": null,
+                "Code": "templateClass.getMethod(methodName,MappedStatement.class)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[131,131], C[23,101]",
+                "Detail": null,
+                "Code": "new MapperException(templateClass.getName() + \"中缺少\" + method.getName()+ \"方法!\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[144,144], C[23,95]",
+                "Detail": null,
+                "Code": "new MapperException(templateClass.getName() + \"中缺少\" + methodName+ \"方法!\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[131,131], C[23,101]",
+                "Detail": null,
+                "Code": "new MapperException(templateClass.getName() + \"中缺少\" + method.getName()+ \"方法!\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[144,144], C[23,95]",
+                "Detail": null,
+                "Code": "new MapperException(templateClass.getName() + \"中缺少\" + methodName+ \"方法!\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>).HashSet<String>",
+                "Local": "L[102,102], C[37,51]",
+                "Detail": null,
+                "Code": "HashSet<String>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>).add(String)",
+                "Local": "L[111,111], C[31,46]",
+                "Detail": null,
+                "Code": "method.getName()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>).add(String)",
+                "Local": "L[107,107], C[31,46]",
+                "Detail": null,
+                "Code": "method.getName()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>).add(String)",
+                "Local": "L[119,119], C[31,46]",
+                "Detail": null,
+                "Code": "method.getName()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>).add(String)",
+                "Local": "L[115,115], C[31,46]",
+                "Detail": null,
+                "Code": "method.getName()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[113,113], C[17,48]",
+                "Detail": null,
+                "Code": "templateClass=provider.type();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[118,118], C[17,44]",
+                "Detail": null,
+                "Code": "tempClass=provider.type();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_TRYSTATEMENT",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[140,145], C[13,13]",
+                "Detail": null,
+                "Code": "try {\n  mapperTemplate.addMethodMap(methodName,templateClass.getMethod(methodName,MappedStatement.class));\n}\n catch (NoSuchMethodException e) {\n  log.error(templateClass.getName() + \"中缺少\" + methodName+ \"方法!\",e);\n  throw new MapperException(templateClass.getName() + \"中缺少\" + methodName+ \"方法!\");\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[123,123], C[24,49]",
+                "Detail": null,
+                "Code": "templateClass != tempClass",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[125,125], C[23,80]",
+                "Detail": null,
+                "Code": "new MapperException(\"一个通用Mapper中只允许存在一个MapperTemplate子类!\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[125,125], C[23,80]",
+                "Detail": null,
+                "Code": "new MapperException(\"一个通用Mapper中只允许存在一个MapperTemplate子类!\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[130,130], C[17,88]",
+                "Detail": null,
+                "Code": "log.error(templateClass.getName() + \"中缺少\" + method.getName()+ \"方法!\",e)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[115,115], C[17,47]",
+                "Detail": null,
+                "Code": "methodSet.add(method.getName())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[111,111], C[17,47]",
+                "Detail": null,
+                "Code": "methodSet.add(method.getName())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[110,110], C[17,48]",
+                "Detail": null,
+                "Code": "templateClass=provider.type();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[114,114], C[17,44]",
+                "Detail": null,
+                "Code": "tempClass=provider.type();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>).ConcurrentHashMap<Class<?>,MapperTemplate>",
+                "Local": "L[98,98], C[56,98]",
+                "Detail": null,
+                "Code": "ConcurrentHashMap<Class<?>,MapperTemplate>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.registerMapper(Class<?>)",
+                "Local": "L[145,145], C[13,42]",
+                "Detail": null,
+                "Code": "fromMapperClasses(mapperClass)",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.registerMapper(Class<?>)",
+                "Local": "L[158,158], C[45,72]",
+                "Detail": null,
+                "Code": "fromMapperClass(mapperClass)",
+                "relationType": "CALL_SOURCE",
+                "distance": 1,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.registerMapper(Class<?>)",
+                "Local": "L[158,158], C[13,73]",
+                "Detail": null,
+                "Code": "registerMapper.put(mapperClass,fromMapperClass(mapperClass))",
+                "relationType": "CALL_SOURCE",
+                "distance": 1,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[134,134], C[16,35]",
+                "Detail": null,
+                "Code": "templateMap.values()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_TRY_CATCH",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[119,125], C[13,13]",
+                "Detail": null,
+                "Code": "try {\n  mapperTemplate=templateMap.getOrDefault(templateClass,(MapperTemplate)templateClass.getConstructor(Class.class,MapperHelper.class).newInstance(mapperClass,this));\n  ;\n  templateMap.put(templateClass,mapperTemplate);\n}\n catch (Exception e) {\n  log.error(\"实例化MapperTemplate对象失败:\" + e,e);\n  throw new MapperException(\"实例化MapperTemplate对象失败:\" + e.getMessage());\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[102,102], C[9,19]",
+                "Detail": null,
+                "Code": "Set<String>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[98,98], C[52,100]",
+                "Detail": null,
+                "Code": "new ConcurrentHashMap<Class<?>,MapperTemplate>()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[98,98], C[52,100]",
+                "Detail": null,
+                "Code": "new ConcurrentHashMap<Class<?>,MapperTemplate>()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_ENHANCEDFORSTATEMENT",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[100,133], C[9,9]",
+                "Detail": null,
+                "Code": "for (Method method : methods) {\n  Class<?> templateClass=null;\n  if (method.isAnnotationPresent(SelectProvider.class)) {\n    SelectProvider provider=method.getAnnotation(SelectProvider.class);\n    templateClass=provider.type();\n  }\n else   if (method.isAnnotationPresent(InsertProvider.class)) {\n    InsertProvider provider=method.getAnnotation(InsertProvider.class);\n    templateClass=provider.type();\n  }\n else   if (method.isAnnotationPresent(DeleteProvider.class)) {\n    DeleteProvider provider=method.getAnnotation(DeleteProvider.class);\n    templateClass=provider.type();\n  }\n else   if (method.isAnnotationPresent(UpdateProvider.class)) {\n    UpdateProvider provider=method.getAnnotation(UpdateProvider.class);\n    templateClass=provider.type();\n  }\n  if (templateClass == null || !MapperTemplate.class.isAssignableFrom(templateClass)) {\n    templateClass=EmptyProvider.class;\n  }\n  MapperTemplate mapperTemplate;\n  try {\n    mapperTemplate=templateMap.getOrDefault(templateClass,(MapperTemplate)templateClass.getConstructor(Class.class,MapperHelper.class).newInstance(mapperClass,this));\n    ;\n    templateMap.put(templateClass,mapperTemplate);\n  }\n catch (  Exception e) {\n    log.error(\"实例化MapperTemplate对象失败:\" + e,e);\n    throw new MapperException(\"实例化MapperTemplate对象失败:\" + e.getMessage());\n  }\n  try {\n    mapperTemplate.addMethodMap(method.getName(),templateClass.getMethod(method.getName(),MappedStatement.class));\n  }\n catch (  NoSuchMethodException e) {\n    log.error(templateClass.getName() + \"中缺少\" + method.getName()+ \"方法!\",e);\n    throw new MapperException(templateClass.getName() + \"中缺少\" + method.getName()+ \"方法!\");\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_ENHANCEDFORSTATEMENT",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[103,127], C[9,9]",
+                "Detail": null,
+                "Code": "for (Method method : methods) {\n  if (method.isAnnotationPresent(SelectProvider.class)) {\n    SelectProvider provider=method.getAnnotation(SelectProvider.class);\n    tempClass=provider.type();\n    methodSet.add(method.getName());\n  }\n else   if (method.isAnnotationPresent(InsertProvider.class)) {\n    InsertProvider provider=method.getAnnotation(InsertProvider.class);\n    tempClass=provider.type();\n    methodSet.add(method.getName());\n  }\n else   if (method.isAnnotationPresent(DeleteProvider.class)) {\n    DeleteProvider provider=method.getAnnotation(DeleteProvider.class);\n    tempClass=provider.type();\n    methodSet.add(method.getName());\n  }\n else   if (method.isAnnotationPresent(UpdateProvider.class)) {\n    UpdateProvider provider=method.getAnnotation(UpdateProvider.class);\n    tempClass=provider.type();\n    methodSet.add(method.getName());\n  }\n  if (templateClass == null) {\n    templateClass=tempClass;\n  }\n else   if (templateClass != tempClass) {\n    log.error(\"一个通用Mapper中只允许存在一个MapperTemplate子类!\");\n    throw new MapperException(\"一个通用Mapper中只允许存在一个MapperTemplate子类!\");\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_TRYSTATEMENT",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[132,137], C[9,9]",
+                "Detail": null,
+                "Code": "try {\n  mapperTemplate=(MapperTemplate)templateClass.getConstructor(Class.class,MapperHelper.class).newInstance(mapperClass,this);\n}\n catch (Exception e) {\n  log.error(\"实例化MapperTemplate对象失败:\" + e,e);\n  throw new MapperException(\"实例化MapperTemplate对象失败:\" + e.getMessage());\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[134,134], C[9,36]",
+                "Detail": null,
+                "Code": "return templateMap.values();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[147,147], C[9,30]",
+                "Detail": null,
+                "Code": "return mapperTemplate;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[98,98], C[9,101]",
+                "Detail": null,
+                "Code": "Map<Class<?>,MapperTemplate> templateMap=new ConcurrentHashMap<Class<?>,MapperTemplate>();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[101,101], C[9,34]",
+                "Detail": null,
+                "Code": "Class<?> tempClass=null;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[102,102], C[9,54]",
+                "Detail": null,
+                "Code": "Set<String> methodSet=new HashSet<String>();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[131,131], C[9,45]",
+                "Detail": null,
+                "Code": "MapperTemplate mapperTemplate=null;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_ENHANCEDFORSTATEMENT",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[139,146], C[9,9]",
+                "Detail": null,
+                "Code": "for (String methodName : methodSet) {\n  try {\n    mapperTemplate.addMethodMap(methodName,templateClass.getMethod(methodName,MappedStatement.class));\n  }\n catch (  NoSuchMethodException e) {\n    log.error(templateClass.getName() + \"中缺少\" + methodName+ \"方法!\",e);\n    throw new MapperException(templateClass.getName() + \"中缺少\" + methodName+ \"方法!\");\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[102,102], C[33,53]",
+                "Detail": null,
+                "Code": "new HashSet<String>()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[102,102], C[33,53]",
+                "Detail": null,
+                "Code": "new HashSet<String>()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[143,143], C[17,82]",
+                "Detail": null,
+                "Code": "log.error(templateClass.getName() + \"中缺少\" + methodName+ \"方法!\",e)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_CastExpression",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[133,133], C[30,138]",
+                "Detail": null,
+                "Code": "(MapperTemplate)templateClass.getConstructor(Class.class,MapperHelper.class).newInstance(mapperClass,this)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[120,120], C[34,182]",
+                "Detail": null,
+                "Code": "templateMap.getOrDefault(templateClass,(MapperTemplate)templateClass.getConstructor(Class.class,MapperHelper.class).newInstance(mapperClass,this))",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>).MapperException",
+                "Local": "L[131,131], C[43,100]",
+                "Detail": null,
+                "Code": "templateClass.getName() + \"中缺少\" + method.getName()+ \"方法!\"",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>).MapperException",
+                "Local": "L[144,144], C[43,94]",
+                "Detail": null,
+                "Code": "templateClass.getName() + \"中缺少\" + methodName+ \"方法!\"",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>).error(UNKNOWN, UNKNOWN)",
+                "Local": "L[143,143], C[27,78]",
+                "Detail": null,
+                "Code": "templateClass.getName() + \"中缺少\" + methodName+ \"方法!\"",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[107,107], C[17,48]",
+                "Detail": null,
+                "Code": "templateClass=provider.type();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[110,110], C[17,44]",
+                "Detail": null,
+                "Code": "tempClass=provider.type();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[141,141], C[17,115]",
+                "Detail": null,
+                "Code": "mapperTemplate.addMethodMap(methodName,templateClass.getMethod(methodName,MappedStatement.class))",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[104,104], C[17,48]",
+                "Detail": null,
+                "Code": "templateClass=provider.type();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[106,106], C[17,44]",
+                "Detail": null,
+                "Code": "tempClass=provider.type();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>).addMethodMap(UNKNOWN, UNKNOWN)",
+                "Local": "L[128,128], C[63,126]",
+                "Detail": null,
+                "Code": "templateClass.getMethod(method.getName(),MappedStatement.class)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>).getMethod(String, Class<?>[])",
+                "Local": "L[111,111], C[17,47]",
+                "Detail": null,
+                "Code": "methodSet.add(method.getName())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>).addMethodMap(UNKNOWN, UNKNOWN)",
+                "Local": "L[128,128], C[45,60]",
+                "Detail": null,
+                "Code": "method.getName()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[119,119], C[17,47]",
+                "Detail": null,
+                "Code": "methodSet.add(method.getName())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_TRY_CATCH",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[132,137], C[9,9]",
+                "Detail": null,
+                "Code": "try {\n  mapperTemplate=(MapperTemplate)templateClass.getConstructor(Class.class,MapperHelper.class).newInstance(mapperClass,this);\n}\n catch (Exception e) {\n  log.error(\"实例化MapperTemplate对象失败:\" + e,e);\n  throw new MapperException(\"实例化MapperTemplate对象失败:\" + e.getMessage());\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_TRYSTATEMENT",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[119,125], C[13,13]",
+                "Detail": null,
+                "Code": "try {\n  mapperTemplate=templateMap.getOrDefault(templateClass,(MapperTemplate)templateClass.getConstructor(Class.class,MapperHelper.class).newInstance(mapperClass,this));\n  ;\n  templateMap.put(templateClass,mapperTemplate);\n}\n catch (Exception e) {\n  log.error(\"实例化MapperTemplate对象失败:\" + e,e);\n  throw new MapperException(\"实例化MapperTemplate对象失败:\" + e.getMessage());\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_TRY_CATCH",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[140,145], C[13,13]",
+                "Detail": null,
+                "Code": "try {\n  mapperTemplate.addMethodMap(methodName,templateClass.getMethod(methodName,MappedStatement.class));\n}\n catch (NoSuchMethodException e) {\n  log.error(templateClass.getName() + \"中缺少\" + methodName+ \"方法!\",e);\n  throw new MapperException(templateClass.getName() + \"中缺少\" + methodName+ \"方法!\");\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_TRYSTATEMENT",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[127,132], C[13,13]",
+                "Detail": null,
+                "Code": "try {\n  mapperTemplate.addMethodMap(method.getName(),templateClass.getMethod(method.getName(),MappedStatement.class));\n}\n catch (NoSuchMethodException e) {\n  log.error(templateClass.getName() + \"中缺少\" + method.getName()+ \"方法!\",e);\n  throw new MapperException(templateClass.getName() + \"中缺少\" + method.getName()+ \"方法!\");\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[118,118], C[13,42]",
+                "Detail": null,
+                "Code": "MapperTemplate mapperTemplate;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_CATCH_CLAUSE",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[129,132], C[15,13]",
+                "Detail": null,
+                "Code": "catch (NoSuchMethodException e) {\n  log.error(templateClass.getName() + \"中缺少\" + method.getName()+ \"方法!\",e);\n  throw new MapperException(templateClass.getName() + \"中缺少\" + method.getName()+ \"方法!\");\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_CATCH_CLAUSE",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[142,145], C[15,13]",
+                "Detail": null,
+                "Code": "catch (NoSuchMethodException e) {\n  log.error(templateClass.getName() + \"中缺少\" + methodName+ \"方法!\",e);\n  throw new MapperException(templateClass.getName() + \"中缺少\" + methodName+ \"方法!\");\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_CatchClause",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[129,132], C[15,13]",
+                "Detail": null,
+                "Code": "catch (NoSuchMethodException e) {\n  log.error(templateClass.getName() + \"中缺少\" + method.getName()+ \"方法!\",e);\n  throw new MapperException(templateClass.getName() + \"中缺少\" + method.getName()+ \"方法!\");\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_CatchClause",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[142,145], C[15,13]",
+                "Detail": null,
+                "Code": "catch (NoSuchMethodException e) {\n  log.error(templateClass.getName() + \"中缺少\" + methodName+ \"方法!\",e);\n  throw new MapperException(templateClass.getName() + \"中缺少\" + methodName+ \"方法!\");\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_TRY_CATCH",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[127,132], C[13,13]",
+                "Detail": null,
+                "Code": "try {\n  mapperTemplate.addMethodMap(method.getName(),templateClass.getMethod(method.getName(),MappedStatement.class));\n}\n catch (NoSuchMethodException e) {\n  log.error(templateClass.getName() + \"中缺少\" + method.getName()+ \"方法!\",e);\n  throw new MapperException(templateClass.getName() + \"中缺少\" + method.getName()+ \"方法!\");\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[120,120], C[17,183]",
+                "Detail": null,
+                "Code": "mapperTemplate=templateMap.getOrDefault(templateClass,(MapperTemplate)templateClass.getConstructor(Class.class,MapperHelper.class).newInstance(mapperClass,this));\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[133,133], C[13,139]",
+                "Detail": null,
+                "Code": "mapperTemplate=(MapperTemplate)templateClass.getConstructor(Class.class,MapperHelper.class).newInstance(mapperClass,this);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_THROWSTATEMENT",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>)",
+                "Local": "L[131,131], C[17,102]",
+                "Detail": null,
+                "Code": "throw new MapperException(templateClass.getName() + \"中缺少\" + method.getName()+ \"方法!\");\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_THROWSTATEMENT",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[144,144], C[17,96]",
+                "Detail": null,
+                "Code": "throw new MapperException(templateClass.getName() + \"中缺少\" + methodName+ \"方法!\");\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_CastExpression",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClasses(Class<?>).getOrDefault(UNKNOWN, UNKNOWN)",
+                "Local": "L[120,120], C[73,181]",
+                "Detail": null,
+                "Code": "(MapperTemplate)templateClass.getConstructor(Class.class,MapperHelper.class).newInstance(mapperClass,this)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.fromMapperClass(Class<?>)",
+                "Local": "L[122,122], C[17,42]",
+                "Detail": null,
+                "Code": "templateClass=tempClass;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.registerMapper(Class<?>)",
+                "Local": "L[145,145], C[57,90]",
+                "Detail": null,
+                "Code": "registerMapper.put(mapperClass,c)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_LambdaExpression",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.registerMapper(Class<?>)",
+                "Local": "L[145,145], C[52,90]",
+                "Detail": null,
+                "Code": "c -> registerMapper.put(mapperClass,c)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "tk.mybatis.mapper.mapperhelper.MapperHelper.registerMapper(Class<?>)",
+                "Local": "L[148,148], C[9,16]",
+                "Detail": null,
+                "Code": "Class<?>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java"
+            }
+        ],
+        "metadata": {
+            "type": "Rename Method",
+            "description": "Rename Method private fromMapperClass(mapperClass Class<?>) : MapperTemplate renamed to private fromMapperClasses(mapperClass Class<?>) : Collection<MapperTemplate> in class tk.mybatis.mapper.mapperhelper.MapperHelper",
+            "leftSideLocations": [
+                {
+                    "filePath": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java",
+                    "startLine": 91,
+                    "endLine": 148,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private fromMapperClass(mapperClass Class<?>) : MapperTemplate"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java",
+                    "startLine": 90,
+                    "endLine": 135,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "renamed method declaration",
+                    "codeElement": "private fromMapperClasses(mapperClass Class<?>) : Collection<MapperTemplate>"
+                }
+            ]
+        }
+    }
+]

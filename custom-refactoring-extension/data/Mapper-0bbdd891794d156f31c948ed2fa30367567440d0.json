@@ -1,0 +1,1754 @@
+[
+    {
+        "commit": "0bbdd891794d156f31c948ed2fa30367567440d0",
+        "source": [
+            {
+                "element": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                "local": "L[527,553], C[5,5]"
+            }
+        ],
+        "target": [
+            {
+                "element": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                "local": "L[527,549], C[5,5]"
+            }
+        ],
+        "type": "EXTRACT_METHOD",
+        "related": [
+            {
+                "Metric": "CHANGED_RETURN_TYPE",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper",
+                "Local": "L[527,549], C[5,5]",
+                "Detail": {
+                    "method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                    "blockPos": "L[534,549], C[97,5]"
+                },
+                "Code": "/** \n * map转换为Map\n * @param map\n * @param beanClass\n * @return\n */\npublic static Map<String,Object> map2AliasMap(Map<String,Object> map,Class<?> beanClass){\n  try {\n    if (map == null) {\n      return null;\n    }\n    Map<String,String> alias=EntityHelper.getColumnAlias(beanClass);\n    Map<String,Object> result=new HashMap<String,Object>();\n    for (    String name : map.keySet()) {\n      String alia=alias.get(name);\n      result.put(alia,map.get(name));\n    }\n    return result;\n  }\n catch (  Exception e) {\n    throw new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\");\n  }\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_PARAMETER",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper",
+                "Local": "L[534,534], C[52,70]",
+                "Detail": {
+                    "method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                    "blockPos": "L[534,549], C[97,5]"
+                },
+                "Code": "/** \n * map转换为Map\n * @param map\n * @param beanClass\n * @return\n */\npublic static Map<String,Object> map2AliasMap(Map<String,Object> map,Class<?> beanClass){\n  try {\n    if (map == null) {\n      return null;\n    }\n    Map<String,String> alias=EntityHelper.getColumnAlias(beanClass);\n    Map<String,Object> result=new HashMap<String,Object>();\n    for (    String name : map.keySet()) {\n      String alia=alias.get(name);\n      result.put(alia,map.get(name));\n    }\n    return result;\n  }\n catch (  Exception e) {\n    throw new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\");\n  }\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "RENAME_ELEMENT",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper",
+                "Local": "L[527,549], C[5,5]",
+                "Detail": {
+                    "method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                    "blockPos": "L[534,549], C[97,5]"
+                },
+                "Code": "/** \n * map转换为Map\n * @param map\n * @param beanClass\n * @return\n */\npublic static Map<String,Object> map2AliasMap(Map<String,Object> map,Class<?> beanClass){\n  try {\n    if (map == null) {\n      return null;\n    }\n    Map<String,String> alias=EntityHelper.getColumnAlias(beanClass);\n    Map<String,Object> result=new HashMap<String,Object>();\n    for (    String name : map.keySet()) {\n      String alia=alias.get(name);\n      result.put(alia,map.get(name));\n    }\n    return result;\n  }\n catch (  Exception e) {\n    throw new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\");\n  }\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_PARAMETER",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper",
+                "Local": "L[534,534], C[35,37]",
+                "Detail": {
+                    "method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                    "blockPos": "L[534,553], C[64,5]"
+                },
+                "Code": "/** \n * map转换为bean\n * @param map\n * @param beanClass\n * @return\n */\npublic static Object map2Bean(Map map,Class<?> beanClass){\n  try {\n    if (map == null) {\n      return null;\n    }\n    Object bean=beanClass.newInstance();\n    Map<String,String> alias=EntityHelper.getColumnAlias(beanClass);\n    MetaObject metaBean=MapperTemplate.forObject(bean);\n    MetaObject metaMap=MapperTemplate.forObject(map);\n    for (    String name : metaMap.getGetterNames()) {\n      String alia=alias.get(name);\n      if (metaBean.hasSetter(alia)) {\n        metaBean.setValue(alia,metaMap.getValue(name));\n      }\n    }\n    return bean;\n  }\n catch (  Exception e) {\n    throw new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\");\n  }\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[542,542], C[34,62]",
+                "Detail": null,
+                "Code": "MapperTemplate.forObject(map)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_NullLiteral",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[536,536], C[24,27]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_NullLiteral",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[536,536], C[24,27]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_TagElement",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[532,532], C[8,14]",
+                "Detail": null,
+                "Code": "\n * @return",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_TagElement",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[528,528], C[8,17]",
+                "Detail": null,
+                "Code": "\n * map转换为bean",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[554,554], C[8,17]",
+                "Detail": {
+                    "previousVar": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)>>>map[551,570]"
+                },
+                "Code": "\n * @param map",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_TagElement",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[530,530], C[8,17]",
+                "Detail": null,
+                "Code": "\n * @param map",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[555,555], C[8,23]",
+                "Detail": {
+                    "previousVar": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)>>>beanClass[551,570]"
+                },
+                "Code": "\n * @param beanClass",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_TagElement",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[531,531], C[8,23]",
+                "Detail": null,
+                "Code": "\n * @param beanClass",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_TextElement",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[528,528], C[8,17]",
+                "Detail": null,
+                "Code": "map转换为bean",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>).RuntimeException",
+                "Local": "L[547,547], C[40,84]",
+                "Detail": null,
+                "Code": "beanClass.getCanonicalName() + \"类没有默认空的构造方法!\"",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>).RuntimeException",
+                "Local": "L[551,551], C[40,84]",
+                "Detail": null,
+                "Code": "beanClass.getCanonicalName() + \"类没有默认空的构造方法!\"",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[540,540], C[13,79]",
+                "Detail": null,
+                "Code": "Map<String,String> alias=EntityHelper.getColumnAlias(beanClass);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[539,539], C[13,50]",
+                "Detail": null,
+                "Code": "Object bean=beanClass.newInstance();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_ENHANCEDFORSTATEMENT",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[543,548], C[13,13]",
+                "Detail": null,
+                "Code": "for (String name : metaMap.getGetterNames()) {\n  String alia=alias.get(name);\n  if (metaBean.hasSetter(alia)) {\n    metaBean.setValue(alia,metaMap.getValue(name));\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[549,549], C[13,24]",
+                "Detail": null,
+                "Code": "return bean;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_TRY_CATCH",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[535,552], C[9,9]",
+                "Detail": null,
+                "Code": "try {\n  if (map == null) {\n    return null;\n  }\n  Object bean=beanClass.newInstance();\n  Map<String,String> alias=EntityHelper.getColumnAlias(beanClass);\n  MetaObject metaBean=MapperTemplate.forObject(bean);\n  MetaObject metaMap=MapperTemplate.forObject(map);\n  for (  String name : metaMap.getGetterNames()) {\n    String alia=alias.get(name);\n    if (metaBean.hasSetter(alia)) {\n      metaBean.setValue(alia,metaMap.getValue(name));\n    }\n  }\n  return bean;\n}\n catch (Exception e) {\n  throw new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\");\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_TRYSTATEMENT",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[535,548], C[9,9]",
+                "Detail": null,
+                "Code": "try {\n  if (map == null) {\n    return null;\n  }\n  Map<String,String> alias=EntityHelper.getColumnAlias(beanClass);\n  Map<String,Object> result=new HashMap<String,Object>();\n  for (  String name : map.keySet()) {\n    String alia=alias.get(name);\n    result.put(alia,map.get(name));\n  }\n  return result;\n}\n catch (Exception e) {\n  throw new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\");\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[541,541], C[13,65]",
+                "Detail": null,
+                "Code": "MetaObject metaBean=MapperTemplate.forObject(bean);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[542,542], C[13,63]",
+                "Detail": null,
+                "Code": "MetaObject metaMap=MapperTemplate.forObject(map);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[528,528], C[8,16]",
+                "Detail": null,
+                "Code": "map转换为Map",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>).SingleVariableDeclaration",
+                "Local": "L[534,534], C[77,84]",
+                "Detail": null,
+                "Code": "Class<?>",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>).SingleVariableDeclaration",
+                "Local": "L[534,534], C[44,51]",
+                "Detail": null,
+                "Code": "Class<?>",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_CATCH_CLAUSE",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[546,548], C[11,9]",
+                "Detail": null,
+                "Code": "catch (Exception e) {\n  throw new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\");\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_CATCH_CLAUSE",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[550,552], C[11,9]",
+                "Detail": null,
+                "Code": "catch (Exception e) {\n  throw new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\");\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_CatchClause",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[546,548], C[11,9]",
+                "Detail": null,
+                "Code": "catch (Exception e) {\n  throw new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\");\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_CatchClause",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[550,552], C[11,9]",
+                "Detail": null,
+                "Code": "catch (Exception e) {\n  throw new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\");\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_TRY_CATCH",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[535,548], C[9,9]",
+                "Detail": null,
+                "Code": "try {\n  if (map == null) {\n    return null;\n  }\n  Map<String,String> alias=EntityHelper.getColumnAlias(beanClass);\n  Map<String,Object> result=new HashMap<String,Object>();\n  for (  String name : map.keySet()) {\n    String alia=alias.get(name);\n    result.put(alia,map.get(name));\n  }\n  return result;\n}\n catch (Exception e) {\n  throw new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\");\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[542,542], C[31,45]",
+                "Detail": null,
+                "Code": "alias.get(name)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[544,544], C[31,45]",
+                "Detail": null,
+                "Code": "alias.get(name)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[547,547], C[19,85]",
+                "Detail": null,
+                "Code": "new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[551,551], C[19,85]",
+                "Detail": null,
+                "Code": "new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[547,547], C[19,85]",
+                "Detail": null,
+                "Code": "new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[551,551], C[19,85]",
+                "Detail": null,
+                "Code": "new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[543,543], C[17,47]",
+                "Detail": null,
+                "Code": "result.put(alia,map.get(name))",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[546,546], C[21,67]",
+                "Detail": null,
+                "Code": "metaBean.setValue(alia,metaMap.getValue(name))",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>).put(String, Object)",
+                "Local": "L[543,543], C[34,46]",
+                "Detail": null,
+                "Code": "map.get(name)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>).setValue(UNKNOWN, UNKNOWN)",
+                "Local": "L[546,546], C[45,66]",
+                "Detail": null,
+                "Code": "metaMap.getValue(name)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[536,536], C[17,27]",
+                "Detail": null,
+                "Code": "map == null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[536,536], C[17,27]",
+                "Detail": null,
+                "Code": "map == null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[540,540], C[42,70]",
+                "Detail": null,
+                "Code": "new HashMap<String,Object>()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[540,540], C[42,70]",
+                "Detail": null,
+                "Code": "new HashMap<String,Object>()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[534,534], C[12,17]",
+                "Detail": null,
+                "Code": "static",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[534,534], C[12,17]",
+                "Detail": null,
+                "Code": "static",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_Javadoc",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[527,533], C[5,7]",
+                "Detail": null,
+                "Code": "/** \n * map转换为bean\n * @param map\n * @param beanClass\n * @return\n */\n",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[545,547], C[47,17]",
+                "Detail": null,
+                "Code": "{\n  metaBean.setValue(alia,metaMap.getValue(name));\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[534,534], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[534,534], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_Javadoc",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[527,533], C[5,7]",
+                "Detail": null,
+                "Code": "/** \n * map转换为Map\n * @param map\n * @param beanClass\n * @return\n */\n",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[534,534], C[19,37]",
+                "Detail": null,
+                "Code": "Map<String,Object>",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[542,542], C[17,46]",
+                "Detail": null,
+                "Code": "String alia=alias.get(name);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[541,541], C[32,43]",
+                "Detail": null,
+                "Code": "map.keySet()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[543,543], C[32,55]",
+                "Detail": null,
+                "Code": "metaMap.getGetterNames()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_Javadoc",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[551,557], C[5,7]",
+                "Detail": {
+                    "previousVar": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)>>>map[551,570]"
+                },
+                "Code": "/** \n * map转换为bean\n * @param map\n * @param beanClass\n * @return\n */\n",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_WildcardType",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[534,534], C[83,83]",
+                "Detail": null,
+                "Code": "?",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_WildcardType",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[534,534], C[50,50]",
+                "Detail": null,
+                "Code": "?",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[528,528], C[8,16]",
+                "Detail": null,
+                "Code": "\n * map转换为Map",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[530,530], C[8,17]",
+                "Detail": null,
+                "Code": "\n * @param map",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[531,531], C[8,23]",
+                "Detail": null,
+                "Code": "\n * @param beanClass",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[532,532], C[8,14]",
+                "Detail": null,
+                "Code": "\n * @return",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[539,539], C[13,79]",
+                "Detail": null,
+                "Code": "Map<String,String> alias=EntityHelper.getColumnAlias(beanClass);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_ENHANCEDFORSTATEMENT",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[541,544], C[13,13]",
+                "Detail": null,
+                "Code": "for (String name : map.keySet()) {\n  String alia=alias.get(name);\n  result.put(alia,map.get(name));\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[544,544], C[17,46]",
+                "Detail": null,
+                "Code": "String alia=alias.get(name);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[540,540], C[13,71]",
+                "Detail": null,
+                "Code": "Map<String,Object> result=new HashMap<String,Object>();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[545,545], C[13,26]",
+                "Detail": null,
+                "Code": "return result;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[563,563], C[44,71]",
+                "Detail": null,
+                "Code": "map2AliasMap(map,beanClass)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_TRYSTATEMENT",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[559,569], C[9,9]",
+                "Detail": null,
+                "Code": "try {\n  if (map == null) {\n    return null;\n  }\n  Map<String,Object> aliasMap=map2AliasMap(map,beanClass);\n  Object bean=beanClass.newInstance();\n  BeanUtils.copyProperties(bean,aliasMap);\n  return bean;\n}\n catch (Exception e) {\n  throw new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\");\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 4,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[565,565], C[13,52]",
+                "Detail": {
+                    "previousVar": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)>>>aliasMap[563,567]"
+                },
+                "Code": "BeanUtils.copyProperties(bean,aliasMap)",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[539,539], C[41,78]",
+                "Detail": null,
+                "Code": "EntityHelper.getColumnAlias(beanClass)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[540,540], C[41,78]",
+                "Detail": null,
+                "Code": "EntityHelper.getColumnAlias(beanClass)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[540,540], C[13,31]",
+                "Detail": null,
+                "Code": "Map<String,Object>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>).HashMap<String,Object>",
+                "Local": "L[540,540], C[46,68]",
+                "Detail": null,
+                "Code": "HashMap<String,Object>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_THROWSTATEMENT",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[547,547], C[13,86]",
+                "Detail": null,
+                "Code": "throw new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\");\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_THROWSTATEMENT",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[551,551], C[13,86]",
+                "Detail": null,
+                "Code": "throw new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\");\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[564,564], C[27,49]",
+                "Detail": {
+                    "previousVar": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)>>>beanClass[551,570]"
+                },
+                "Code": "beanClass.newInstance()",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[539,539], C[27,49]",
+                "Detail": null,
+                "Code": "beanClass.newInstance()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[568,568], C[19,85]",
+                "Detail": {
+                    "previousVar": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)>>>beanClass[551,570]"
+                },
+                "Code": "new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\")",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[568,568], C[19,85]",
+                "Detail": {
+                    "previousVar": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)>>>beanClass[551,570]"
+                },
+                "Code": "new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\")",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[539,539], C[13,31]",
+                "Detail": null,
+                "Code": "Map<String,String>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[540,540], C[13,31]",
+                "Detail": null,
+                "Code": "Map<String,String>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper",
+                "Local": "L[551,570], C[5,5]",
+                "Detail": null,
+                "Code": "/** \n * map转换为bean\n * @param map\n * @param beanClass\n * @return\n */\npublic static Object map2Bean(Map<String,Object> map,Class<?> beanClass){\n  try {\n    if (map == null) {\n      return null;\n    }\n    Map<String,Object> aliasMap=map2AliasMap(map,beanClass);\n    Object bean=beanClass.newInstance();\n    BeanUtils.copyProperties(bean,aliasMap);\n    return bean;\n  }\n catch (  Exception e) {\n    throw new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\");\n  }\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 6,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[541,541], C[35,64]",
+                "Detail": null,
+                "Code": "MapperTemplate.forObject(bean)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[547,547], C[40,67]",
+                "Detail": null,
+                "Code": "beanClass.getCanonicalName()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[551,551], C[40,67]",
+                "Detail": null,
+                "Code": "beanClass.getCanonicalName()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_TRYSTATEMENT",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[535,552], C[9,9]",
+                "Detail": null,
+                "Code": "try {\n  if (map == null) {\n    return null;\n  }\n  Object bean=beanClass.newInstance();\n  Map<String,String> alias=EntityHelper.getColumnAlias(beanClass);\n  MetaObject metaBean=MapperTemplate.forObject(bean);\n  MetaObject metaMap=MapperTemplate.forObject(map);\n  for (  String name : metaMap.getGetterNames()) {\n    String alia=alias.get(name);\n    if (metaBean.hasSetter(alia)) {\n      metaBean.setValue(alia,metaMap.getValue(name));\n    }\n  }\n  return bean;\n}\n catch (Exception e) {\n  throw new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\");\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[568,568], C[40,67]",
+                "Detail": {
+                    "previousVar": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)>>>beanClass[551,570]"
+                },
+                "Code": "beanClass.getCanonicalName()",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[545,545], C[21,44]",
+                "Detail": null,
+                "Code": "metaBean.hasSetter(alia)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_THROWSTATEMENT",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[568,568], C[13,86]",
+                "Detail": {
+                    "previousVar": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)>>>beanClass[551,570]"
+                },
+                "Code": "throw new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\");\n",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[537,537], C[17,28]",
+                "Detail": null,
+                "Code": "return null;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[537,537], C[17,28]",
+                "Detail": null,
+                "Code": "return null;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_TRY_CATCH",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[559,569], C[9,9]",
+                "Detail": null,
+                "Code": "try {\n  if (map == null) {\n    return null;\n  }\n  Map<String,Object> aliasMap=map2AliasMap(map,beanClass);\n  Object bean=beanClass.newInstance();\n  BeanUtils.copyProperties(bean,aliasMap);\n  return bean;\n}\n catch (Exception e) {\n  throw new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\");\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 4,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_CATCH_CLAUSE",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[567,569], C[11,9]",
+                "Detail": {
+                    "previousVar": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)>>>beanClass[551,570]"
+                },
+                "Code": "catch (Exception e) {\n  throw new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\");\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_CatchClause",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[567,569], C[11,9]",
+                "Detail": {
+                    "previousVar": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)>>>beanClass[551,570]"
+                },
+                "Code": "catch (Exception e) {\n  throw new RuntimeException(beanClass.getCanonicalName() + \"类没有默认空的构造方法!\");\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_NullLiteral",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>)",
+                "Local": "L[537,537], C[24,27]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "REMOVED_NullLiteral",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map, Class<?>)",
+                "Local": "L[537,537], C[24,27]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>).RuntimeException",
+                "Local": "L[568,568], C[40,84]",
+                "Detail": {
+                    "previousVar": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)>>>beanClass[551,570]"
+                },
+                "Code": "beanClass.getCanonicalName() + \"类没有默认空的构造方法!\"",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[564,564], C[13,50]",
+                "Detail": {
+                    "previousVar": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)>>>beanClass[551,570]"
+                },
+                "Code": "Object bean=beanClass.newInstance();\n",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[566,566], C[13,24]",
+                "Detail": {
+                    "previousVar": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)>>>bean[564,567]"
+                },
+                "Code": "return bean;\n",
+                "relationType": "VAR_RELATED",
+                "distance": 5,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[563,563], C[13,72]",
+                "Detail": null,
+                "Code": "Map<String,Object> aliasMap=map2AliasMap(map,beanClass);\n",
+                "relationType": "CALL_TARGET",
+                "distance": 2,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[560,560], C[17,27]",
+                "Detail": {
+                    "previousVar": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)>>>map[551,570]"
+                },
+                "Code": "map == null",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2AliasMap(Map<String,Object>, Class<?>).SingleVariableDeclaration",
+                "Local": "L[534,534], C[52,70]",
+                "Detail": null,
+                "Code": "Map<String,Object>",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "CHANGED_IMPORT",
+                "Method": "com.github.abel533.mapperhelper.CompilationUnit",
+                "Local": "L[27,27], C[1,46]",
+                "Detail": null,
+                "Code": "import org.apache.commons.beanutils.BeanUtils;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "CHANGED_ImportDeclaration",
+                "Method": "com.github.abel533.mapperhelper.CompilationUnit",
+                "Local": "L[27,27], C[1,46]",
+                "Detail": null,
+                "Code": "import org.apache.commons.beanutils.BeanUtils;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[556,556], C[8,14]",
+                "Detail": null,
+                "Code": "\n * @return",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[552,552], C[8,17]",
+                "Detail": null,
+                "Code": "\n * map转换为bean",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[552,552], C[8,17]",
+                "Detail": null,
+                "Code": "map转换为bean",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[561,561], C[17,28]",
+                "Detail": null,
+                "Code": "return null;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>).SingleVariableDeclaration",
+                "Local": "L[558,558], C[60,67]",
+                "Detail": null,
+                "Code": "Class<?>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.EntityColumn.equals(Object)",
+                "Local": "L[183,183], C[58,70]",
+                "Detail": null,
+                "Code": "return false;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.EntityColumn.equals(Object)",
+                "Local": "L[183,183], C[58,70]",
+                "Detail": null,
+                "Code": "return false;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.EntityColumn.equals(Object)",
+                "Local": "L[183,183], C[58,70]",
+                "Detail": null,
+                "Code": "return false;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.EntityColumn.equals(Object)",
+                "Local": "L[183,183], C[58,70]",
+                "Detail": null,
+                "Code": "return false;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.EntityColumn.equals(Object)",
+                "Local": "L[183,183], C[58,70]",
+                "Detail": null,
+                "Code": "return false;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.EntityColumn.equals(Object)",
+                "Local": "L[183,183], C[58,70]",
+                "Detail": null,
+                "Code": "return false;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.EntityColumn.equals(Object)",
+                "Local": "L[183,183], C[58,70]",
+                "Detail": null,
+                "Code": "return false;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.EntityColumn.equals(Object)",
+                "Local": "L[183,183], C[58,70]",
+                "Detail": null,
+                "Code": "return false;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.EntityColumn.equals(Object)",
+                "Local": "L[183,183], C[58,70]",
+                "Detail": null,
+                "Code": "return false;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.EntityColumn.equals(Object)",
+                "Local": "L[187,187], C[32,44]",
+                "Detail": null,
+                "Code": "return false;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.EntityColumn.equals(Object)",
+                "Local": "L[188,188], C[44,56]",
+                "Detail": null,
+                "Code": "return false;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.EntityColumn.equals(Object)",
+                "Local": "L[189,189], C[36,48]",
+                "Detail": null,
+                "Code": "return false;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.EntityColumn.equals(Object)",
+                "Local": "L[190,190], C[85,97]",
+                "Detail": null,
+                "Code": "return false;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.EntityColumn.equals(Object)",
+                "Local": "L[191,191], C[97,109]",
+                "Detail": null,
+                "Code": "return false;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.EntityColumn.equals(Object)",
+                "Local": "L[192,192], C[93,105]",
+                "Detail": null,
+                "Code": "return false;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.EntityColumn.equals(Object)",
+                "Local": "L[193,193], C[89,101]",
+                "Detail": null,
+                "Code": "return false;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.EntityColumn.equals(Object)",
+                "Local": "L[194,194], C[93,105]",
+                "Detail": null,
+                "Code": "return false;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.EntityColumn.equals(Object)",
+                "Local": "L[196,196], C[17,29]",
+                "Detail": null,
+                "Code": "return false;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>).SingleVariableDeclaration",
+                "Local": "L[558,558], C[35,53]",
+                "Detail": null,
+                "Code": "Map<String,Object>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "CHANGED_EXISTING_IF_BLOCK",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.getEntityTable(Class<?>)",
+                "Local": "L[229,232], C[34,9]",
+                "Detail": null,
+                "Code": "{\n  initEntityNameMap(entityClass);\n  entityTable=entityTableMap.get(entityClass);\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.getEntityTable(Class<?>)",
+                "Local": "L[233,235], C[34,9]",
+                "Detail": null,
+                "Code": "{\n  throw new RuntimeException(\"无法获取实体类\" + entityClass.getCanonicalName() + \"对应的表名!\");\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[560,562], C[30,13]",
+                "Detail": null,
+                "Code": "{\n  return null;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[558,558], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[558,558], C[12,17]",
+                "Detail": null,
+                "Code": "static",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_WildcardType",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[558,558], C[66,66]",
+                "Detail": null,
+                "Code": "?",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_NullLiteral",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[561,561], C[24,27]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[563,563], C[13,31]",
+                "Detail": null,
+                "Code": "Map<String,Object>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_NullLiteral",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.map2Bean(Map<String,Object>, Class<?>)",
+                "Local": "L[560,560], C[24,27]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "CHANGED_ELSE_CONDITION",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.initEntityNameMap(Class<?>)",
+                "Local": "L[392,394], C[28,21]",
+                "Detail": null,
+                "Code": "{\n  throw new RuntimeException(field.getName() + \" - 该字段@GeneratedValue配置为UUID，但该字段类型不是String\");\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_ELSE_STATEMENT",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.initEntityNameMap(Class<?>)",
+                "Local": "L[399,401], C[28,21]",
+                "Detail": null,
+                "Code": "{\n  throw new RuntimeException(field.getName() + \" - 该字段@GeneratedValue配置为UUID，但该字段类型不是String\");\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.EntityTable.getPrefix()",
+                "Local": "L[76,78], C[58,13]",
+                "Detail": null,
+                "Code": "{\n  return catalog;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "com.github.abel533.mapperhelper.EntityHelper.EntityTable.getPrefix()",
+                "Local": "L[79,81], C[56,13]",
+                "Detail": null,
+                "Code": "{\n  return catalog;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java"
+            }
+        ],
+        "metadata": {
+            "type": "Extract Method",
+            "description": "Extract Method public map2AliasMap(map Map<String,Object>, beanClass Class<?>) : Map<String,Object> extracted from public map2Bean(map Map, beanClass Class<?>) : Object in class com.github.abel533.mapperhelper.EntityHelper",
+            "leftSideLocations": [
+                {
+                    "filePath": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                    "startLine": 527,
+                    "endLine": 553,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public map2Bean(map Map, beanClass Class<?>) : Object"
+                },
+                {
+                    "filePath": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                    "startLine": 540,
+                    "endLine": 540,
+                    "startColumn": 13,
+                    "endColumn": 80,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                    "startLine": 544,
+                    "endLine": 544,
+                    "startColumn": 17,
+                    "endColumn": 47,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                    "startLine": 551,
+                    "endLine": 551,
+                    "startColumn": 13,
+                    "endColumn": 109,
+                    "codeElementType": "THROW_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                    "startLine": 543,
+                    "endLine": 548,
+                    "startColumn": 13,
+                    "endColumn": 14,
+                    "codeElementType": "ENHANCED_FOR_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                    "startLine": 543,
+                    "endLine": 548,
+                    "startColumn": 58,
+                    "endColumn": 14,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                    "startLine": 535,
+                    "endLine": 552,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "TRY_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                    "startLine": 550,
+                    "endLine": 552,
+                    "startColumn": 11,
+                    "endColumn": 10,
+                    "codeElementType": "CATCH_CLAUSE",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                    "startLine": 527,
+                    "endLine": 549,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public map2AliasMap(map Map<String,Object>, beanClass Class<?>) : Map<String,Object>"
+                },
+                {
+                    "filePath": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                    "startLine": 539,
+                    "endLine": 539,
+                    "startColumn": 13,
+                    "endColumn": 80,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                    "startLine": 542,
+                    "endLine": 542,
+                    "startColumn": 17,
+                    "endColumn": 47,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                    "startLine": 547,
+                    "endLine": 547,
+                    "startColumn": 13,
+                    "endColumn": 109,
+                    "codeElementType": "THROW_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                    "startLine": 541,
+                    "endLine": 544,
+                    "startColumn": 13,
+                    "endColumn": 14,
+                    "codeElementType": "ENHANCED_FOR_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                    "startLine": 541,
+                    "endLine": 544,
+                    "startColumn": 46,
+                    "endColumn": 14,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                    "startLine": 535,
+                    "endLine": 548,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "TRY_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                    "startLine": 546,
+                    "endLine": 548,
+                    "startColumn": 11,
+                    "endColumn": 10,
+                    "codeElementType": "CATCH_CLAUSE",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                    "startLine": 551,
+                    "endLine": 570,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public map2Bean(map Map<String,Object>, beanClass Class<?>) : Object"
+                },
+                {
+                    "filePath": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                    "startLine": 563,
+                    "endLine": 563,
+                    "startColumn": 44,
+                    "endColumn": 72,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "map2AliasMap(map,beanClass)"
+                },
+                {
+                    "filePath": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                    "startLine": 537,
+                    "endLine": 537,
+                    "startColumn": 17,
+                    "endColumn": 29,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                    "startLine": 540,
+                    "endLine": 540,
+                    "startColumn": 13,
+                    "endColumn": 72,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                    "startLine": 543,
+                    "endLine": 543,
+                    "startColumn": 17,
+                    "endColumn": 49,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                    "startLine": 545,
+                    "endLine": 545,
+                    "startColumn": 13,
+                    "endColumn": 27,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                    "startLine": 536,
+                    "endLine": 538,
+                    "startColumn": 30,
+                    "endColumn": 14,
+                    "codeElementType": "BLOCK",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/com/github/abel533/mapperhelper/EntityHelper.java",
+                    "startLine": 536,
+                    "endLine": 538,
+                    "startColumn": 13,
+                    "endColumn": 14,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ]
+        }
+    }
+]

@@ -1,0 +1,438 @@
+[
+    {
+        "commit": "9a26f1907bebb635794c5d126aba67377695f360",
+        "source": [
+            {
+                "element": "com.starrocks.system.HeartbeatMgr.computeMinActiveTxnId()",
+                "file": "fe/fe-core/src/main/java/com/starrocks/system/HeartbeatMgr.java",
+                "local": "L[95,99], C[5,5]"
+            }
+        ],
+        "target": [
+            {
+                "element": "com.starrocks.lake.vacuum.AutovacuumDaemon.computeMinActiveTxnId()",
+                "file": "fe/fe-core/src/main/java/com/starrocks/lake/vacuum/AutovacuumDaemon.java",
+                "local": "L[196,200], C[5,5]"
+            }
+        ],
+        "type": "MOVE_METHOD",
+        "related": [
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "com.starrocks.lake.vacuum.AutovacuumDaemon",
+                "Local": "L[196,200], C[5,5]",
+                "Detail": {
+                    "method": "com.starrocks.lake.vacuum.AutovacuumDaemon.computeMinActiveTxnId()",
+                    "blockPos": "L[196,200], C[49,5]"
+                },
+                "Code": "private static long computeMinActiveTxnId(){\n  long a=GlobalStateMgr.getCurrentGlobalTransactionMgr().getMinActiveTxnId();\n  Optional<Long> b=GlobalStateMgr.getCurrentState().getSchemaChangeHandler().getMinActiveTxnId();\n  return Math.min(a,b.orElse(Long.MAX_VALUE));\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "fe/fe-core/src/main/java/com/starrocks/lake/vacuum/AutovacuumDaemon.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "com.starrocks.system.HeartbeatMgr",
+                "Local": "L[95,99], C[5,5]",
+                "Detail": {
+                    "method": "com.starrocks.system.HeartbeatMgr.computeMinActiveTxnId()",
+                    "blockPos": "L[95,99], C[48,5]"
+                },
+                "Code": "public static long computeMinActiveTxnId(){\n  long a=GlobalStateMgr.getCurrentGlobalTransactionMgr().getMinActiveTxnId();\n  Optional<Long> b=GlobalStateMgr.getCurrentState().getSchemaChangeHandler().getMinActiveTxnId();\n  return Math.min(a,b.orElse(Long.MAX_VALUE));\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "fe/fe-core/src/main/java/com/starrocks/system/HeartbeatMgr.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.starrocks.lake.vacuum.AutovacuumDaemon.computeMinActiveTxnId()",
+                "Local": "L[197,197], C[18,64]",
+                "Detail": null,
+                "Code": "GlobalStateMgr.getCurrentGlobalTransactionMgr()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "fe/fe-core/src/main/java/com/starrocks/lake/vacuum/AutovacuumDaemon.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.starrocks.lake.vacuum.AutovacuumDaemon.vacuumPartitionImpl(Database, OlapTable, Partition)",
+                "Local": "L[125,125], C[31,66]",
+                "Detail": null,
+                "Code": "HeartbeatMgr.computeMinActiveTxnId()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "fe/fe-core/src/main/java/com/starrocks/lake/vacuum/AutovacuumDaemon.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.starrocks.lake.vacuum.AutovacuumDaemon.vacuumPartitionImpl(Database, OlapTable, Partition)",
+                "Local": "L[125,125], C[31,53]",
+                "Detail": null,
+                "Code": "computeMinActiveTxnId()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "fe/fe-core/src/main/java/com/starrocks/lake/vacuum/AutovacuumDaemon.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.starrocks.lake.vacuum.AutovacuumDaemon.computeMinActiveTxnId()",
+                "Local": "L[198,198], C[28,59]",
+                "Detail": null,
+                "Code": "GlobalStateMgr.getCurrentState()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "fe/fe-core/src/main/java/com/starrocks/lake/vacuum/AutovacuumDaemon.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.starrocks.lake.vacuum.AutovacuumDaemon.computeMinActiveTxnId().min(long, long)",
+                "Local": "L[199,199], C[28,51]",
+                "Detail": null,
+                "Code": "b.orElse(Long.MAX_VALUE)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "fe/fe-core/src/main/java/com/starrocks/lake/vacuum/AutovacuumDaemon.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.starrocks.lake.vacuum.AutovacuumDaemon.computeMinActiveTxnId()",
+                "Local": "L[197,197], C[9,85]",
+                "Detail": null,
+                "Code": "long a=GlobalStateMgr.getCurrentGlobalTransactionMgr().getMinActiveTxnId();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "fe/fe-core/src/main/java/com/starrocks/lake/vacuum/AutovacuumDaemon.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.starrocks.lake.vacuum.AutovacuumDaemon.computeMinActiveTxnId()",
+                "Local": "L[198,198], C[9,105]",
+                "Detail": null,
+                "Code": "Optional<Long> b=GlobalStateMgr.getCurrentState().getSchemaChangeHandler().getMinActiveTxnId();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "fe/fe-core/src/main/java/com/starrocks/lake/vacuum/AutovacuumDaemon.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "com.starrocks.lake.vacuum.AutovacuumDaemon.computeMinActiveTxnId()",
+                "Local": "L[199,199], C[9,53]",
+                "Detail": null,
+                "Code": "return Math.min(a,b.orElse(Long.MAX_VALUE));\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "fe/fe-core/src/main/java/com/starrocks/lake/vacuum/AutovacuumDaemon.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.starrocks.lake.vacuum.AutovacuumDaemon.vacuumPartitionImpl(Database, OlapTable, Partition)",
+                "Local": "L[125,125], C[9,54]",
+                "Detail": null,
+                "Code": "long minActiveTxnId=computeMinActiveTxnId();\n",
+                "relationType": "CALL_TARGET",
+                "distance": 2,
+                "file": "fe/fe-core/src/main/java/com/starrocks/lake/vacuum/AutovacuumDaemon.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "com.starrocks.lake.vacuum.AutovacuumDaemon.vacuumPartitionImpl(Database, OlapTable, Partition)",
+                "Local": "L[125,125], C[9,67]",
+                "Detail": null,
+                "Code": "long minActiveTxnId=HeartbeatMgr.computeMinActiveTxnId();\n",
+                "relationType": "CALL_TARGET",
+                "distance": 2,
+                "file": "fe/fe-core/src/main/java/com/starrocks/lake/vacuum/AutovacuumDaemon.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.starrocks.lake.vacuum.AutovacuumDaemon.computeMinActiveTxnId()",
+                "Local": "L[199,199], C[16,52]",
+                "Detail": null,
+                "Code": "Math.min(a,b.orElse(Long.MAX_VALUE))",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "fe/fe-core/src/main/java/com/starrocks/lake/vacuum/AutovacuumDaemon.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.starrocks.lake.vacuum.AutovacuumDaemon.computeMinActiveTxnId()",
+                "Local": "L[198,198], C[9,22]",
+                "Detail": null,
+                "Code": "Optional<Long>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "fe/fe-core/src/main/java/com/starrocks/lake/vacuum/AutovacuumDaemon.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "com.starrocks.lake.vacuum.AutovacuumDaemon.computeMinActiveTxnId()",
+                "Local": "L[196,196], C[5,11]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "fe/fe-core/src/main/java/com/starrocks/lake/vacuum/AutovacuumDaemon.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "com.starrocks.lake.vacuum.AutovacuumDaemon.computeMinActiveTxnId()",
+                "Local": "L[196,196], C[13,18]",
+                "Detail": null,
+                "Code": "static",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "fe/fe-core/src/main/java/com/starrocks/lake/vacuum/AutovacuumDaemon.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.starrocks.system.HeartbeatMgr.BackendHeartbeatHandler.call()",
+                "Local": "L[294,294], C[17,78]",
+                "Detail": null,
+                "Code": "copiedMasterInfo.setMin_active_txn_id(computeMinActiveTxnId())",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "fe/fe-core/src/main/java/com/starrocks/system/HeartbeatMgr.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.starrocks.system.HeartbeatMgr.computeMinActiveTxnId()",
+                "Local": "L[95,95], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "fe/fe-core/src/main/java/com/starrocks/system/HeartbeatMgr.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.starrocks.system.HeartbeatMgr.computeMinActiveTxnId()",
+                "Local": "L[95,95], C[12,17]",
+                "Detail": null,
+                "Code": "static",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "fe/fe-core/src/main/java/com/starrocks/system/HeartbeatMgr.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.starrocks.system.HeartbeatMgr.computeMinActiveTxnId()",
+                "Local": "L[98,98], C[16,52]",
+                "Detail": null,
+                "Code": "Math.min(a,b.orElse(Long.MAX_VALUE))",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "fe/fe-core/src/main/java/com/starrocks/system/HeartbeatMgr.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "com.starrocks.system.HeartbeatMgr.computeMinActiveTxnId()",
+                "Local": "L[97,97], C[9,22]",
+                "Detail": null,
+                "Code": "Optional<Long>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "fe/fe-core/src/main/java/com/starrocks/system/HeartbeatMgr.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.starrocks.system.HeartbeatMgr.BackendHeartbeatHandler.call().setMin_active_txn_id(UNKNOWN)",
+                "Local": "L[294,294], C[55,77]",
+                "Detail": null,
+                "Code": "computeMinActiveTxnId()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "fe/fe-core/src/main/java/com/starrocks/system/HeartbeatMgr.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.starrocks.system.HeartbeatMgr.setLeader(int, String, long).setMin_active_txn_id(UNKNOWN)",
+                "Local": "L[108,108], C[42,64]",
+                "Detail": null,
+                "Code": "computeMinActiveTxnId()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "fe/fe-core/src/main/java/com/starrocks/system/HeartbeatMgr.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.starrocks.system.HeartbeatMgr.computeMinActiveTxnId()",
+                "Local": "L[96,96], C[18,64]",
+                "Detail": null,
+                "Code": "GlobalStateMgr.getCurrentGlobalTransactionMgr()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "fe/fe-core/src/main/java/com/starrocks/system/HeartbeatMgr.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.starrocks.system.HeartbeatMgr.computeMinActiveTxnId().min(long, long)",
+                "Local": "L[98,98], C[28,51]",
+                "Detail": null,
+                "Code": "b.orElse(Long.MAX_VALUE)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "fe/fe-core/src/main/java/com/starrocks/system/HeartbeatMgr.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.starrocks.system.HeartbeatMgr.computeMinActiveTxnId()",
+                "Local": "L[97,97], C[28,59]",
+                "Detail": null,
+                "Code": "GlobalStateMgr.getCurrentState()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "fe/fe-core/src/main/java/com/starrocks/system/HeartbeatMgr.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.starrocks.system.HeartbeatMgr.setLeader(int, String, long)",
+                "Local": "L[108,108], C[9,65]",
+                "Detail": null,
+                "Code": "tMasterInfo.setMin_active_txn_id(computeMinActiveTxnId())",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "fe/fe-core/src/main/java/com/starrocks/system/HeartbeatMgr.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "com.starrocks.system.HeartbeatMgr.computeMinActiveTxnId()",
+                "Local": "L[96,96], C[9,85]",
+                "Detail": null,
+                "Code": "long a=GlobalStateMgr.getCurrentGlobalTransactionMgr().getMinActiveTxnId();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "fe/fe-core/src/main/java/com/starrocks/system/HeartbeatMgr.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "com.starrocks.system.HeartbeatMgr.computeMinActiveTxnId()",
+                "Local": "L[97,97], C[9,105]",
+                "Detail": null,
+                "Code": "Optional<Long> b=GlobalStateMgr.getCurrentState().getSchemaChangeHandler().getMinActiveTxnId();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "fe/fe-core/src/main/java/com/starrocks/system/HeartbeatMgr.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "com.starrocks.system.HeartbeatMgr.computeMinActiveTxnId()",
+                "Local": "L[98,98], C[9,53]",
+                "Detail": null,
+                "Code": "return Math.min(a,b.orElse(Long.MAX_VALUE));\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "fe/fe-core/src/main/java/com/starrocks/system/HeartbeatMgr.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "com.starrocks.lake.vacuum.CompilationUnit",
+                "Local": "L[42,42], C[1,26]",
+                "Detail": null,
+                "Code": "import java.util.Optional;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "fe/fe-core/src/main/java/com/starrocks/lake/vacuum/AutovacuumDaemon.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "com.starrocks.lake.vacuum.CompilationUnit",
+                "Local": "L[42,42], C[1,26]",
+                "Detail": null,
+                "Code": "import java.util.Optional;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "fe/fe-core/src/main/java/com/starrocks/lake/vacuum/AutovacuumDaemon.java"
+            },
+            {
+                "Metric": "REMOVED_IMPORT",
+                "Method": "com.starrocks.lake.vacuum.CompilationUnit",
+                "Local": "L[35,35], C[1,41]",
+                "Detail": null,
+                "Code": "import com.starrocks.system.HeartbeatMgr;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "fe/fe-core/src/main/java/com/starrocks/lake/vacuum/AutovacuumDaemon.java"
+            },
+            {
+                "Metric": "REMOVED_ImportDeclaration",
+                "Method": "com.starrocks.lake.vacuum.CompilationUnit",
+                "Local": "L[35,35], C[1,41]",
+                "Detail": null,
+                "Code": "import com.starrocks.system.HeartbeatMgr;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "fe/fe-core/src/main/java/com/starrocks/lake/vacuum/AutovacuumDaemon.java"
+            },
+            {
+                "Metric": "TRY_CATCH_CHANGE",
+                "Method": "com.starrocks.system.HeartbeatMgr.BackendHeartbeatHandler.call()",
+                "Local": "L[278,337], C[13,13]",
+                "Detail": null,
+                "Code": "try {\n  client=ClientPool.heartbeatPool.borrowObject(beAddr);\n  TMasterInfo copiedMasterInfo=new TMasterInfo(MASTER_INFO.get());\n  copiedMasterInfo.setBackend_ip(computeNode.getHost());\n  long flags=HeartbeatFlags.getHeartbeatFlags();\n  copiedMasterInfo.setHeartbeat_flags(flags);\n  copiedMasterInfo.setBackend_id(computeNodeId);\n  copiedMasterInfo.setRun_mode(RunMode.toTRunMode(RunMode.getCurrentRunMode()));\n  THeartbeatResult result=client.heartbeat(copiedMasterInfo);\n  ok=true;\n  if (result.getStatus().getStatus_code() == TStatusCode.OK) {\n    TBackendInfo tBackendInfo=result.getBackend_info();\n    int bePort=tBackendInfo.getBe_port();\n    int httpPort=tBackendInfo.getHttp_port();\n    int brpcPort=-1;\n    int starletPort=0;\n    if (tBackendInfo.isSetBrpc_port()) {\n      brpcPort=tBackendInfo.getBrpc_port();\n    }\n    if (tBackendInfo.isSetStarlet_port()) {\n      starletPort=tBackendInfo.getStarlet_port();\n    }\n    String version=\"\";\n    if (tBackendInfo.isSetVersion()) {\n      version=tBackendInfo.getVersion();\n    }\n    int cpuCores=tBackendInfo.isSetNum_hardware_cores() ? tBackendInfo.getNum_hardware_cores() : 0;\n    if (tBackendInfo.isSetNum_hardware_cores()) {\n      BackendCoreStat.setNumOfHardwareCoresOfBe(computeNodeId,cpuCores);\n    }\n    BackendHbResponse backendHbResponse=new BackendHbResponse(computeNodeId,bePort,httpPort,brpcPort,starletPort,System.currentTimeMillis(),version,cpuCores);\n    if (tBackendInfo.isSetReboot_time()) {\n      backendHbResponse.setRebootTime(tBackendInfo.getReboot_time());\n    }\n    return backendHbResponse;\n  }\n else {\n    return new BackendHbResponse(computeNodeId,result.getStatus().getError_msgs().isEmpty() ? \"Unknown error\" : result.getStatus().getError_msgs().get(0));\n  }\n}\n catch (Exception e) {\n  LOG.warn(\"backend heartbeat got exception, addr: {}:{}\",computeNode.getHost(),computeNode.getHeartbeatPort(),e);\n  return new BackendHbResponse(computeNodeId,Strings.isNullOrEmpty(e.getMessage()) ? \"got exception\" : e.getMessage());\n}\n finally {\n  if (ok) {\n    ClientPool.heartbeatPool.returnObject(beAddr,client);\n  }\n else {\n    ClientPool.heartbeatPool.invalidateObject(beAddr,client);\n  }\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "fe/fe-core/src/main/java/com/starrocks/system/HeartbeatMgr.java"
+            },
+            {
+                "Metric": "CHANGED_TRYSTATEMENT",
+                "Method": "com.starrocks.system.HeartbeatMgr.BackendHeartbeatHandler.call()",
+                "Local": "L[278,337], C[13,13]",
+                "Detail": null,
+                "Code": "try {\n  client=ClientPool.heartbeatPool.borrowObject(beAddr);\n  TMasterInfo copiedMasterInfo=new TMasterInfo(MASTER_INFO.get());\n  copiedMasterInfo.setBackend_ip(computeNode.getHost());\n  long flags=HeartbeatFlags.getHeartbeatFlags();\n  copiedMasterInfo.setHeartbeat_flags(flags);\n  copiedMasterInfo.setBackend_id(computeNodeId);\n  copiedMasterInfo.setRun_mode(RunMode.toTRunMode(RunMode.getCurrentRunMode()));\n  THeartbeatResult result=client.heartbeat(copiedMasterInfo);\n  ok=true;\n  if (result.getStatus().getStatus_code() == TStatusCode.OK) {\n    TBackendInfo tBackendInfo=result.getBackend_info();\n    int bePort=tBackendInfo.getBe_port();\n    int httpPort=tBackendInfo.getHttp_port();\n    int brpcPort=-1;\n    int starletPort=0;\n    if (tBackendInfo.isSetBrpc_port()) {\n      brpcPort=tBackendInfo.getBrpc_port();\n    }\n    if (tBackendInfo.isSetStarlet_port()) {\n      starletPort=tBackendInfo.getStarlet_port();\n    }\n    String version=\"\";\n    if (tBackendInfo.isSetVersion()) {\n      version=tBackendInfo.getVersion();\n    }\n    int cpuCores=tBackendInfo.isSetNum_hardware_cores() ? tBackendInfo.getNum_hardware_cores() : 0;\n    if (tBackendInfo.isSetNum_hardware_cores()) {\n      BackendCoreStat.setNumOfHardwareCoresOfBe(computeNodeId,cpuCores);\n    }\n    BackendHbResponse backendHbResponse=new BackendHbResponse(computeNodeId,bePort,httpPort,brpcPort,starletPort,System.currentTimeMillis(),version,cpuCores);\n    if (tBackendInfo.isSetReboot_time()) {\n      backendHbResponse.setRebootTime(tBackendInfo.getReboot_time());\n    }\n    return backendHbResponse;\n  }\n else {\n    return new BackendHbResponse(computeNodeId,result.getStatus().getError_msgs().isEmpty() ? \"Unknown error\" : result.getStatus().getError_msgs().get(0));\n  }\n}\n catch (Exception e) {\n  LOG.warn(\"backend heartbeat got exception, addr: {}:{}\",computeNode.getHost(),computeNode.getHeartbeatPort(),e);\n  return new BackendHbResponse(computeNodeId,Strings.isNullOrEmpty(e.getMessage()) ? \"got exception\" : e.getMessage());\n}\n finally {\n  if (ok) {\n    ClientPool.heartbeatPool.returnObject(beAddr,client);\n  }\n else {\n    ClientPool.heartbeatPool.invalidateObject(beAddr,client);\n  }\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "fe/fe-core/src/main/java/com/starrocks/system/HeartbeatMgr.java"
+            },
+            {
+                "Metric": "REMOVED_IMPORT",
+                "Method": "com.starrocks.system.CompilationUnit",
+                "Local": "L[72,72], C[1,26]",
+                "Detail": null,
+                "Code": "import java.util.Optional;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "fe/fe-core/src/main/java/com/starrocks/system/HeartbeatMgr.java"
+            },
+            {
+                "Metric": "REMOVED_ImportDeclaration",
+                "Method": "com.starrocks.system.CompilationUnit",
+                "Local": "L[72,72], C[1,26]",
+                "Detail": null,
+                "Code": "import java.util.Optional;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "fe/fe-core/src/main/java/com/starrocks/system/HeartbeatMgr.java"
+            }
+        ],
+        "metadata": {
+            "type": "Move Method",
+            "description": "Move Method public computeMinActiveTxnId() : long from class com.starrocks.system.HeartbeatMgr to private computeMinActiveTxnId() : long from class com.starrocks.lake.vacuum.AutovacuumDaemon",
+            "leftSideLocations": [
+                {
+                    "filePath": "fe/fe-core/src/main/java/com/starrocks/system/HeartbeatMgr.java",
+                    "startLine": 95,
+                    "endLine": 99,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public computeMinActiveTxnId() : long"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "fe/fe-core/src/main/java/com/starrocks/lake/vacuum/AutovacuumDaemon.java",
+                    "startLine": 196,
+                    "endLine": 200,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private computeMinActiveTxnId() : long"
+                }
+            ]
+        }
+    }
+]

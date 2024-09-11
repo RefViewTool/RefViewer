@@ -1,0 +1,237 @@
+[
+    {
+        "commit": "36ee5abffd0a94d77cd1d786d3bcc89993bc86f5",
+        "source": [
+            {
+                "element": "net.dv8tion.jda.internal.entities.GuildVoiceStateImpl.setMember(Member)",
+                "file": "src/main/java/net/dv8tion/jda/internal/entities/GuildVoiceStateImpl.java",
+                "local": "L[237,241], C[5,5]"
+            }
+        ],
+        "target": [
+            {
+                "element": "net.dv8tion.jda.internal.entities.GuildVoiceStateImpl.GuildVoiceStateImpl(Member)",
+                "file": "src/main/java/net/dv8tion/jda/internal/entities/GuildVoiceStateImpl.java",
+                "local": "L[49,54], C[5,5]"
+            }
+        ],
+        "type": "INLINE_METHOD",
+        "related": [
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "net.dv8tion.jda.internal.entities.GuildVoiceStateImpl",
+                "Local": "L[237,241], C[5,5]",
+                "Detail": {
+                    "method": "net.dv8tion.jda.internal.entities.GuildVoiceStateImpl.setMember(Member)",
+                    "blockPos": "L[238,241], C[5,5]"
+                },
+                "Code": "public GuildVoiceStateImpl setMember(Member member){\n  this.member=member;\n  return this;\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/entities/GuildVoiceStateImpl.java"
+            },
+            {
+                "Metric": "ADDED_ThisExpression",
+                "Method": "net.dv8tion.jda.internal.entities.GuildVoiceStateImpl.GuildVoiceStateImpl(Member)",
+                "Local": "L[53,53], C[9,12]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/entities/GuildVoiceStateImpl.java"
+            },
+            {
+                "Metric": "REMOVED_ThisExpression",
+                "Method": "net.dv8tion.jda.internal.entities.GuildVoiceStateImpl.setMember(Member)",
+                "Local": "L[239,239], C[9,12]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/entities/GuildVoiceStateImpl.java"
+            },
+            {
+                "Metric": "METHOD_CALL_ARGUMENTS_CHANGE",
+                "Method": "net.dv8tion.jda.internal.entities.GuildVoiceStateImpl.GuildVoiceStateImpl(Member).getGuild()",
+                "Local": "L[52,52], C[22,38]",
+                "Detail": {
+                    "previousVar": "net.dv8tion.jda.internal.entities.GuildVoiceStateImpl.GuildVoiceStateImpl(Member)>>>member[49,54]"
+                },
+                "Code": "member.getGuild()",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "src/main/java/net/dv8tion/jda/internal/entities/GuildVoiceStateImpl.java"
+            },
+            {
+                "Metric": "REMOVED_ThisExpression",
+                "Method": "net.dv8tion.jda.internal.entities.GuildVoiceStateImpl.setMember(Member)",
+                "Local": "L[240,240], C[16,19]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/entities/GuildVoiceStateImpl.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "net.dv8tion.jda.internal.entities.GuildVoiceStateImpl.setMember(Member)",
+                "Local": "L[239,239], C[9,29]",
+                "Detail": null,
+                "Code": "this.member=member;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/entities/GuildVoiceStateImpl.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "net.dv8tion.jda.internal.entities.GuildVoiceStateImpl.setMember(Member)",
+                "Local": "L[240,240], C[9,20]",
+                "Detail": null,
+                "Code": "return this;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/entities/GuildVoiceStateImpl.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "net.dv8tion.jda.internal.entities.GuildVoiceStateImpl.GuildVoiceStateImpl(Member)",
+                "Local": "L[53,53], C[9,29]",
+                "Detail": null,
+                "Code": "this.member=member;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/entities/GuildVoiceStateImpl.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "net.dv8tion.jda.internal.entities.GuildVoiceStateImpl.setMember(Member)",
+                "Local": "L[237,237], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "src/main/java/net/dv8tion/jda/internal/entities/GuildVoiceStateImpl.java"
+            },
+            {
+                "Metric": "ADDED_FieldAccess",
+                "Method": "net.dv8tion.jda.internal.entities.GuildVoiceStateImpl.GuildVoiceStateImpl(Member)",
+                "Local": "L[53,53], C[9,19]",
+                "Detail": null,
+                "Code": "this.member",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/entities/GuildVoiceStateImpl.java"
+            },
+            {
+                "Metric": "REMOVED_FieldAccess",
+                "Method": "net.dv8tion.jda.internal.entities.GuildVoiceStateImpl.setMember(Member)",
+                "Local": "L[239,239], C[9,19]",
+                "Detail": null,
+                "Code": "this.member",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/entities/GuildVoiceStateImpl.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "ADDED_ThisExpression",
+                "Method": "net.dv8tion.jda.internal.entities.GuildVoiceStateImpl.GuildVoiceStateImpl(Member)",
+                "Local": "L[52,52], C[9,12]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/net/dv8tion/jda/internal/entities/GuildVoiceStateImpl.java"
+            },
+            {
+                "Metric": "ADDED_FieldAccess",
+                "Method": "net.dv8tion.jda.internal.entities.GuildVoiceStateImpl.GuildVoiceStateImpl(Member)",
+                "Local": "L[52,52], C[9,18]",
+                "Detail": null,
+                "Code": "this.guild",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/net/dv8tion/jda/internal/entities/GuildVoiceStateImpl.java"
+            }
+        ],
+        "metadata": {
+            "type": "Inline Method",
+            "description": "Inline Method public setMember(member Member) : GuildVoiceStateImpl inlined to public GuildVoiceStateImpl(member Member) in class net.dv8tion.jda.internal.entities.GuildVoiceStateImpl",
+            "leftSideLocations": [
+                {
+                    "filePath": "src/main/java/net/dv8tion/jda/internal/entities/GuildVoiceStateImpl.java",
+                    "startLine": 237,
+                    "endLine": 241,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "inlined method declaration",
+                    "codeElement": "public setMember(member Member) : GuildVoiceStateImpl"
+                },
+                {
+                    "filePath": "src/main/java/net/dv8tion/jda/internal/entities/GuildVoiceStateImpl.java",
+                    "startLine": 239,
+                    "endLine": 239,
+                    "startColumn": 9,
+                    "endColumn": 30,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "inlined code from inlined method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "src/main/java/net/dv8tion/jda/internal/entities/GuildVoiceStateImpl.java",
+                    "startLine": 49,
+                    "endLine": 53,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "target method declaration before inline",
+                    "codeElement": "public GuildVoiceStateImpl(member Member)"
+                },
+                {
+                    "filePath": "src/main/java/net/dv8tion/jda/internal/entities/GuildVoiceStateImpl.java",
+                    "startLine": 52,
+                    "endLine": 52,
+                    "startColumn": 9,
+                    "endColumn": 26,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "inlined method invocation",
+                    "codeElement": "setMember(member)"
+                },
+                {
+                    "filePath": "src/main/java/net/dv8tion/jda/internal/entities/GuildVoiceStateImpl.java",
+                    "startLine": 240,
+                    "endLine": 240,
+                    "startColumn": 9,
+                    "endColumn": 21,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "deleted statement in inlined method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "src/main/java/net/dv8tion/jda/internal/entities/GuildVoiceStateImpl.java",
+                    "startLine": 49,
+                    "endLine": 54,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "target method declaration after inline",
+                    "codeElement": "public GuildVoiceStateImpl(member Member)"
+                },
+                {
+                    "filePath": "src/main/java/net/dv8tion/jda/internal/entities/GuildVoiceStateImpl.java",
+                    "startLine": 53,
+                    "endLine": 53,
+                    "startColumn": 9,
+                    "endColumn": 30,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "inlined code in target method declaration",
+                    "codeElement": null
+                }
+            ]
+        }
+    }
+]

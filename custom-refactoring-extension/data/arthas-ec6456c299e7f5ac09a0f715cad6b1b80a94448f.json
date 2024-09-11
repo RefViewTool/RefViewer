@@ -1,0 +1,953 @@
+[
+    {
+        "commit": "ec6456c299e7f5ac09a0f715cad6b1b80a94448f",
+        "source": [
+            {
+                "element": "com.taobao.arthas.core.command.basic1000.HelpCommand.process(CommandProcess)",
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java",
+                "local": "L[43,60], C[5,5]"
+            }
+        ],
+        "target": [
+            {
+                "element": "com.taobao.arthas.core.command.basic1000.HelpCommand.allCommands(Session)",
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java",
+                "local": "L[93,100], C[5,5]"
+            }
+        ],
+        "type": "EXTRACT_METHOD",
+        "related": [
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand",
+                "Local": "L[93,100], C[5,5]",
+                "Detail": {
+                    "method": "com.taobao.arthas.core.command.basic1000.HelpCommand.allCommands(Session)",
+                    "blockPos": "L[93,100], C[56,5]"
+                },
+                "Code": "private List<Command> allCommands(Session session){\n  List<CommandResolver> commandResolvers=session.getCommandResolvers();\n  List<Command> commands=new ArrayList<Command>();\n  for (  CommandResolver commandResolver : commandResolvers) {\n    commands.addAll(commandResolver.commands());\n  }\n  return commands;\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.process(CommandProcess).allCommands(Session)",
+                "Local": "L[48,48], C[46,62]",
+                "Detail": null,
+                "Code": "process.session()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.process(CommandProcess).session()",
+                "Local": "L[45,45], C[50,66]",
+                "Detail": null,
+                "Code": "process.session()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion).allCommands(Session)",
+                "Local": "L[62,62], C[46,65]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)>>>completion[60,73]"
+                },
+                "Code": "completion.session()",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion).ArrayList<String>",
+                "Local": "L[64,64], C[52,66]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)>>>commands[62,73]"
+                },
+                "Code": "commands.size()",
+                "relationType": "VAR_RELATED",
+                "distance": 5,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.process(CommandProcess)",
+                "Local": "L[48,48], C[34,63]",
+                "Detail": null,
+                "Code": "allCommands(process.session())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.process(CommandProcess)",
+                "Local": "L[45,45], C[50,66]",
+                "Detail": null,
+                "Code": "process.session()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)",
+                "Local": "L[62,62], C[9,67]",
+                "Detail": null,
+                "Code": "List<Command> commands=allCommands(completion.session());\n",
+                "relationType": "CALL_TARGET",
+                "distance": 2,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)",
+                "Local": "L[64,64], C[9,68]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)>>>names[64,73]"
+                },
+                "Code": "List<String> names=new ArrayList<String>(commands.size());\n",
+                "relationType": "VAR_RELATED",
+                "distance": 5,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_ENHANCEDFORSTATEMENT",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)",
+                "Local": "L[65,71], C[9,9]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)>>>command[65,71]"
+                },
+                "Code": "for (Command command : commands) {\n  CLI cli=command.cli();\n  if (cli == null || cli.isHidden()) {\n    continue;\n  }\n  names.add(command.name());\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 5,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.allCommands(Session)",
+                "Local": "L[94,94], C[50,78]",
+                "Detail": null,
+                "Code": "session.getCommandResolvers()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.allCommands(Session).ArrayList<Command>",
+                "Local": "L[95,95], C[38,55]",
+                "Detail": null,
+                "Code": "ArrayList<Command>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.process(CommandProcess).ArrayList<Command>",
+                "Local": "L[46,46], C[38,55]",
+                "Detail": null,
+                "Code": "ArrayList<Command>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.process(CommandProcess)",
+                "Local": "L[46,46], C[9,58]",
+                "Detail": null,
+                "Code": "List<Command> commands=new ArrayList<Command>();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "CHANGED_VARIABLE",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.process(CommandProcess)",
+                "Local": "L[48,48], C[9,64]",
+                "Detail": null,
+                "Code": "List<Command> commands=allCommands(process.session());\n",
+                "relationType": "CALL_TARGET",
+                "distance": 2,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "VAR_TYPE_CHANGED",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.process(CommandProcess)",
+                "Local": "L[48,48], C[9,64]",
+                "Detail": null,
+                "Code": "List<Command> commands=allCommands(process.session());\n",
+                "relationType": "CALL_TARGET",
+                "distance": 2,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "REMOVED_ENHANCEDFORSTATEMENT",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.process(CommandProcess)",
+                "Local": "L[47,49], C[9,9]",
+                "Detail": null,
+                "Code": "for (CommandResolver commandResolver : commandResolvers) {\n  commands.addAll(commandResolver.commands());\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand",
+                "Local": "L[60,73], C[5,5]",
+                "Detail": null,
+                "Code": "@Override public void complete(Completion completion){\n  List<Command> commands=allCommands(completion.session());\n  List<String> names=new ArrayList<String>(commands.size());\n  for (  Command command : commands) {\n    CLI cli=command.cli();\n    if (cli == null || cli.isHidden()) {\n      continue;\n    }\n    names.add(command.name());\n  }\n  CompletionUtils.complete(completion,names);\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 4,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.allCommands(Session)",
+                "Local": "L[95,95], C[9,21]",
+                "Detail": null,
+                "Code": "List<Command>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.process(CommandProcess)",
+                "Local": "L[46,46], C[9,21]",
+                "Detail": null,
+                "Code": "List<Command>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion).add(String)",
+                "Local": "L[70,70], C[23,36]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)>>>command[65,71]"
+                },
+                "Code": "command.name()",
+                "relationType": "VAR_RELATED",
+                "distance": 5,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)",
+                "Local": "L[67,67], C[17,27]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)>>>cli[66,71]"
+                },
+                "Code": "cli == null",
+                "relationType": "VAR_RELATED",
+                "distance": 5,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)",
+                "Local": "L[67,67], C[32,45]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)>>>cli[66,71]"
+                },
+                "Code": "cli.isHidden()",
+                "relationType": "VAR_RELATED",
+                "distance": 5,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)",
+                "Local": "L[72,72], C[9,51]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)>>>completion[60,73]"
+                },
+                "Code": "CompletionUtils.complete(completion,names)",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "CHANGED_VAR_VALUE",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.process(CommandProcess)",
+                "Local": "L[48,48], C[23,63]",
+                "Detail": null,
+                "Code": "commands=allCommands(process.session())",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.process(CommandProcess)",
+                "Local": "L[45,45], C[9,29]",
+                "Detail": null,
+                "Code": "List<CommandResolver>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)",
+                "Local": "L[64,64], C[30,67]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)>>>commands[62,73]"
+                },
+                "Code": "new ArrayList<String>(commands.size())",
+                "relationType": "VAR_RELATED",
+                "distance": 5,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)",
+                "Local": "L[64,64], C[30,67]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)>>>commands[62,73]"
+                },
+                "Code": "new ArrayList<String>(commands.size())",
+                "relationType": "VAR_RELATED",
+                "distance": 5,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.allCommands(Session).addAll(UNKNOWN)",
+                "Local": "L[97,97], C[29,54]",
+                "Detail": null,
+                "Code": "commandResolver.commands()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.process(CommandProcess).addAll(UNKNOWN)",
+                "Local": "L[48,48], C[29,54]",
+                "Detail": null,
+                "Code": "commandResolver.commands()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.allCommands(Session)",
+                "Local": "L[93,93], C[5,11]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.allCommands(Session)",
+                "Local": "L[93,93], C[13,25]",
+                "Detail": null,
+                "Code": "List<Command>",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)",
+                "Local": "L[70,70], C[13,37]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)>>>command[65,71]"
+                },
+                "Code": "names.add(command.name())",
+                "relationType": "VAR_RELATED",
+                "distance": 5,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.allCommands(Session)",
+                "Local": "L[95,95], C[34,57]",
+                "Detail": null,
+                "Code": "new ArrayList<Command>()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.process(CommandProcess)",
+                "Local": "L[46,46], C[34,57]",
+                "Detail": null,
+                "Code": "new ArrayList<Command>()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.allCommands(Session)",
+                "Local": "L[95,95], C[34,57]",
+                "Detail": null,
+                "Code": "new ArrayList<Command>()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.process(CommandProcess)",
+                "Local": "L[46,46], C[34,57]",
+                "Detail": null,
+                "Code": "new ArrayList<Command>()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.allCommands(Session)",
+                "Local": "L[95,95], C[9,58]",
+                "Detail": null,
+                "Code": "List<Command> commands=new ArrayList<Command>();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_ENHANCEDFORSTATEMENT",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.allCommands(Session)",
+                "Local": "L[96,98], C[9,9]",
+                "Detail": null,
+                "Code": "for (CommandResolver commandResolver : commandResolvers) {\n  commands.addAll(commandResolver.commands());\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.allCommands(Session)",
+                "Local": "L[94,94], C[9,79]",
+                "Detail": null,
+                "Code": "List<CommandResolver> commandResolvers=session.getCommandResolvers();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.allCommands(Session)",
+                "Local": "L[99,99], C[9,24]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.basic1000.HelpCommand.allCommands(Session)>>>commands[95,100]"
+                },
+                "Code": "return commands;\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.allCommands(Session)",
+                "Local": "L[97,97], C[13,55]",
+                "Detail": null,
+                "Code": "commands.addAll(commandResolver.commands())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.process(CommandProcess)",
+                "Local": "L[48,48], C[13,55]",
+                "Detail": null,
+                "Code": "commands.addAll(commandResolver.commands())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)",
+                "Local": "L[66,66], C[23,35]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)>>>command[65,71]"
+                },
+                "Code": "command.cli()",
+                "relationType": "VAR_RELATED",
+                "distance": 5,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.allCommands(Session)",
+                "Local": "L[94,94], C[9,29]",
+                "Detail": null,
+                "Code": "List<CommandResolver>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)",
+                "Local": "L[62,62], C[34,66]",
+                "Detail": null,
+                "Code": "allCommands(completion.session())",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)",
+                "Local": "L[66,66], C[13,36]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)>>>command[65,71]"
+                },
+                "Code": "CLI cli=command.cli();\n",
+                "relationType": "VAR_RELATED",
+                "distance": 5,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "ADDED_NullLiteral",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)",
+                "Local": "L[67,67], C[24,27]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion).ArrayList<String>",
+                "Local": "L[64,64], C[34,50]",
+                "Detail": null,
+                "Code": "ArrayList<String>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)",
+                "Local": "L[67,69], C[48,13]",
+                "Detail": null,
+                "Code": "{\n  continue;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_MarkerAnnotation",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)",
+                "Local": "L[60,60], C[5,13]",
+                "Detail": null,
+                "Code": "@Override",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)",
+                "Local": "L[61,61], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)",
+                "Local": "L[64,64], C[9,20]",
+                "Detail": null,
+                "Code": "List<String>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.process(CommandProcess)",
+                "Local": "L[48,48], C[9,21]",
+                "Detail": null,
+                "Code": "List<Command>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_CONTINUESTATEMENT",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)",
+                "Local": "L[68,68], C[17,25]",
+                "Detail": null,
+                "Code": "continue;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "com.taobao.arthas.core.command.basic1000.CompilationUnit",
+                "Local": "L[3,3], C[1,51]",
+                "Detail": null,
+                "Code": "import com.taobao.arthas.core.shell.cli.Completion;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "com.taobao.arthas.core.command.basic1000.CompilationUnit",
+                "Local": "L[3,3], C[1,51]",
+                "Detail": null,
+                "Code": "import com.taobao.arthas.core.shell.cli.Completion;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "com.taobao.arthas.core.command.basic1000.CompilationUnit",
+                "Local": "L[4,4], C[1,56]",
+                "Detail": null,
+                "Code": "import com.taobao.arthas.core.shell.cli.CompletionUtils;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "com.taobao.arthas.core.command.basic1000.CompilationUnit",
+                "Local": "L[4,4], C[1,56]",
+                "Detail": null,
+                "Code": "import com.taobao.arthas.core.shell.cli.CompletionUtils;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "com.taobao.arthas.core.command.basic1000.CompilationUnit",
+                "Local": "L[9,9], C[1,52]",
+                "Detail": null,
+                "Code": "import com.taobao.arthas.core.shell.session.Session;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "com.taobao.arthas.core.command.basic1000.CompilationUnit",
+                "Local": "L[9,9], C[1,52]",
+                "Detail": null,
+                "Code": "import com.taobao.arthas.core.shell.session.Session;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.taobao.arthas.core.command.basic1000.HelpCommand.complete(Completion)",
+                "Local": "L[62,62], C[9,21]",
+                "Detail": null,
+                "Code": "List<Command>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java"
+            },
+            {
+                "Metric": "REMOVED_ANNOTATION",
+                "Method": "com.taobao.arthas.core.command.basic1000.SystemEnvCommand",
+                "Local": "L[28,28], C[1,112]",
+                "Detail": null,
+                "Code": "/** \n * @author hengyunabc 2018-11-09\n */\n@Name(\"sysenv\") @Summary(\"Display the system env.\") @Description(Constants.EXAMPLE + \"sysenv\\n\" + \"sysenv USER\\n\"+ Constants.WIKI+ Constants.WIKI_HOME+ \"sysenv\") public class SystemEnvCommand extends AnnotatedCommand {\n  private String envName;\n  @Argument(index=0,argName=\"env-name\",required=false) @Description(\"env name\") public void setOptionName(  String envName){\n    this.envName=envName;\n  }\n  @Override public void process(  CommandProcess process){\n    try {\n      if (StringUtils.isBlank(envName)) {\n        process.write(renderEnv(System.getenv(),process.width()));\n      }\n else {\n        String value=System.getenv(envName);\n        process.write(envName + \"=\" + value+ \"\\n\");\n      }\n    }\n  finally {\n      process.end();\n    }\n  }\n  /** \n * First, try to complete with the sysenv command scope. If completion is failed, delegates to super class.\n * @param completion the completion object\n */\n  @Override public void complete(  Completion completion){\n    CompletionUtils.complete(completion,System.getenv().keySet());\n  }\n  private String renderEnv(  Map<String,String> envMap,  int width){\n    TableElement table=new TableElement(1,4).leftCellPadding(1).rightCellPadding(1);\n    table.row(true,label(\"KEY\").style(Decoration.bold.bold()),label(\"VALUE\").style(Decoration.bold.bold()));\n    for (    Entry<String,String> entry : envMap.entrySet()) {\n      table.row(entry.getKey(),entry.getValue());\n    }\n    return RenderUtil.render(table,width);\n  }\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/SystemEnvCommand.java"
+            },
+            {
+                "Metric": "ADDED_ANNOTATION",
+                "Method": "com.taobao.arthas.core.command.basic1000.SystemEnvCommand",
+                "Local": "L[28,28], C[1,116]",
+                "Detail": null,
+                "Code": "/** \n * @author hengyunabc 2018-11-09\n */\n@Name(\"sysenv\") @Summary(\"Display the system env.\") @Description(Constants.EXAMPLE + \"  sysenv\\n\" + \"  sysenv USER\\n\"+ Constants.WIKI+ Constants.WIKI_HOME+ \"sysenv\") public class SystemEnvCommand extends AnnotatedCommand {\n  private String envName;\n  @Argument(index=0,argName=\"env-name\",required=false) @Description(\"env name\") public void setOptionName(  String envName){\n    this.envName=envName;\n  }\n  @Override public void process(  CommandProcess process){\n    try {\n      if (StringUtils.isBlank(envName)) {\n        process.write(renderEnv(System.getenv(),process.width()));\n      }\n else {\n        String value=System.getenv(envName);\n        process.write(envName + \"=\" + value+ \"\\n\");\n      }\n    }\n  finally {\n      process.end();\n    }\n  }\n  /** \n * First, try to complete with the sysenv command scope. If completion is failed, delegates to super class.\n * @param completion the completion object\n */\n  @Override public void complete(  Completion completion){\n    CompletionUtils.complete(completion,System.getenv().keySet());\n  }\n  private String renderEnv(  Map<String,String> envMap,  int width){\n    TableElement table=new TableElement(1,4).leftCellPadding(1).rightCellPadding(1);\n    table.row(true,label(\"KEY\").style(Decoration.bold.bold()),label(\"VALUE\").style(Decoration.bold.bold()));\n    for (    Entry<String,String> entry : envMap.entrySet()) {\n      table.row(entry.getKey(),entry.getValue());\n    }\n    return RenderUtil.render(table,width);\n  }\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/SystemEnvCommand.java"
+            },
+            {
+                "Metric": "CHANGED_SingleMemberAnnotation",
+                "Method": "com.taobao.arthas.core.command.basic1000.SystemEnvCommand",
+                "Local": "L[28,28], C[1,116]",
+                "Detail": null,
+                "Code": "@Description(Constants.EXAMPLE + \"  sysenv\\n\" + \"  sysenv USER\\n\"+ Constants.WIKI+ Constants.WIKI_HOME+ \"sysenv\")",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/SystemEnvCommand.java"
+            },
+            {
+                "Metric": "CHANGED_InfixExpression",
+                "Method": "com.taobao.arthas.core.command.basic1000.SystemEnvCommand",
+                "Local": "L[28,28], C[14,115]",
+                "Detail": null,
+                "Code": "Constants.EXAMPLE + \"  sysenv\\n\" + \"  sysenv USER\\n\"+ Constants.WIKI+ Constants.WIKI_HOME+ \"sysenv\"",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/SystemEnvCommand.java"
+            },
+            {
+                "Metric": "CHANGED_SingleMemberAnnotation",
+                "Method": "com.taobao.arthas.core.command.basic1000.SystemPropertyCommand",
+                "Local": "L[26,27], C[1,57]",
+                "Detail": null,
+                "Code": "@Description(Constants.EXAMPLE + \"  sysprop\\n\" + \"  sysprop file.encoding\\n\"+ \"  sysprop production.mode true\\n\"+ Constants.WIKI+ Constants.WIKI_HOME+ \"sysprop\")",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/SystemPropertyCommand.java"
+            },
+            {
+                "Metric": "REMOVED_ANNOTATION",
+                "Method": "com.taobao.arthas.core.command.basic1000.SystemPropertyCommand",
+                "Local": "L[26,27], C[1,57]",
+                "Detail": null,
+                "Code": "/** \n * @author ralf0131 2017-01-09 14:03.\n */\n@Name(\"sysprop\") @Summary(\"Display, and change the system properties.\") @Description(Constants.EXAMPLE + \"sysprop\\n\" + \"sysprop file.encoding\\n\"+ \"sysprop production.mode true\\n\"+ Constants.WIKI+ Constants.WIKI_HOME+ \"sysprop\") public class SystemPropertyCommand extends AnnotatedCommand {\n  private String propertyName;\n  private String propertyValue;\n  @Argument(index=0,argName=\"property-name\",required=false) @Description(\"property name\") public void setOptionName(  String propertyName){\n    this.propertyName=propertyName;\n  }\n  @Argument(index=1,argName=\"property-value\",required=false) @Description(\"property value\") public void setOptionValue(  String propertyValue){\n    this.propertyValue=propertyValue;\n  }\n  @Override public void process(  CommandProcess process){\n    try {\n      if (StringUtils.isBlank(propertyName) && StringUtils.isBlank(propertyValue)) {\n        process.write(renderSystemProperties(System.getProperties(),process.width()));\n      }\n else       if (StringUtils.isBlank(propertyValue)) {\n        String value=System.getProperty(propertyName);\n        if (value == null) {\n          process.write(\"In order to change the system properties, you must specify the property value.\\n\");\n        }\n else {\n          process.write(propertyName + \"=\" + value+ \"\\n\");\n        }\n      }\n else {\n        System.setProperty(propertyName,propertyValue);\n        process.write(\"Successfully changed the system property.\\n\");\n        process.write(propertyName + \"=\" + System.getProperty(propertyName)+ \"\\n\");\n      }\n    }\n catch (    Throwable t) {\n      process.write(\"Error during setting system property: \" + t.getMessage() + \"\\n\");\n    }\n finally {\n      process.end();\n    }\n  }\n  /** \n * First, try to complete with the sysprop command scope. If completion is failed, delegates to super class.\n * @param completion the completion object\n */\n  @Override public void complete(  Completion completion){\n    CompletionUtils.complete(completion,System.getProperties().stringPropertyNames());\n  }\n  private String renderSystemProperties(  Properties properties,  int width){\n    TableElement table=new TableElement(1,4).leftCellPadding(1).rightCellPadding(1);\n    table.row(true,label(\"KEY\").style(Decoration.bold.bold()),label(\"VALUE\").style(Decoration.bold.bold()));\n    for (    String name : properties.stringPropertyNames()) {\n      table.row(name,properties.getProperty(name));\n    }\n    return RenderUtil.render(table,width);\n  }\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/SystemPropertyCommand.java"
+            },
+            {
+                "Metric": "ADDED_ANNOTATION",
+                "Method": "com.taobao.arthas.core.command.basic1000.SystemPropertyCommand",
+                "Local": "L[26,27], C[1,57]",
+                "Detail": null,
+                "Code": "/** \n * @author ralf0131 2017-01-09 14:03.\n */\n@Name(\"sysprop\") @Summary(\"Display, and change the system properties.\") @Description(Constants.EXAMPLE + \"  sysprop\\n\" + \"  sysprop file.encoding\\n\"+ \"  sysprop production.mode true\\n\"+ Constants.WIKI+ Constants.WIKI_HOME+ \"sysprop\") public class SystemPropertyCommand extends AnnotatedCommand {\n  private String propertyName;\n  private String propertyValue;\n  @Argument(index=0,argName=\"property-name\",required=false) @Description(\"property name\") public void setOptionName(  String propertyName){\n    this.propertyName=propertyName;\n  }\n  @Argument(index=1,argName=\"property-value\",required=false) @Description(\"property value\") public void setOptionValue(  String propertyValue){\n    this.propertyValue=propertyValue;\n  }\n  @Override public void process(  CommandProcess process){\n    try {\n      if (StringUtils.isBlank(propertyName) && StringUtils.isBlank(propertyValue)) {\n        process.write(renderSystemProperties(System.getProperties(),process.width()));\n      }\n else       if (StringUtils.isBlank(propertyValue)) {\n        String value=System.getProperty(propertyName);\n        if (value == null) {\n          process.write(\"In order to change the system properties, you must specify the property value.\\n\");\n        }\n else {\n          process.write(propertyName + \"=\" + value+ \"\\n\");\n        }\n      }\n else {\n        System.setProperty(propertyName,propertyValue);\n        process.write(\"Successfully changed the system property.\\n\");\n        process.write(propertyName + \"=\" + System.getProperty(propertyName)+ \"\\n\");\n      }\n    }\n catch (    Throwable t) {\n      process.write(\"Error during setting system property: \" + t.getMessage() + \"\\n\");\n    }\n finally {\n      process.end();\n    }\n  }\n  /** \n * First, try to complete with the sysprop command scope. If completion is failed, delegates to super class.\n * @param completion the completion object\n */\n  @Override public void complete(  Completion completion){\n    CompletionUtils.complete(completion,System.getProperties().stringPropertyNames());\n  }\n  private String renderSystemProperties(  Properties properties,  int width){\n    TableElement table=new TableElement(1,4).leftCellPadding(1).rightCellPadding(1);\n    table.row(true,label(\"KEY\").style(Decoration.bold.bold()),label(\"VALUE\").style(Decoration.bold.bold()));\n    for (    String name : properties.stringPropertyNames()) {\n      table.row(name,properties.getProperty(name));\n    }\n    return RenderUtil.render(table,width);\n  }\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/SystemPropertyCommand.java"
+            },
+            {
+                "Metric": "CHANGED_InfixExpression",
+                "Method": "com.taobao.arthas.core.command.basic1000.SystemPropertyCommand",
+                "Local": "L[26,27], C[14,56]",
+                "Detail": null,
+                "Code": "Constants.EXAMPLE + \"  sysprop\\n\" + \"  sysprop file.encoding\\n\"+ \"  sysprop production.mode true\\n\"+ Constants.WIKI+ Constants.WIKI_HOME+ \"sysprop\"",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/basic1000/SystemPropertyCommand.java"
+            },
+            {
+                "Metric": "ADDED_NullLiteral",
+                "Method": "com.taobao.arthas.core.util.usage.StyledUsageFormatter.styledUsage(CLI, int)",
+                "Local": "L[31,31], C[19,22]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/util/usage/StyledUsageFormatter.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "com.taobao.arthas.core.util.usage.StyledUsageFormatter.styledUsage(CLI, int)",
+                "Local": "L[31,33], C[25,9]",
+                "Detail": null,
+                "Code": "{\n  return \"\";\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/util/usage/StyledUsageFormatter.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "com.taobao.arthas.core.util.usage.StyledUsageFormatter.styledUsage(CLI, int)",
+                "Local": "L[31,31], C[12,22]",
+                "Detail": null,
+                "Code": "cli == null",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/util/usage/StyledUsageFormatter.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "com.taobao.arthas.core.util.usage.StyledUsageFormatter.styledUsage(CLI, int)",
+                "Local": "L[32,32], C[13,22]",
+                "Detail": null,
+                "Code": "return \"\";\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/util/usage/StyledUsageFormatter.java"
+            }
+        ],
+        "metadata": {
+            "type": "Extract Method",
+            "description": "Extract Method private allCommands(session Session) : List<Command> extracted from public process(process CommandProcess) : void in class com.taobao.arthas.core.command.basic1000.HelpCommand",
+            "leftSideLocations": [
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java",
+                    "startLine": 43,
+                    "endLine": 60,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public process(process CommandProcess) : void"
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java",
+                    "startLine": 46,
+                    "endLine": 46,
+                    "startColumn": 9,
+                    "endColumn": 59,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java",
+                    "startLine": 48,
+                    "endLine": 48,
+                    "startColumn": 13,
+                    "endColumn": 57,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java",
+                    "startLine": 45,
+                    "endLine": 45,
+                    "startColumn": 9,
+                    "endColumn": 90,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java",
+                    "startLine": 47,
+                    "endLine": 49,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "ENHANCED_FOR_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java",
+                    "startLine": 47,
+                    "endLine": 49,
+                    "startColumn": 66,
+                    "endColumn": 10,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java",
+                    "startLine": 93,
+                    "endLine": 100,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "private allCommands(session Session) : List<Command>"
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java",
+                    "startLine": 95,
+                    "endLine": 95,
+                    "startColumn": 9,
+                    "endColumn": 59,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java",
+                    "startLine": 97,
+                    "endLine": 97,
+                    "startColumn": 13,
+                    "endColumn": 57,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java",
+                    "startLine": 94,
+                    "endLine": 94,
+                    "startColumn": 9,
+                    "endColumn": 80,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java",
+                    "startLine": 96,
+                    "endLine": 98,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "ENHANCED_FOR_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java",
+                    "startLine": 96,
+                    "endLine": 98,
+                    "startColumn": 66,
+                    "endColumn": 10,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java",
+                    "startLine": 46,
+                    "endLine": 58,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public process(process CommandProcess) : void"
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java",
+                    "startLine": 48,
+                    "endLine": 48,
+                    "startColumn": 34,
+                    "endColumn": 64,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "allCommands(process.session())"
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java",
+                    "startLine": 99,
+                    "endLine": 99,
+                    "startColumn": 9,
+                    "endColumn": 25,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ]
+        }
+    }
+]

@@ -1,0 +1,215 @@
+[
+    {
+        "commit": "9395f70c2ab079027df049bdf1d2123a0a188b13",
+        "source": [
+            {
+                "element": "com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder.getThis()",
+                "file": "drawee-backends/drawee-pipeline/src/main/java/com/facebook/drawee/backends/pipeline/PipelineDraweeControllerBuilder.java",
+                "local": "L[147,150], C[3,3]"
+            }
+        ],
+        "target": [
+            {
+                "element": "com.facebook.drawee.controller.AbstractDraweeControllerBuilder.getThis()",
+                "file": "drawee/src/main/java/com/facebook/drawee/controller/AbstractDraweeControllerBuilder.java",
+                "local": "L[450,452], C[3,3]"
+            }
+        ],
+        "type": "PULL_UP",
+        "related": [
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder",
+                "Local": "L[147,150], C[3,3]",
+                "Detail": {
+                    "method": "com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder.getThis()",
+                    "blockPos": "L[148,150], C[55,3]"
+                },
+                "Code": "@Override protected PipelineDraweeControllerBuilder getThis(){\n  return this;\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "drawee-backends/drawee-pipeline/src/main/java/com/facebook/drawee/backends/pipeline/PipelineDraweeControllerBuilder.java"
+            },
+            {
+                "Metric": "REMOVED_MarkerAnnotation",
+                "Method": "com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder.getThis()",
+                "Local": "L[147,147], C[3,11]",
+                "Detail": null,
+                "Code": "@Override",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "drawee-backends/drawee-pipeline/src/main/java/com/facebook/drawee/backends/pipeline/PipelineDraweeControllerBuilder.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder.getThis()",
+                "Local": "L[148,148], C[3,11]",
+                "Detail": null,
+                "Code": "protected",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "drawee-backends/drawee-pipeline/src/main/java/com/facebook/drawee/backends/pipeline/PipelineDraweeControllerBuilder.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder.getThis()",
+                "Local": "L[149,149], C[5,16]",
+                "Detail": null,
+                "Code": "return this;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "drawee-backends/drawee-pipeline/src/main/java/com/facebook/drawee/backends/pipeline/PipelineDraweeControllerBuilder.java"
+            },
+            {
+                "Metric": "REMOVED_ThisExpression",
+                "Method": "com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder.getThis()",
+                "Local": "L[149,149], C[12,15]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "drawee-backends/drawee-pipeline/src/main/java/com/facebook/drawee/backends/pipeline/PipelineDraweeControllerBuilder.java"
+            },
+            {
+                "Metric": "ADDED_CastExpression",
+                "Method": "com.facebook.drawee.controller.AbstractDraweeControllerBuilder.getThis()",
+                "Local": "L[451,451], C[12,25]",
+                "Detail": null,
+                "Code": "(BUILDER)this",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "drawee/src/main/java/com/facebook/drawee/controller/AbstractDraweeControllerBuilder.java"
+            },
+            {
+                "Metric": "ADDED_ThisExpression",
+                "Method": "com.facebook.drawee.controller.AbstractDraweeControllerBuilder.getThis()",
+                "Local": "L[451,451], C[22,25]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "drawee/src/main/java/com/facebook/drawee/controller/AbstractDraweeControllerBuilder.java"
+            },
+            {
+                "Metric": "REMOVED_TagElement",
+                "Method": "com.facebook.drawee.controller.AbstractDraweeControllerBuilder.getThis()",
+                "Local": "L[450,450], C[7,83]",
+                "Detail": null,
+                "Code": "\n * Concrete builder classes should override this method to return {#code this}. ",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "drawee/src/main/java/com/facebook/drawee/controller/AbstractDraweeControllerBuilder.java"
+            },
+            {
+                "Metric": "CHANGED_Modifier",
+                "Method": "com.facebook.drawee.controller.AbstractDraweeControllerBuilder.getThis()",
+                "Local": "L[450,450], C[13,17]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "drawee/src/main/java/com/facebook/drawee/controller/AbstractDraweeControllerBuilder.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "com.facebook.drawee.controller.AbstractDraweeControllerBuilder.getThis()",
+                "Local": "L[450,450], C[13,17]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "drawee/src/main/java/com/facebook/drawee/controller/AbstractDraweeControllerBuilder.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.facebook.drawee.controller.AbstractDraweeControllerBuilder.getThis()",
+                "Local": "L[451,451], C[31,38]",
+                "Detail": null,
+                "Code": "abstract",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "drawee/src/main/java/com/facebook/drawee/controller/AbstractDraweeControllerBuilder.java"
+            },
+            {
+                "Metric": "REMOVED_Javadoc",
+                "Method": "com.facebook.drawee.controller.AbstractDraweeControllerBuilder.getThis()",
+                "Local": "L[450,450], C[3,85]",
+                "Detail": null,
+                "Code": "/** \n * Concrete builder classes should override this method to return {#code this}. \n */\n",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "drawee/src/main/java/com/facebook/drawee/controller/AbstractDraweeControllerBuilder.java"
+            },
+            {
+                "Metric": "REMOVED_MarkerAnnotation",
+                "Method": "com.facebook.drawee.controller.AbstractDraweeControllerBuilder.getThis()",
+                "Local": "L[451,451], C[3,19]",
+                "Detail": null,
+                "Code": "@ReturnsOwnership",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "drawee/src/main/java/com/facebook/drawee/controller/AbstractDraweeControllerBuilder.java"
+            },
+            {
+                "Metric": "REMOVED_TextElement",
+                "Method": "com.facebook.drawee.controller.AbstractDraweeControllerBuilder.getThis()",
+                "Local": "L[450,450], C[7,83]",
+                "Detail": null,
+                "Code": "Concrete builder classes should override this method to return {#code this}. ",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "drawee/src/main/java/com/facebook/drawee/controller/AbstractDraweeControllerBuilder.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "com.facebook.drawee.controller.AbstractDraweeControllerBuilder.getThis()",
+                "Local": "L[451,451], C[5,26]",
+                "Detail": null,
+                "Code": "return (BUILDER)this;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "drawee/src/main/java/com/facebook/drawee/controller/AbstractDraweeControllerBuilder.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "REMOVED_ANNOTATION",
+                "Method": "com.facebook.drawee.controller.AbstractDraweeControllerBuilder.getThis()",
+                "Local": "L[451,451], C[3,19]",
+                "Detail": null,
+                "Code": "/** \n * Concrete builder classes should override this method to return {#code this}. \n */\n@ReturnsOwnership protected abstract BUILDER getThis();\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "drawee/src/main/java/com/facebook/drawee/controller/AbstractDraweeControllerBuilder.java"
+            }
+        ],
+        "metadata": {
+            "type": "Pull Up Method",
+            "description": "Pull Up Method protected getThis() : PipelineDraweeControllerBuilder from class com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder to protected getThis() : BUILDER from class com.facebook.drawee.controller.AbstractDraweeControllerBuilder",
+            "leftSideLocations": [
+                {
+                    "filePath": "drawee-backends/drawee-pipeline/src/main/java/com/facebook/drawee/backends/pipeline/PipelineDraweeControllerBuilder.java",
+                    "startLine": 147,
+                    "endLine": 150,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "protected getThis() : PipelineDraweeControllerBuilder"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "drawee/src/main/java/com/facebook/drawee/controller/AbstractDraweeControllerBuilder.java",
+                    "startLine": 450,
+                    "endLine": 452,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "pulled up method declaration",
+                    "codeElement": "protected getThis() : BUILDER"
+                }
+            ]
+        }
+    }
+]

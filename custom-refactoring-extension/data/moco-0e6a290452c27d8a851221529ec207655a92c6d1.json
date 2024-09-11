@@ -1,0 +1,349 @@
+[
+    {
+        "commit": "0e6a290452c27d8a851221529ec207655a92c6d1",
+        "source": [
+            {
+                "element": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.configureRemoteRequest(HttpRequest, URL)",
+                "file": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java",
+                "local": "L[239,248], C[5,5]"
+            }
+        ],
+        "target": [
+            {
+                "element": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.doForward(HttpRequest, URL)",
+                "file": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java",
+                "local": "L[228,241], C[5,5]"
+            }
+        ],
+        "type": "INLINE_METHOD",
+        "related": [
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler",
+                "Local": "L[239,248], C[5,5]",
+                "Detail": {
+                    "method": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.configureRemoteRequest(HttpRequest, URL)",
+                    "blockPos": "L[239,248], C[100,5]"
+                },
+                "Code": "private HttpRequestBase configureRemoteRequest(final HttpRequest request,final URL remoteUrl){\n  HttpRequestBase remoteRequest=prepareRemoteRequest(request,remoteUrl);\n  RequestConfig requestConfig=RequestConfig.custom().setSocketTimeout(0).setStaleConnectionCheckEnabled(true).build();\n  remoteRequest.setConfig(requestConfig);\n  return remoteRequest;\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.configureRemoteRequest(HttpRequest, URL)",
+                "Local": "L[239,239], C[5,11]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.configureRemoteRequest(HttpRequest, URL)",
+                "Local": "L[240,240], C[9,81]",
+                "Detail": null,
+                "Code": "HttpRequestBase remoteRequest=prepareRemoteRequest(request,remoteUrl);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.configureRemoteRequest(HttpRequest, URL)",
+                "Local": "L[242,245], C[9,25]",
+                "Detail": null,
+                "Code": "RequestConfig requestConfig=RequestConfig.custom().setSocketTimeout(0).setStaleConnectionCheckEnabled(true).build();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.configureRemoteRequest(HttpRequest, URL)",
+                "Local": "L[247,247], C[9,29]",
+                "Detail": null,
+                "Code": "return remoteRequest;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.configureRemoteRequest(HttpRequest, URL).SingleVariableDeclaration",
+                "Local": "L[239,239], C[52,56]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.configureRemoteRequest(HttpRequest, URL)",
+                "Local": "L[246,246], C[9,46]",
+                "Detail": null,
+                "Code": "remoteRequest.setConfig(requestConfig)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.configureRemoteRequest(HttpRequest, URL).SingleVariableDeclaration",
+                "Local": "L[239,239], C[79,83]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java"
+            },
+            {
+                "Metric": "TRY_CATCH_CHANGE",
+                "Method": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.doForward(HttpRequest, URL)",
+                "Local": "L[229,240], C[9,9]",
+                "Detail": {
+                    "previousVar": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.doForward(HttpRequest, URL)>>>remoteUrl[228,241]"
+                },
+                "Code": "try {\n  HttpRequestBase remoteRequest=prepareRemoteRequest(request,remoteUrl);\n  return setupResponse(request,client.execute(remoteRequest));\n}\n catch (IOException e) {\n  logger.error(\"Failed to load remote and try to failover\",e);\n  return failover.failover(request);\n}\n finally {\n  try {\n    client.close();\n  }\n catch (  IOException ignored) {\n  }\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java"
+            },
+            {
+                "Metric": "CHANGED_TRYSTATEMENT",
+                "Method": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.doForward(HttpRequest, URL)",
+                "Local": "L[229,240], C[9,9]",
+                "Detail": {
+                    "previousVar": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.doForward(HttpRequest, URL)>>>remoteUrl[228,241]"
+                },
+                "Code": "try {\n  HttpRequestBase remoteRequest=prepareRemoteRequest(request,remoteUrl);\n  return setupResponse(request,client.execute(remoteRequest));\n}\n catch (IOException e) {\n  logger.error(\"Failed to load remote and try to failover\",e);\n  return failover.failover(request);\n}\n finally {\n  try {\n    client.close();\n  }\n catch (  IOException ignored) {\n  }\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.doForward(HttpRequest, URL)",
+                "Local": "L[230,230], C[13,85]",
+                "Detail": null,
+                "Code": "HttpRequestBase remoteRequest=prepareRemoteRequest(request,remoteUrl);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.doForward(HttpRequest, URL)",
+                "Local": "L[226,226], C[13,87]",
+                "Detail": null,
+                "Code": "HttpRequestBase remoteRequest=configureRemoteRequest(request,remoteUrl);\n",
+                "relationType": "CALL_SOURCE",
+                "distance": 2,
+                "file": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.doForward(HttpRequest, URL)",
+                "Local": "L[230,230], C[45,84]",
+                "Detail": null,
+                "Code": "prepareRemoteRequest(request,remoteUrl)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.configureRemoteRequest(HttpRequest, URL)",
+                "Local": "L[240,240], C[41,80]",
+                "Detail": null,
+                "Code": "prepareRemoteRequest(request,remoteUrl)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.doForward(HttpRequest, URL)",
+                "Local": "L[226,226], C[45,86]",
+                "Detail": null,
+                "Code": "configureRemoteRequest(request,remoteUrl)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java"
+            },
+            {
+                "Metric": "REMOVED_BooleanLiteral",
+                "Method": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.configureRemoteRequest(HttpRequest, URL)",
+                "Local": "L[244,244], C[49,52]",
+                "Detail": null,
+                "Code": "true",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.configureRemoteRequest(HttpRequest, URL)",
+                "Local": "L[242,242], C[39,60]",
+                "Detail": null,
+                "Code": "RequestConfig.custom()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.prepareRemoteRequest(FullHttpRequest, URL)",
+                "Local": "L[242,242], C[39,60]",
+                "Detail": null,
+                "Code": "RequestConfig.custom()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "CHANGED_VAR_VALUE",
+                "Method": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.prepareRemoteRequest(FullHttpRequest, URL)",
+                "Local": "L[82,86], C[23,24]",
+                "Detail": null,
+                "Code": "config=RequestConfig.custom().setRedirectsEnabled(false).setSocketTimeout(0).setStaleConnectionCheckEnabled(true).build()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java"
+            },
+            {
+                "Metric": "CHANGED_VARIABLE",
+                "Method": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.prepareRemoteRequest(FullHttpRequest, URL)",
+                "Local": "L[82,86], C[9,25]",
+                "Detail": null,
+                "Code": "RequestConfig config=RequestConfig.custom().setRedirectsEnabled(false).setSocketTimeout(0).setStaleConnectionCheckEnabled(true).build();\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java"
+            },
+            {
+                "Metric": "ADDED_BooleanLiteral",
+                "Method": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.prepareRemoteRequest(FullHttpRequest, URL)",
+                "Local": "L[85,85], C[49,52]",
+                "Detail": null,
+                "Code": "true",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.github.dreamhead.moco.handler.AbstractProxyResponseHandler.prepareRemoteRequest(FullHttpRequest, URL)",
+                "Local": "L[82,82], C[32,53]",
+                "Detail": null,
+                "Code": "RequestConfig.custom()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java"
+            }
+        ],
+        "metadata": {
+            "type": "Inline Method",
+            "description": "Inline Method private configureRemoteRequest(request HttpRequest, remoteUrl URL) : HttpRequestBase inlined to private doForward(request HttpRequest, remoteUrl URL) : HttpResponse in class com.github.dreamhead.moco.handler.AbstractProxyResponseHandler",
+            "leftSideLocations": [
+                {
+                    "filePath": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java",
+                    "startLine": 239,
+                    "endLine": 248,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "inlined method declaration",
+                    "codeElement": "private configureRemoteRequest(request HttpRequest, remoteUrl URL) : HttpRequestBase"
+                },
+                {
+                    "filePath": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java",
+                    "startLine": 240,
+                    "endLine": 240,
+                    "startColumn": 9,
+                    "endColumn": 82,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "inlined code from inlined method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java",
+                    "startLine": 224,
+                    "endLine": 237,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "target method declaration before inline",
+                    "codeElement": "private doForward(request HttpRequest, remoteUrl URL) : HttpResponse"
+                },
+                {
+                    "filePath": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java",
+                    "startLine": 226,
+                    "endLine": 226,
+                    "startColumn": 45,
+                    "endColumn": 87,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "inlined method invocation",
+                    "codeElement": "configureRemoteRequest(request,remoteUrl)"
+                },
+                {
+                    "filePath": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java",
+                    "startLine": 242,
+                    "endLine": 245,
+                    "startColumn": 9,
+                    "endColumn": 26,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "deleted statement in inlined method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java",
+                    "startLine": 246,
+                    "endLine": 246,
+                    "startColumn": 9,
+                    "endColumn": 48,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "deleted statement in inlined method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java",
+                    "startLine": 247,
+                    "endLine": 247,
+                    "startColumn": 9,
+                    "endColumn": 30,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "deleted statement in inlined method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java",
+                    "startLine": 228,
+                    "endLine": 241,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "target method declaration after inline",
+                    "codeElement": "private doForward(request HttpRequest, remoteUrl URL) : HttpResponse"
+                },
+                {
+                    "filePath": "moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java",
+                    "startLine": 230,
+                    "endLine": 230,
+                    "startColumn": 13,
+                    "endColumn": 86,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "inlined code in target method declaration",
+                    "codeElement": null
+                }
+            ]
+        }
+    }
+]

@@ -1,0 +1,2766 @@
+[
+    {
+        "commit": "c8612654be119ba040ab9cbd61ad954c8073f8d2",
+        "source": [
+            {
+                "element": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java",
+                "local": "L[139,210], C[2,2]"
+            }
+        ],
+        "target": [
+            {
+                "element": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java",
+                "local": "L[726,797], C[2,2]"
+            }
+        ],
+        "type": "MOVE_METHOD",
+        "related": [
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin",
+                "Local": "L[726,797], C[2,2]",
+                "Detail": {
+                    "method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                    "blockPos": "L[726,797], C[66,2]"
+                },
+                "Code": "public void playRecording(final Context ctx,final Recording r){\n  final MediaPlayer player=r.isPhoto() ? null : new MediaPlayer();\n  final AccessibleAlertBuilder dlg=new AccessibleAlertBuilder(ctx);\n  dlg.setPositiveButton(R.string.recording_open_external_player,new OnClickListener(){\n    @Override public void onClick(    DialogInterface v,    int w){\n      if (player == null) {\n        Intent vint=new Intent(Intent.ACTION_VIEW);\n        vint.setDataAndType(Uri.fromFile(r.file),\"image/*\");\n        vint.setFlags(0x10000000);\n        ctx.startActivity(vint);\n      }\n else {\n        if (player.isPlaying()) {\n          player.stop();\n        }\n        Intent vint=new Intent(Intent.ACTION_VIEW);\n        vint.setDataAndType(Uri.fromFile(r.file),\"video/*\");\n        vint.setFlags(0x10000000);\n        try {\n          ctx.startActivity(vint);\n        }\n catch (        Exception e) {\n          e.printStackTrace();\n        }\n      }\n    }\n  }\n);\n  dlg.setNegativeButton(R.string.default_buttons_cancel,new OnClickListener(){\n    @Override public void onClick(    DialogInterface dialog,    int which){\n      if (player != null && player.isPlaying()) {\n        player.stop();\n      }\n    }\n  }\n);\n  try {\n    if (r.isPhoto()) {\n      ImageView img=new ImageView(ctx);\n      Options opts=new Options();\n      opts.inSampleSize=4;\n      int rot=r.getBitmapRotation();\n      Bitmap bmp=BitmapFactory.decodeFile(r.file.getAbsolutePath(),opts);\n      if (rot != 0) {\n        Matrix matrix=new Matrix();\n        matrix.postRotate(rot);\n        Bitmap resizedBitmap=Bitmap.createBitmap(bmp,0,0,bmp.getWidth(),bmp.getHeight(),matrix,true);\n        bmp.recycle();\n        bmp=resizedBitmap;\n      }\n      img.setImageBitmap(bmp);\n      dlg.setView(img);\n      dlg.show();\n    }\n else {\n      dlg.setMessage(ctx.getString(R.string.recording_playing,r.getDescription(ctx)));\n      player.setDataSource(r.file.getAbsolutePath());\n      player.setOnPreparedListener(new OnPreparedListener(){\n        @Override public void onPrepared(        MediaPlayer mp){\n          dlg.show();\n          player.start();\n        }\n      }\n);\n      player.prepareAsync();\n    }\n  }\n catch (  Exception e) {\n    AccessibleToast.makeText(ctx,R.string.recording_can_not_be_played,Toast.LENGTH_SHORT).show();\n  }\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer",
+                "Local": "L[139,210], C[2,2]",
+                "Detail": {
+                    "method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                    "blockPos": "L[139,210], C[48,2]"
+                },
+                "Code": "private void playRecording(final Recording r){\n  final MediaPlayer player=r.isPhoto() ? null : new MediaPlayer();\n  final AccessibleAlertBuilder dlg=new AccessibleAlertBuilder(view.getContext());\n  dlg.setPositiveButton(R.string.recording_open_external_player,new OnClickListener(){\n    @Override public void onClick(    DialogInterface v,    int w){\n      if (player == null) {\n        Intent vint=new Intent(Intent.ACTION_VIEW);\n        vint.setDataAndType(Uri.fromFile(r.file),\"image/*\");\n        vint.setFlags(0x10000000);\n        view.getContext().startActivity(vint);\n      }\n else {\n        if (player.isPlaying()) {\n          player.stop();\n        }\n        Intent vint=new Intent(Intent.ACTION_VIEW);\n        vint.setDataAndType(Uri.fromFile(r.file),\"video/*\");\n        vint.setFlags(0x10000000);\n        try {\n          view.getContext().startActivity(vint);\n        }\n catch (        Exception e) {\n          e.printStackTrace();\n        }\n      }\n    }\n  }\n);\n  dlg.setNegativeButton(R.string.default_buttons_cancel,new OnClickListener(){\n    @Override public void onClick(    DialogInterface dialog,    int which){\n      if (player != null && player.isPlaying()) {\n        player.stop();\n      }\n    }\n  }\n);\n  try {\n    if (r.isPhoto()) {\n      ImageView img=new ImageView(view.getContext());\n      Options opts=new Options();\n      opts.inSampleSize=4;\n      int rot=r.getBitmapRotation();\n      Bitmap bmp=BitmapFactory.decodeFile(r.file.getAbsolutePath(),opts);\n      if (rot != 0) {\n        Matrix matrix=new Matrix();\n        matrix.postRotate(rot);\n        Bitmap resizedBitmap=Bitmap.createBitmap(bmp,0,0,bmp.getWidth(),bmp.getHeight(),matrix,true);\n        bmp.recycle();\n        bmp=resizedBitmap;\n      }\n      img.setImageBitmap(bmp);\n      dlg.setView(img);\n      dlg.show();\n    }\n else {\n      dlg.setMessage(view.getContext().getString(R.string.recording_playing,r.getDescription(view.getContext())));\n      player.setDataSource(r.file.getAbsolutePath());\n      player.setOnPreparedListener(new OnPreparedListener(){\n        @Override public void onPrepared(        MediaPlayer mp){\n          dlg.show();\n          player.start();\n        }\n      }\n);\n      player.prepareAsync();\n    }\n  }\n catch (  Exception e) {\n    AccessibleToast.makeText(view.getContext(),R.string.recording_can_not_be_played,Toast.LENGTH_SHORT).show();\n  }\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int).setDataAndType(UNKNOWN, UNKNOWN)",
+                "Local": "L[156,156], C[26,45]",
+                "Detail": null,
+                "Code": "Uri.fromFile(r.file)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[170,170], C[8,21]",
+                "Detail": null,
+                "Code": "player != null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[170,170], C[26,43]",
+                "Detail": null,
+                "Code": "player.isPlaying()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[159,159], C[7,23]",
+                "Detail": null,
+                "Code": "view.getContext()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[157,157], C[6,30]",
+                "Detail": null,
+                "Code": "vint.setFlags(0x10000000)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_AnonymousClassDeclaration",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).OnPreparedListener",
+                "Local": "L[197,204], C[59,5]",
+                "Detail": null,
+                "Code": "{\n  @Override public void onPrepared(  MediaPlayer mp){\n    dlg.show();\n    player.start();\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[141,141], C[38,82]",
+                "Detail": null,
+                "Code": "new AccessibleAlertBuilder(view.getContext())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[141,141], C[38,82]",
+                "Detail": null,
+                "Code": "new AccessibleAlertBuilder(view.getContext())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[171,171], C[6,18]",
+                "Detail": null,
+                "Code": "player.stop()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[140,140], C[3,7]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).AccessibleAlertBuilder",
+                "Local": "L[141,141], C[65,81]",
+                "Detail": null,
+                "Code": "view.getContext()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_MarkerAnnotation",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[168,168], C[4,12]",
+                "Detail": null,
+                "Code": "@Override",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[169,169], C[4,9]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[170,172], C[46,5]",
+                "Detail": null,
+                "Code": "{\n  player.stop();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[179,179], C[5,53]",
+                "Detail": null,
+                "Code": "ImageView img=new ImageView(view.getContext());\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[180,180], C[5,33]",
+                "Detail": null,
+                "Code": "Options opts=new Options();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[181,181], C[5,26]",
+                "Detail": null,
+                "Code": "opts.inSampleSize=4;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[182,182], C[5,36]",
+                "Detail": null,
+                "Code": "int rot=r.getBitmapRotation();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[183,183], C[5,74]",
+                "Detail": null,
+                "Code": "Bitmap bmp=BitmapFactory.decodeFile(r.file.getAbsolutePath(),opts);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.populateObjectContextMenu(Object, ContextMenuAdapter).onContextMenuClick(int, int, boolean, DialogInterface).playRecording(Recording)",
+                "Local": "L[150,150], C[6,22]",
+                "Detail": null,
+                "Code": "view.getContext()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[152,152], C[10,27]",
+                "Detail": null,
+                "Code": "player.isPlaying()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_AnonymousClassDeclaration",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).OnClickListener",
+                "Local": "L[142,165], C[88,3]",
+                "Detail": null,
+                "Code": "{\n  @Override public void onClick(  DialogInterface v,  int w){\n    if (player == null) {\n      Intent vint=new Intent(Intent.ACTION_VIEW);\n      vint.setDataAndType(Uri.fromFile(r.file),\"image/*\");\n      vint.setFlags(0x10000000);\n      view.getContext().startActivity(vint);\n    }\n else {\n      if (player.isPlaying()) {\n        player.stop();\n      }\n      Intent vint=new Intent(Intent.ACTION_VIEW);\n      vint.setDataAndType(Uri.fromFile(r.file),\"video/*\");\n      vint.setFlags(0x10000000);\n      try {\n        view.getContext().startActivity(vint);\n      }\n catch (      Exception e) {\n        e.printStackTrace();\n      }\n    }\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[195,195], C[5,112]",
+                "Detail": null,
+                "Code": "dlg.setMessage(view.getContext().getString(R.string.recording_playing,r.getDescription(view.getContext())))",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[192,192], C[5,20]",
+                "Detail": null,
+                "Code": "dlg.setView(img)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[199,203], C[6,6]",
+                "Detail": null,
+                "Code": "@Override public void onPrepared(MediaPlayer mp){\n  dlg.show();\n  player.start();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[153,153], C[7,19]",
+                "Detail": null,
+                "Code": "player.stop()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[186,186], C[6,27]",
+                "Detail": null,
+                "Code": "matrix.postRotate(rot)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[166,176], C[3,4]",
+                "Detail": null,
+                "Code": "dlg.setNegativeButton(R.string.default_buttons_cancel,new OnClickListener(){\n  @Override public void onClick(  DialogInterface dialog,  int which){\n    if (player != null && player.isPlaying()) {\n      player.stop();\n    }\n  }\n}\n)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_NullLiteral",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[170,170], C[18,21]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[156,156], C[6,57]",
+                "Detail": null,
+                "Code": "vint.setDataAndType(Uri.fromFile(r.file),\"video/*\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onPrepared(MediaPlayer)",
+                "Local": "L[202,202], C[7,20]",
+                "Detail": null,
+                "Code": "player.start()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_AnonymousClassDeclaration",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).OnClickListener",
+                "Local": "L[166,176], C[79,3]",
+                "Detail": null,
+                "Code": "{\n  @Override public void onClick(  DialogInterface dialog,  int which){\n    if (player != null && player.isPlaying()) {\n      player.stop();\n    }\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[141,141], C[3,7]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[191,191], C[5,27]",
+                "Detail": null,
+                "Code": "img.setImageBitmap(bmp)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).setOnPreparedListener(UNKNOWN)",
+                "Local": "L[197,204], C[34,5]",
+                "Detail": null,
+                "Code": "new OnPreparedListener(){\n  @Override public void onPrepared(  MediaPlayer mp){\n    dlg.show();\n    player.start();\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).setOnPreparedListener(UNKNOWN)",
+                "Local": "L[197,204], C[34,5]",
+                "Detail": null,
+                "Code": "new OnPreparedListener(){\n  @Override public void onPrepared(  MediaPlayer mp){\n    dlg.show();\n    player.start();\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).setMessage(UNKNOWN)",
+                "Local": "L[195,195], C[20,36]",
+                "Detail": null,
+                "Code": "view.getContext()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).setMessage(UNKNOWN)",
+                "Local": "L[195,195], C[76,110]",
+                "Detail": null,
+                "Code": "r.getDescription(view.getContext())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).getDescription(UNKNOWN)",
+                "Local": "L[195,195], C[93,109]",
+                "Detail": null,
+                "Code": "view.getContext()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).setDataSource(UNKNOWN)",
+                "Local": "L[196,196], C[26,49]",
+                "Detail": null,
+                "Code": "r.file.getAbsolutePath()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[183,183], C[18,73]",
+                "Detail": null,
+                "Code": "BitmapFactory.decodeFile(r.file.getAbsolutePath(),opts)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int).setDataAndType(UNKNOWN, UNKNOWN)",
+                "Local": "L[148,148], C[26,45]",
+                "Detail": null,
+                "Code": "Uri.fromFile(r.file)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[179,179], C[21,52]",
+                "Detail": null,
+                "Code": "new ImageView(view.getContext())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[179,179], C[21,52]",
+                "Detail": null,
+                "Code": "new ImageView(view.getContext())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[180,180], C[20,32]",
+                "Detail": null,
+                "Code": "new Options()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[180,180], C[20,32]",
+                "Detail": null,
+                "Code": "new Options()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[197,204], C[5,6]",
+                "Detail": null,
+                "Code": "player.setOnPreparedListener(new OnPreparedListener(){\n  @Override public void onPrepared(  MediaPlayer mp){\n    dlg.show();\n    player.start();\n  }\n}\n)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[149,149], C[6,30]",
+                "Detail": null,
+                "Code": "vint.setFlags(0x10000000)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[187,187], C[29,105]",
+                "Detail": null,
+                "Code": "Bitmap.createBitmap(bmp,0,0,bmp.getWidth(),bmp.getHeight(),matrix,true)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[196,196], C[5,50]",
+                "Detail": null,
+                "Code": "player.setDataSource(r.file.getAbsolutePath())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_CATCH_CLAUSE",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[160,162], C[8,6]",
+                "Detail": null,
+                "Code": "catch (Exception e) {\n  e.printStackTrace();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_CatchClause",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[160,162], C[8,6]",
+                "Detail": null,
+                "Code": "catch (Exception e) {\n  e.printStackTrace();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[188,188], C[6,18]",
+                "Detail": null,
+                "Code": "bmp.recycle()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[205,205], C[5,25]",
+                "Detail": null,
+                "Code": "player.prepareAsync()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[140,140], C[30,40]",
+                "Detail": null,
+                "Code": "r.isPhoto()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_NullLiteral",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[140,140], C[44,47]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[140,140], C[51,67]",
+                "Detail": null,
+                "Code": "new MediaPlayer()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[140,140], C[51,67]",
+                "Detail": null,
+                "Code": "new MediaPlayer()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[161,161], C[7,25]",
+                "Detail": null,
+                "Code": "e.printStackTrace()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[139,139], C[2,8]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[178,194], C[21,4]",
+                "Detail": null,
+                "Code": "{\n  ImageView img=new ImageView(view.getContext());\n  Options opts=new Options();\n  opts.inSampleSize=4;\n  int rot=r.getBitmapRotation();\n  Bitmap bmp=BitmapFactory.decodeFile(r.file.getAbsolutePath(),opts);\n  if (rot != 0) {\n    Matrix matrix=new Matrix();\n    matrix.postRotate(rot);\n    Bitmap resizedBitmap=Bitmap.createBitmap(bmp,0,0,bmp.getWidth(),bmp.getHeight(),matrix,true);\n    bmp.recycle();\n    bmp=resizedBitmap;\n  }\n  img.setImageBitmap(bmp);\n  dlg.setView(img);\n  dlg.show();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_ELSE_STATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[194,206], C[11,4]",
+                "Detail": null,
+                "Code": "{\n  dlg.setMessage(view.getContext().getString(R.string.recording_playing,r.getDescription(view.getContext())));\n  player.setDataSource(r.file.getAbsolutePath());\n  player.setOnPreparedListener(new OnPreparedListener(){\n    @Override public void onPrepared(    MediaPlayer mp){\n      dlg.show();\n      player.start();\n    }\n  }\n);\n  player.prepareAsync();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[184,190], C[19,5]",
+                "Detail": null,
+                "Code": "{\n  Matrix matrix=new Matrix();\n  matrix.postRotate(rot);\n  Bitmap resizedBitmap=Bitmap.createBitmap(bmp,0,0,bmp.getWidth(),bmp.getHeight(),matrix,true);\n  bmp.recycle();\n  bmp=resizedBitmap;\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onPrepared(MediaPlayer)",
+                "Local": "L[201,201], C[7,16]",
+                "Detail": null,
+                "Code": "dlg.show()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[140,140], C[3,68]",
+                "Detail": null,
+                "Code": "final MediaPlayer player=r.isPhoto() ? null : new MediaPlayer();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[141,141], C[3,83]",
+                "Detail": null,
+                "Code": "final AccessibleAlertBuilder dlg=new AccessibleAlertBuilder(view.getContext());\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_TRY_CATCH",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[177,209], C[3,3]",
+                "Detail": null,
+                "Code": "try {\n  if (r.isPhoto()) {\n    ImageView img=new ImageView(view.getContext());\n    Options opts=new Options();\n    opts.inSampleSize=4;\n    int rot=r.getBitmapRotation();\n    Bitmap bmp=BitmapFactory.decodeFile(r.file.getAbsolutePath(),opts);\n    if (rot != 0) {\n      Matrix matrix=new Matrix();\n      matrix.postRotate(rot);\n      Bitmap resizedBitmap=Bitmap.createBitmap(bmp,0,0,bmp.getWidth(),bmp.getHeight(),matrix,true);\n      bmp.recycle();\n      bmp=resizedBitmap;\n    }\n    img.setImageBitmap(bmp);\n    dlg.setView(img);\n    dlg.show();\n  }\n else {\n    dlg.setMessage(view.getContext().getString(R.string.recording_playing,r.getDescription(view.getContext())));\n    player.setDataSource(r.file.getAbsolutePath());\n    player.setOnPreparedListener(new OnPreparedListener(){\n      @Override public void onPrepared(      MediaPlayer mp){\n        dlg.show();\n        player.start();\n      }\n    }\n);\n    player.prepareAsync();\n  }\n}\n catch (Exception e) {\n  AccessibleToast.makeText(view.getContext(),R.string.recording_can_not_be_played,Toast.LENGTH_SHORT).show();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_TRYSTATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[177,209], C[3,3]",
+                "Detail": null,
+                "Code": "try {\n  if (r.isPhoto()) {\n    ImageView img=new ImageView(view.getContext());\n    Options opts=new Options();\n    opts.inSampleSize=4;\n    int rot=r.getBitmapRotation();\n    Bitmap bmp=BitmapFactory.decodeFile(r.file.getAbsolutePath(),opts);\n    if (rot != 0) {\n      Matrix matrix=new Matrix();\n      matrix.postRotate(rot);\n      Bitmap resizedBitmap=Bitmap.createBitmap(bmp,0,0,bmp.getWidth(),bmp.getHeight(),matrix,true);\n      bmp.recycle();\n      bmp=resizedBitmap;\n    }\n    img.setImageBitmap(bmp);\n    dlg.setView(img);\n    dlg.show();\n  }\n else {\n    dlg.setMessage(view.getContext().getString(R.string.recording_playing,r.getDescription(view.getContext())));\n    player.setDataSource(r.file.getAbsolutePath());\n    player.setOnPreparedListener(new OnPreparedListener(){\n      @Override public void onPrepared(      MediaPlayer mp){\n        dlg.show();\n        player.start();\n      }\n    }\n);\n    player.prepareAsync();\n  }\n}\n catch (Exception e) {\n  AccessibleToast.makeText(view.getContext(),R.string.recording_can_not_be_played,Toast.LENGTH_SHORT).show();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).decodeFile(UNKNOWN, UNKNOWN)",
+                "Local": "L[183,183], C[43,66]",
+                "Detail": null,
+                "Code": "r.file.getAbsolutePath()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[150,150], C[6,22]",
+                "Detail": null,
+                "Code": "view.getContext()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_CATCH_CLAUSE",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[207,209], C[5,3]",
+                "Detail": null,
+                "Code": "catch (Exception e) {\n  AccessibleToast.makeText(view.getContext(),R.string.recording_can_not_be_played,Toast.LENGTH_SHORT).show();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_CatchClause",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[207,209], C[5,3]",
+                "Detail": null,
+                "Code": "catch (Exception e) {\n  AccessibleToast.makeText(view.getContext(),R.string.recording_can_not_be_played,Toast.LENGTH_SHORT).show();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[148,148], C[6,57]",
+                "Detail": null,
+                "Code": "vint.setDataAndType(Uri.fromFile(r.file),\"image/*\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[178,178], C[8,18]",
+                "Detail": null,
+                "Code": "r.isPhoto()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).ImageView",
+                "Local": "L[179,179], C[35,51]",
+                "Detail": null,
+                "Code": "view.getContext()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_MarkerAnnotation",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[144,144], C[4,12]",
+                "Detail": null,
+                "Code": "@Override",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[145,145], C[4,9]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[146,151], C[24,5]",
+                "Detail": null,
+                "Code": "{\n  Intent vint=new Intent(Intent.ACTION_VIEW);\n  vint.setDataAndType(Uri.fromFile(r.file),\"image/*\");\n  vint.setFlags(0x10000000);\n  view.getContext().startActivity(vint);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_ELSE_STATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[151,163], C[12,5]",
+                "Detail": null,
+                "Code": "{\n  if (player.isPlaying()) {\n    player.stop();\n  }\n  Intent vint=new Intent(Intent.ACTION_VIEW);\n  vint.setDataAndType(Uri.fromFile(r.file),\"video/*\");\n  vint.setFlags(0x10000000);\n  try {\n    view.getContext().startActivity(vint);\n  }\n catch (  Exception e) {\n    e.printStackTrace();\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[152,154], C[30,6]",
+                "Detail": null,
+                "Code": "{\n  player.stop();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[185,185], C[22,33]",
+                "Detail": null,
+                "Code": "new Matrix()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[185,185], C[22,33]",
+                "Detail": null,
+                "Code": "new Matrix()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[193,193], C[5,14]",
+                "Detail": null,
+                "Code": "dlg.show()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_NullLiteral",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[146,146], C[18,21]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[144,164], C[4,4]",
+                "Detail": null,
+                "Code": "@Override public void onClick(DialogInterface v,int w){\n  if (player == null) {\n    Intent vint=new Intent(Intent.ACTION_VIEW);\n    vint.setDataAndType(Uri.fromFile(r.file),\"image/*\");\n    vint.setFlags(0x10000000);\n    view.getContext().startActivity(vint);\n  }\n else {\n    if (player.isPlaying()) {\n      player.stop();\n    }\n    Intent vint=new Intent(Intent.ACTION_VIEW);\n    vint.setDataAndType(Uri.fromFile(r.file),\"video/*\");\n    vint.setFlags(0x10000000);\n    try {\n      view.getContext().startActivity(vint);\n    }\n catch (    Exception e) {\n      e.printStackTrace();\n    }\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[185,185], C[6,34]",
+                "Detail": null,
+                "Code": "Matrix matrix=new Matrix();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[187,187], C[6,106]",
+                "Detail": null,
+                "Code": "Bitmap resizedBitmap=Bitmap.createBitmap(bmp,0,0,bmp.getWidth(),bmp.getHeight(),matrix,true);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[189,189], C[6,25]",
+                "Detail": null,
+                "Code": "bmp=resizedBitmap;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[142,165], C[3,4]",
+                "Detail": null,
+                "Code": "dlg.setPositiveButton(R.string.recording_open_external_player,new OnClickListener(){\n  @Override public void onClick(  DialogInterface v,  int w){\n    if (player == null) {\n      Intent vint=new Intent(Intent.ACTION_VIEW);\n      vint.setDataAndType(Uri.fromFile(r.file),\"image/*\");\n      vint.setFlags(0x10000000);\n      view.getContext().startActivity(vint);\n    }\n else {\n      if (player.isPlaying()) {\n        player.stop();\n      }\n      Intent vint=new Intent(Intent.ACTION_VIEW);\n      vint.setDataAndType(Uri.fromFile(r.file),\"video/*\");\n      vint.setFlags(0x10000000);\n      try {\n        view.getContext().startActivity(vint);\n      }\n catch (      Exception e) {\n        e.printStackTrace();\n      }\n    }\n  }\n}\n)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).setNegativeButton(UNKNOWN, UNKNOWN)",
+                "Local": "L[166,176], C[58,3]",
+                "Detail": null,
+                "Code": "new OnClickListener(){\n  @Override public void onClick(  DialogInterface dialog,  int which){\n    if (player != null && player.isPlaying()) {\n      player.stop();\n    }\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).setNegativeButton(UNKNOWN, UNKNOWN)",
+                "Local": "L[166,176], C[58,3]",
+                "Detail": null,
+                "Code": "new OnClickListener(){\n  @Override public void onClick(  DialogInterface dialog,  int which){\n    if (player != null && player.isPlaying()) {\n      player.stop();\n    }\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[146,146], C[8,21]",
+                "Detail": null,
+                "Code": "player == null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[168,174], C[4,4]",
+                "Detail": null,
+                "Code": "@Override public void onClick(DialogInterface dialog,int which){\n  if (player != null && player.isPlaying()) {\n    player.stop();\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).setPositiveButton(UNKNOWN, UNKNOWN)",
+                "Local": "L[142,165], C[66,3]",
+                "Detail": null,
+                "Code": "new OnClickListener(){\n  @Override public void onClick(  DialogInterface v,  int w){\n    if (player == null) {\n      Intent vint=new Intent(Intent.ACTION_VIEW);\n      vint.setDataAndType(Uri.fromFile(r.file),\"image/*\");\n      vint.setFlags(0x10000000);\n      view.getContext().startActivity(vint);\n    }\n else {\n      if (player.isPlaying()) {\n        player.stop();\n      }\n      Intent vint=new Intent(Intent.ACTION_VIEW);\n      vint.setDataAndType(Uri.fromFile(r.file),\"video/*\");\n      vint.setFlags(0x10000000);\n      try {\n        view.getContext().startActivity(vint);\n      }\n catch (      Exception e) {\n        e.printStackTrace();\n      }\n    }\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).setPositiveButton(UNKNOWN, UNKNOWN)",
+                "Local": "L[142,165], C[66,3]",
+                "Detail": null,
+                "Code": "new OnClickListener(){\n  @Override public void onClick(  DialogInterface v,  int w){\n    if (player == null) {\n      Intent vint=new Intent(Intent.ACTION_VIEW);\n      vint.setDataAndType(Uri.fromFile(r.file),\"image/*\");\n      vint.setFlags(0x10000000);\n      view.getContext().startActivity(vint);\n    }\n else {\n      if (player.isPlaying()) {\n        player.stop();\n      }\n      Intent vint=new Intent(Intent.ACTION_VIEW);\n      vint.setDataAndType(Uri.fromFile(r.file),\"video/*\");\n      vint.setFlags(0x10000000);\n      try {\n        view.getContext().startActivity(vint);\n      }\n catch (      Exception e) {\n        e.printStackTrace();\n      }\n    }\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_MarkerAnnotation",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onPrepared(MediaPlayer)",
+                "Local": "L[199,199], C[6,14]",
+                "Detail": null,
+                "Code": "@Override",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onPrepared(MediaPlayer)",
+                "Local": "L[200,200], C[6,11]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).makeText(UNKNOWN, UNKNOWN, UNKNOWN)",
+                "Local": "L[208,208], C[29,45]",
+                "Detail": null,
+                "Code": "view.getContext()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[147,147], C[6,50]",
+                "Detail": null,
+                "Code": "Intent vint=new Intent(Intent.ACTION_VIEW);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).createBitmap(UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN)",
+                "Local": "L[187,187], C[60,73]",
+                "Detail": null,
+                "Code": "bmp.getWidth()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).createBitmap(UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN)",
+                "Local": "L[187,187], C[76,90]",
+                "Detail": null,
+                "Code": "bmp.getHeight()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_BooleanLiteral",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).createBitmap(UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN)",
+                "Local": "L[187,187], C[101,104]",
+                "Detail": null,
+                "Code": "true",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).SingleVariableDeclaration",
+                "Local": "L[139,139], C[29,33]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_ConditionalExpression",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[140,140], C[30,67]",
+                "Detail": null,
+                "Code": "r.isPhoto() ? null : new MediaPlayer()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[147,147], C[20,49]",
+                "Detail": null,
+                "Code": "new Intent(Intent.ACTION_VIEW)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[147,147], C[20,49]",
+                "Detail": null,
+                "Code": "new Intent(Intent.ACTION_VIEW)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[155,155], C[6,50]",
+                "Detail": null,
+                "Code": "Intent vint=new Intent(Intent.ACTION_VIEW);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_TRY_CATCH",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[158,162], C[6,6]",
+                "Detail": null,
+                "Code": "try {\n  view.getContext().startActivity(vint);\n}\n catch (Exception e) {\n  e.printStackTrace();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_TRYSTATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[158,162], C[6,6]",
+                "Detail": null,
+                "Code": "try {\n  view.getContext().startActivity(vint);\n}\n catch (Exception e) {\n  e.printStackTrace();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[184,184], C[9,16]",
+                "Detail": null,
+                "Code": "rot != 0",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[182,182], C[15,35]",
+                "Detail": null,
+                "Code": "r.getBitmapRotation()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording)",
+                "Local": "L[208,208], C[4,104]",
+                "Detail": null,
+                "Code": "AccessibleToast.makeText(view.getContext(),R.string.recording_can_not_be_played,Toast.LENGTH_SHORT)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[155,155], C[20,49]",
+                "Detail": null,
+                "Code": "new Intent(Intent.ACTION_VIEW)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.playRecording(Recording).onClick(DialogInterface, int)",
+                "Local": "L[155,155], C[20,49]",
+                "Detail": null,
+                "Code": "new Intent(Intent.ACTION_VIEW)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[765,781], C[21,4]",
+                "Detail": null,
+                "Code": "{\n  ImageView img=new ImageView(ctx);\n  Options opts=new Options();\n  opts.inSampleSize=4;\n  int rot=r.getBitmapRotation();\n  Bitmap bmp=BitmapFactory.decodeFile(r.file.getAbsolutePath(),opts);\n  if (rot != 0) {\n    Matrix matrix=new Matrix();\n    matrix.postRotate(rot);\n    Bitmap resizedBitmap=Bitmap.createBitmap(bmp,0,0,bmp.getWidth(),bmp.getHeight(),matrix,true);\n    bmp.recycle();\n    bmp=resizedBitmap;\n  }\n  img.setImageBitmap(bmp);\n  dlg.setView(img);\n  dlg.show();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ELSE_STATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[781,793], C[11,4]",
+                "Detail": null,
+                "Code": "{\n  dlg.setMessage(ctx.getString(R.string.recording_playing,r.getDescription(ctx)));\n  player.setDataSource(r.file.getAbsolutePath());\n  player.setOnPreparedListener(new OnPreparedListener(){\n    @Override public void onPrepared(    MediaPlayer mp){\n      dlg.show();\n      player.start();\n    }\n  }\n);\n  player.prepareAsync();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[771,777], C[19,5]",
+                "Detail": null,
+                "Code": "{\n  Matrix matrix=new Matrix();\n  matrix.postRotate(rot);\n  Bitmap resizedBitmap=Bitmap.createBitmap(bmp,0,0,bmp.getWidth(),bmp.getHeight(),matrix,true);\n  bmp.recycle();\n  bmp=resizedBitmap;\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[726,726], C[2,7]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int).setDataAndType(UNKNOWN, UNKNOWN)",
+                "Local": "L[743,743], C[26,45]",
+                "Detail": null,
+                "Code": "Uri.fromFile(r.file)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[727,727], C[30,40]",
+                "Detail": null,
+                "Code": "r.isPhoto()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_NullLiteral",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[727,727], C[44,47]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[727,727], C[51,67]",
+                "Detail": null,
+                "Code": "new MediaPlayer()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[727,727], C[51,67]",
+                "Detail": null,
+                "Code": "new MediaPlayer()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[778,778], C[5,27]",
+                "Detail": null,
+                "Code": "img.setImageBitmap(bmp)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[727,727], C[3,68]",
+                "Detail": null,
+                "Code": "final MediaPlayer player=r.isPhoto() ? null : new MediaPlayer();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[728,728], C[3,69]",
+                "Detail": null,
+                "Code": "final AccessibleAlertBuilder dlg=new AccessibleAlertBuilder(ctx);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_TRYSTATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[764,796], C[3,3]",
+                "Detail": null,
+                "Code": "try {\n  if (r.isPhoto()) {\n    ImageView img=new ImageView(ctx);\n    Options opts=new Options();\n    opts.inSampleSize=4;\n    int rot=r.getBitmapRotation();\n    Bitmap bmp=BitmapFactory.decodeFile(r.file.getAbsolutePath(),opts);\n    if (rot != 0) {\n      Matrix matrix=new Matrix();\n      matrix.postRotate(rot);\n      Bitmap resizedBitmap=Bitmap.createBitmap(bmp,0,0,bmp.getWidth(),bmp.getHeight(),matrix,true);\n      bmp.recycle();\n      bmp=resizedBitmap;\n    }\n    img.setImageBitmap(bmp);\n    dlg.setView(img);\n    dlg.show();\n  }\n else {\n    dlg.setMessage(ctx.getString(R.string.recording_playing,r.getDescription(ctx)));\n    player.setDataSource(r.file.getAbsolutePath());\n    player.setOnPreparedListener(new OnPreparedListener(){\n      @Override public void onPrepared(      MediaPlayer mp){\n        dlg.show();\n        player.start();\n      }\n    }\n);\n    player.prepareAsync();\n  }\n}\n catch (Exception e) {\n  AccessibleToast.makeText(ctx,R.string.recording_can_not_be_played,Toast.LENGTH_SHORT).show();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_AnonymousClassDeclaration",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).OnClickListener",
+                "Local": "L[753,763], C[79,3]",
+                "Detail": null,
+                "Code": "{\n  @Override public void onClick(  DialogInterface dialog,  int which){\n    if (player != null && player.isPlaying()) {\n      player.stop();\n    }\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).createBitmap(UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN)",
+                "Local": "L[774,774], C[60,73]",
+                "Detail": null,
+                "Code": "bmp.getWidth()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).createBitmap(UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN)",
+                "Local": "L[774,774], C[76,90]",
+                "Detail": null,
+                "Code": "bmp.getHeight()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_BooleanLiteral",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).createBitmap(UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN)",
+                "Local": "L[774,774], C[101,104]",
+                "Detail": null,
+                "Code": "true",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_MarkerAnnotation",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onPrepared(MediaPlayer)",
+                "Local": "L[786,786], C[6,14]",
+                "Detail": null,
+                "Code": "@Override",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onPrepared(MediaPlayer)",
+                "Local": "L[787,787], C[6,11]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[757,757], C[8,21]",
+                "Detail": null,
+                "Code": "player != null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[757,757], C[26,43]",
+                "Detail": null,
+                "Code": "player.isPlaying()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.contextMenuLocalIndexes(LocalIndexesActivity, LocalIndexInfo, ContextMenuAdapter)",
+                "Local": "L[687,692], C[34,4]",
+                "Detail": null,
+                "Code": "new OnContextMenuClick(){\n  @Override public void onContextMenuClick(  int itemId,  int pos,  boolean isChecked,  DialogInterface dialog){\n    playRecording(la,ri.rec);\n  }\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 5,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.contextMenuLocalIndexes(LocalIndexesActivity, LocalIndexInfo, ContextMenuAdapter)",
+                "Local": "L[687,692], C[34,4]",
+                "Detail": null,
+                "Code": "new OnContextMenuClick(){\n  @Override public void onContextMenuClick(  int itemId,  int pos,  boolean isChecked,  DialogInterface dialog){\n    playRecording(la,ri.rec);\n  }\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 5,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[758,758], C[6,18]",
+                "Detail": null,
+                "Code": "player.stop()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[755,761], C[4,4]",
+                "Detail": null,
+                "Code": "@Override public void onClick(DialogInterface dialog,int which){\n  if (player != null && player.isPlaying()) {\n    player.stop();\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[731,751], C[4,4]",
+                "Detail": null,
+                "Code": "@Override public void onClick(DialogInterface v,int w){\n  if (player == null) {\n    Intent vint=new Intent(Intent.ACTION_VIEW);\n    vint.setDataAndType(Uri.fromFile(r.file),\"image/*\");\n    vint.setFlags(0x10000000);\n    ctx.startActivity(vint);\n  }\n else {\n    if (player.isPlaying()) {\n      player.stop();\n    }\n    Intent vint=new Intent(Intent.ACTION_VIEW);\n    vint.setDataAndType(Uri.fromFile(r.file),\"video/*\");\n    vint.setFlags(0x10000000);\n    try {\n      ctx.startActivity(vint);\n    }\n catch (    Exception e) {\n      e.printStackTrace();\n    }\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_TRY_CATCH",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[745,749], C[6,6]",
+                "Detail": null,
+                "Code": "try {\n  ctx.startActivity(vint);\n}\n catch (Exception e) {\n  e.printStackTrace();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_CATCH_CLAUSE",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[747,749], C[8,6]",
+                "Detail": null,
+                "Code": "catch (Exception e) {\n  e.printStackTrace();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_CatchClause",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[747,749], C[8,6]",
+                "Detail": null,
+                "Code": "catch (Exception e) {\n  e.printStackTrace();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[765,765], C[8,18]",
+                "Detail": null,
+                "Code": "r.isPhoto()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[792,792], C[5,25]",
+                "Detail": null,
+                "Code": "player.prepareAsync()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[746,746], C[7,29]",
+                "Detail": null,
+                "Code": "ctx.startActivity(vint)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.contextMenuLocalIndexes(LocalIndexesActivity, LocalIndexInfo, ContextMenuAdapter)",
+                "Local": "L[696,696], C[5,79]",
+                "Detail": {
+                    "previousVar": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.contextMenuLocalIndexes(LocalIndexesActivity, LocalIndexInfo, ContextMenuAdapter)>>>adapter[683,708]"
+                },
+                "Code": "adapter.registerItem(R.string.recording_context_menu_play,0,listener,-1)",
+                "relationType": "VAR_RELATED",
+                "distance": 9,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.contextMenuLocalIndexes(LocalIndexesActivity, LocalIndexInfo, ContextMenuAdapter)",
+                "Local": "L[694,694], C[5,79]",
+                "Detail": {
+                    "previousVar": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.contextMenuLocalIndexes(LocalIndexesActivity, LocalIndexInfo, ContextMenuAdapter)>>>adapter[683,708]"
+                },
+                "Code": "adapter.registerItem(R.string.recording_context_menu_show,0,listener,-1)",
+                "relationType": "VAR_RELATED",
+                "distance": 9,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[772,772], C[6,34]",
+                "Detail": null,
+                "Code": "Matrix matrix=new Matrix();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[774,774], C[6,106]",
+                "Detail": null,
+                "Code": "Bitmap resizedBitmap=Bitmap.createBitmap(bmp,0,0,bmp.getWidth(),bmp.getHeight(),matrix,true);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[776,776], C[6,25]",
+                "Detail": null,
+                "Code": "bmp=resizedBitmap;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[767,767], C[20,32]",
+                "Detail": null,
+                "Code": "new Options()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[767,767], C[20,32]",
+                "Detail": null,
+                "Code": "new Options()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[774,774], C[29,105]",
+                "Detail": null,
+                "Code": "Bitmap.createBitmap(bmp,0,0,bmp.getWidth(),bmp.getHeight(),matrix,true)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onPrepared(MediaPlayer)",
+                "Local": "L[788,788], C[7,16]",
+                "Detail": null,
+                "Code": "dlg.show()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.contextMenuLocalIndexes(LocalIndexesActivity, LocalIndexInfo, ContextMenuAdapter).onContextMenuClick(int, int, boolean, DialogInterface)",
+                "Local": "L[690,690], C[6,30]",
+                "Detail": null,
+                "Code": "playRecording(la,ri.rec)",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[786,790], C[6,6]",
+                "Detail": null,
+                "Code": "@Override public void onPrepared(MediaPlayer mp){\n  dlg.show();\n  player.start();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[775,775], C[6,18]",
+                "Detail": null,
+                "Code": "bmp.recycle()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).getString(UNKNOWN, UNKNOWN)",
+                "Local": "L[782,782], C[62,82]",
+                "Detail": null,
+                "Code": "r.getDescription(ctx)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[733,738], C[24,5]",
+                "Detail": null,
+                "Code": "{\n  Intent vint=new Intent(Intent.ACTION_VIEW);\n  vint.setDataAndType(Uri.fromFile(r.file),\"image/*\");\n  vint.setFlags(0x10000000);\n  ctx.startActivity(vint);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ELSE_STATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[738,750], C[12,5]",
+                "Detail": null,
+                "Code": "{\n  if (player.isPlaying()) {\n    player.stop();\n  }\n  Intent vint=new Intent(Intent.ACTION_VIEW);\n  vint.setDataAndType(Uri.fromFile(r.file),\"video/*\");\n  vint.setFlags(0x10000000);\n  try {\n    ctx.startActivity(vint);\n  }\n catch (  Exception e) {\n    e.printStackTrace();\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[739,741], C[30,6]",
+                "Detail": null,
+                "Code": "{\n  player.stop();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_MarkerAnnotation",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[731,731], C[4,12]",
+                "Detail": null,
+                "Code": "@Override",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[732,732], C[4,9]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.contextMenuLocalIndexes(LocalIndexesActivity, LocalIndexInfo, ContextMenuAdapter)",
+                "Local": "L[688,691], C[5,5]",
+                "Detail": null,
+                "Code": "@Override public void onContextMenuClick(int itemId,int pos,boolean isChecked,DialogInterface dialog){\n  playRecording(la,ri.rec);\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 3,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[769,769], C[15,35]",
+                "Detail": null,
+                "Code": "r.getBitmapRotation()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).SingleVariableDeclaration",
+                "Local": "L[726,726], C[28,32]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_NullLiteral",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[757,757], C[18,21]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[757,759], C[46,5]",
+                "Detail": null,
+                "Code": "{\n  player.stop();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_MarkerAnnotation",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[755,755], C[4,12]",
+                "Detail": null,
+                "Code": "@Override",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[756,756], C[4,9]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[744,744], C[6,30]",
+                "Detail": null,
+                "Code": "vint.setFlags(0x10000000)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[784,791], C[5,6]",
+                "Detail": null,
+                "Code": "player.setOnPreparedListener(new OnPreparedListener(){\n  @Override public void onPrepared(  MediaPlayer mp){\n    dlg.show();\n    player.start();\n  }\n}\n)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onPrepared(MediaPlayer)",
+                "Local": "L[789,789], C[7,20]",
+                "Detail": null,
+                "Code": "player.start()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[795,795], C[4,90]",
+                "Detail": null,
+                "Code": "AccessibleToast.makeText(ctx,R.string.recording_can_not_be_played,Toast.LENGTH_SHORT)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).setPositiveButton(UNKNOWN, UNKNOWN)",
+                "Local": "L[729,752], C[66,3]",
+                "Detail": null,
+                "Code": "new OnClickListener(){\n  @Override public void onClick(  DialogInterface v,  int w){\n    if (player == null) {\n      Intent vint=new Intent(Intent.ACTION_VIEW);\n      vint.setDataAndType(Uri.fromFile(r.file),\"image/*\");\n      vint.setFlags(0x10000000);\n      ctx.startActivity(vint);\n    }\n else {\n      if (player.isPlaying()) {\n        player.stop();\n      }\n      Intent vint=new Intent(Intent.ACTION_VIEW);\n      vint.setDataAndType(Uri.fromFile(r.file),\"video/*\");\n      vint.setFlags(0x10000000);\n      try {\n        ctx.startActivity(vint);\n      }\n catch (      Exception e) {\n        e.printStackTrace();\n      }\n    }\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).setPositiveButton(UNKNOWN, UNKNOWN)",
+                "Local": "L[729,752], C[66,3]",
+                "Detail": null,
+                "Code": "new OnClickListener(){\n  @Override public void onClick(  DialogInterface v,  int w){\n    if (player == null) {\n      Intent vint=new Intent(Intent.ACTION_VIEW);\n      vint.setDataAndType(Uri.fromFile(r.file),\"image/*\");\n      vint.setFlags(0x10000000);\n      ctx.startActivity(vint);\n    }\n else {\n      if (player.isPlaying()) {\n        player.stop();\n      }\n      Intent vint=new Intent(Intent.ACTION_VIEW);\n      vint.setDataAndType(Uri.fromFile(r.file),\"video/*\");\n      vint.setFlags(0x10000000);\n      try {\n        ctx.startActivity(vint);\n      }\n catch (      Exception e) {\n        e.printStackTrace();\n      }\n    }\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).setDataSource(UNKNOWN)",
+                "Local": "L[783,783], C[26,49]",
+                "Detail": null,
+                "Code": "r.file.getAbsolutePath()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int).setDataAndType(UNKNOWN, UNKNOWN)",
+                "Local": "L[735,735], C[26,45]",
+                "Detail": null,
+                "Code": "Uri.fromFile(r.file)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[742,742], C[6,50]",
+                "Detail": null,
+                "Code": "Intent vint=new Intent(Intent.ACTION_VIEW);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_TRYSTATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[745,749], C[6,6]",
+                "Detail": null,
+                "Code": "try {\n  ctx.startActivity(vint);\n}\n catch (Exception e) {\n  e.printStackTrace();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_AnonymousClassDeclaration",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).OnPreparedListener",
+                "Local": "L[784,791], C[59,5]",
+                "Detail": null,
+                "Code": "{\n  @Override public void onPrepared(  MediaPlayer mp){\n    dlg.show();\n    player.start();\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[727,727], C[3,7]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[753,763], C[3,4]",
+                "Detail": null,
+                "Code": "dlg.setNegativeButton(R.string.default_buttons_cancel,new OnClickListener(){\n  @Override public void onClick(  DialogInterface dialog,  int which){\n    if (player != null && player.isPlaying()) {\n      player.stop();\n    }\n  }\n}\n)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[766,766], C[21,38]",
+                "Detail": null,
+                "Code": "new ImageView(ctx)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[766,766], C[21,38]",
+                "Detail": null,
+                "Code": "new ImageView(ctx)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.contextMenuLocalIndexes(LocalIndexesActivity, LocalIndexInfo, ContextMenuAdapter)",
+                "Local": "L[687,692], C[4,5]",
+                "Detail": null,
+                "Code": "OnContextMenuClick listener=new OnContextMenuClick(){\n  @Override public void onContextMenuClick(  int itemId,  int pos,  boolean isChecked,  DialogInterface dialog){\n    playRecording(la,ri.rec);\n  }\n}\n;\n",
+                "relationType": "CALL_TARGET",
+                "distance": 7,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).setMessage(UNKNOWN)",
+                "Local": "L[782,782], C[20,83]",
+                "Detail": null,
+                "Code": "ctx.getString(R.string.recording_playing,r.getDescription(ctx))",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[735,735], C[6,57]",
+                "Detail": null,
+                "Code": "vint.setDataAndType(Uri.fromFile(r.file),\"image/*\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[743,743], C[6,57]",
+                "Detail": null,
+                "Code": "vint.setDataAndType(Uri.fromFile(r.file),\"video/*\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[772,772], C[22,33]",
+                "Detail": null,
+                "Code": "new Matrix()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[772,772], C[22,33]",
+                "Detail": null,
+                "Code": "new Matrix()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[739,739], C[10,27]",
+                "Detail": null,
+                "Code": "player.isPlaying()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[733,733], C[8,21]",
+                "Detail": null,
+                "Code": "player == null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "CHANGED_EXISTING_IF_BLOCK",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.contextMenuLocalIndexes(LocalIndexesActivity, LocalIndexInfo, ContextMenuAdapter)",
+                "Local": "L[685,707], C[49,3]",
+                "Detail": null,
+                "Code": "{\n  final RecordingLocalIndexInfo ri=(RecordingLocalIndexInfo)info;\n  OnContextMenuClick listener=new OnContextMenuClick(){\n    @Override public void onContextMenuClick(    int itemId,    int pos,    boolean isChecked,    DialogInterface dialog){\n      playRecording(la,ri.rec);\n    }\n  }\n;\n  if (ri.rec.isPhoto()) {\n    adapter.registerItem(R.string.recording_context_menu_show,0,listener,-1);\n  }\n else {\n    adapter.registerItem(R.string.recording_context_menu_play,0,listener,-1);\n  }\n  adapter.registerItem(R.string.show_location,0,new OnContextMenuClick(){\n    @Override public void onContextMenuClick(    int itemId,    int pos,    boolean isChecked,    DialogInterface dialog){\n      app.getSettings().SHOW_RECORDINGS.set(true);\n      app.getSettings().setMapLocationToShow(ri.rec.lat,ri.rec.lon,app.getSettings().getLastKnownMapZoom());\n      MapActivity.launchMapActivityMoveToTop(la);\n    }\n  }\n,0);\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 8,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.contextMenuLocalIndexes(LocalIndexesActivity, LocalIndexInfo, ContextMenuAdapter)",
+                "Local": "L[693,695], C[25,4]",
+                "Detail": {
+                    "previousVar": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.contextMenuLocalIndexes(LocalIndexesActivity, LocalIndexInfo, ContextMenuAdapter)>>>adapter[683,708]"
+                },
+                "Code": "{\n  adapter.registerItem(R.string.recording_context_menu_show,0,listener,-1);\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 9,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ELSE_STATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.contextMenuLocalIndexes(LocalIndexesActivity, LocalIndexInfo, ContextMenuAdapter)",
+                "Local": "L[695,697], C[11,4]",
+                "Detail": {
+                    "previousVar": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.contextMenuLocalIndexes(LocalIndexesActivity, LocalIndexInfo, ContextMenuAdapter)>>>adapter[683,708]"
+                },
+                "Code": "{\n  adapter.registerItem(R.string.recording_context_menu_play,0,listener,-1);\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 9,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[736,736], C[6,30]",
+                "Detail": null,
+                "Code": "vint.setFlags(0x10000000)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[737,737], C[6,28]",
+                "Detail": null,
+                "Code": "ctx.startActivity(vint)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[766,766], C[5,39]",
+                "Detail": null,
+                "Code": "ImageView img=new ImageView(ctx);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[767,767], C[5,33]",
+                "Detail": null,
+                "Code": "Options opts=new Options();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[768,768], C[5,26]",
+                "Detail": null,
+                "Code": "opts.inSampleSize=4;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[769,769], C[5,36]",
+                "Detail": null,
+                "Code": "int rot=r.getBitmapRotation();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[770,770], C[5,74]",
+                "Detail": null,
+                "Code": "Bitmap bmp=BitmapFactory.decodeFile(r.file.getAbsolutePath(),opts);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[780,780], C[5,14]",
+                "Detail": null,
+                "Code": "dlg.show()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[740,740], C[7,19]",
+                "Detail": null,
+                "Code": "player.stop()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).setOnPreparedListener(UNKNOWN)",
+                "Local": "L[784,791], C[34,5]",
+                "Detail": null,
+                "Code": "new OnPreparedListener(){\n  @Override public void onPrepared(  MediaPlayer mp){\n    dlg.show();\n    player.start();\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).setOnPreparedListener(UNKNOWN)",
+                "Local": "L[784,791], C[34,5]",
+                "Detail": null,
+                "Code": "new OnPreparedListener(){\n  @Override public void onPrepared(  MediaPlayer mp){\n    dlg.show();\n    player.start();\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[734,734], C[6,50]",
+                "Detail": null,
+                "Code": "Intent vint=new Intent(Intent.ACTION_VIEW);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_AnonymousClassDeclaration",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.contextMenuLocalIndexes(LocalIndexesActivity, LocalIndexInfo, ContextMenuAdapter).OnContextMenuClick",
+                "Local": "L[687,692], C[59,4]",
+                "Detail": null,
+                "Code": "{\n  @Override public void onContextMenuClick(  int itemId,  int pos,  boolean isChecked,  DialogInterface dialog){\n    playRecording(la,ri.rec);\n  }\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 4,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[771,771], C[9,16]",
+                "Detail": null,
+                "Code": "rot != 0",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[728,728], C[3,7]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[728,728], C[38,68]",
+                "Detail": null,
+                "Code": "new AccessibleAlertBuilder(ctx)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[728,728], C[38,68]",
+                "Detail": null,
+                "Code": "new AccessibleAlertBuilder(ctx)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[773,773], C[6,27]",
+                "Detail": null,
+                "Code": "matrix.postRotate(rot)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[782,782], C[5,84]",
+                "Detail": null,
+                "Code": "dlg.setMessage(ctx.getString(R.string.recording_playing,r.getDescription(ctx)))",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).setNegativeButton(UNKNOWN, UNKNOWN)",
+                "Local": "L[753,763], C[58,3]",
+                "Detail": null,
+                "Code": "new OnClickListener(){\n  @Override public void onClick(  DialogInterface dialog,  int which){\n    if (player != null && player.isPlaying()) {\n      player.stop();\n    }\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).setNegativeButton(UNKNOWN, UNKNOWN)",
+                "Local": "L[753,763], C[58,3]",
+                "Detail": null,
+                "Code": "new OnClickListener(){\n  @Override public void onClick(  DialogInterface dialog,  int which){\n    if (player != null && player.isPlaying()) {\n      player.stop();\n    }\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[783,783], C[5,50]",
+                "Detail": null,
+                "Code": "player.setDataSource(r.file.getAbsolutePath())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_AnonymousClassDeclaration",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).OnClickListener",
+                "Local": "L[729,752], C[88,3]",
+                "Detail": null,
+                "Code": "{\n  @Override public void onClick(  DialogInterface v,  int w){\n    if (player == null) {\n      Intent vint=new Intent(Intent.ACTION_VIEW);\n      vint.setDataAndType(Uri.fromFile(r.file),\"image/*\");\n      vint.setFlags(0x10000000);\n      ctx.startActivity(vint);\n    }\n else {\n      if (player.isPlaying()) {\n        player.stop();\n      }\n      Intent vint=new Intent(Intent.ACTION_VIEW);\n      vint.setDataAndType(Uri.fromFile(r.file),\"video/*\");\n      vint.setFlags(0x10000000);\n      try {\n        ctx.startActivity(vint);\n      }\n catch (      Exception e) {\n        e.printStackTrace();\n      }\n    }\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[742,742], C[20,49]",
+                "Detail": null,
+                "Code": "new Intent(Intent.ACTION_VIEW)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[742,742], C[20,49]",
+                "Detail": null,
+                "Code": "new Intent(Intent.ACTION_VIEW)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).SingleVariableDeclaration",
+                "Local": "L[726,726], C[47,51]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[770,770], C[18,73]",
+                "Detail": null,
+                "Code": "BitmapFactory.decodeFile(r.file.getAbsolutePath(),opts)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_NullLiteral",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[733,733], C[18,21]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[734,734], C[20,49]",
+                "Detail": null,
+                "Code": "new Intent(Intent.ACTION_VIEW)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[734,734], C[20,49]",
+                "Detail": null,
+                "Code": "new Intent(Intent.ACTION_VIEW)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).decodeFile(UNKNOWN, UNKNOWN)",
+                "Local": "L[770,770], C[43,66]",
+                "Detail": null,
+                "Code": "r.file.getAbsolutePath()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ConditionalExpression",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[727,727], C[30,67]",
+                "Detail": null,
+                "Code": "r.isPhoto() ? null : new MediaPlayer()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[729,752], C[3,4]",
+                "Detail": null,
+                "Code": "dlg.setPositiveButton(R.string.recording_open_external_player,new OnClickListener(){\n  @Override public void onClick(  DialogInterface v,  int w){\n    if (player == null) {\n      Intent vint=new Intent(Intent.ACTION_VIEW);\n      vint.setDataAndType(Uri.fromFile(r.file),\"image/*\");\n      vint.setFlags(0x10000000);\n      ctx.startActivity(vint);\n    }\n else {\n      if (player.isPlaying()) {\n        player.stop();\n      }\n      Intent vint=new Intent(Intent.ACTION_VIEW);\n      vint.setDataAndType(Uri.fromFile(r.file),\"video/*\");\n      vint.setFlags(0x10000000);\n      try {\n        ctx.startActivity(vint);\n      }\n catch (      Exception e) {\n        e.printStackTrace();\n      }\n    }\n  }\n}\n)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[779,779], C[5,20]",
+                "Detail": null,
+                "Code": "dlg.setView(img)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording).onClick(DialogInterface, int)",
+                "Local": "L[748,748], C[7,25]",
+                "Detail": null,
+                "Code": "e.printStackTrace()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_TRY_CATCH",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[764,796], C[3,3]",
+                "Detail": null,
+                "Code": "try {\n  if (r.isPhoto()) {\n    ImageView img=new ImageView(ctx);\n    Options opts=new Options();\n    opts.inSampleSize=4;\n    int rot=r.getBitmapRotation();\n    Bitmap bmp=BitmapFactory.decodeFile(r.file.getAbsolutePath(),opts);\n    if (rot != 0) {\n      Matrix matrix=new Matrix();\n      matrix.postRotate(rot);\n      Bitmap resizedBitmap=Bitmap.createBitmap(bmp,0,0,bmp.getWidth(),bmp.getHeight(),matrix,true);\n      bmp.recycle();\n      bmp=resizedBitmap;\n    }\n    img.setImageBitmap(bmp);\n    dlg.setView(img);\n    dlg.show();\n  }\n else {\n    dlg.setMessage(ctx.getString(R.string.recording_playing,r.getDescription(ctx)));\n    player.setDataSource(r.file.getAbsolutePath());\n    player.setOnPreparedListener(new OnPreparedListener(){\n      @Override public void onPrepared(      MediaPlayer mp){\n        dlg.show();\n        player.start();\n      }\n    }\n);\n    player.prepareAsync();\n  }\n}\n catch (Exception e) {\n  AccessibleToast.makeText(ctx,R.string.recording_can_not_be_played,Toast.LENGTH_SHORT).show();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_CATCH_CLAUSE",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[794,796], C[5,3]",
+                "Detail": null,
+                "Code": "catch (Exception e) {\n  AccessibleToast.makeText(ctx,R.string.recording_can_not_be_played,Toast.LENGTH_SHORT).show();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_CatchClause",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.playRecording(Context, Recording)",
+                "Local": "L[794,796], C[5,3]",
+                "Detail": null,
+                "Code": "catch (Exception e) {\n  AccessibleToast.makeText(ctx,R.string.recording_can_not_be_played,Toast.LENGTH_SHORT).show();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "CHANGED_ANONYMOUS_DECLARATION",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.populateObjectContextMenu(Object, ContextMenuAdapter)",
+                "Local": "L[117,129], C[34,4]",
+                "Detail": null,
+                "Code": "new ContextMenuAdapter.OnContextMenuClick(){\n  @Override public void onContextMenuClick(  int itemId,  int pos,  boolean isChecked,  DialogInterface dialog){\n    if (itemId == R.string.recording_context_menu_play || itemId == R.string.recording_context_menu_show) {\n      plugin.playRecording(view.getContext(),r);\n    }\n else     if (itemId == R.string.recording_context_menu_delete) {\n      deleteRecording(r);\n    }\n  }\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "CHANGED_ClassInstanceCreation",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.populateObjectContextMenu(Object, ContextMenuAdapter)",
+                "Local": "L[117,129], C[34,4]",
+                "Detail": null,
+                "Code": "new ContextMenuAdapter.OnContextMenuClick(){\n  @Override public void onContextMenuClick(  int itemId,  int pos,  boolean isChecked,  DialogInterface dialog){\n    if (itemId == R.string.recording_context_menu_play || itemId == R.string.recording_context_menu_show) {\n      plugin.playRecording(view.getContext(),r);\n    }\n else     if (itemId == R.string.recording_context_menu_delete) {\n      deleteRecording(r);\n    }\n  }\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.populateObjectContextMenu(Object, ContextMenuAdapter).onContextMenuClick(int, int, boolean, DialogInterface).playRecording(UNKNOWN, UNKNOWN)",
+                "Local": "L[122,122], C[28,44]",
+                "Detail": null,
+                "Code": "view.getContext()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "METHOD_CALL_ARGUMENTS_CHANGE",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.populateObjectContextMenu(Object, ContextMenuAdapter).onContextMenuClick(int, int, boolean, DialogInterface).playRecording(UNKNOWN, UNKNOWN)",
+                "Local": "L[122,122], C[7,48]",
+                "Detail": null,
+                "Code": "plugin.playRecording(view.getContext(),r)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "CHANGED_VARIABLE",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.populateObjectContextMenu(Object, ContextMenuAdapter)",
+                "Local": "L[117,129], C[4,5]",
+                "Detail": null,
+                "Code": "OnContextMenuClick listener=new ContextMenuAdapter.OnContextMenuClick(){\n  @Override public void onContextMenuClick(  int itemId,  int pos,  boolean isChecked,  DialogInterface dialog){\n    if (itemId == R.string.recording_context_menu_play || itemId == R.string.recording_context_menu_show) {\n      plugin.playRecording(view.getContext(),r);\n    }\n else     if (itemId == R.string.recording_context_menu_delete) {\n      deleteRecording(r);\n    }\n  }\n}\n;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "CHANGED_EXISTING_IF_BLOCK",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.populateObjectContextMenu(Object, ContextMenuAdapter)",
+                "Local": "L[115,136], C[31,3]",
+                "Detail": null,
+                "Code": "{\n  final Recording r=(Recording)o;\n  OnContextMenuClick listener=new ContextMenuAdapter.OnContextMenuClick(){\n    @Override public void onContextMenuClick(    int itemId,    int pos,    boolean isChecked,    DialogInterface dialog){\n      if (itemId == R.string.recording_context_menu_play || itemId == R.string.recording_context_menu_show) {\n        plugin.playRecording(view.getContext(),r);\n      }\n else       if (itemId == R.string.recording_context_menu_delete) {\n        deleteRecording(r);\n      }\n    }\n  }\n;\n  if (r.isPhoto()) {\n    adapter.registerItem(R.string.recording_context_menu_show,0,listener,-1);\n  }\n else {\n    adapter.registerItem(R.string.recording_context_menu_play,0,listener,-1);\n  }\n  adapter.registerItem(R.string.recording_context_menu_delete,0,listener,-1);\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "CHANGED_VAR_VALUE",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.populateObjectContextMenu(Object, ContextMenuAdapter)",
+                "Local": "L[117,129], C[23,4]",
+                "Detail": null,
+                "Code": "listener=new ContextMenuAdapter.OnContextMenuClick(){\n  @Override public void onContextMenuClick(  int itemId,  int pos,  boolean isChecked,  DialogInterface dialog){\n    if (itemId == R.string.recording_context_menu_play || itemId == R.string.recording_context_menu_show) {\n      plugin.playRecording(view.getContext(),r);\n    }\n else     if (itemId == R.string.recording_context_menu_delete) {\n      deleteRecording(r);\n    }\n  }\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "CHANGED_EXISTING_IF_BLOCK",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.populateObjectContextMenu(Object, ContextMenuAdapter).onContextMenuClick(int, int, boolean, DialogInterface)",
+                "Local": "L[121,123], C[56,6]",
+                "Detail": null,
+                "Code": "{\n  plugin.playRecording(view.getContext(),r);\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "CHANGED_AnonymousClassDeclaration",
+                "Method": "net.osmand.plus.audionotes.AudioNotesLayer.populateObjectContextMenu(Object, ContextMenuAdapter).ContextMenuAdapter.OnContextMenuClick",
+                "Local": "L[117,129], C[78,4]",
+                "Detail": null,
+                "Code": "{\n  @Override public void onContextMenuClick(  int itemId,  int pos,  boolean isChecked,  DialogInterface dialog){\n    if (itemId == R.string.recording_context_menu_play || itemId == R.string.recording_context_menu_show) {\n      plugin.playRecording(view.getContext(),r);\n    }\n else     if (itemId == R.string.recording_context_menu_delete) {\n      deleteRecording(r);\n    }\n  }\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java"
+            },
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "net.osmand.plus.audionotes.CompilationUnit",
+                "Local": "L[16,16], C[1,48]",
+                "Detail": null,
+                "Code": "import net.osmand.access.AccessibleAlertBuilder;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "net.osmand.plus.audionotes.CompilationUnit",
+                "Local": "L[16,16], C[1,48]",
+                "Detail": null,
+                "Code": "import net.osmand.access.AccessibleAlertBuilder;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "net.osmand.plus.audionotes.CompilationUnit",
+                "Local": "L[46,46], C[1,55]",
+                "Detail": null,
+                "Code": "import android.content.DialogInterface.OnClickListener;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "net.osmand.plus.audionotes.CompilationUnit",
+                "Local": "L[46,46], C[1,55]",
+                "Detail": null,
+                "Code": "import android.content.DialogInterface.OnClickListener;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "net.osmand.plus.audionotes.CompilationUnit",
+                "Local": "L[47,47], C[1,31]",
+                "Detail": null,
+                "Code": "import android.graphics.Bitmap;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "net.osmand.plus.audionotes.CompilationUnit",
+                "Local": "L[47,47], C[1,31]",
+                "Detail": null,
+                "Code": "import android.graphics.Bitmap;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "net.osmand.plus.audionotes.CompilationUnit",
+                "Local": "L[48,48], C[1,38]",
+                "Detail": null,
+                "Code": "import android.graphics.BitmapFactory;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "net.osmand.plus.audionotes.CompilationUnit",
+                "Local": "L[48,48], C[1,38]",
+                "Detail": null,
+                "Code": "import android.graphics.BitmapFactory;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "net.osmand.plus.audionotes.CompilationUnit",
+                "Local": "L[49,49], C[1,31]",
+                "Detail": null,
+                "Code": "import android.graphics.Matrix;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "net.osmand.plus.audionotes.CompilationUnit",
+                "Local": "L[49,49], C[1,31]",
+                "Detail": null,
+                "Code": "import android.graphics.Matrix;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "net.osmand.plus.audionotes.CompilationUnit",
+                "Local": "L[50,50], C[1,46]",
+                "Detail": null,
+                "Code": "import android.graphics.BitmapFactory.Options;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "net.osmand.plus.audionotes.CompilationUnit",
+                "Local": "L[50,50], C[1,46]",
+                "Detail": null,
+                "Code": "import android.graphics.BitmapFactory.Options;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "net.osmand.plus.audionotes.CompilationUnit",
+                "Local": "L[55,55], C[1,52]",
+                "Detail": null,
+                "Code": "import android.media.MediaPlayer.OnPreparedListener;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "net.osmand.plus.audionotes.CompilationUnit",
+                "Local": "L[55,55], C[1,52]",
+                "Detail": null,
+                "Code": "import android.media.MediaPlayer.OnPreparedListener;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "net.osmand.plus.audionotes.CompilationUnit",
+                "Local": "L[71,71], C[1,32]",
+                "Detail": null,
+                "Code": "import android.widget.ImageView;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "net.osmand.plus.audionotes.CompilationUnit",
+                "Local": "L[71,71], C[1,32]",
+                "Detail": null,
+                "Code": "import android.widget.ImageView;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_PrefixExpression",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.contextMenuLocalIndexes(LocalIndexesActivity, LocalIndexInfo, ContextMenuAdapter).registerItem(UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN)",
+                "Local": "L[696,696], C[77,78]",
+                "Detail": null,
+                "Code": "-1",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_MarkerAnnotation",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.contextMenuLocalIndexes(LocalIndexesActivity, LocalIndexInfo, ContextMenuAdapter).onContextMenuClick(int, int, boolean, DialogInterface)",
+                "Local": "L[688,688], C[5,13]",
+                "Detail": null,
+                "Code": "@Override",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.contextMenuLocalIndexes(LocalIndexesActivity, LocalIndexInfo, ContextMenuAdapter).onContextMenuClick(int, int, boolean, DialogInterface)",
+                "Local": "L[689,689], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.contextMenuLocalIndexes(LocalIndexesActivity, LocalIndexInfo, ContextMenuAdapter)",
+                "Local": "L[693,693], C[7,22]",
+                "Detail": null,
+                "Code": "ri.rec.isPhoto()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.indexFile(File)",
+                "Local": "L[553,555], C[13,3]",
+                "Detail": null,
+                "Code": "{\n  encodeName=encodeName.substring(0,i);\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "CHANGED_EXISTING_IF_BLOCK",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.recordVideoCamera(double, double, MapActivity).surfaceCreated(SurfaceHolder)",
+                "Local": "L[413,415], C[84,5]",
+                "Detail": null,
+                "Code": "{\n  ext=THREEGP_EXTENSION;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.recordVideoCamera(double, double, MapActivity).surfaceCreated(SurfaceHolder)",
+                "Local": "L[420,422], C[84,5]",
+                "Detail": null,
+                "Code": "{\n  mr.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            },
+            {
+                "Metric": "ADDED_PrefixExpression",
+                "Method": "net.osmand.plus.audionotes.AudioVideoNotesPlugin.contextMenuLocalIndexes(LocalIndexesActivity, LocalIndexInfo, ContextMenuAdapter).registerItem(UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN)",
+                "Local": "L[694,694], C[77,78]",
+                "Detail": null,
+                "Code": "-1",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java"
+            }
+        ],
+        "metadata": {
+            "type": "Move Method",
+            "description": "Move Method private playRecording(r Recording) : void from class net.osmand.plus.audionotes.AudioNotesLayer to public playRecording(ctx Context, r Recording) : void from class net.osmand.plus.audionotes.AudioVideoNotesPlugin",
+            "leftSideLocations": [
+                {
+                    "filePath": "OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java",
+                    "startLine": 139,
+                    "endLine": 210,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private playRecording(r Recording) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java",
+                    "startLine": 726,
+                    "endLine": 797,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public playRecording(ctx Context, r Recording) : void"
+                }
+            ]
+        }
+    }
+]

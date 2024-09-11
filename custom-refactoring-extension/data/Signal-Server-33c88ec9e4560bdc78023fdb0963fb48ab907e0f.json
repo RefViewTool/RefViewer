@@ -1,0 +1,352 @@
+[
+    {
+        "commit": "33c88ec9e4560bdc78023fdb0963fb48ab907e0f",
+        "source": [
+            {
+                "element": "org.whispersystems.textsecuregcm.websocket.AuthenticatedConnectListener.updateLastSeen(Account, Device)",
+                "file": "src/main/java/org/whispersystems/textsecuregcm/websocket/AuthenticatedConnectListener.java",
+                "local": "L[70,75], C[3,3]"
+            }
+        ],
+        "target": [
+            {
+                "element": "org.whispersystems.textsecuregcm.auth.AccountAuthenticator.updateLastSeen(Account, Device)",
+                "file": "src/main/java/org/whispersystems/textsecuregcm/auth/AccountAuthenticator.java",
+                "local": "L[82,87], C[3,3]"
+            }
+        ],
+        "type": "MOVE_METHOD",
+        "related": [
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "org.whispersystems.textsecuregcm.auth.AccountAuthenticator",
+                "Local": "L[82,87], C[3,3]",
+                "Detail": {
+                    "method": "org.whispersystems.textsecuregcm.auth.AccountAuthenticator.updateLastSeen(Account, Device)",
+                    "blockPos": "L[82,87], C[63,3]"
+                },
+                "Code": "private void updateLastSeen(Account account,Device device){\n  if (device.getLastSeen() != Util.todayInMillis()) {\n    device.setLastSeen(Util.todayInMillis());\n    accountsManager.update(account);\n  }\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/auth/AccountAuthenticator.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "org.whispersystems.textsecuregcm.websocket.AuthenticatedConnectListener",
+                "Local": "L[70,75], C[3,3]",
+                "Detail": {
+                    "method": "org.whispersystems.textsecuregcm.websocket.AuthenticatedConnectListener.updateLastSeen(Account, Device)",
+                    "blockPos": "L[70,75], C[63,3]"
+                },
+                "Code": "private void updateLastSeen(Account account,Device device){\n  if (device.getLastSeen() != Util.todayInMillis()) {\n    device.setLastSeen(Util.todayInMillis());\n    accountsManager.update(account);\n  }\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/websocket/AuthenticatedConnectListener.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.whispersystems.textsecuregcm.auth.AccountAuthenticator.updateLastSeen(Account, Device)",
+                "Local": "L[83,83], C[9,28]",
+                "Detail": null,
+                "Code": "device.getLastSeen()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/auth/AccountAuthenticator.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.whispersystems.textsecuregcm.auth.AccountAuthenticator.updateLastSeen(Account, Device)",
+                "Local": "L[83,83], C[33,52]",
+                "Detail": null,
+                "Code": "Util.todayInMillis()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/auth/AccountAuthenticator.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "org.whispersystems.textsecuregcm.auth.AccountAuthenticator.updateLastSeen(Account, Device)",
+                "Local": "L[83,86], C[55,5]",
+                "Detail": null,
+                "Code": "{\n  device.setLastSeen(Util.todayInMillis());\n  accountsManager.update(account);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/auth/AccountAuthenticator.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.whispersystems.textsecuregcm.auth.AccountAuthenticator.updateLastSeen(Account, Device)",
+                "Local": "L[82,82], C[3,9]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/auth/AccountAuthenticator.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.whispersystems.textsecuregcm.auth.AccountAuthenticator.authenticate(BasicCredentials).updateLastSeen(Account, Device)",
+                "Local": "L[71,71], C[24,36]",
+                "Detail": {
+                    "previousVar": "org.whispersystems.textsecuregcm.auth.AccountAuthenticator.authenticate(BasicCredentials)>>>account[56,77]"
+                },
+                "Code": "account.get()",
+                "relationType": "VAR_RELATED",
+                "distance": 6,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/auth/AccountAuthenticator.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.whispersystems.textsecuregcm.auth.AccountAuthenticator.authenticate(BasicCredentials).updateLastSeen(Account, Device)",
+                "Local": "L[71,71], C[39,50]",
+                "Detail": {
+                    "previousVar": "org.whispersystems.textsecuregcm.auth.AccountAuthenticator.authenticate(BasicCredentials)>>>device[62,77]"
+                },
+                "Code": "device.get()",
+                "relationType": "VAR_RELATED",
+                "distance": 6,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/auth/AccountAuthenticator.java"
+            },
+            {
+                "Metric": "CHANGED_EXISTING_IF_BLOCK",
+                "Method": "org.whispersystems.textsecuregcm.auth.AccountAuthenticator.authenticate(BasicCredentials)",
+                "Local": "L[68,73], C[95,7]",
+                "Detail": null,
+                "Code": "{\n  authenticationSucceededMeter.mark();\n  account.get().setAuthenticatedDevice(device.get());\n  updateLastSeen(account.get(),device.get());\n  return account;\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 2,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/auth/AccountAuthenticator.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.whispersystems.textsecuregcm.auth.AccountAuthenticator.updateLastSeen(Account, Device)",
+                "Local": "L[85,85], C[7,37]",
+                "Detail": null,
+                "Code": "accountsManager.update(account)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/auth/AccountAuthenticator.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.whispersystems.textsecuregcm.auth.AccountAuthenticator.authenticate(BasicCredentials)",
+                "Local": "L[71,71], C[9,51]",
+                "Detail": null,
+                "Code": "updateLastSeen(account.get(),device.get())",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/auth/AccountAuthenticator.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.whispersystems.textsecuregcm.auth.AccountAuthenticator.updateLastSeen(Account, Device)",
+                "Local": "L[84,84], C[7,46]",
+                "Detail": null,
+                "Code": "device.setLastSeen(Util.todayInMillis())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/auth/AccountAuthenticator.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.whispersystems.textsecuregcm.auth.AccountAuthenticator.updateLastSeen(Account, Device).setLastSeen(UNKNOWN)",
+                "Local": "L[84,84], C[26,45]",
+                "Detail": null,
+                "Code": "Util.todayInMillis()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/auth/AccountAuthenticator.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "org.whispersystems.textsecuregcm.auth.AccountAuthenticator.updateLastSeen(Account, Device)",
+                "Local": "L[83,83], C[9,52]",
+                "Detail": null,
+                "Code": "device.getLastSeen() != Util.todayInMillis()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/auth/AccountAuthenticator.java"
+            },
+            {
+                "Metric": "TRY_CATCH_CHANGE",
+                "Method": "org.whispersystems.textsecuregcm.auth.AccountAuthenticator.authenticate(BasicCredentials)",
+                "Local": "L[54,79], C[5,5]",
+                "Detail": null,
+                "Code": "try {\n  AuthorizationHeader authorizationHeader=AuthorizationHeader.fromUserAndPassword(basicCredentials.getUsername(),basicCredentials.getPassword());\n  Optional<Account> account=accountsManager.get(authorizationHeader.getNumber());\n  if (!account.isPresent()) {\n    return Optional.absent();\n  }\n  Optional<Device> device=account.get().getDevice(authorizationHeader.getDeviceId());\n  if (!device.isPresent()) {\n    return Optional.absent();\n  }\n  if (device.get().getAuthenticationCredentials().verify(basicCredentials.getPassword())) {\n    authenticationSucceededMeter.mark();\n    account.get().setAuthenticatedDevice(device.get());\n    updateLastSeen(account.get(),device.get());\n    return account;\n  }\n  authenticationFailedMeter.mark();\n  return Optional.absent();\n}\n catch (InvalidAuthorizationHeaderException iahe) {\n  return Optional.absent();\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 5,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/auth/AccountAuthenticator.java"
+            },
+            {
+                "Metric": "CHANGED_TRYSTATEMENT",
+                "Method": "org.whispersystems.textsecuregcm.auth.AccountAuthenticator.authenticate(BasicCredentials)",
+                "Local": "L[54,79], C[5,5]",
+                "Detail": null,
+                "Code": "try {\n  AuthorizationHeader authorizationHeader=AuthorizationHeader.fromUserAndPassword(basicCredentials.getUsername(),basicCredentials.getPassword());\n  Optional<Account> account=accountsManager.get(authorizationHeader.getNumber());\n  if (!account.isPresent()) {\n    return Optional.absent();\n  }\n  Optional<Device> device=account.get().getDevice(authorizationHeader.getDeviceId());\n  if (!device.isPresent()) {\n    return Optional.absent();\n  }\n  if (device.get().getAuthenticationCredentials().verify(basicCredentials.getPassword())) {\n    authenticationSucceededMeter.mark();\n    account.get().setAuthenticatedDevice(device.get());\n    updateLastSeen(account.get(),device.get());\n    return account;\n  }\n  authenticationFailedMeter.mark();\n  return Optional.absent();\n}\n catch (InvalidAuthorizationHeaderException iahe) {\n  return Optional.absent();\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 5,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/auth/AccountAuthenticator.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.whispersystems.textsecuregcm.websocket.AuthenticatedConnectListener.updateLastSeen(Account, Device)",
+                "Local": "L[73,73], C[7,37]",
+                "Detail": null,
+                "Code": "accountsManager.update(account)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/websocket/AuthenticatedConnectListener.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.whispersystems.textsecuregcm.websocket.AuthenticatedConnectListener.onWebSocketConnect(WebSocketSessionContext)",
+                "Local": "L[58,58], C[5,35]",
+                "Detail": null,
+                "Code": "updateLastSeen(account,device)",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/websocket/AuthenticatedConnectListener.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.whispersystems.textsecuregcm.websocket.AuthenticatedConnectListener.updateLastSeen(Account, Device).setLastSeen(UNKNOWN)",
+                "Local": "L[72,72], C[26,45]",
+                "Detail": null,
+                "Code": "Util.todayInMillis()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/websocket/AuthenticatedConnectListener.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "org.whispersystems.textsecuregcm.websocket.AuthenticatedConnectListener.updateLastSeen(Account, Device)",
+                "Local": "L[71,71], C[9,52]",
+                "Detail": null,
+                "Code": "device.getLastSeen() != Util.todayInMillis()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/websocket/AuthenticatedConnectListener.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.whispersystems.textsecuregcm.websocket.AuthenticatedConnectListener.updateLastSeen(Account, Device)",
+                "Local": "L[70,70], C[3,9]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/websocket/AuthenticatedConnectListener.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "org.whispersystems.textsecuregcm.websocket.AuthenticatedConnectListener.updateLastSeen(Account, Device)",
+                "Local": "L[71,74], C[55,5]",
+                "Detail": null,
+                "Code": "{\n  device.setLastSeen(Util.todayInMillis());\n  accountsManager.update(account);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/websocket/AuthenticatedConnectListener.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.whispersystems.textsecuregcm.websocket.AuthenticatedConnectListener.updateLastSeen(Account, Device)",
+                "Local": "L[71,71], C[9,28]",
+                "Detail": null,
+                "Code": "device.getLastSeen()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/websocket/AuthenticatedConnectListener.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.whispersystems.textsecuregcm.websocket.AuthenticatedConnectListener.updateLastSeen(Account, Device)",
+                "Local": "L[71,71], C[33,52]",
+                "Detail": null,
+                "Code": "Util.todayInMillis()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/websocket/AuthenticatedConnectListener.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.whispersystems.textsecuregcm.websocket.AuthenticatedConnectListener.updateLastSeen(Account, Device)",
+                "Local": "L[72,72], C[7,46]",
+                "Detail": null,
+                "Code": "device.setLastSeen(Util.todayInMillis())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/websocket/AuthenticatedConnectListener.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "org.whispersystems.textsecuregcm.auth.CompilationUnit",
+                "Local": "L[30,30], C[1,50]",
+                "Detail": null,
+                "Code": "import org.whispersystems.textsecuregcm.util.Util;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/auth/AccountAuthenticator.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "org.whispersystems.textsecuregcm.auth.CompilationUnit",
+                "Local": "L[30,30], C[1,50]",
+                "Detail": null,
+                "Code": "import org.whispersystems.textsecuregcm.util.Util;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/auth/AccountAuthenticator.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "org.whispersystems.textsecuregcm.auth.AccountAuthenticator.authenticate(BasicCredentials)",
+                "Local": "L[58,60], C[33,7]",
+                "Detail": null,
+                "Code": "{\n  return Optional.absent();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/auth/AccountAuthenticator.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "org.whispersystems.textsecuregcm.auth.AccountAuthenticator.authenticate(BasicCredentials)",
+                "Local": "L[64,66], C[32,7]",
+                "Detail": null,
+                "Code": "{\n  return Optional.absent();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/org/whispersystems/textsecuregcm/auth/AccountAuthenticator.java"
+            }
+        ],
+        "metadata": {
+            "type": "Move Method",
+            "description": "Move Method private updateLastSeen(account Account, device Device) : void from class org.whispersystems.textsecuregcm.websocket.AuthenticatedConnectListener to private updateLastSeen(account Account, device Device) : void from class org.whispersystems.textsecuregcm.auth.AccountAuthenticator",
+            "leftSideLocations": [
+                {
+                    "filePath": "src/main/java/org/whispersystems/textsecuregcm/websocket/AuthenticatedConnectListener.java",
+                    "startLine": 70,
+                    "endLine": 75,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private updateLastSeen(account Account, device Device) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "src/main/java/org/whispersystems/textsecuregcm/auth/AccountAuthenticator.java",
+                    "startLine": 82,
+                    "endLine": 87,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "private updateLastSeen(account Account, device Device) : void"
+                }
+            ]
+        }
+    }
+]

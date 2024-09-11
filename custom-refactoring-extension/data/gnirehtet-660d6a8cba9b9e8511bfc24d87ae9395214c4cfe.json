@@ -1,0 +1,703 @@
+[
+    {
+        "commit": "660d6a8cba9b9e8511bfc24d87ae9395214c4cfe",
+        "source": [
+            {
+                "element": "com.genymobile.relay.Router.findIndex(ConnectionId)",
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java",
+                "local": "L[76,84], C[5,5]"
+            }
+        ],
+        "target": [
+            {
+                "element": "com.genymobile.relay.Router.find(ConnectionId)",
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java",
+                "local": "L[76,83], C[5,5]"
+            }
+        ],
+        "type": "INLINE_METHOD",
+        "related": [
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "com.genymobile.relay.Router",
+                "Local": "L[76,84], C[5,5]",
+                "Detail": {
+                    "method": "com.genymobile.relay.Router.findIndex(ConnectionId)",
+                    "blockPos": "L[76,84], C[44,5]"
+                },
+                "Code": "private int findIndex(ConnectionId id){\n  for (int i=0; i < connections.size(); ++i) {\n    Connection connection=connections.get(i);\n    if (id.equals(connection.getId())) {\n      return i;\n    }\n  }\n  return -1;\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "ADDED_PrefixExpression",
+                "Method": "com.genymobile.relay.Router.remove(Connection)",
+                "Local": "L[93,93], C[13,43]",
+                "Detail": {
+                    "previousVar": "com.genymobile.relay.Router>>>connections[24,108]"
+                },
+                "Code": "!connections.remove(connection)",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.genymobile.relay.Router.remove(Connection)",
+                "Local": "L[93,93], C[14,43]",
+                "Detail": {
+                    "previousVar": "com.genymobile.relay.Router>>>connections[24,108]"
+                },
+                "Code": "connections.remove(connection)",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.genymobile.relay.Router.remove(ConnectionId).remove(UNKNOWN)",
+                "Local": "L[106,106], C[9,43]",
+                "Detail": {
+                    "previousVar": "com.genymobile.relay.Router>>>connections[24,120]"
+                },
+                "Code": "connections.remove(connectionIndex)",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_PrefixExpression",
+                "Method": "com.genymobile.relay.Router.findIndex(ConnectionId)",
+                "Local": "L[83,83], C[16,17]",
+                "Detail": null,
+                "Code": "-1",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_FORSTATEMENT",
+                "Method": "com.genymobile.relay.Router.findIndex(ConnectionId)",
+                "Local": "L[77,82], C[9,9]",
+                "Detail": null,
+                "Code": "for (int i=0; i < connections.size(); ++i) {\n  Connection connection=connections.get(i);\n  if (id.equals(connection.getId())) {\n    return i;\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "com.genymobile.relay.Router.findIndex(ConnectionId)",
+                "Local": "L[83,83], C[9,18]",
+                "Detail": null,
+                "Code": "return -1;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.genymobile.relay.Router.remove(ConnectionId)",
+                "Local": "L[102,102], C[31,53]",
+                "Detail": null,
+                "Code": "findIndex(connectionId)",
+                "relationType": "CALL_SOURCE",
+                "distance": 1,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.genymobile.relay.Router.find(ConnectionId)",
+                "Local": "L[91,91], C[16,47]",
+                "Detail": {
+                    "previousVar": "com.genymobile.relay.Router>>>connections[24,120]"
+                },
+                "Code": "connections.get(connectionIndex)",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.genymobile.relay.Router.findIndex(ConnectionId)",
+                "Local": "L[76,76], C[5,11]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "com.genymobile.relay.Router.findIndex(ConnectionId)",
+                "Local": "L[79,81], C[48,13]",
+                "Detail": null,
+                "Code": "{\n  return i;\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "com.genymobile.relay.Router.find(ConnectionId)",
+                "Local": "L[87,87], C[9,44]",
+                "Detail": null,
+                "Code": "int connectionIndex=findIndex(id);\n",
+                "relationType": "CALL_SOURCE",
+                "distance": 2,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "com.genymobile.relay.Router.find(ConnectionId)",
+                "Local": "L[91,91], C[9,48]",
+                "Detail": {
+                    "previousVar": "com.genymobile.relay.Router>>>connections[24,120]"
+                },
+                "Code": "return connections.get(connectionIndex);\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.genymobile.relay.Router.findIndex(ConnectionId)",
+                "Local": "L[78,78], C[37,54]",
+                "Detail": null,
+                "Code": "connections.get(i)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.genymobile.relay.Router.findIndex(ConnectionId)",
+                "Local": "L[77,77], C[29,46]",
+                "Detail": null,
+                "Code": "connections.size()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "CHANGED_RETURN_TYPE",
+                "Method": "com.genymobile.relay.Router",
+                "Local": "L[92,96], C[5,5]",
+                "Detail": {
+                    "previousVar": "com.genymobile.relay.Router>>>connections[24,108]"
+                },
+                "Code": "public void remove(Connection connection){\n  if (!connections.remove(connection)) {\n    throw new AssertionError(\"Removed a connection unknown from the router\");\n  }\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_PARAMETER",
+                "Method": "com.genymobile.relay.Router",
+                "Local": "L[101,101], C[27,38]",
+                "Detail": null,
+                "Code": "public boolean remove(ConnectionId connectionId){\n  int connectionIndex=findIndex(connectionId);\n  if (connectionIndex == -1) {\n    return false;\n  }\n  connections.remove(connectionIndex);\n  return true;\n}\n",
+                "relationType": "CALL_SOURCE",
+                "distance": 4,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "ADDED_PARAMETER",
+                "Method": "com.genymobile.relay.Router",
+                "Local": "L[92,92], C[24,33]",
+                "Detail": {
+                    "previousVar": "com.genymobile.relay.Router>>>connections[24,108]"
+                },
+                "Code": "public void remove(Connection connection){\n  if (!connections.remove(connection)) {\n    throw new AssertionError(\"Removed a connection unknown from the router\");\n  }\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.genymobile.relay.Router.find(ConnectionId)",
+                "Local": "L[78,78], C[17,45]",
+                "Detail": null,
+                "Code": "id.equals(connection.getId())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.genymobile.relay.Router.findIndex(ConnectionId)",
+                "Local": "L[79,79], C[17,45]",
+                "Detail": null,
+                "Code": "id.equals(connection.getId())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.genymobile.relay.Router.find(ConnectionId).equals(UNKNOWN)",
+                "Local": "L[78,78], C[27,44]",
+                "Detail": null,
+                "Code": "connection.getId()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.genymobile.relay.Router.findIndex(ConnectionId).equals(UNKNOWN)",
+                "Local": "L[79,79], C[27,44]",
+                "Detail": null,
+                "Code": "connection.getId()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.genymobile.relay.Router.find(ConnectionId)",
+                "Local": "L[87,87], C[31,43]",
+                "Detail": null,
+                "Code": "findIndex(id)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "com.genymobile.relay.Router.find(ConnectionId)",
+                "Local": "L[78,80], C[48,13]",
+                "Detail": null,
+                "Code": "{\n  return connection;\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "com.genymobile.relay.Router.find(ConnectionId)",
+                "Local": "L[79,79], C[17,34]",
+                "Detail": null,
+                "Code": "return connection;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "com.genymobile.relay.Router.findIndex(ConnectionId)",
+                "Local": "L[80,80], C[17,25]",
+                "Detail": null,
+                "Code": "return i;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "com.genymobile.relay.Router.remove(ConnectionId)",
+                "Local": "L[103,103], C[13,33]",
+                "Detail": {
+                    "previousVar": "com.genymobile.relay.Router.remove(ConnectionId)>>>connectionIndex[102,108]"
+                },
+                "Code": "connectionIndex == -1",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "com.genymobile.relay.Router.remove(ConnectionId)",
+                "Local": "L[102,102], C[9,54]",
+                "Detail": null,
+                "Code": "int connectionIndex=findIndex(connectionId);\n",
+                "relationType": "CALL_SOURCE",
+                "distance": 2,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_VariableDeclarationExpression",
+                "Method": "com.genymobile.relay.Router.findIndex(ConnectionId)",
+                "Local": "L[77,77], C[14,22]",
+                "Detail": null,
+                "Code": "int i=0",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "com.genymobile.relay.Router.findIndex(ConnectionId)",
+                "Local": "L[77,77], C[25,46]",
+                "Detail": null,
+                "Code": "i < connections.size()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_PrefixExpression",
+                "Method": "com.genymobile.relay.Router.findIndex(ConnectionId)",
+                "Local": "L[77,77], C[49,51]",
+                "Detail": null,
+                "Code": "++i",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "com.genymobile.relay.Router.find(ConnectionId)",
+                "Local": "L[88,88], C[13,33]",
+                "Detail": {
+                    "previousVar": "com.genymobile.relay.Router.find(ConnectionId)>>>connectionIndex[87,92]"
+                },
+                "Code": "connectionIndex == -1",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "ADDED_ENHANCEDFORSTATEMENT",
+                "Method": "com.genymobile.relay.Router.find(ConnectionId)",
+                "Local": "L[77,81], C[9,9]",
+                "Detail": null,
+                "Code": "for (Connection connection : connections) {\n  if (id.equals(connection.getId())) {\n    return connection;\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "com.genymobile.relay.Router.findIndex(ConnectionId)",
+                "Local": "L[78,78], C[13,55]",
+                "Detail": null,
+                "Code": "Connection connection=connections.get(i);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "ADDED_ThisExpression",
+                "Method": "com.genymobile.relay.AbstractConnection.close()",
+                "Local": "L[41,41], C[35,38]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "relay/src/main/java/com/genymobile/relay/AbstractConnection.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "com.genymobile.relay.Router.remove(Connection)",
+                "Local": "L[92,92], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.genymobile.relay.Router.remove(ConnectionId)",
+                "Local": "L[101,101], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "com.genymobile.relay.Router.remove(ConnectionId)",
+                "Local": "L[103,105], C[36,9]",
+                "Detail": null,
+                "Code": "{\n  return false;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "com.genymobile.relay.Router.remove(Connection)",
+                "Local": "L[93,95], C[46,9]",
+                "Detail": null,
+                "Code": "{\n  throw new AssertionError(\"Removed a connection unknown from the router\");\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_BooleanLiteral",
+                "Method": "com.genymobile.relay.Router.remove(ConnectionId)",
+                "Local": "L[107,107], C[16,19]",
+                "Detail": null,
+                "Code": "true",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "com.genymobile.relay.Router.remove(Connection)",
+                "Local": "L[94,94], C[19,84]",
+                "Detail": null,
+                "Code": "new AssertionError(\"Removed a connection unknown from the router\")",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "com.genymobile.relay.Router.remove(Connection)",
+                "Local": "L[94,94], C[19,84]",
+                "Detail": null,
+                "Code": "new AssertionError(\"Removed a connection unknown from the router\")",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "ADDED_THROWSTATEMENT",
+                "Method": "com.genymobile.relay.Router.remove(Connection)",
+                "Local": "L[94,94], C[13,85]",
+                "Detail": null,
+                "Code": "throw new AssertionError(\"Removed a connection unknown from the router\");\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_PrefixExpression",
+                "Method": "com.genymobile.relay.Router.find(ConnectionId)",
+                "Local": "L[88,88], C[32,33]",
+                "Detail": null,
+                "Code": "-1",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "com.genymobile.relay.Router.remove(ConnectionId)",
+                "Local": "L[104,104], C[13,25]",
+                "Detail": null,
+                "Code": "return false;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_PrefixExpression",
+                "Method": "com.genymobile.relay.Router.remove(ConnectionId)",
+                "Local": "L[103,103], C[32,33]",
+                "Detail": null,
+                "Code": "-1",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_BooleanLiteral",
+                "Method": "com.genymobile.relay.Router.remove(ConnectionId)",
+                "Local": "L[104,104], C[20,24]",
+                "Detail": null,
+                "Code": "false",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "com.genymobile.relay.Router.find(ConnectionId)",
+                "Local": "L[88,90], C[36,9]",
+                "Detail": null,
+                "Code": "{\n  return null;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "com.genymobile.relay.Router.remove(ConnectionId)",
+                "Local": "L[107,107], C[9,20]",
+                "Detail": null,
+                "Code": "return true;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "relay/src/main/java/com/genymobile/relay/Router.java"
+            }
+        ],
+        "metadata": {
+            "type": "Inline Method",
+            "description": "Inline Method private findIndex(id ConnectionId) : int inlined to private find(id ConnectionId) : Connection in class com.genymobile.relay.Router",
+            "leftSideLocations": [
+                {
+                    "filePath": "relay/src/main/java/com/genymobile/relay/Router.java",
+                    "startLine": 76,
+                    "endLine": 84,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "inlined method declaration",
+                    "codeElement": "private findIndex(id ConnectionId) : int"
+                },
+                {
+                    "filePath": "relay/src/main/java/com/genymobile/relay/Router.java",
+                    "startLine": 80,
+                    "endLine": 80,
+                    "startColumn": 17,
+                    "endColumn": 26,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "inlined code from inlined method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "relay/src/main/java/com/genymobile/relay/Router.java",
+                    "startLine": 79,
+                    "endLine": 81,
+                    "startColumn": 13,
+                    "endColumn": 14,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "inlined code from inlined method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "relay/src/main/java/com/genymobile/relay/Router.java",
+                    "startLine": 77,
+                    "endLine": 82,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "FOR_STATEMENT",
+                    "description": "inlined code from inlined method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "relay/src/main/java/com/genymobile/relay/Router.java",
+                    "startLine": 79,
+                    "endLine": 81,
+                    "startColumn": 48,
+                    "endColumn": 14,
+                    "codeElementType": "BLOCK",
+                    "description": "inlined code from inlined method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "relay/src/main/java/com/genymobile/relay/Router.java",
+                    "startLine": 77,
+                    "endLine": 82,
+                    "startColumn": 54,
+                    "endColumn": 10,
+                    "codeElementType": "BLOCK",
+                    "description": "inlined code from inlined method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "relay/src/main/java/com/genymobile/relay/Router.java",
+                    "startLine": 86,
+                    "endLine": 92,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "target method declaration before inline",
+                    "codeElement": "private find(id ConnectionId) : Connection"
+                },
+                {
+                    "filePath": "relay/src/main/java/com/genymobile/relay/Router.java",
+                    "startLine": 87,
+                    "endLine": 87,
+                    "startColumn": 31,
+                    "endColumn": 44,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "inlined method invocation",
+                    "codeElement": "findIndex(id)"
+                },
+                {
+                    "filePath": "relay/src/main/java/com/genymobile/relay/Router.java",
+                    "startLine": 78,
+                    "endLine": 78,
+                    "startColumn": 13,
+                    "endColumn": 56,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "deleted statement in inlined method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "relay/src/main/java/com/genymobile/relay/Router.java",
+                    "startLine": 83,
+                    "endLine": 83,
+                    "startColumn": 9,
+                    "endColumn": 19,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "deleted statement in inlined method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "relay/src/main/java/com/genymobile/relay/Router.java",
+                    "startLine": 76,
+                    "endLine": 83,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "target method declaration after inline",
+                    "codeElement": "private find(id ConnectionId) : Connection"
+                },
+                {
+                    "filePath": "relay/src/main/java/com/genymobile/relay/Router.java",
+                    "startLine": 79,
+                    "endLine": 79,
+                    "startColumn": 17,
+                    "endColumn": 35,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "inlined code in target method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "relay/src/main/java/com/genymobile/relay/Router.java",
+                    "startLine": 78,
+                    "endLine": 80,
+                    "startColumn": 13,
+                    "endColumn": 14,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "inlined code in target method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "relay/src/main/java/com/genymobile/relay/Router.java",
+                    "startLine": 77,
+                    "endLine": 81,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "ENHANCED_FOR_STATEMENT",
+                    "description": "inlined code in target method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "relay/src/main/java/com/genymobile/relay/Router.java",
+                    "startLine": 78,
+                    "endLine": 80,
+                    "startColumn": 48,
+                    "endColumn": 14,
+                    "codeElementType": "BLOCK",
+                    "description": "inlined code in target method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "relay/src/main/java/com/genymobile/relay/Router.java",
+                    "startLine": 77,
+                    "endLine": 81,
+                    "startColumn": 51,
+                    "endColumn": 10,
+                    "codeElementType": "BLOCK",
+                    "description": "inlined code in target method declaration",
+                    "codeElement": null
+                }
+            ]
+        }
+    }
+]

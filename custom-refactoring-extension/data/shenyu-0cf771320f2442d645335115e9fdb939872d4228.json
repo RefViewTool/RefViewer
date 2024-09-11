@@ -1,0 +1,948 @@
+[
+    {
+        "commit": "0cf771320f2442d645335115e9fdb939872d4228",
+        "source": [
+            {
+                "element": "org.apache.shenyu.plugin.httpclient.WebClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java",
+                "local": "L[55,67], C[5,5]"
+            }
+        ],
+        "target": [
+            {
+                "element": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java",
+                "local": "L[152,169], C[5,5]"
+            }
+        ],
+        "type": "PULL_UP",
+        "related": [
+            {
+                "Metric": "ACCESS_REDUCED",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin",
+                "Local": "L[152,169], C[5,5]",
+                "Detail": {
+                    "method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                    "blockPos": "L[158,169], C[76,5]"
+                },
+                "Code": "/** \n * Build the http request headers.\n * @param exchange the current server exchange\n * @return HttpHeaders\n */\nprivate HttpHeaders buildHttpHeaders(final ServerWebExchange exchange){\n  final HttpHeaders headers=new HttpHeaders();\n  headers.addAll(exchange.getRequest().getHeaders());\n  List<String> acceptEncoding=headers.get(HttpHeaders.ACCEPT_ENCODING);\n  if (CollectionUtils.isNotEmpty(acceptEncoding)) {\n    acceptEncoding=Stream.of(String.join(\",\",acceptEncoding).split(\",\")).collect(Collectors.toList());\n    acceptEncoding.remove(Constants.HTTP_ACCEPT_ENCODING_GZIP);\n    headers.set(HttpHeaders.ACCEPT_ENCODING,String.join(\",\",acceptEncoding));\n  }\n  return headers;\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "org.apache.shenyu.plugin.httpclient.WebClientPlugin",
+                "Local": "L[55,67], C[5,5]",
+                "Detail": {
+                    "method": "org.apache.shenyu.plugin.httpclient.WebClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                    "blockPos": "L[56,67], C[78,5]"
+                },
+                "Code": "@Override protected HttpHeaders buildHttpHeaders(final ServerWebExchange exchange){\n  final HttpHeaders headers=new HttpHeaders();\n  headers.addAll(exchange.getRequest().getHeaders());\n  List<String> acceptEncoding=headers.get(HttpHeaders.ACCEPT_ENCODING);\n  if (CollectionUtils.isNotEmpty(acceptEncoding)) {\n    acceptEncoding=Stream.of(String.join(\",\",acceptEncoding).split(\",\")).collect(Collectors.toList());\n    acceptEncoding.remove(Constants.HTTP_ACCEPT_ENCODING_GZIP);\n    headers.set(HttpHeaders.ACCEPT_ENCODING,String.join(\",\",acceptEncoding));\n  }\n  return headers;\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.buildHttpHeaders(ServerWebExchange).of(String[])",
+                "Local": "L[164,164], C[40,71]",
+                "Detail": null,
+                "Code": "String.join(\",\",acceptEncoding)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[159,159], C[9,54]",
+                "Detail": null,
+                "Code": "final HttpHeaders headers=new HttpHeaders();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[162,162], C[9,79]",
+                "Detail": null,
+                "Code": "List<String> acceptEncoding=headers.get(HttpHeaders.ACCEPT_ENCODING);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[168,168], C[9,23]",
+                "Detail": null,
+                "Code": "return headers;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[163,167], C[57,9]",
+                "Detail": null,
+                "Code": "{\n  acceptEncoding=Stream.of(String.join(\",\",acceptEncoding).split(\",\")).collect(Collectors.toList());\n  acceptEncoding.remove(Constants.HTTP_ACCEPT_ENCODING_GZIP);\n  headers.set(HttpHeaders.ACCEPT_ENCODING,String.join(\",\",acceptEncoding));\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "CHANGED_Modifier",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[158,158], C[5,11]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[157,157], C[5,13]",
+                "Detail": null,
+                "Code": "protected",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[157,157], C[15,22]",
+                "Detail": null,
+                "Code": "abstract",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[164,164], C[30,83]",
+                "Detail": null,
+                "Code": "Stream.of(String.join(\",\",acceptEncoding).split(\",\"))",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[164,164], C[93,111]",
+                "Detail": null,
+                "Code": "Collectors.toList()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[165,165], C[13,70]",
+                "Detail": null,
+                "Code": "acceptEncoding.remove(Constants.HTTP_ACCEPT_ENCODING_GZIP)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[166,166], C[13,86]",
+                "Detail": null,
+                "Code": "headers.set(HttpHeaders.ACCEPT_ENCODING,String.join(\",\",acceptEncoding))",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[159,159], C[37,53]",
+                "Detail": null,
+                "Code": "new HttpHeaders()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[159,159], C[37,53]",
+                "Detail": null,
+                "Code": "new HttpHeaders()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[162,162], C[9,20]",
+                "Detail": null,
+                "Code": "List<String>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.buildHttpHeaders(ServerWebExchange).SingleVariableDeclaration",
+                "Local": "L[158,158], C[42,46]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.buildHttpHeaders(ServerWebExchange).set(UNKNOWN, UNKNOWN)",
+                "Local": "L[166,166], C[54,85]",
+                "Detail": null,
+                "Code": "String.join(\",\",acceptEncoding)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[159,159], C[9,13]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[163,163], C[13,54]",
+                "Detail": null,
+                "Code": "CollectionUtils.isNotEmpty(acceptEncoding)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[164,164], C[13,113]",
+                "Detail": null,
+                "Code": "acceptEncoding=Stream.of(String.join(\",\",acceptEncoding).split(\",\")).collect(Collectors.toList());\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[160,160], C[9,58]",
+                "Detail": null,
+                "Code": "headers.addAll(exchange.getRequest().getHeaders())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[162,162], C[39,78]",
+                "Detail": null,
+                "Code": "headers.get(HttpHeaders.ACCEPT_ENCODING)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.buildHttpHeaders(ServerWebExchange).addAll(UNKNOWN)",
+                "Local": "L[160,160], C[24,44]",
+                "Detail": null,
+                "Code": "exchange.getRequest()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.apache.shenyu.plugin.httpclient.WebClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[57,57], C[9,13]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "org.apache.shenyu.plugin.httpclient.WebClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[60,60], C[9,20]",
+                "Detail": null,
+                "Code": "List<String>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.WebClientPlugin.buildHttpHeaders(ServerWebExchange).set(UNKNOWN, UNKNOWN)",
+                "Local": "L[64,64], C[54,85]",
+                "Detail": null,
+                "Code": "String.join(\",\",acceptEncoding)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.apache.shenyu.plugin.httpclient.WebClientPlugin.buildHttpHeaders(ServerWebExchange).SingleVariableDeclaration",
+                "Local": "L[56,56], C[44,48]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "org.apache.shenyu.plugin.httpclient.WebClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[57,57], C[9,54]",
+                "Detail": null,
+                "Code": "final HttpHeaders headers=new HttpHeaders();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "org.apache.shenyu.plugin.httpclient.WebClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[60,60], C[9,79]",
+                "Detail": null,
+                "Code": "List<String> acceptEncoding=headers.get(HttpHeaders.ACCEPT_ENCODING);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "org.apache.shenyu.plugin.httpclient.WebClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[66,66], C[9,23]",
+                "Detail": null,
+                "Code": "return headers;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.WebClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[60,60], C[39,78]",
+                "Detail": null,
+                "Code": "headers.get(HttpHeaders.ACCEPT_ENCODING)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.WebClientPlugin.buildHttpHeaders(ServerWebExchange).of(String[])",
+                "Local": "L[62,62], C[40,71]",
+                "Detail": null,
+                "Code": "String.join(\",\",acceptEncoding)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.WebClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[61,61], C[13,54]",
+                "Detail": null,
+                "Code": "CollectionUtils.isNotEmpty(acceptEncoding)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "org.apache.shenyu.plugin.httpclient.WebClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[62,62], C[13,113]",
+                "Detail": null,
+                "Code": "acceptEncoding=Stream.of(String.join(\",\",acceptEncoding).split(\",\")).collect(Collectors.toList());\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.WebClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[63,63], C[13,70]",
+                "Detail": null,
+                "Code": "acceptEncoding.remove(Constants.HTTP_ACCEPT_ENCODING_GZIP)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_MarkerAnnotation",
+                "Method": "org.apache.shenyu.plugin.httpclient.WebClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[55,55], C[5,13]",
+                "Detail": null,
+                "Code": "@Override",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.apache.shenyu.plugin.httpclient.WebClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[56,56], C[5,13]",
+                "Detail": null,
+                "Code": "protected",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "org.apache.shenyu.plugin.httpclient.WebClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[61,65], C[57,9]",
+                "Detail": null,
+                "Code": "{\n  acceptEncoding=Stream.of(String.join(\",\",acceptEncoding).split(\",\")).collect(Collectors.toList());\n  acceptEncoding.remove(Constants.HTTP_ACCEPT_ENCODING_GZIP);\n  headers.set(HttpHeaders.ACCEPT_ENCODING,String.join(\",\",acceptEncoding));\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.WebClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[58,58], C[9,58]",
+                "Detail": null,
+                "Code": "headers.addAll(exchange.getRequest().getHeaders())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.WebClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[62,62], C[30,83]",
+                "Detail": null,
+                "Code": "Stream.of(String.join(\",\",acceptEncoding).split(\",\"))",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.WebClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[62,62], C[93,111]",
+                "Detail": null,
+                "Code": "Collectors.toList()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "org.apache.shenyu.plugin.httpclient.WebClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[57,57], C[37,53]",
+                "Detail": null,
+                "Code": "new HttpHeaders()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "org.apache.shenyu.plugin.httpclient.WebClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[57,57], C[37,53]",
+                "Detail": null,
+                "Code": "new HttpHeaders()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.WebClientPlugin.buildHttpHeaders(ServerWebExchange).addAll(UNKNOWN)",
+                "Local": "L[58,58], C[24,44]",
+                "Detail": null,
+                "Code": "exchange.getRequest()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.WebClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[64,64], C[13,86]",
+                "Detail": null,
+                "Code": "headers.set(HttpHeaders.ACCEPT_ENCODING,String.join(\",\",acceptEncoding))",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "org.apache.shenyu.plugin.httpclient.CompilationUnit",
+                "Local": "L[58,58], C[1,31]",
+                "Detail": null,
+                "Code": "import java.util.stream.Stream;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "org.apache.shenyu.plugin.httpclient.CompilationUnit",
+                "Local": "L[58,58], C[1,31]",
+                "Detail": null,
+                "Code": "import java.util.stream.Stream;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.resend(Mono<R>, ServerWebExchange, Duration, HttpHeaders, Set<URI>)",
+                "Local": "L[133,136], C[56,13]",
+                "Detail": null,
+                "Code": "{\n  return Mono.error(new ShenyuException(ShenyuResultEnum.CANNOT_FIND_HEALTHY_UPSTREAM_URL_AFTER_FAILOVER.getMsg()));\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.resend(Mono<R>, ServerWebExchange, Duration, HttpHeaders, Set<URI>)",
+                "Local": "L[139,142], C[43,13]",
+                "Detail": null,
+                "Code": "{\n  return Mono.error(new ShenyuException(ShenyuResultEnum.CANNOT_FIND_HEALTHY_UPSTREAM_URL_AFTER_FAILOVER.getMsg()));\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin.FieldDeclaration",
+                "Local": "L[65,65], C[5,13]",
+                "Detail": null,
+                "Code": "protected",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.apache.shenyu.plugin.httpclient.NettyHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[59,59], C[9,13]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "org.apache.shenyu.plugin.httpclient.NettyHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[64,64], C[13,24]",
+                "Detail": null,
+                "Code": "List<String>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.NettyHttpClientPlugin.buildHttpHeaders(ServerWebExchange).addAll(UNKNOWN)",
+                "Local": "L[60,60], C[28,48]",
+                "Detail": null,
+                "Code": "exchange.getRequest()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "org.apache.shenyu.plugin.httpclient.NettyHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[59,59], C[41,57]",
+                "Detail": null,
+                "Code": "new HttpHeaders()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "org.apache.shenyu.plugin.httpclient.NettyHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[59,59], C[41,57]",
+                "Detail": null,
+                "Code": "new HttpHeaders()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.NettyHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[62,62], C[33,81]",
+                "Detail": null,
+                "Code": "httpHeaders.getFirst(HttpHeaders.ACCEPT_ENCODING)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.NettyHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[63,63], C[13,50]",
+                "Detail": null,
+                "Code": "StringUtils.isNotBlank(acceptEncoding)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.apache.shenyu.plugin.httpclient.NettyHttpClientPlugin.buildHttpHeaders(ServerWebExchange).SingleVariableDeclaration",
+                "Local": "L[58,58], C[44,48]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.NettyHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[65,65], C[13,71]",
+                "Detail": null,
+                "Code": "acceptEncodings.remove(Constants.HTTP_ACCEPT_ENCODING_GZIP)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.NettyHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[60,60], C[9,62]",
+                "Detail": null,
+                "Code": "httpHeaders.addAll(exchange.getRequest().getHeaders())",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "org.apache.shenyu.plugin.httpclient.NettyHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[64,64], C[13,116]",
+                "Detail": null,
+                "Code": "List<String> acceptEncodings=Stream.of(acceptEncoding.trim().split(\",\")).collect(Collectors.toList());\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_MarkerAnnotation",
+                "Method": "org.apache.shenyu.plugin.httpclient.NettyHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[57,57], C[5,13]",
+                "Detail": null,
+                "Code": "@Override",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.apache.shenyu.plugin.httpclient.NettyHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[58,58], C[5,13]",
+                "Detail": null,
+                "Code": "protected",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "org.apache.shenyu.plugin.httpclient.NettyHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[63,67], C[53,9]",
+                "Detail": null,
+                "Code": "{\n  List<String> acceptEncodings=Stream.of(acceptEncoding.trim().split(\",\")).collect(Collectors.toList());\n  acceptEncodings.remove(Constants.HTTP_ACCEPT_ENCODING_GZIP);\n  httpHeaders.set(HttpHeaders.ACCEPT_ENCODING,String.join(\",\",acceptEncodings));\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "org.apache.shenyu.plugin.httpclient.NettyHttpClientPlugin",
+                "Local": "L[57,69], C[5,5]",
+                "Detail": null,
+                "Code": "@Override protected HttpHeaders buildHttpHeaders(final ServerWebExchange exchange){\n  final HttpHeaders httpHeaders=new HttpHeaders();\n  httpHeaders.addAll(exchange.getRequest().getHeaders());\n  String acceptEncoding=httpHeaders.getFirst(HttpHeaders.ACCEPT_ENCODING);\n  if (StringUtils.isNotBlank(acceptEncoding)) {\n    List<String> acceptEncodings=Stream.of(acceptEncoding.trim().split(\",\")).collect(Collectors.toList());\n    acceptEncodings.remove(Constants.HTTP_ACCEPT_ENCODING_GZIP);\n    httpHeaders.set(HttpHeaders.ACCEPT_ENCODING,String.join(\",\",acceptEncodings));\n  }\n  return httpHeaders;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "org.apache.shenyu.plugin.httpclient.NettyHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[59,59], C[9,58]",
+                "Detail": null,
+                "Code": "final HttpHeaders httpHeaders=new HttpHeaders();\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "org.apache.shenyu.plugin.httpclient.NettyHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[62,62], C[9,82]",
+                "Detail": null,
+                "Code": "String acceptEncoding=httpHeaders.getFirst(HttpHeaders.ACCEPT_ENCODING);\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "org.apache.shenyu.plugin.httpclient.NettyHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[68,68], C[9,27]",
+                "Detail": null,
+                "Code": "return httpHeaders;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.NettyHttpClientPlugin.buildHttpHeaders(ServerWebExchange).of(String[])",
+                "Local": "L[64,64], C[54,74]",
+                "Detail": null,
+                "Code": "acceptEncoding.trim()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.NettyHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[66,66], C[13,91]",
+                "Detail": null,
+                "Code": "httpHeaders.set(HttpHeaders.ACCEPT_ENCODING,String.join(\",\",acceptEncodings))",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_IMPORT",
+                "Method": "org.apache.shenyu.plugin.httpclient.CompilationUnit",
+                "Local": "L[37,37], C[1,22]",
+                "Detail": null,
+                "Code": "import java.util.List;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_ImportDeclaration",
+                "Method": "org.apache.shenyu.plugin.httpclient.CompilationUnit",
+                "Local": "L[37,37], C[1,22]",
+                "Detail": null,
+                "Code": "import java.util.List;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_IMPORT",
+                "Method": "org.apache.shenyu.plugin.httpclient.CompilationUnit",
+                "Local": "L[38,38], C[1,35]",
+                "Detail": null,
+                "Code": "import java.util.stream.Collectors;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_ImportDeclaration",
+                "Method": "org.apache.shenyu.plugin.httpclient.CompilationUnit",
+                "Local": "L[38,38], C[1,35]",
+                "Detail": null,
+                "Code": "import java.util.stream.Collectors;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_IMPORT",
+                "Method": "org.apache.shenyu.plugin.httpclient.CompilationUnit",
+                "Local": "L[39,39], C[1,31]",
+                "Detail": null,
+                "Code": "import java.util.stream.Stream;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_ImportDeclaration",
+                "Method": "org.apache.shenyu.plugin.httpclient.CompilationUnit",
+                "Local": "L[39,39], C[1,31]",
+                "Detail": null,
+                "Code": "import java.util.stream.Stream;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.NettyHttpClientPlugin.buildHttpHeaders(ServerWebExchange).set(UNKNOWN, UNKNOWN)",
+                "Local": "L[66,66], C[58,90]",
+                "Detail": null,
+                "Code": "String.join(\",\",acceptEncodings)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.NettyHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[64,64], C[44,86]",
+                "Detail": null,
+                "Code": "Stream.of(acceptEncoding.trim().split(\",\"))",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.plugin.httpclient.NettyHttpClientPlugin.buildHttpHeaders(ServerWebExchange)",
+                "Local": "L[64,64], C[96,114]",
+                "Detail": null,
+                "Code": "Collectors.toList()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_IMPORT",
+                "Method": "org.apache.shenyu.plugin.httpclient.CompilationUnit",
+                "Local": "L[20,20], C[1,55]",
+                "Detail": null,
+                "Code": "import org.apache.commons.collections4.CollectionUtils;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_ImportDeclaration",
+                "Method": "org.apache.shenyu.plugin.httpclient.CompilationUnit",
+                "Local": "L[20,20], C[1,55]",
+                "Detail": null,
+                "Code": "import org.apache.commons.collections4.CollectionUtils;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_IMPORT",
+                "Method": "org.apache.shenyu.plugin.httpclient.CompilationUnit",
+                "Local": "L[35,35], C[1,22]",
+                "Detail": null,
+                "Code": "import java.util.List;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_ImportDeclaration",
+                "Method": "org.apache.shenyu.plugin.httpclient.CompilationUnit",
+                "Local": "L[35,35], C[1,22]",
+                "Detail": null,
+                "Code": "import java.util.List;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_IMPORT",
+                "Method": "org.apache.shenyu.plugin.httpclient.CompilationUnit",
+                "Local": "L[36,36], C[1,35]",
+                "Detail": null,
+                "Code": "import java.util.stream.Collectors;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_ImportDeclaration",
+                "Method": "org.apache.shenyu.plugin.httpclient.CompilationUnit",
+                "Local": "L[36,36], C[1,35]",
+                "Detail": null,
+                "Code": "import java.util.stream.Collectors;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_IMPORT",
+                "Method": "org.apache.shenyu.plugin.httpclient.CompilationUnit",
+                "Local": "L[37,37], C[1,31]",
+                "Detail": null,
+                "Code": "import java.util.stream.Stream;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            },
+            {
+                "Metric": "REMOVED_ImportDeclaration",
+                "Method": "org.apache.shenyu.plugin.httpclient.CompilationUnit",
+                "Local": "L[37,37], C[1,31]",
+                "Detail": null,
+                "Code": "import java.util.stream.Stream;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java"
+            }
+        ],
+        "metadata": {
+            "type": "Pull Up Method",
+            "description": "Pull Up Method protected buildHttpHeaders(exchange ServerWebExchange) : HttpHeaders from class org.apache.shenyu.plugin.httpclient.WebClientPlugin to private buildHttpHeaders(exchange ServerWebExchange) : HttpHeaders from class org.apache.shenyu.plugin.httpclient.AbstractHttpClientPlugin",
+            "leftSideLocations": [
+                {
+                    "filePath": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java",
+                    "startLine": 55,
+                    "endLine": 67,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "protected buildHttpHeaders(exchange ServerWebExchange) : HttpHeaders"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java",
+                    "startLine": 152,
+                    "endLine": 169,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "pulled up method declaration",
+                    "codeElement": "private buildHttpHeaders(exchange ServerWebExchange) : HttpHeaders"
+                }
+            ]
+        }
+    }
+]

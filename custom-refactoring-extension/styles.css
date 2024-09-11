@@ -1,0 +1,181 @@
+:root {
+
+    --background-opacity: 0.99;
+    --ref-color: rgb(5, 162, 151, var(--background-opacity)) !important;
+    --ref-color_dark: rgb(4, 107, 100, var(--background-opacity)) !important;
+    --nonref-color: rgba(127, 115, 0, var(--background-opacity));
+    --nonref-color_dark: rgba(83, 75, 0, var(--background-opacity));
+    --addref-color: rgb(212, 0, 255, var(--background-opacity));
+    --addref-color_dark: rgba(94, 0, 112, var(--background-opacity));
+
+}
+
+.summary-panel {
+    position: fixed;
+    left: 10px;
+    right: 10px;
+    background-color: #161b22;
+    border: 1px solid #ccc;
+    border-bottom: unset;
+    padding: 10px;
+    z-index: 1000;
+    bottom: 0px;
+    border-radius: 4px;
+    display: flex;
+    color: white;
+}
+
+#refactoring-select {
+    width: 170px;
+    margin-right: 4px;
+}
+
+.ref-info-container {
+    margin-left: 4px;
+    padding-left: 4px;
+    border-left: 1px solid #cecece;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.color-detail-container {
+    min-width: 300px;
+    padding-left: 8px;
+    display: flex;
+    justify-content: end;
+}
+
+.color-list {}
+
+#source-text {
+    margin-left: 4px;
+    cursor: pointer;    
+}
+.main-element {
+   line-height: 14px;
+   line-break: anywhere;
+   margin-bottom: 4px;
+}
+#target-text {
+    margin-left: 4px;
+    cursor: pointer;
+}
+
+.anchor-item {
+    scroll-margin-top: 80px;
+    scroll-margin-bottom: 80px;
+}
+
+.marker {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    display: flex;
+    border-radius: 50%;
+    cursor: pointer;
+
+    div {
+        padding: 4px;
+        min-width: 25px;
+        text-align: center;
+        border-radius: 8px 8px 0px 0px;
+        margin-left: 4px;
+    }
+}
+
+#topMarker {
+    top: 0;
+
+    .addref-marker,
+    .nonref-marker,
+    .ref-marker {
+        border-radius: 0px 0px 8px 8px;
+    }
+}
+
+#bottomMarker {
+    bottom: 83px;
+}
+
+.highlight-nonrefactoring {
+    background-color: var(--nonref-color) !important;
+    color: white !important;
+
+    &:hover {
+        background-color: var(--nonref-color_dark) !important;
+    }
+}
+
+.nonref-marker {
+    background-color: var(--nonref-color);
+}
+
+.highlight-additional {
+    background-color: var(--addref-color) !important;
+    color: white !important;
+
+    &:hover {
+        background-color: var(--addref-color_dark) !important;
+    }
+}
+
+.addref-marker {
+    background-color: var(--addref-color);
+}
+
+.highlight-refactoring {
+    background-color: var(--ref-color) !important;
+    color: white !important;
+
+    &:hover {
+        background-color: var(--ref-color_dark) !important;
+    }
+}
+
+.ref-marker {
+    background-color: var(--ref-color) !important;
+}
+
+.blob-code-deletion {
+    background-color: #f852490e !important;
+}
+
+.blob-code-addition {
+    background-color: #2ea04311 !important;
+}
+
+.square {
+    height: 18px;
+    width: 18px;
+    margin-right: 4px;
+
+}
+
+.cor-detail {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 8px;
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.hovered {
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    box-shadow: 0 2px black;
+    position: relative;
+}

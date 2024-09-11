@@ -1,0 +1,1550 @@
+[
+    {
+        "commit": "e22b1aeac319e6d1127a2b9d9a829dd26e52f5db",
+        "source": [
+            {
+                "element": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java",
+                "local": "L[59,74], C[5,5]"
+            }
+        ],
+        "target": [
+            {
+                "element": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java",
+                "local": "L[31,50], C[5,5]"
+            }
+        ],
+        "type": "PULL_UP",
+        "related": [
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache",
+                "Local": "L[31,50], C[5,5]",
+                "Detail": {
+                    "method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                    "blockPos": "L[31,50], C[38,5]"
+                },
+                "Code": "protected byte[] buildKey(K key){\n  try {\n    Object newKey=config.getKeyConvertor().apply(key);\n    if (newKey instanceof String) {\n      String s=config.getKeyPrefix() + newKey;\n      return s.getBytes(\"UTF-8\");\n    }\n else     if (newKey instanceof byte[]) {\n      byte[] bs1=config.getKeyPrefix().getBytes(\"UTF-8\");\n      byte[] bs2=(byte[])newKey;\n      byte[] rt=new byte[bs1.length + bs2.length];\n      System.arraycopy(bs1,0,rt,0,bs1.length);\n      System.arraycopy(bs2,0,rt,bs1.length,bs2.length);\n      return rt;\n    }\n else {\n      throw new CacheException(\"type error\");\n    }\n  }\n catch (  UnsupportedEncodingException e) {\n    throw new CacheException(e);\n  }\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "com.alicp.jetcache.redis.RedisCache",
+                "Local": "L[59,74], C[5,5]",
+                "Detail": {
+                    "method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                    "blockPos": "L[59,74], C[72,5]"
+                },
+                "Code": "private byte[] buildKey(K key) throws UnsupportedEncodingException {\n  Object newKey=keyConvertor.apply(key);\n  if (newKey instanceof String) {\n    String s=config.getKeyPrefix() + newKey;\n    return s.getBytes(\"UTF-8\");\n  }\n else   if (newKey instanceof byte[]) {\n    byte[] bs1=config.getKeyPrefix().getBytes(\"UTF-8\");\n    byte[] bs2=(byte[])newKey;\n    byte[] rt=new byte[bs1.length + bs2.length];\n    System.arraycopy(bs1,0,rt,0,bs1.length);\n    System.arraycopy(bs2,0,rt,bs1.length,bs2.length);\n    return rt;\n  }\n else {\n    throw new CacheException(\"type error\");\n  }\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[33,33], C[29,52]",
+                "Detail": null,
+                "Code": "config.getKeyConvertor()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_Dimension",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[31,31], C[19,20]",
+                "Detail": null,
+                "Code": "[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_Dimension",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[39,39], C[35,36]",
+                "Detail": null,
+                "Code": "[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_TRYSTATEMENT",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[32,49], C[9,9]",
+                "Detail": null,
+                "Code": "try {\n  Object newKey=config.getKeyConvertor().apply(key);\n  if (newKey instanceof String) {\n    String s=config.getKeyPrefix() + newKey;\n    return s.getBytes(\"UTF-8\");\n  }\n else   if (newKey instanceof byte[]) {\n    byte[] bs1=config.getKeyPrefix().getBytes(\"UTF-8\");\n    byte[] bs2=(byte[])newKey;\n    byte[] rt=new byte[bs1.length + bs2.length];\n    System.arraycopy(bs1,0,rt,0,bs1.length);\n    System.arraycopy(bs2,0,rt,bs1.length,bs2.length);\n    return rt;\n  }\n else {\n    throw new CacheException(\"type error\");\n  }\n}\n catch (UnsupportedEncodingException e) {\n  throw new CacheException(e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[45,45], C[23,54]",
+                "Detail": null,
+                "Code": "new CacheException(\"type error\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[45,45], C[23,54]",
+                "Detail": null,
+                "Code": "new CacheException(\"type error\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[33,33], C[13,64]",
+                "Detail": null,
+                "Code": "Object newKey=config.getKeyConvertor().apply(key);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_ArrayType",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[39,39], C[17,22]",
+                "Detail": null,
+                "Code": "byte[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_ArrayType",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[40,40], C[17,22]",
+                "Detail": null,
+                "Code": "byte[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_InstanceofExpression",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[37,37], C[24,47]",
+                "Detail": null,
+                "Code": "newKey instanceof byte[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_Dimension",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[40,40], C[21,22]",
+                "Detail": null,
+                "Code": "[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[42,42], C[17,68]",
+                "Detail": null,
+                "Code": "System.arraycopy(bs2,0,rt,bs1.length,bs2.length)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_ArrayCreation",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[40,40], C[29,61]",
+                "Detail": null,
+                "Code": "new byte[bs1.length + bs2.length]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_THROWSTATEMENT",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[45,45], C[17,55]",
+                "Detail": null,
+                "Code": "throw new CacheException(\"type error\");\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[48,48], C[19,39]",
+                "Detail": null,
+                "Code": "new CacheException(e)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[48,48], C[19,39]",
+                "Detail": null,
+                "Code": "new CacheException(e)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_Dimension",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[38,38], C[21,22]",
+                "Detail": null,
+                "Code": "[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[35,35], C[28,57]",
+                "Detail": null,
+                "Code": "config.getKeyPrefix() + newKey",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_Dimension",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[39,39], C[21,22]",
+                "Detail": null,
+                "Code": "[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_ArrayType",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[39,39], C[31,36]",
+                "Detail": null,
+                "Code": "byte[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_FieldDeclaration",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache",
+                "Local": "L[16,16], C[5,39]",
+                "Detail": {
+                    "previousVar": "com.alicp.jetcache.external.AbstractExternalCache>>>config[9,51]"
+                },
+                "Code": "private ExternalCacheConfig config;\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[38,38], C[30,50]",
+                "Detail": null,
+                "Code": "config.getKeyPrefix()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_CastExpression",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[39,39], C[30,44]",
+                "Detail": null,
+                "Code": "(byte[])newKey",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_ArrayType",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[40,40], C[33,61]",
+                "Detail": null,
+                "Code": "byte[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[40,40], C[38,60]",
+                "Detail": null,
+                "Code": "bs1.length + bs2.length",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_ArrayType",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[38,38], C[17,22]",
+                "Detail": null,
+                "Code": "byte[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_Dimension",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[37,37], C[46,47]",
+                "Detail": null,
+                "Code": "[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[35,35], C[28,48]",
+                "Detail": null,
+                "Code": "config.getKeyPrefix()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_ArrayType",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[37,37], C[42,47]",
+                "Detail": null,
+                "Code": "byte[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_THROWSTATEMENT",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[48,48], C[13,40]",
+                "Detail": null,
+                "Code": "throw new CacheException(e);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_TRY_CATCH",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[32,49], C[9,9]",
+                "Detail": null,
+                "Code": "try {\n  Object newKey=config.getKeyConvertor().apply(key);\n  if (newKey instanceof String) {\n    String s=config.getKeyPrefix() + newKey;\n    return s.getBytes(\"UTF-8\");\n  }\n else   if (newKey instanceof byte[]) {\n    byte[] bs1=config.getKeyPrefix().getBytes(\"UTF-8\");\n    byte[] bs2=(byte[])newKey;\n    byte[] rt=new byte[bs1.length + bs2.length];\n    System.arraycopy(bs1,0,rt,0,bs1.length);\n    System.arraycopy(bs2,0,rt,bs1.length,bs2.length);\n    return rt;\n  }\n else {\n    throw new CacheException(\"type error\");\n  }\n}\n catch (UnsupportedEncodingException e) {\n  throw new CacheException(e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_CATCH_CLAUSE",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[47,49], C[11,9]",
+                "Detail": null,
+                "Code": "catch (UnsupportedEncodingException e) {\n  throw new CacheException(e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_CatchClause",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[47,49], C[11,9]",
+                "Detail": null,
+                "Code": "catch (UnsupportedEncodingException e) {\n  throw new CacheException(e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[35,35], C[17,58]",
+                "Detail": null,
+                "Code": "String s=config.getKeyPrefix() + newKey;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[36,36], C[17,43]",
+                "Detail": null,
+                "Code": "return s.getBytes(\"UTF-8\");\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[36,36], C[24,42]",
+                "Detail": null,
+                "Code": "s.getBytes(\"UTF-8\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[38,38], C[17,69]",
+                "Detail": null,
+                "Code": "byte[] bs1=config.getKeyPrefix().getBytes(\"UTF-8\");\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[39,39], C[17,45]",
+                "Detail": null,
+                "Code": "byte[] bs2=(byte[])newKey;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[40,40], C[17,62]",
+                "Detail": null,
+                "Code": "byte[] rt=new byte[bs1.length + bs2.length];\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[43,43], C[17,26]",
+                "Detail": null,
+                "Code": "return rt;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_Dimension",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[40,40], C[37,61]",
+                "Detail": null,
+                "Code": "[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[34,37], C[43,13]",
+                "Detail": null,
+                "Code": "{\n  String s=config.getKeyPrefix() + newKey;\n  return s.getBytes(\"UTF-8\");\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[37,44], C[50,13]",
+                "Detail": null,
+                "Code": "{\n  byte[] bs1=config.getKeyPrefix().getBytes(\"UTF-8\");\n  byte[] bs2=(byte[])newKey;\n  byte[] rt=new byte[bs1.length + bs2.length];\n  System.arraycopy(bs1,0,rt,0,bs1.length);\n  System.arraycopy(bs2,0,rt,bs1.length,bs2.length);\n  return rt;\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_ELSE_STATEMENT",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[44,46], C[20,13]",
+                "Detail": null,
+                "Code": "{\n  throw new CacheException(\"type error\");\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[31,31], C[5,13]",
+                "Detail": null,
+                "Code": "protected",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_ArrayType",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[31,31], C[15,20]",
+                "Detail": null,
+                "Code": "byte[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_InstanceofExpression",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[34,34], C[17,40]",
+                "Detail": null,
+                "Code": "newKey instanceof String",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.buildKey(K)",
+                "Local": "L[41,41], C[17,59]",
+                "Detail": null,
+                "Code": "System.arraycopy(bs1,0,rt,0,bs1.length)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "REMOVED_Dimension",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[65,65], C[17,18]",
+                "Detail": null,
+                "Code": "[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_CastExpression",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[66,66], C[26,40]",
+                "Detail": null,
+                "Code": "(byte[])newKey",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[65,65], C[26,46]",
+                "Detail": null,
+                "Code": "config.getKeyPrefix()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[60,60], C[25,47]",
+                "Detail": null,
+                "Code": "keyConvertor.apply(key)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_Dimension",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[66,66], C[17,18]",
+                "Detail": null,
+                "Code": "[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[60,60], C[9,48]",
+                "Detail": null,
+                "Code": "Object newKey=keyConvertor.apply(key);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_ArrayType",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[66,66], C[13,18]",
+                "Detail": null,
+                "Code": "byte[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_InstanceofExpression",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[61,61], C[13,36]",
+                "Detail": null,
+                "Code": "newKey instanceof String",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_ArrayType",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[67,67], C[13,18]",
+                "Detail": null,
+                "Code": "byte[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[67,67], C[34,56]",
+                "Detail": null,
+                "Code": "bs1.length + bs2.length",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_ArrayType",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[67,67], C[29,57]",
+                "Detail": null,
+                "Code": "byte[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[65,65], C[13,65]",
+                "Detail": null,
+                "Code": "byte[] bs1=config.getKeyPrefix().getBytes(\"UTF-8\");\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[66,66], C[13,41]",
+                "Detail": null,
+                "Code": "byte[] bs2=(byte[])newKey;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[67,67], C[13,58]",
+                "Detail": null,
+                "Code": "byte[] rt=new byte[bs1.length + bs2.length];\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[70,70], C[13,22]",
+                "Detail": null,
+                "Code": "return rt;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_THROWSTATEMENT",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[72,72], C[13,51]",
+                "Detail": null,
+                "Code": "throw new CacheException(\"type error\");\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_Dimension",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[67,67], C[17,18]",
+                "Detail": null,
+                "Code": "[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[69,69], C[13,64]",
+                "Detail": null,
+                "Code": "System.arraycopy(bs2,0,rt,bs1.length,bs2.length)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_Dimension",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[59,59], C[17,18]",
+                "Detail": null,
+                "Code": "[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[62,62], C[24,44]",
+                "Detail": null,
+                "Code": "config.getKeyPrefix()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_Dimension",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[67,67], C[33,57]",
+                "Detail": null,
+                "Code": "[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[72,72], C[19,50]",
+                "Detail": null,
+                "Code": "new CacheException(\"type error\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[72,72], C[19,50]",
+                "Detail": null,
+                "Code": "new CacheException(\"type error\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[68,68], C[13,55]",
+                "Detail": null,
+                "Code": "System.arraycopy(bs1,0,rt,0,bs1.length)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_ArrayType",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[65,65], C[13,18]",
+                "Detail": null,
+                "Code": "byte[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[62,62], C[13,54]",
+                "Detail": null,
+                "Code": "String s=config.getKeyPrefix() + newKey;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[63,63], C[13,39]",
+                "Detail": null,
+                "Code": "return s.getBytes(\"UTF-8\");\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_ArrayType",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[66,66], C[27,32]",
+                "Detail": null,
+                "Code": "byte[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[63,63], C[20,38]",
+                "Detail": null,
+                "Code": "s.getBytes(\"UTF-8\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[62,62], C[24,53]",
+                "Detail": null,
+                "Code": "config.getKeyPrefix() + newKey",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_Dimension",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[64,64], C[42,43]",
+                "Detail": null,
+                "Code": "[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[59,59], C[5,11]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_ArrayType",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[59,59], C[13,18]",
+                "Detail": null,
+                "Code": "byte[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[61,64], C[39,9]",
+                "Detail": null,
+                "Code": "{\n  String s=config.getKeyPrefix() + newKey;\n  return s.getBytes(\"UTF-8\");\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[64,71], C[46,9]",
+                "Detail": null,
+                "Code": "{\n  byte[] bs1=config.getKeyPrefix().getBytes(\"UTF-8\");\n  byte[] bs2=(byte[])newKey;\n  byte[] rt=new byte[bs1.length + bs2.length];\n  System.arraycopy(bs1,0,rt,0,bs1.length);\n  System.arraycopy(bs2,0,rt,bs1.length,bs2.length);\n  return rt;\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_ELSE_STATEMENT",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[71,73], C[16,9]",
+                "Detail": null,
+                "Code": "{\n  throw new CacheException(\"type error\");\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_Dimension",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[66,66], C[31,32]",
+                "Detail": null,
+                "Code": "[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_ArrayCreation",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[67,67], C[25,57]",
+                "Detail": null,
+                "Code": "new byte[bs1.length + bs2.length]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_InstanceofExpression",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[64,64], C[20,43]",
+                "Detail": null,
+                "Code": "newKey instanceof byte[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "REMOVED_ArrayType",
+                "Method": "com.alicp.jetcache.redis.RedisCache.buildKey(K)",
+                "Local": "L[64,64], C[38,43]",
+                "Detail": null,
+                "Code": "byte[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "ADDED_Javadoc",
+                "Method": "com.alicp.jetcache.AutoReleaseLock.close()",
+                "Local": "L[9,11], C[5,7]",
+                "Detail": null,
+                "Code": "/** \n * Release the lock use Java 7 try-with-resources.\n */\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/AutoReleaseLock.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "com.alicp.jetcache.AutoReleaseLock.close()",
+                "Local": "L[10,10], C[8,54]",
+                "Detail": null,
+                "Code": "Release the lock use Java 7 try-with-resources.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/AutoReleaseLock.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "com.alicp.jetcache.AutoReleaseLock.close()",
+                "Local": "L[10,10], C[8,54]",
+                "Detail": null,
+                "Code": "\n * Release the lock use Java 7 try-with-resources.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/AutoReleaseLock.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "com.alicp.jetcache.CacheValueHolder.CacheValueHolder()",
+                "Local": "L[14,14], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/CacheValueHolder.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "com.alicp.jetcache.CacheValueHolder",
+                "Local": "L[14,15], C[5,5]",
+                "Detail": null,
+                "Code": "public CacheValueHolder(){\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/CacheValueHolder.java"
+            },
+            {
+                "Metric": "ADDED_FieldAccess",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.AbstractExternalCache(ExternalCacheConfig)",
+                "Local": "L[19,19], C[9,19]",
+                "Detail": null,
+                "Code": "this.config",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.FieldDeclaration",
+                "Local": "L[16,16], C[5,11]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.AbstractExternalCache(ExternalCacheConfig)",
+                "Local": "L[19,19], C[9,29]",
+                "Detail": null,
+                "Code": "this.config=config;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "com.alicp.jetcache.external.CompilationUnit",
+                "Local": "L[5,5], C[1,41]",
+                "Detail": null,
+                "Code": "import com.alicp.jetcache.CacheException;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "com.alicp.jetcache.external.CompilationUnit",
+                "Local": "L[5,5], C[1,41]",
+                "Detail": null,
+                "Code": "import com.alicp.jetcache.CacheException;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "com.alicp.jetcache.external.CompilationUnit",
+                "Local": "L[7,7], C[1,44]",
+                "Detail": null,
+                "Code": "import java.io.UnsupportedEncodingException;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "com.alicp.jetcache.external.CompilationUnit",
+                "Local": "L[7,7], C[1,44]",
+                "Detail": null,
+                "Code": "import java.io.UnsupportedEncodingException;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_ThisExpression",
+                "Method": "com.alicp.jetcache.external.AbstractExternalCache.AbstractExternalCache(ExternalCacheConfig)",
+                "Local": "L[19,19], C[9,12]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java"
+            },
+            {
+                "Metric": "ADDED_InstanceofExpression",
+                "Method": "com.alicp.jetcache.support.FastjsonKeyConvertor.apply(Object)",
+                "Local": "L[21,21], C[13,41]",
+                "Detail": null,
+                "Code": "originalKey instanceof byte[]",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/support/FastjsonKeyConvertor.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "com.alicp.jetcache.support.FastjsonKeyConvertor.apply(Object)",
+                "Local": "L[21,23], C[44,9]",
+                "Detail": null,
+                "Code": "{\n  return originalKey;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/support/FastjsonKeyConvertor.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "com.alicp.jetcache.support.FastjsonKeyConvertor.apply(Object)",
+                "Local": "L[22,22], C[13,31]",
+                "Detail": null,
+                "Code": "return originalKey;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/support/FastjsonKeyConvertor.java"
+            },
+            {
+                "Metric": "ADDED_ArrayType",
+                "Method": "com.alicp.jetcache.support.FastjsonKeyConvertor.apply(Object)",
+                "Local": "L[21,21], C[36,41]",
+                "Detail": null,
+                "Code": "byte[]",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/support/FastjsonKeyConvertor.java"
+            },
+            {
+                "Metric": "ADDED_Dimension",
+                "Method": "com.alicp.jetcache.support.FastjsonKeyConvertor.apply(Object)",
+                "Local": "L[21,21], C[40,41]",
+                "Detail": null,
+                "Code": "[]",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-core/src/main/java/com/alicp/jetcache/support/FastjsonKeyConvertor.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "com.alicp.jetcache.redis.RedisCache.REMOVE(K)",
+                "Local": "L[127,129], C[29,13]",
+                "Detail": null,
+                "Code": "{\n  return CacheResult.FAIL_WITHOUT_MSG;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "ADDED_ELSE_STATEMENT",
+                "Method": "com.alicp.jetcache.redis.RedisCache.REMOVE(K)",
+                "Local": "L[133,135], C[20,13]",
+                "Detail": null,
+                "Code": "{\n  return CacheResult.FAIL_WITHOUT_MSG;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "CHANGED_ELSE_CONDITION",
+                "Method": "com.alicp.jetcache.redis.RedisCache.__GET_HOLDER(K)",
+                "Local": "L[72,74], C[24,17]",
+                "Detail": null,
+                "Code": "{\n  return CacheGetResult.NOT_EXISTS_WITHOUT_MSG;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "com.alicp.jetcache.redis.RedisCache.__GET_HOLDER(K)",
+                "Local": "L[68,70], C[79,21]",
+                "Detail": null,
+                "Code": "{\n  return CacheGetResult.EXPIRED_WITHOUT_MSG;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "ADDED_ELSE_STATEMENT",
+                "Method": "com.alicp.jetcache.redis.RedisCache.__GET_HOLDER(K)",
+                "Local": "L[91,93], C[24,17]",
+                "Detail": null,
+                "Code": "{\n  return CacheGetResult.NOT_EXISTS_WITHOUT_MSG;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "com.alicp.jetcache.redis.RedisCache.__GET_HOLDER(K)",
+                "Local": "L[82,84], C[79,21]",
+                "Detail": null,
+                "Code": "{\n  return CacheGetResult.EXPIRED_WITHOUT_MSG;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.lockTest()",
+                "Local": "L[93,93], C[9,24]",
+                "Detail": null,
+                "Code": "Thread.sleep(50)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.baseTest()",
+                "Local": "L[90,90], C[9,24]",
+                "Detail": null,
+                "Code": "Thread.sleep(50)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.baseTest()",
+                "Local": "L[82,82], C[9,18]",
+                "Detail": null,
+                "Code": "lockTest()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.lockTest()",
+                "Local": "L[92,92], C[9,79]",
+                "Detail": null,
+                "Code": "Assert.assertNull(cache.tryLock(\"LockKey1\",50,TimeUnit.MILLISECONDS))",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.baseTest()",
+                "Local": "L[89,89], C[9,79]",
+                "Detail": null,
+                "Code": "Assert.assertNull(cache.tryLock(\"LockKey1\",50,TimeUnit.MILLISECONDS))",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest",
+                "Local": "L[85,95], C[5,5]",
+                "Detail": null,
+                "Code": "protected void lockTest() throws Exception {\n  try (AutoReleaseLock lock=cache.tryLock(\"LockKey1\",200,TimeUnit.MILLISECONDS)){\n    Assert.assertNotNull(lock);\n    Assert.assertNull(cache.tryLock(\"LockKey1\",200,TimeUnit.MILLISECONDS));\n    Assert.assertNotNull(cache.tryLock(\"LockKey2\",200,TimeUnit.MILLISECONDS));\n  }\n   Assert.assertNotNull(cache.tryLock(\"LockKey1\",50,TimeUnit.MILLISECONDS));\n  Assert.assertNull(cache.tryLock(\"LockKey1\",50,TimeUnit.MILLISECONDS));\n  Thread.sleep(50);\n  Assert.assertNotNull(cache.tryLock(\"LockKey1\",50,TimeUnit.MILLISECONDS));\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.lockTest().assertNotNull(UNKNOWN)",
+                "Local": "L[89,89], C[34,86]",
+                "Detail": null,
+                "Code": "cache.tryLock(\"LockKey2\",200,TimeUnit.MILLISECONDS)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.baseTest().assertNotNull(UNKNOWN)",
+                "Local": "L[86,86], C[34,86]",
+                "Detail": null,
+                "Code": "cache.tryLock(\"LockKey2\",200,TimeUnit.MILLISECONDS)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.lockTest()",
+                "Local": "L[85,85], C[5,13]",
+                "Detail": null,
+                "Code": "protected",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "REMOVED_TRY_CATCH",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.baseTest()",
+                "Local": "L[83,87], C[9,9]",
+                "Detail": null,
+                "Code": "try (AutoReleaseLock lock=cache.tryLock(\"LockKey1\",200,TimeUnit.MILLISECONDS)){\n  Assert.assertNotNull(lock);\n  Assert.assertNull(cache.tryLock(\"LockKey1\",200,TimeUnit.MILLISECONDS));\n  Assert.assertNotNull(cache.tryLock(\"LockKey2\",200,TimeUnit.MILLISECONDS));\n}\n ",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "ADDED_TRYSTATEMENT",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.lockTest()",
+                "Local": "L[86,90], C[9,9]",
+                "Detail": null,
+                "Code": "try (AutoReleaseLock lock=cache.tryLock(\"LockKey1\",200,TimeUnit.MILLISECONDS)){\n  Assert.assertNotNull(lock);\n  Assert.assertNull(cache.tryLock(\"LockKey1\",200,TimeUnit.MILLISECONDS));\n  Assert.assertNotNull(cache.tryLock(\"LockKey2\",200,TimeUnit.MILLISECONDS));\n}\n ",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.lockTest().assertNull(UNKNOWN)",
+                "Local": "L[92,92], C[27,78]",
+                "Detail": null,
+                "Code": "cache.tryLock(\"LockKey1\",50,TimeUnit.MILLISECONDS)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.baseTest().assertNull(UNKNOWN)",
+                "Local": "L[89,89], C[27,78]",
+                "Detail": null,
+                "Code": "cache.tryLock(\"LockKey1\",50,TimeUnit.MILLISECONDS)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.lockTest().assertNotNull(UNKNOWN)",
+                "Local": "L[94,94], C[30,81]",
+                "Detail": null,
+                "Code": "cache.tryLock(\"LockKey1\",50,TimeUnit.MILLISECONDS)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.baseTest().assertNotNull(UNKNOWN)",
+                "Local": "L[88,88], C[30,81]",
+                "Detail": null,
+                "Code": "cache.tryLock(\"LockKey1\",50,TimeUnit.MILLISECONDS)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "REMOVED_TRYSTATEMENT",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.baseTest()",
+                "Local": "L[83,87], C[9,9]",
+                "Detail": null,
+                "Code": "try (AutoReleaseLock lock=cache.tryLock(\"LockKey1\",200,TimeUnit.MILLISECONDS)){\n  Assert.assertNotNull(lock);\n  Assert.assertNull(cache.tryLock(\"LockKey1\",200,TimeUnit.MILLISECONDS));\n  Assert.assertNotNull(cache.tryLock(\"LockKey2\",200,TimeUnit.MILLISECONDS));\n}\n ",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.lockTest().assertNotNull(UNKNOWN)",
+                "Local": "L[91,91], C[30,81]",
+                "Detail": null,
+                "Code": "cache.tryLock(\"LockKey1\",50,TimeUnit.MILLISECONDS)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.baseTest().assertNotNull(UNKNOWN)",
+                "Local": "L[91,91], C[30,81]",
+                "Detail": null,
+                "Code": "cache.tryLock(\"LockKey1\",50,TimeUnit.MILLISECONDS)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.lockTest()",
+                "Local": "L[94,94], C[9,82]",
+                "Detail": null,
+                "Code": "Assert.assertNotNull(cache.tryLock(\"LockKey1\",50,TimeUnit.MILLISECONDS))",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.baseTest()",
+                "Local": "L[88,88], C[9,82]",
+                "Detail": null,
+                "Code": "Assert.assertNotNull(cache.tryLock(\"LockKey1\",50,TimeUnit.MILLISECONDS))",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.lockTest()",
+                "Local": "L[89,89], C[13,87]",
+                "Detail": null,
+                "Code": "Assert.assertNotNull(cache.tryLock(\"LockKey2\",200,TimeUnit.MILLISECONDS))",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.baseTest()",
+                "Local": "L[86,86], C[13,87]",
+                "Detail": null,
+                "Code": "Assert.assertNotNull(cache.tryLock(\"LockKey2\",200,TimeUnit.MILLISECONDS))",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.lockTest()",
+                "Local": "L[86,86], C[37,89]",
+                "Detail": null,
+                "Code": "cache.tryLock(\"LockKey1\",200,TimeUnit.MILLISECONDS)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.baseTest()",
+                "Local": "L[83,83], C[37,89]",
+                "Detail": null,
+                "Code": "cache.tryLock(\"LockKey1\",200,TimeUnit.MILLISECONDS)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "ADDED_VariableDeclarationExpression",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.lockTest()",
+                "Local": "L[86,86], C[14,89]",
+                "Detail": null,
+                "Code": "AutoReleaseLock lock=cache.tryLock(\"LockKey1\",200,TimeUnit.MILLISECONDS)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "REMOVED_VariableDeclarationExpression",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.baseTest()",
+                "Local": "L[83,83], C[14,89]",
+                "Detail": null,
+                "Code": "AutoReleaseLock lock=cache.tryLock(\"LockKey1\",200,TimeUnit.MILLISECONDS)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "ADDED_TRY_CATCH",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.lockTest()",
+                "Local": "L[86,90], C[9,9]",
+                "Detail": null,
+                "Code": "try (AutoReleaseLock lock=cache.tryLock(\"LockKey1\",200,TimeUnit.MILLISECONDS)){\n  Assert.assertNotNull(lock);\n  Assert.assertNull(cache.tryLock(\"LockKey1\",200,TimeUnit.MILLISECONDS));\n  Assert.assertNotNull(cache.tryLock(\"LockKey2\",200,TimeUnit.MILLISECONDS));\n}\n ",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.lockTest().assertNull(UNKNOWN)",
+                "Local": "L[88,88], C[31,83]",
+                "Detail": null,
+                "Code": "cache.tryLock(\"LockKey1\",200,TimeUnit.MILLISECONDS)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.baseTest().assertNull(UNKNOWN)",
+                "Local": "L[85,85], C[31,83]",
+                "Detail": null,
+                "Code": "cache.tryLock(\"LockKey1\",200,TimeUnit.MILLISECONDS)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.lockTest()",
+                "Local": "L[91,91], C[9,82]",
+                "Detail": null,
+                "Code": "Assert.assertNotNull(cache.tryLock(\"LockKey1\",50,TimeUnit.MILLISECONDS))",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.baseTest()",
+                "Local": "L[91,91], C[9,82]",
+                "Detail": null,
+                "Code": "Assert.assertNotNull(cache.tryLock(\"LockKey1\",50,TimeUnit.MILLISECONDS))",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.lockTest()",
+                "Local": "L[87,87], C[13,38]",
+                "Detail": null,
+                "Code": "Assert.assertNotNull(lock)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.baseTest()",
+                "Local": "L[84,84], C[13,38]",
+                "Detail": null,
+                "Code": "Assert.assertNotNull(lock)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.lockTest()",
+                "Local": "L[88,88], C[13,84]",
+                "Detail": null,
+                "Code": "Assert.assertNull(cache.tryLock(\"LockKey1\",200,TimeUnit.MILLISECONDS))",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.alicp.jetcache.test.AbstractCacheTest.baseTest()",
+                "Local": "L[85,85], C[13,84]",
+                "Detail": null,
+                "Code": "Assert.assertNull(cache.tryLock(\"LockKey1\",200,TimeUnit.MILLISECONDS))",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "jetcache-test/src/main/java/com/alicp/jetcache/test/AbstractCacheTest.java"
+            }
+        ],
+        "metadata": {
+            "type": "Pull Up Method",
+            "description": "Pull Up Method private buildKey(key K) : byte[] from class com.alicp.jetcache.redis.RedisCache to protected buildKey(key K) : byte[] from class com.alicp.jetcache.external.AbstractExternalCache",
+            "leftSideLocations": [
+                {
+                    "filePath": "jetcache-redis/src/main/java/com/alicp/jetcache/redis/RedisCache.java",
+                    "startLine": 59,
+                    "endLine": 74,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private buildKey(key K) : byte[]"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java",
+                    "startLine": 31,
+                    "endLine": 50,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "pulled up method declaration",
+                    "codeElement": "protected buildKey(key K) : byte[]"
+                }
+            ]
+        }
+    }
+]

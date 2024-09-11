@@ -1,0 +1,1844 @@
+[
+    {
+        "commit": "7416ff81fa406afb3adbab87443ceee1b16a7fcd",
+        "source": [
+            {
+                "element": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java",
+                "local": "L[439,464], C[5,5]"
+            }
+        ],
+        "target": [
+            {
+                "element": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java",
+                "local": "L[163,188], C[5,5]"
+            }
+        ],
+        "type": "MOVE_METHOD",
+        "related": [
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "io.swagger.util.ParameterProcessor",
+                "Local": "L[163,188], C[5,5]",
+                "Detail": {
+                    "method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                    "blockPos": "L[163,188], C[71,5]"
+                },
+                "Code": "public static Optional<Example> getExample(ExampleObject example){\n  if (example == null) {\n    return Optional.empty();\n  }\n  if (StringUtils.isNotBlank(example.name())) {\n    Example exampleObject=new Example();\n    if (StringUtils.isNotBlank(example.name())) {\n      exampleObject.setDescription(example.name());\n    }\n    if (StringUtils.isNotBlank(example.summary())) {\n      exampleObject.setSummary(example.summary());\n    }\n    if (StringUtils.isNotBlank(example.externalValue())) {\n      exampleObject.setExternalValue(example.externalValue());\n    }\n    if (StringUtils.isNotBlank(example.value())) {\n      try {\n        exampleObject.setValue(Json.mapper().readTree(example.value()));\n      }\n catch (      IOException e) {\n        exampleObject.setValue(example.value());\n      }\n    }\n    return Optional.of(exampleObject);\n  }\n  return Optional.empty();\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "io.swagger.jaxrs2.OperationParser",
+                "Local": "L[439,464], C[5,5]",
+                "Detail": {
+                    "method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                    "blockPos": "L[439,464], C[71,5]"
+                },
+                "Code": "public static Optional<Example> getExample(ExampleObject example){\n  if (example == null) {\n    return Optional.empty();\n  }\n  if (StringUtils.isNotBlank(example.name())) {\n    Example exampleObject=new Example();\n    if (StringUtils.isNotBlank(example.name())) {\n      exampleObject.setDescription(example.name());\n    }\n    if (StringUtils.isNotBlank(example.summary())) {\n      exampleObject.setSummary(example.summary());\n    }\n    if (StringUtils.isNotBlank(example.externalValue())) {\n      exampleObject.setExternalValue(example.externalValue());\n    }\n    if (StringUtils.isNotBlank(example.value())) {\n      try {\n        exampleObject.setValue(Json.mapper().readTree(example.value()));\n      }\n catch (      IOException e) {\n        exampleObject.setValue(example.value());\n      }\n    }\n    return Optional.of(exampleObject);\n  }\n  return Optional.empty();\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[164,164], C[13,27]",
+                "Detail": null,
+                "Code": "example == null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "CHANGED_ENHANCEDFORSTATEMENT",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)",
+                "Local": "L[52,137], C[9,9]",
+                "Detail": null,
+                "Code": "for (Annotation annotation : annotations) {\n  if (annotation instanceof io.swagger.oas.annotations.media.Schema) {\n    Schema schema=processSchema((io.swagger.oas.annotations.media.Schema)annotation);\n    if (schema != null) {\n      parameter.setSchema(schema);\n    }\n  }\n  if (annotation instanceof io.swagger.oas.annotations.Parameter) {\n    io.swagger.oas.annotations.Parameter p=(io.swagger.oas.annotations.Parameter)annotation;\n    if (StringUtils.isNotBlank(p.description())) {\n      parameter.setDescription(p.description());\n    }\n    if (StringUtils.isNotBlank(p.name())) {\n      parameter.setName(p.name());\n    }\n    if (StringUtils.isNotBlank(p.in())) {\n      parameter.setIn(p.in());\n    }\n    if (StringUtils.isNotBlank(p.example())) {\n      parameter.setExample(p.example());\n    }\n    if (p.deprecated()) {\n      parameter.setDeprecated(p.deprecated());\n    }\n    if (p.required()) {\n      parameter.setRequired(p.required());\n    }\n    if (p.allowEmptyValue()) {\n      parameter.setAllowEmptyValue(p.allowEmptyValue());\n    }\n    if (p.allowReserved()) {\n      parameter.setAllowReserved(p.allowReserved());\n    }\n    Map<String,Example> exampleMap=new HashMap<>();\n    for (    ExampleObject exampleObject : p.examples()) {\n      getExample(exampleObject).ifPresent(example -> exampleMap.put(exampleObject.name(),example));\n    }\n    if (exampleMap.size() > 0) {\n      parameter.setExamples(exampleMap);\n    }\n    setParameterStyle(parameter,p);\n    setParameterExplode(parameter,p);\n    if (hasSchemaAnnotation(p.schema())) {\n      Schema schema=processSchema(p.schema());\n      if (schema != null) {\n        parameter.setSchema(schema);\n      }\n    }\n else     if (hasArrayAnnotation(p.array())) {\n      Schema arraySchema=processArraySchema(p.array());\n      if (arraySchema != null) {\n        parameter.setSchema(arraySchema);\n      }\n    }\n  }\n else   if (annotation.annotationType().getName().equals(\"javax.ws.rs.PathParam\")) {\n    try {\n      String name=(String)annotation.annotationType().getMethod(\"value\").invoke(annotation);\n      if (StringUtils.isNotBlank(name)) {\n        parameter.setName(name);\n      }\n    }\n catch (    Exception e) {\n    }\n  }\n else   if (annotation.annotationType().getName().equals(\"javax.validation.constraints.Size\")) {\n    try {\n      if (parameter.getSchema() == null) {\n        parameter.setSchema(new ArraySchema());\n      }\n      if (parameter.getSchema() instanceof ArraySchema) {\n        ArraySchema as=(ArraySchema)parameter.getSchema();\n        Integer min=(Integer)annotation.annotationType().getMethod(\"min\").invoke(annotation);\n        if (min != null) {\n          as.setMinItems(min);\n        }\n        Integer max=(Integer)annotation.annotationType().getMethod(\"max\").invoke(annotation);\n        if (max != null) {\n          as.setMaxItems(max);\n        }\n      }\n    }\n catch (    Exception e) {\n      LOGGER.error(\"failed on \" + annotation.annotationType().getName(),e);\n    }\n  }\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 8,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[168,168], C[37,49]",
+                "Detail": null,
+                "Code": "new Example()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[168,168], C[37,49]",
+                "Detail": null,
+                "Code": "new Example()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject).setDescription(UNKNOWN)",
+                "Local": "L[170,170], C[46,59]",
+                "Detail": null,
+                "Code": "example.name()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[187,187], C[9,32]",
+                "Detail": null,
+                "Code": "return Optional.empty();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[165,165], C[13,36]",
+                "Detail": null,
+                "Code": "return Optional.empty();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[187,187], C[16,31]",
+                "Detail": null,
+                "Code": "Optional.empty()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[168,168], C[13,50]",
+                "Detail": null,
+                "Code": "Example exampleObject=new Example();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[185,185], C[13,46]",
+                "Detail": null,
+                "Code": "return Optional.of(exampleObject);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)",
+                "Local": "L[90,90], C[21,37]",
+                "Detail": {
+                    "previousVar": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)>>>exampleMap[86,108]"
+                },
+                "Code": "exampleMap.size()",
+                "relationType": "VAR_RELATED",
+                "distance": 6,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)",
+                "Local": "L[91,91], C[21,53]",
+                "Detail": {
+                    "previousVar": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)>>>exampleMap[86,108]"
+                },
+                "Code": "parameter.setExamples(exampleMap)",
+                "relationType": "VAR_RELATED",
+                "distance": 6,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[169,169], C[17,54]",
+                "Detail": null,
+                "Code": "StringUtils.isNotBlank(example.name())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[165,165], C[20,35]",
+                "Detail": null,
+                "Code": "Optional.empty()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject).isNotBlank(UNKNOWN)",
+                "Local": "L[167,167], C[36,49]",
+                "Detail": null,
+                "Code": "example.name()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)",
+                "Local": "L[86,86], C[17,66]",
+                "Detail": {
+                    "previousVar": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)>>>exampleMap[86,108]"
+                },
+                "Code": "Map<String,Example> exampleMap=new HashMap<>();\n",
+                "relationType": "VAR_RELATED",
+                "distance": 6,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_ENHANCEDFORSTATEMENT",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)",
+                "Local": "L[87,89], C[17,17]",
+                "Detail": null,
+                "Code": "for (ExampleObject exampleObject : p.examples()) {\n  getExample(exampleObject).ifPresent(example -> exampleMap.put(exampleObject.name(),example));\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 4,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_NullLiteral",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[164,164], C[24,27]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[180,180], C[21,83]",
+                "Detail": null,
+                "Code": "exampleObject.setValue(Json.mapper().readTree(example.value()))",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)",
+                "Local": "L[88,88], C[21,45]",
+                "Detail": null,
+                "Code": "getExample(exampleObject)",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[182,182], C[21,59]",
+                "Detail": null,
+                "Code": "exampleObject.setValue(example.value())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[164,166], C[30,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[167,186], C[53,9]",
+                "Detail": null,
+                "Code": "{\n  Example exampleObject=new Example();\n  if (StringUtils.isNotBlank(example.name())) {\n    exampleObject.setDescription(example.name());\n  }\n  if (StringUtils.isNotBlank(example.summary())) {\n    exampleObject.setSummary(example.summary());\n  }\n  if (StringUtils.isNotBlank(example.externalValue())) {\n    exampleObject.setExternalValue(example.externalValue());\n  }\n  if (StringUtils.isNotBlank(example.value())) {\n    try {\n      exampleObject.setValue(Json.mapper().readTree(example.value()));\n    }\n catch (    IOException e) {\n      exampleObject.setValue(example.value());\n    }\n  }\n  return Optional.of(exampleObject);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[169,171], C[57,13]",
+                "Detail": null,
+                "Code": "{\n  exampleObject.setDescription(example.name());\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[172,174], C[60,13]",
+                "Detail": null,
+                "Code": "{\n  exampleObject.setSummary(example.summary());\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[175,177], C[66,13]",
+                "Detail": null,
+                "Code": "{\n  exampleObject.setExternalValue(example.externalValue());\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[178,184], C[58,13]",
+                "Detail": null,
+                "Code": "{\n  try {\n    exampleObject.setValue(Json.mapper().readTree(example.value()));\n  }\n catch (  IOException e) {\n    exampleObject.setValue(example.value());\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[163,163], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[163,163], C[12,17]",
+                "Detail": null,
+                "Code": "static",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[163,163], C[19,35]",
+                "Detail": null,
+                "Code": "Optional<Example>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[176,176], C[17,71]",
+                "Detail": null,
+                "Code": "exampleObject.setExternalValue(example.externalValue())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject).isNotBlank(UNKNOWN)",
+                "Local": "L[178,178], C[40,54]",
+                "Detail": null,
+                "Code": "example.value()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "CHANGED_EXISTING_IF_BLOCK",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)",
+                "Local": "L[59,108], C[77,13]",
+                "Detail": null,
+                "Code": "{\n  io.swagger.oas.annotations.Parameter p=(io.swagger.oas.annotations.Parameter)annotation;\n  if (StringUtils.isNotBlank(p.description())) {\n    parameter.setDescription(p.description());\n  }\n  if (StringUtils.isNotBlank(p.name())) {\n    parameter.setName(p.name());\n  }\n  if (StringUtils.isNotBlank(p.in())) {\n    parameter.setIn(p.in());\n  }\n  if (StringUtils.isNotBlank(p.example())) {\n    parameter.setExample(p.example());\n  }\n  if (p.deprecated()) {\n    parameter.setDeprecated(p.deprecated());\n  }\n  if (p.required()) {\n    parameter.setRequired(p.required());\n  }\n  if (p.allowEmptyValue()) {\n    parameter.setAllowEmptyValue(p.allowEmptyValue());\n  }\n  if (p.allowReserved()) {\n    parameter.setAllowReserved(p.allowReserved());\n  }\n  Map<String,Example> exampleMap=new HashMap<>();\n  for (  ExampleObject exampleObject : p.examples()) {\n    getExample(exampleObject).ifPresent(example -> exampleMap.put(exampleObject.name(),example));\n  }\n  if (exampleMap.size() > 0) {\n    parameter.setExamples(exampleMap);\n  }\n  setParameterStyle(parameter,p);\n  setParameterExplode(parameter,p);\n  if (hasSchemaAnnotation(p.schema())) {\n    Schema schema=processSchema(p.schema());\n    if (schema != null) {\n      parameter.setSchema(schema);\n    }\n  }\n else   if (hasArrayAnnotation(p.array())) {\n    Schema arraySchema=processArraySchema(p.array());\n    if (arraySchema != null) {\n      parameter.setSchema(arraySchema);\n    }\n  }\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 5,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)",
+                "Local": "L[55,57], C[37,17]",
+                "Detail": {
+                    "previousVar": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)>>>parameter[43,161]"
+                },
+                "Code": "{\n  parameter.setSchema(schema);\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 6,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)",
+                "Local": "L[70,72], C[58,17]",
+                "Detail": {
+                    "previousVar": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)>>>parameter[43,161]"
+                },
+                "Code": "{\n  parameter.setExample(p.example());\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 6,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)",
+                "Local": "L[90,92], C[44,17]",
+                "Detail": {
+                    "previousVar": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)>>>exampleMap[86,108]"
+                },
+                "Code": "{\n  parameter.setExamples(exampleMap);\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 6,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)",
+                "Local": "L[99,101], C[41,21]",
+                "Detail": {
+                    "previousVar": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)>>>parameter[43,161]"
+                },
+                "Code": "{\n  parameter.setSchema(schema);\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 6,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)",
+                "Local": "L[90,90], C[21,41]",
+                "Detail": {
+                    "previousVar": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)>>>exampleMap[86,108]"
+                },
+                "Code": "exampleMap.size() > 0",
+                "relationType": "VAR_RELATED",
+                "distance": 6,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject).setValue(UNKNOWN)",
+                "Local": "L[180,180], C[44,56]",
+                "Detail": null,
+                "Code": "Json.mapper()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject).setValue(UNKNOWN)",
+                "Local": "L[180,180], C[67,81]",
+                "Detail": null,
+                "Code": "example.value()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[175,175], C[17,63]",
+                "Detail": null,
+                "Code": "StringUtils.isNotBlank(example.externalValue())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_TRYSTATEMENT",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[179,183], C[17,17]",
+                "Detail": null,
+                "Code": "try {\n  exampleObject.setValue(Json.mapper().readTree(example.value()));\n}\n catch (IOException e) {\n  exampleObject.setValue(example.value());\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[172,172], C[17,57]",
+                "Detail": null,
+                "Code": "StringUtils.isNotBlank(example.summary())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)",
+                "Local": "L[70,70], C[21,55]",
+                "Detail": {
+                    "previousVar": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)>>>p[60,108]"
+                },
+                "Code": "StringUtils.isNotBlank(p.example())",
+                "relationType": "VAR_RELATED",
+                "distance": 6,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject).setValue(UNKNOWN)",
+                "Local": "L[182,182], C[44,58]",
+                "Detail": null,
+                "Code": "example.value()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[167,167], C[13,50]",
+                "Detail": null,
+                "Code": "StringUtils.isNotBlank(example.name())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[178,178], C[17,55]",
+                "Detail": null,
+                "Code": "StringUtils.isNotBlank(example.value())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[185,185], C[20,45]",
+                "Detail": null,
+                "Code": "Optional.of(exampleObject)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[170,170], C[17,60]",
+                "Detail": null,
+                "Code": "exampleObject.setDescription(example.name())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject).isNotBlank(UNKNOWN)",
+                "Local": "L[172,172], C[40,56]",
+                "Detail": null,
+                "Code": "example.summary()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[173,173], C[17,59]",
+                "Detail": null,
+                "Code": "exampleObject.setSummary(example.summary())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject).isNotBlank(UNKNOWN)",
+                "Local": "L[169,169], C[40,53]",
+                "Detail": null,
+                "Code": "example.name()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>).isNotBlank(UNKNOWN)",
+                "Local": "L[70,70], C[44,54]",
+                "Detail": {
+                    "previousVar": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)>>>p[60,108]"
+                },
+                "Code": "p.example()",
+                "relationType": "VAR_RELATED",
+                "distance": 6,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)",
+                "Local": "L[87,87], C[52,63]",
+                "Detail": {
+                    "previousVar": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)>>>p[60,108]"
+                },
+                "Code": "p.examples()",
+                "relationType": "VAR_RELATED",
+                "distance": 6,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_TRY_CATCH",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[179,183], C[17,17]",
+                "Detail": null,
+                "Code": "try {\n  exampleObject.setValue(Json.mapper().readTree(example.value()));\n}\n catch (IOException e) {\n  exampleObject.setValue(example.value());\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_CATCH_CLAUSE",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[181,183], C[19,17]",
+                "Detail": null,
+                "Code": "catch (IOException e) {\n  exampleObject.setValue(example.value());\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_CatchClause",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject)",
+                "Local": "L[181,183], C[19,17]",
+                "Detail": null,
+                "Code": "catch (IOException e) {\n  exampleObject.setValue(example.value());\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject).setExternalValue(UNKNOWN)",
+                "Local": "L[176,176], C[48,70]",
+                "Detail": null,
+                "Code": "example.externalValue()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)",
+                "Local": "L[71,71], C[21,53]",
+                "Detail": {
+                    "previousVar": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)>>>parameter[43,161]"
+                },
+                "Code": "parameter.setExample(p.example())",
+                "relationType": "VAR_RELATED",
+                "distance": 6,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject).setSummary(UNKNOWN)",
+                "Local": "L[173,173], C[42,58]",
+                "Detail": null,
+                "Code": "example.summary()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.getExample(ExampleObject).isNotBlank(UNKNOWN)",
+                "Local": "L[175,175], C[40,62]",
+                "Detail": null,
+                "Code": "example.externalValue()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>).setExample(UNKNOWN)",
+                "Local": "L[71,71], C[42,52]",
+                "Detail": {
+                    "previousVar": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)>>>p[60,108]"
+                },
+                "Code": "p.example()",
+                "relationType": "VAR_RELATED",
+                "distance": 6,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject).isNotBlank(UNKNOWN)",
+                "Local": "L[443,443], C[36,49]",
+                "Detail": null,
+                "Code": "example.name()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_TRY_CATCH",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[455,459], C[17,17]",
+                "Detail": null,
+                "Code": "try {\n  exampleObject.setValue(Json.mapper().readTree(example.value()));\n}\n catch (IOException e) {\n  exampleObject.setValue(example.value());\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_TRYSTATEMENT",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[455,459], C[17,17]",
+                "Detail": null,
+                "Code": "try {\n  exampleObject.setValue(Json.mapper().readTree(example.value()));\n}\n catch (IOException e) {\n  exampleObject.setValue(example.value());\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[440,440], C[13,27]",
+                "Detail": null,
+                "Code": "example == null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[463,463], C[9,32]",
+                "Detail": null,
+                "Code": "return Optional.empty();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject).setValue(UNKNOWN)",
+                "Local": "L[456,456], C[44,56]",
+                "Detail": null,
+                "Code": "Json.mapper()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject).setValue(UNKNOWN)",
+                "Local": "L[456,456], C[67,81]",
+                "Detail": null,
+                "Code": "example.value()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[441,441], C[20,35]",
+                "Detail": null,
+                "Code": "Optional.empty()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject).setValue(UNKNOWN)",
+                "Local": "L[458,458], C[44,58]",
+                "Detail": null,
+                "Code": "example.value()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[444,444], C[37,49]",
+                "Detail": null,
+                "Code": "new Example()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[444,444], C[37,49]",
+                "Detail": null,
+                "Code": "new Example()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[439,439], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[439,439], C[12,17]",
+                "Detail": null,
+                "Code": "static",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[439,439], C[19,35]",
+                "Detail": null,
+                "Code": "Optional<Example>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[440,442], C[30,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[443,462], C[53,9]",
+                "Detail": null,
+                "Code": "{\n  Example exampleObject=new Example();\n  if (StringUtils.isNotBlank(example.name())) {\n    exampleObject.setDescription(example.name());\n  }\n  if (StringUtils.isNotBlank(example.summary())) {\n    exampleObject.setSummary(example.summary());\n  }\n  if (StringUtils.isNotBlank(example.externalValue())) {\n    exampleObject.setExternalValue(example.externalValue());\n  }\n  if (StringUtils.isNotBlank(example.value())) {\n    try {\n      exampleObject.setValue(Json.mapper().readTree(example.value()));\n    }\n catch (    IOException e) {\n      exampleObject.setValue(example.value());\n    }\n  }\n  return Optional.of(exampleObject);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[445,447], C[57,13]",
+                "Detail": null,
+                "Code": "{\n  exampleObject.setDescription(example.name());\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[448,450], C[60,13]",
+                "Detail": null,
+                "Code": "{\n  exampleObject.setSummary(example.summary());\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[451,453], C[66,13]",
+                "Detail": null,
+                "Code": "{\n  exampleObject.setExternalValue(example.externalValue());\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[454,460], C[58,13]",
+                "Detail": null,
+                "Code": "{\n  try {\n    exampleObject.setValue(Json.mapper().readTree(example.value()));\n  }\n catch (  IOException e) {\n    exampleObject.setValue(example.value());\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[463,463], C[16,31]",
+                "Detail": null,
+                "Code": "Optional.empty()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[458,458], C[21,59]",
+                "Detail": null,
+                "Code": "exampleObject.setValue(example.value())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[461,461], C[20,45]",
+                "Detail": null,
+                "Code": "Optional.of(exampleObject)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[451,451], C[17,63]",
+                "Detail": null,
+                "Code": "StringUtils.isNotBlank(example.externalValue())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[448,448], C[17,57]",
+                "Detail": null,
+                "Code": "StringUtils.isNotBlank(example.summary())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject).isNotBlank(UNKNOWN)",
+                "Local": "L[448,448], C[40,56]",
+                "Detail": null,
+                "Code": "example.summary()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject).isNotBlank(UNKNOWN)",
+                "Local": "L[445,445], C[40,53]",
+                "Detail": null,
+                "Code": "example.name()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_CATCH_CLAUSE",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[457,459], C[19,17]",
+                "Detail": null,
+                "Code": "catch (IOException e) {\n  exampleObject.setValue(example.value());\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_CatchClause",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[457,459], C[19,17]",
+                "Detail": null,
+                "Code": "catch (IOException e) {\n  exampleObject.setValue(example.value());\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[443,443], C[13,50]",
+                "Detail": null,
+                "Code": "StringUtils.isNotBlank(example.name())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[456,456], C[21,83]",
+                "Detail": null,
+                "Code": "exampleObject.setValue(Json.mapper().readTree(example.value()))",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject).setSummary(UNKNOWN)",
+                "Local": "L[449,449], C[42,58]",
+                "Detail": null,
+                "Code": "example.summary()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[444,444], C[13,50]",
+                "Detail": null,
+                "Code": "Example exampleObject=new Example();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[461,461], C[13,46]",
+                "Detail": null,
+                "Code": "return Optional.of(exampleObject);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[452,452], C[17,71]",
+                "Detail": null,
+                "Code": "exampleObject.setExternalValue(example.externalValue())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject).setExternalValue(UNKNOWN)",
+                "Local": "L[452,452], C[48,70]",
+                "Detail": null,
+                "Code": "example.externalValue()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject).isNotBlank(UNKNOWN)",
+                "Local": "L[451,451], C[40,62]",
+                "Detail": null,
+                "Code": "example.externalValue()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[454,454], C[17,55]",
+                "Detail": null,
+                "Code": "StringUtils.isNotBlank(example.value())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_NullLiteral",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[440,440], C[24,27]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[449,449], C[17,59]",
+                "Detail": null,
+                "Code": "exampleObject.setSummary(example.summary())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[441,441], C[13,36]",
+                "Detail": null,
+                "Code": "return Optional.empty();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[446,446], C[17,60]",
+                "Detail": null,
+                "Code": "exampleObject.setDescription(example.name())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject).isNotBlank(UNKNOWN)",
+                "Local": "L[454,454], C[40,54]",
+                "Detail": null,
+                "Code": "example.value()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject).setDescription(UNKNOWN)",
+                "Local": "L[446,446], C[46,59]",
+                "Detail": null,
+                "Code": "example.name()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExample(ExampleObject)",
+                "Local": "L[445,445], C[17,54]",
+                "Detail": null,
+                "Code": "StringUtils.isNotBlank(example.name())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "io.swagger.util.CompilationUnit",
+                "Local": "L[35,35], C[1,25]",
+                "Detail": null,
+                "Code": "import java.util.HashMap;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "io.swagger.util.CompilationUnit",
+                "Local": "L[35,35], C[1,25]",
+                "Detail": null,
+                "Code": "import java.util.HashMap;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "io.swagger.util.CompilationUnit",
+                "Local": "L[37,37], C[1,21]",
+                "Detail": null,
+                "Code": "import java.util.Map;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "io.swagger.util.CompilationUnit",
+                "Local": "L[37,37], C[1,21]",
+                "Detail": null,
+                "Code": "import java.util.Map;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)",
+                "Local": "L[88,88], C[68,112]",
+                "Detail": null,
+                "Code": "exampleMap.put(exampleObject.name(),example)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)",
+                "Local": "L[86,86], C[17,36]",
+                "Detail": null,
+                "Code": "Map<String,Example>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_LambdaExpression",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)",
+                "Local": "L[88,88], C[57,112]",
+                "Detail": null,
+                "Code": "example -> exampleMap.put(exampleObject.name(),example)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "CHANGED_EXISTING_IF_BLOCK",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)",
+                "Local": "L[151,153], C[43,17]",
+                "Detail": null,
+                "Code": "{\n  as.getItems().setDefault(defaultValue);\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)",
+                "Local": "L[155,157], C[43,17]",
+                "Detail": null,
+                "Code": "{\n  paramSchema.setDefault(defaultValue);\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>).put(UNKNOWN, UNKNOWN)",
+                "Local": "L[88,88], C[83,102]",
+                "Detail": null,
+                "Code": "exampleObject.name()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)",
+                "Local": "L[86,86], C[51,65]",
+                "Detail": null,
+                "Code": "new HashMap<>()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>)",
+                "Local": "L[86,86], C[51,65]",
+                "Detail": null,
+                "Code": "new HashMap<>()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "io.swagger.util.ParameterProcessor.fillSchema(Schema, Type)",
+                "Local": "L[245,248], C[33,17]",
+                "Detail": null,
+                "Code": "{\n  Schema inner=pt.createProperty();\n  return merge(schema,inner);\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.util.ParameterProcessor.fillSchema(Schema, Type)",
+                "Local": "L[261,264], C[29,13]",
+                "Detail": null,
+                "Code": "{\n  Schema inner=pt.createProperty();\n  return merge(schema,inner);\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "io.swagger.util.ParameterProcessor.applyAnnotations(OpenAPI, Parameter, Type, List<Annotation>).HashMap<>",
+                "Local": "L[86,86], C[55,63]",
+                "Detail": null,
+                "Code": "HashMap<>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "io.swagger.jaxrs2.OperationParser.getSchemaFromAnnotation(io.swagger.oas.annotations.media.Schema)",
+                "Local": "L[136,138], C[29,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.jaxrs2.OperationParser.getSchemaFromAnnotation(io.swagger.oas.annotations.media.Schema)",
+                "Local": "L[165,168], C[55,9]",
+                "Detail": null,
+                "Code": "{\n  schemaObject.setExample(schema.example());\n  isEmpty=false;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.jaxrs2.OperationParser.getSchemaFromAnnotation(io.swagger.oas.annotations.media.Schema)",
+                "Local": "L[203,205], C[22,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "io.swagger.jaxrs2.OperationParser.getContents(io.swagger.oas.annotations.media.Content[], Components)",
+                "Local": "L[351,353], C[41,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.jaxrs2.OperationParser.getContents(io.swagger.oas.annotations.media.Content[], Components)",
+                "Local": "L[362,364], C[40,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExternalDocumentation(io.swagger.oas.annotations.ExternalDocumentation)",
+                "Local": "L[277,279], C[44,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.jaxrs2.OperationParser.getExternalDocumentation(io.swagger.oas.annotations.ExternalDocumentation)",
+                "Local": "L[290,292], C[22,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "CHANGED_ENHANCEDFORSTATEMENT",
+                "Method": "io.swagger.jaxrs2.OperationParser.getContent(io.swagger.oas.annotations.media.Content[], Produces, Produces, Components)",
+                "Local": "L[388,391], C[13,13]",
+                "Detail": null,
+                "Code": "for (ExampleObject example : examples) {\n  ParameterProcessor.getExample(example).ifPresent(exampleObject -> mediaType.addExamples(example.name(),exampleObject));\n  content.addMediaType(annotationContent.mediaType(),mediaType);\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "io.swagger.jaxrs2.OperationParser.getTags(String[])",
+                "Local": "L[210,212], C[27,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.jaxrs2.OperationParser.getTags(String[])",
+                "Local": "L[224,226], C[22,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "CHANGED_ENHANCEDFORSTATEMENT",
+                "Method": "io.swagger.jaxrs2.OperationParser.getParameter(io.swagger.oas.annotations.Parameter, Components)",
+                "Local": "L[102,104], C[9,9]",
+                "Detail": null,
+                "Code": "for (ExampleObject exampleObject : parameter.examples()) {\n  ParameterProcessor.getExample(exampleObject).ifPresent(example -> exampleMap.put(exampleObject.name(),example));\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "io.swagger.jaxrs2.OperationParser.getLink(io.swagger.oas.annotations.links.Link)",
+                "Local": "L[526,528], C[27,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.jaxrs2.OperationParser.getLink(io.swagger.oas.annotations.links.Link)",
+                "Local": "L[543,545], C[22,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "io.swagger.jaxrs2.OperationParser.getParametersList(io.swagger.oas.annotations.Parameter[], Components)",
+                "Local": "L[50,52], C[33,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.jaxrs2.OperationParser.getParametersList(io.swagger.oas.annotations.Parameter[], Components)",
+                "Local": "L[57,59], C[43,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "io.swagger.jaxrs2.OperationParser.getInfo(io.swagger.oas.annotations.info.Info)",
+                "Local": "L[440,442], C[27,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.jaxrs2.OperationParser.getInfo(io.swagger.oas.annotations.info.Info)",
+                "Local": "L[461,463], C[22,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "io.swagger.jaxrs2.OperationParser.getRequestBody(io.swagger.oas.annotations.parameters.RequestBody, Components)",
+                "Local": "L[297,299], C[34,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.jaxrs2.OperationParser.getRequestBody(io.swagger.oas.annotations.parameters.RequestBody, Components)",
+                "Local": "L[310,312], C[22,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "io.swagger.jaxrs2.OperationParser.getContent(io.swagger.oas.annotations.media.Content[], Produces, Produces, Components)",
+                "Local": "L[369,371], C[41,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.jaxrs2.OperationParser.getContent(io.swagger.oas.annotations.media.Content[], Produces, Produces, Components)",
+                "Local": "L[393,395], C[34,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "io.swagger.jaxrs2.OperationParser.getParameter(io.swagger.oas.annotations.Parameter, Components)",
+                "Local": "L[64,66], C[32,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.jaxrs2.OperationParser.getParameter(io.swagger.oas.annotations.Parameter, Components)",
+                "Local": "L[126,128], C[22,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "io.swagger.jaxrs2.OperationParser.getServer(io.swagger.oas.annotations.servers.Server)",
+                "Local": "L[245,247], C[29,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.jaxrs2.OperationParser.getServer(io.swagger.oas.annotations.servers.Server)",
+                "Local": "L[259,261], C[22,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "io.swagger.jaxrs2.OperationParser.getLicense(io.swagger.oas.annotations.info.License)",
+                "Local": "L[495,497], C[30,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.jaxrs2.OperationParser.getLicense(io.swagger.oas.annotations.info.License)",
+                "Local": "L[508,510], C[22,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "io.swagger.jaxrs2.OperationParser.getServers(io.swagger.oas.annotations.servers.Server[])",
+                "Local": "L[231,233], C[30,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.jaxrs2.OperationParser.getServers(io.swagger.oas.annotations.servers.Server[])",
+                "Local": "L[238,240], C[40,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "io.swagger.jaxrs2.OperationParser.getContact(io.swagger.oas.annotations.info.Contact)",
+                "Local": "L[471,473], C[30,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "io.swagger.jaxrs2.OperationParser.getContact(io.swagger.oas.annotations.info.Contact)",
+                "Local": "L[488,490], C[22,9]",
+                "Detail": null,
+                "Code": "{\n  return Optional.empty();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "CHANGED_ENHANCEDFORSTATEMENT",
+                "Method": "io.swagger.jaxrs2.OperationParser.getContent(io.swagger.oas.annotations.media.Content[], Produces, Produces, Components)",
+                "Local": "L[376,392], C[9,9]",
+                "Detail": null,
+                "Code": "for (io.swagger.oas.annotations.media.Content annotationContent : annotationContents) {\n  MediaType mediaType=new MediaType();\n  getSchema(annotationContent,components).ifPresent(mediaType::setSchema);\n  if (StringUtils.isNotBlank(annotationContent.mediaType())) {\n    content.addMediaType(annotationContent.mediaType(),mediaType);\n  }\n else {\n    if (mediaType.getSchema() != null) {\n      applyProduces(classProduces,methodProduces,content,mediaType);\n    }\n  }\n  ExampleObject[] examples=annotationContent.examples();\n  for (  ExampleObject example : examples) {\n    ParameterProcessor.getExample(example).ifPresent(exampleObject -> mediaType.addExamples(example.name(),exampleObject));\n    content.addMediaType(annotationContent.mediaType(),mediaType);\n  }\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java"
+            },
+            {
+                "Metric": "CHANGED_InfixExpression",
+                "Method": "io.swagger.jaxrs2.annotations.operations.AnnotatedOperationMethodTest.testCompleteUserResource()",
+                "Local": "L[460,646], C[31,36]",
+                "Detail": null,
+                "Code": "\"openapi: 3.0.0\\n\" + \"paths:\\n\" + \"  /user:\\n\"+ \"    post:\\n\"+ \"      summary: Create user\\n\"+ \"      description: This can only be done by the logged in user.\\n\"+ \"      operationId: createUser\\n\"+ \"      requestBody:\\n\"+ \"        description: Created user object\\n\"+ \"        content:\\n\"+ \"          '*/*':\\n\"+ \"            schema:\\n\"+ \"              $ref: '#/components/schemas/User'\\n\"+ \"        required: true\\n\"+ \"      responses:\\n\"+ \"        default:\\n\"+ \"          description: no description\\n\"+ \"  /user/createWithArray:\\n\"+ \"    post:\\n\"+ \"      summary: Creates list of users with given input array\\n\"+ \"      operationId: createUsersWithArrayInput\\n\"+ \"      requestBody:\\n\"+ \"        description: List of user object\\n\"+ \"        content:\\n\"+ \"          '*/*':\\n\"+ \"            schema:\\n\"+ \"              type: array\\n\"+ \"              items:\\n\"+ \"                $ref: '#/components/schemas/User'\\n\"+ \"        required: true\\n\"+ \"      responses:\\n\"+ \"        default:\\n\"+ \"          description: no description\\n\"+ \"  /user/createWithList:\\n\"+ \"    post:\\n\"+ \"      summary: Creates list of users with given input array\\n\"+ \"      operationId: createUsersWithListInput\\n\"+ \"      requestBody:\\n\"+ \"        description: List of user object\\n\"+ \"        content:\\n\"+ \"          '*/*':\\n\"+ \"            schema:\\n\"+ \"              type: array\\n\"+ \"              items:\\n\"+ \"                $ref: '#/components/schemas/User'\\n\"+ \"        required: true\\n\"+ \"      responses:\\n\"+ \"        default:\\n\"+ \"          description: no description\\n\"+ \"  /user/{username}:\\n\"+ \"    get:\\n\"+ \"      summary: Get user by user name\\n\"+ \"      operationId: getUserByName\\n\"+ \"      parameters:\\n\"+ \"      - name: username\\n\"+ \"        in: path\\n\"+ \"        description: 'The name that needs to be fetched. Use user1 for testing. '\\n\"+ \"        required: true\\n\"+ \"        schema:\\n\"+ \"          type: string\\n\"+ \"      responses:\\n\"+ \"        default:\\n\"+ \"          description: The user\\n\"+ \"          content:\\n\"+ \"            application/json:\\n\"+ \"              schema:\\n\"+ \"                $ref: '#/components/schemas/User'\\n\"+ \"        400:\\n\"+ \"          description: User not found\\n\"+ \"    put:\\n\"+ \"      summary: Updated user\\n\"+ \"      description: This can only be done by the logged in user.\\n\"+ \"      operationId: updateUser\\n\"+ \"      parameters:\\n\"+ \"      - name: username\\n\"+ \"        in: path\\n\"+ \"        description: name that need to be deleted\\n\"+ \"        required: true\\n\"+ \"        schema:\\n\"+ \"          type: string\\n\"+ \"        examples:\\n\"+ \"          example2:\\n\"+ \"            summary: Summary example 2\\n\"+ \"            description: example2\\n\"+ \"            value: example2\\n\"+ \"            externalValue: external value 2\\n\"+ \"          example1:\\n\"+ \"            summary: Summary example 1\\n\"+ \"            description: example1\\n\"+ \"            value: example1\\n\"+ \"            externalValue: external value 1\\n\"+ \"      requestBody:\\n\"+ \"        description: Updated user object\\n\"+ \"        content:\\n\"+ \"          '*/*':\\n\"+ \"            schema:\\n\"+ \"              $ref: '#/components/schemas/User'\\n\"+ \"        required: true\\n\"+ \"      responses:\\n\"+ \"        200:\\n\"+ \"          description: user updated\\n\"+ \"        400:\\n\"+ \"          description: Invalid user supplied\\n\"+ \"        404:\\n\"+ \"          description: User not found\\n\"+ \"    delete:\\n\"+ \"      summary: Delete user\\n\"+ \"      description: This can only be done by the logged in user.\\n\"+ \"      operationId: deleteUser\\n\"+ \"      parameters:\\n\"+ \"      - name: username\\n\"+ \"        in: path\\n\"+ \"        description: The name that needs to be deleted\\n\"+ \"        required: true\\n\"+ \"        schema:\\n\"+ \"          type: string\\n\"+ \"      responses:\\n\"+ \"        200:\\n\"+ \"          description: user deteled\\n\"+ \"        400:\\n\"+ \"          description: Invalid username supplied\\n\"+ \"        404:\\n\"+ \"          description: User not found\\n\"+ \"  /user/login:\\n\"+ \"    get:\\n\"+ \"      summary: Logs user into the system\\n\"+ \"      operationId: loginUser\\n\"+ \"      parameters:\\n\"+ \"      - name: username\\n\"+ \"        in: query\\n\"+ \"        description: The user name for login\\n\"+ \"        required: true\\n\"+ \"        schema:\\n\"+ \"          type: string\\n\"+ \"      - name: password\\n\"+ \"        in: query\\n\"+ \"        description: The password for login in clear text\\n\"+ \"        required: true\\n\"+ \"        schema:\\n\"+ \"          type: string\\n\"+ \"      responses:\\n\"+ \"        default:\\n\"+ \"          description: Successfully logged in\\n\"+ \"          content:\\n\"+ \"            application/json:\\n\"+ \"              schema:\\n\"+ \"                type: string\\n\"+ \"            application/xml:\\n\"+ \"              schema:\\n\"+ \"                type: string\\n\"+ \"        400:\\n\"+ \"          description: Invalid username/password supplied\\n\"+ \"  /user/logout:\\n\"+ \"    get:\\n\"+ \"      summary: Logs out current logged in user session\\n\"+ \"      operationId: logoutUser\\n\"+ \"      responses:\\n\"+ \"        default:\\n\"+ \"          description: no description\\n\"+ \"components:\\n\"+ \"  schemas:\\n\"+ \"    User:\\n\"+ \"      type: object\\n\"+ \"      properties:\\n\"+ \"        id:\\n\"+ \"          type: integer\\n\"+ \"          format: int64\\n\"+ \"        username:\\n\"+ \"          type: string\\n\"+ \"        firstName:\\n\"+ \"          type: string\\n\"+ \"        lastName:\\n\"+ \"          type: string\\n\"+ \"        email:\\n\"+ \"          type: string\\n\"+ \"        password:\\n\"+ \"          type: string\\n\"+ \"        phone:\\n\"+ \"          type: string\\n\"+ \"        userStatus:\\n\"+ \"          type: integer\\n\"+ \"          description: User Status\\n\"+ \"          format: int32\\n\"+ \"          enum:\\n\"+ \"          - null\\n\"+ \"      xml:\\n\"+ \"        name: User\"",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/test/java/io/swagger/jaxrs2/annotations/operations/AnnotatedOperationMethodTest.java"
+            },
+            {
+                "Metric": "CHANGED_VARIABLE",
+                "Method": "io.swagger.jaxrs2.annotations.operations.AnnotatedOperationMethodTest.testCompleteUserResource()",
+                "Local": "L[460,646], C[9,37]",
+                "Detail": null,
+                "Code": "String expectedYAML=\"openapi: 3.0.0\\n\" + \"paths:\\n\" + \"  /user:\\n\"+ \"    post:\\n\"+ \"      summary: Create user\\n\"+ \"      description: This can only be done by the logged in user.\\n\"+ \"      operationId: createUser\\n\"+ \"      requestBody:\\n\"+ \"        description: Created user object\\n\"+ \"        content:\\n\"+ \"          '*/*':\\n\"+ \"            schema:\\n\"+ \"              $ref: '#/components/schemas/User'\\n\"+ \"        required: true\\n\"+ \"      responses:\\n\"+ \"        default:\\n\"+ \"          description: no description\\n\"+ \"  /user/createWithArray:\\n\"+ \"    post:\\n\"+ \"      summary: Creates list of users with given input array\\n\"+ \"      operationId: createUsersWithArrayInput\\n\"+ \"      requestBody:\\n\"+ \"        description: List of user object\\n\"+ \"        content:\\n\"+ \"          '*/*':\\n\"+ \"            schema:\\n\"+ \"              type: array\\n\"+ \"              items:\\n\"+ \"                $ref: '#/components/schemas/User'\\n\"+ \"        required: true\\n\"+ \"      responses:\\n\"+ \"        default:\\n\"+ \"          description: no description\\n\"+ \"  /user/createWithList:\\n\"+ \"    post:\\n\"+ \"      summary: Creates list of users with given input array\\n\"+ \"      operationId: createUsersWithListInput\\n\"+ \"      requestBody:\\n\"+ \"        description: List of user object\\n\"+ \"        content:\\n\"+ \"          '*/*':\\n\"+ \"            schema:\\n\"+ \"              type: array\\n\"+ \"              items:\\n\"+ \"                $ref: '#/components/schemas/User'\\n\"+ \"        required: true\\n\"+ \"      responses:\\n\"+ \"        default:\\n\"+ \"          description: no description\\n\"+ \"  /user/{username}:\\n\"+ \"    get:\\n\"+ \"      summary: Get user by user name\\n\"+ \"      operationId: getUserByName\\n\"+ \"      parameters:\\n\"+ \"      - name: username\\n\"+ \"        in: path\\n\"+ \"        description: 'The name that needs to be fetched. Use user1 for testing. '\\n\"+ \"        required: true\\n\"+ \"        schema:\\n\"+ \"          type: string\\n\"+ \"      responses:\\n\"+ \"        default:\\n\"+ \"          description: The user\\n\"+ \"          content:\\n\"+ \"            application/json:\\n\"+ \"              schema:\\n\"+ \"                $ref: '#/components/schemas/User'\\n\"+ \"        400:\\n\"+ \"          description: User not found\\n\"+ \"    put:\\n\"+ \"      summary: Updated user\\n\"+ \"      description: This can only be done by the logged in user.\\n\"+ \"      operationId: updateUser\\n\"+ \"      parameters:\\n\"+ \"      - name: username\\n\"+ \"        in: path\\n\"+ \"        description: name that need to be deleted\\n\"+ \"        required: true\\n\"+ \"        schema:\\n\"+ \"          type: string\\n\"+ \"        examples:\\n\"+ \"          example2:\\n\"+ \"            summary: Summary example 2\\n\"+ \"            description: example2\\n\"+ \"            value: example2\\n\"+ \"            externalValue: external value 2\\n\"+ \"          example1:\\n\"+ \"            summary: Summary example 1\\n\"+ \"            description: example1\\n\"+ \"            value: example1\\n\"+ \"            externalValue: external value 1\\n\"+ \"      requestBody:\\n\"+ \"        description: Updated user object\\n\"+ \"        content:\\n\"+ \"          '*/*':\\n\"+ \"            schema:\\n\"+ \"              $ref: '#/components/schemas/User'\\n\"+ \"        required: true\\n\"+ \"      responses:\\n\"+ \"        200:\\n\"+ \"          description: user updated\\n\"+ \"        400:\\n\"+ \"          description: Invalid user supplied\\n\"+ \"        404:\\n\"+ \"          description: User not found\\n\"+ \"    delete:\\n\"+ \"      summary: Delete user\\n\"+ \"      description: This can only be done by the logged in user.\\n\"+ \"      operationId: deleteUser\\n\"+ \"      parameters:\\n\"+ \"      - name: username\\n\"+ \"        in: path\\n\"+ \"        description: The name that needs to be deleted\\n\"+ \"        required: true\\n\"+ \"        schema:\\n\"+ \"          type: string\\n\"+ \"      responses:\\n\"+ \"        200:\\n\"+ \"          description: user deteled\\n\"+ \"        400:\\n\"+ \"          description: Invalid username supplied\\n\"+ \"        404:\\n\"+ \"          description: User not found\\n\"+ \"  /user/login:\\n\"+ \"    get:\\n\"+ \"      summary: Logs user into the system\\n\"+ \"      operationId: loginUser\\n\"+ \"      parameters:\\n\"+ \"      - name: username\\n\"+ \"        in: query\\n\"+ \"        description: The user name for login\\n\"+ \"        required: true\\n\"+ \"        schema:\\n\"+ \"          type: string\\n\"+ \"      - name: password\\n\"+ \"        in: query\\n\"+ \"        description: The password for login in clear text\\n\"+ \"        required: true\\n\"+ \"        schema:\\n\"+ \"          type: string\\n\"+ \"      responses:\\n\"+ \"        default:\\n\"+ \"          description: Successfully logged in\\n\"+ \"          content:\\n\"+ \"            application/json:\\n\"+ \"              schema:\\n\"+ \"                type: string\\n\"+ \"            application/xml:\\n\"+ \"              schema:\\n\"+ \"                type: string\\n\"+ \"        400:\\n\"+ \"          description: Invalid username/password supplied\\n\"+ \"  /user/logout:\\n\"+ \"    get:\\n\"+ \"      summary: Logs out current logged in user session\\n\"+ \"      operationId: logoutUser\\n\"+ \"      responses:\\n\"+ \"        default:\\n\"+ \"          description: no description\\n\"+ \"components:\\n\"+ \"  schemas:\\n\"+ \"    User:\\n\"+ \"      type: object\\n\"+ \"      properties:\\n\"+ \"        id:\\n\"+ \"          type: integer\\n\"+ \"          format: int64\\n\"+ \"        username:\\n\"+ \"          type: string\\n\"+ \"        firstName:\\n\"+ \"          type: string\\n\"+ \"        lastName:\\n\"+ \"          type: string\\n\"+ \"        email:\\n\"+ \"          type: string\\n\"+ \"        password:\\n\"+ \"          type: string\\n\"+ \"        phone:\\n\"+ \"          type: string\\n\"+ \"        userStatus:\\n\"+ \"          type: integer\\n\"+ \"          description: User Status\\n\"+ \"          format: int32\\n\"+ \"          enum:\\n\"+ \"          - null\\n\"+ \"      xml:\\n\"+ \"        name: User\";\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/test/java/io/swagger/jaxrs2/annotations/operations/AnnotatedOperationMethodTest.java"
+            },
+            {
+                "Metric": "CHANGED_VAR_VALUE",
+                "Method": "io.swagger.jaxrs2.annotations.operations.AnnotatedOperationMethodTest.testCompleteUserResource()",
+                "Local": "L[460,646], C[16,36]",
+                "Detail": null,
+                "Code": "expectedYAML=\"openapi: 3.0.0\\n\" + \"paths:\\n\" + \"  /user:\\n\"+ \"    post:\\n\"+ \"      summary: Create user\\n\"+ \"      description: This can only be done by the logged in user.\\n\"+ \"      operationId: createUser\\n\"+ \"      requestBody:\\n\"+ \"        description: Created user object\\n\"+ \"        content:\\n\"+ \"          '*/*':\\n\"+ \"            schema:\\n\"+ \"              $ref: '#/components/schemas/User'\\n\"+ \"        required: true\\n\"+ \"      responses:\\n\"+ \"        default:\\n\"+ \"          description: no description\\n\"+ \"  /user/createWithArray:\\n\"+ \"    post:\\n\"+ \"      summary: Creates list of users with given input array\\n\"+ \"      operationId: createUsersWithArrayInput\\n\"+ \"      requestBody:\\n\"+ \"        description: List of user object\\n\"+ \"        content:\\n\"+ \"          '*/*':\\n\"+ \"            schema:\\n\"+ \"              type: array\\n\"+ \"              items:\\n\"+ \"                $ref: '#/components/schemas/User'\\n\"+ \"        required: true\\n\"+ \"      responses:\\n\"+ \"        default:\\n\"+ \"          description: no description\\n\"+ \"  /user/createWithList:\\n\"+ \"    post:\\n\"+ \"      summary: Creates list of users with given input array\\n\"+ \"      operationId: createUsersWithListInput\\n\"+ \"      requestBody:\\n\"+ \"        description: List of user object\\n\"+ \"        content:\\n\"+ \"          '*/*':\\n\"+ \"            schema:\\n\"+ \"              type: array\\n\"+ \"              items:\\n\"+ \"                $ref: '#/components/schemas/User'\\n\"+ \"        required: true\\n\"+ \"      responses:\\n\"+ \"        default:\\n\"+ \"          description: no description\\n\"+ \"  /user/{username}:\\n\"+ \"    get:\\n\"+ \"      summary: Get user by user name\\n\"+ \"      operationId: getUserByName\\n\"+ \"      parameters:\\n\"+ \"      - name: username\\n\"+ \"        in: path\\n\"+ \"        description: 'The name that needs to be fetched. Use user1 for testing. '\\n\"+ \"        required: true\\n\"+ \"        schema:\\n\"+ \"          type: string\\n\"+ \"      responses:\\n\"+ \"        default:\\n\"+ \"          description: The user\\n\"+ \"          content:\\n\"+ \"            application/json:\\n\"+ \"              schema:\\n\"+ \"                $ref: '#/components/schemas/User'\\n\"+ \"        400:\\n\"+ \"          description: User not found\\n\"+ \"    put:\\n\"+ \"      summary: Updated user\\n\"+ \"      description: This can only be done by the logged in user.\\n\"+ \"      operationId: updateUser\\n\"+ \"      parameters:\\n\"+ \"      - name: username\\n\"+ \"        in: path\\n\"+ \"        description: name that need to be deleted\\n\"+ \"        required: true\\n\"+ \"        schema:\\n\"+ \"          type: string\\n\"+ \"        examples:\\n\"+ \"          example2:\\n\"+ \"            summary: Summary example 2\\n\"+ \"            description: example2\\n\"+ \"            value: example2\\n\"+ \"            externalValue: external value 2\\n\"+ \"          example1:\\n\"+ \"            summary: Summary example 1\\n\"+ \"            description: example1\\n\"+ \"            value: example1\\n\"+ \"            externalValue: external value 1\\n\"+ \"      requestBody:\\n\"+ \"        description: Updated user object\\n\"+ \"        content:\\n\"+ \"          '*/*':\\n\"+ \"            schema:\\n\"+ \"              $ref: '#/components/schemas/User'\\n\"+ \"        required: true\\n\"+ \"      responses:\\n\"+ \"        200:\\n\"+ \"          description: user updated\\n\"+ \"        400:\\n\"+ \"          description: Invalid user supplied\\n\"+ \"        404:\\n\"+ \"          description: User not found\\n\"+ \"    delete:\\n\"+ \"      summary: Delete user\\n\"+ \"      description: This can only be done by the logged in user.\\n\"+ \"      operationId: deleteUser\\n\"+ \"      parameters:\\n\"+ \"      - name: username\\n\"+ \"        in: path\\n\"+ \"        description: The name that needs to be deleted\\n\"+ \"        required: true\\n\"+ \"        schema:\\n\"+ \"          type: string\\n\"+ \"      responses:\\n\"+ \"        200:\\n\"+ \"          description: user deteled\\n\"+ \"        400:\\n\"+ \"          description: Invalid username supplied\\n\"+ \"        404:\\n\"+ \"          description: User not found\\n\"+ \"  /user/login:\\n\"+ \"    get:\\n\"+ \"      summary: Logs user into the system\\n\"+ \"      operationId: loginUser\\n\"+ \"      parameters:\\n\"+ \"      - name: username\\n\"+ \"        in: query\\n\"+ \"        description: The user name for login\\n\"+ \"        required: true\\n\"+ \"        schema:\\n\"+ \"          type: string\\n\"+ \"      - name: password\\n\"+ \"        in: query\\n\"+ \"        description: The password for login in clear text\\n\"+ \"        required: true\\n\"+ \"        schema:\\n\"+ \"          type: string\\n\"+ \"      responses:\\n\"+ \"        default:\\n\"+ \"          description: Successfully logged in\\n\"+ \"          content:\\n\"+ \"            application/json:\\n\"+ \"              schema:\\n\"+ \"                type: string\\n\"+ \"            application/xml:\\n\"+ \"              schema:\\n\"+ \"                type: string\\n\"+ \"        400:\\n\"+ \"          description: Invalid username/password supplied\\n\"+ \"  /user/logout:\\n\"+ \"    get:\\n\"+ \"      summary: Logs out current logged in user session\\n\"+ \"      operationId: logoutUser\\n\"+ \"      responses:\\n\"+ \"        default:\\n\"+ \"          description: no description\\n\"+ \"components:\\n\"+ \"  schemas:\\n\"+ \"    User:\\n\"+ \"      type: object\\n\"+ \"      properties:\\n\"+ \"        id:\\n\"+ \"          type: integer\\n\"+ \"          format: int64\\n\"+ \"        username:\\n\"+ \"          type: string\\n\"+ \"        firstName:\\n\"+ \"          type: string\\n\"+ \"        lastName:\\n\"+ \"          type: string\\n\"+ \"        email:\\n\"+ \"          type: string\\n\"+ \"        password:\\n\"+ \"          type: string\\n\"+ \"        phone:\\n\"+ \"          type: string\\n\"+ \"        userStatus:\\n\"+ \"          type: integer\\n\"+ \"          description: User Status\\n\"+ \"          format: int32\\n\"+ \"          enum:\\n\"+ \"          - null\\n\"+ \"      xml:\\n\"+ \"        name: User\"",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/test/java/io/swagger/jaxrs2/annotations/operations/AnnotatedOperationMethodTest.java"
+            },
+            {
+                "Metric": "ADDED_NormalAnnotation",
+                "Method": "io.swagger.jaxrs2.resources.UserResource.updateUser(String, User)",
+                "Local": "L[84,85], C[21,94]",
+                "Detail": null,
+                "Code": "@ExampleObject(name=\"example1\",value=\"example1\",summary=\"Summary example 1\",externalValue=\"external value 1\")",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/test/java/io/swagger/jaxrs2/resources/UserResource.java"
+            },
+            {
+                "Metric": "ADDED_NormalAnnotation",
+                "Method": "io.swagger.jaxrs2.resources.UserResource.updateUser(String, User)",
+                "Local": "L[86,87], C[21,94]",
+                "Detail": null,
+                "Code": "@ExampleObject(name=\"example2\",value=\"example2\",summary=\"Summary example 2\",externalValue=\"external value 2\")",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/test/java/io/swagger/jaxrs2/resources/UserResource.java"
+            },
+            {
+                "Metric": "ADDED_MemberValuePair",
+                "Method": "io.swagger.jaxrs2.resources.UserResource.updateUser(String, User)",
+                "Local": "L[83,88], C[87,13]",
+                "Detail": null,
+                "Code": "examples={@ExampleObject(name=\"example1\",value=\"example1\",summary=\"Summary example 1\",externalValue=\"external value 1\"),@ExampleObject(name=\"example2\",value=\"example2\",summary=\"Summary example 2\",externalValue=\"external value 2\")}",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/test/java/io/swagger/jaxrs2/resources/UserResource.java"
+            },
+            {
+                "Metric": "ADDED_MemberValuePair",
+                "Method": "io.swagger.jaxrs2.resources.UserResource.updateUser(String, User)",
+                "Local": "L[86,86], C[36,52]",
+                "Detail": null,
+                "Code": "name=\"example2\"",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/test/java/io/swagger/jaxrs2/resources/UserResource.java"
+            },
+            {
+                "Metric": "ADDED_MemberValuePair",
+                "Method": "io.swagger.jaxrs2.resources.UserResource.updateUser(String, User)",
+                "Local": "L[86,86], C[55,72]",
+                "Detail": null,
+                "Code": "value=\"example2\"",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/test/java/io/swagger/jaxrs2/resources/UserResource.java"
+            },
+            {
+                "Metric": "ADDED_MemberValuePair",
+                "Method": "io.swagger.jaxrs2.resources.UserResource.updateUser(String, User)",
+                "Local": "L[87,87], C[29,57]",
+                "Detail": null,
+                "Code": "summary=\"Summary example 2\"",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/test/java/io/swagger/jaxrs2/resources/UserResource.java"
+            },
+            {
+                "Metric": "ADDED_MemberValuePair",
+                "Method": "io.swagger.jaxrs2.resources.UserResource.updateUser(String, User)",
+                "Local": "L[87,87], C[60,93]",
+                "Detail": null,
+                "Code": "externalValue=\"external value 2\"",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/test/java/io/swagger/jaxrs2/resources/UserResource.java"
+            },
+            {
+                "Metric": "ADDED_ArrayInitializer",
+                "Method": "io.swagger.jaxrs2.resources.UserResource.updateUser(String, User)",
+                "Local": "L[83,88], C[98,13]",
+                "Detail": null,
+                "Code": "{@ExampleObject(name=\"example1\",value=\"example1\",summary=\"Summary example 1\",externalValue=\"external value 1\"),@ExampleObject(name=\"example2\",value=\"example2\",summary=\"Summary example 2\",externalValue=\"external value 2\")}",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/test/java/io/swagger/jaxrs2/resources/UserResource.java"
+            },
+            {
+                "Metric": "CHANGED_NormalAnnotation",
+                "Method": "io.swagger.jaxrs2.resources.UserResource.updateUser(String, User).SingleVariableDeclaration",
+                "Local": "L[83,88], C[13,14]",
+                "Detail": null,
+                "Code": "@Parameter(description=\"name that need to be deleted\",required=true,examples={@ExampleObject(name=\"example1\",value=\"example1\",summary=\"Summary example 1\",externalValue=\"external value 1\"),@ExampleObject(name=\"example2\",value=\"example2\",summary=\"Summary example 2\",externalValue=\"external value 2\")})",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/test/java/io/swagger/jaxrs2/resources/UserResource.java"
+            },
+            {
+                "Metric": "REMOVED_ANNOTATION",
+                "Method": "io.swagger.jaxrs2.resources.UserResource.updateUser(String, User).SingleVariableDeclaration",
+                "Local": "L[82,82], C[13,85]",
+                "Detail": null,
+                "Code": "@Parameter(description=\"name that need to be deleted\",required=true) @PathParam(\"username\") String username",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/test/java/io/swagger/jaxrs2/resources/UserResource.java"
+            },
+            {
+                "Metric": "ADDED_ANNOTATION",
+                "Method": "io.swagger.jaxrs2.resources.UserResource.updateUser(String, User).SingleVariableDeclaration",
+                "Local": "L[83,88], C[13,14]",
+                "Detail": null,
+                "Code": "@Parameter(description=\"name that need to be deleted\",required=true,examples={@ExampleObject(name=\"example1\",value=\"example1\",summary=\"Summary example 1\",externalValue=\"external value 1\"),@ExampleObject(name=\"example2\",value=\"example2\",summary=\"Summary example 2\",externalValue=\"external value 2\")}) @PathParam(\"username\") String username",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/test/java/io/swagger/jaxrs2/resources/UserResource.java"
+            },
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "io.swagger.jaxrs2.resources.CompilationUnit",
+                "Local": "L[26,26], C[1,54]",
+                "Detail": null,
+                "Code": "import io.swagger.oas.annotations.media.ExampleObject;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/test/java/io/swagger/jaxrs2/resources/UserResource.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "io.swagger.jaxrs2.resources.CompilationUnit",
+                "Local": "L[26,26], C[1,54]",
+                "Detail": null,
+                "Code": "import io.swagger.oas.annotations.media.ExampleObject;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/test/java/io/swagger/jaxrs2/resources/UserResource.java"
+            },
+            {
+                "Metric": "ADDED_MemberValuePair",
+                "Method": "io.swagger.jaxrs2.resources.UserResource.updateUser(String, User)",
+                "Local": "L[84,84], C[36,52]",
+                "Detail": null,
+                "Code": "name=\"example1\"",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/test/java/io/swagger/jaxrs2/resources/UserResource.java"
+            },
+            {
+                "Metric": "ADDED_MemberValuePair",
+                "Method": "io.swagger.jaxrs2.resources.UserResource.updateUser(String, User)",
+                "Local": "L[84,84], C[55,72]",
+                "Detail": null,
+                "Code": "value=\"example1\"",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/test/java/io/swagger/jaxrs2/resources/UserResource.java"
+            },
+            {
+                "Metric": "ADDED_MemberValuePair",
+                "Method": "io.swagger.jaxrs2.resources.UserResource.updateUser(String, User)",
+                "Local": "L[85,85], C[29,57]",
+                "Detail": null,
+                "Code": "summary=\"Summary example 1\"",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/test/java/io/swagger/jaxrs2/resources/UserResource.java"
+            },
+            {
+                "Metric": "ADDED_MemberValuePair",
+                "Method": "io.swagger.jaxrs2.resources.UserResource.updateUser(String, User)",
+                "Local": "L[85,85], C[60,93]",
+                "Detail": null,
+                "Code": "externalValue=\"external value 1\"",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/swagger-jaxrs2/src/test/java/io/swagger/jaxrs2/resources/UserResource.java"
+            }
+        ],
+        "metadata": {
+            "type": "Move Method",
+            "description": "Move Method public getExample(example ExampleObject) : Optional<Example> from class io.swagger.jaxrs2.OperationParser to public getExample(example ExampleObject) : Optional<Example> from class io.swagger.util.ParameterProcessor",
+            "leftSideLocations": [
+                {
+                    "filePath": "modules/swagger-jaxrs2/src/main/java/io/swagger/jaxrs2/OperationParser.java",
+                    "startLine": 439,
+                    "endLine": 464,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public getExample(example ExampleObject) : Optional<Example>"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java",
+                    "startLine": 163,
+                    "endLine": 188,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "moved method declaration",
+                    "codeElement": "public getExample(example ExampleObject) : Optional<Example>"
+                }
+            ]
+        }
+    }
+]

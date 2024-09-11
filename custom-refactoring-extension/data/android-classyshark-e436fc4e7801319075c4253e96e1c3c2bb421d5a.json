@@ -1,0 +1,621 @@
+[
+    {
+        "commit": "e436fc4e7801319075c4253e96e1c3c2bb421d5a",
+        "source": [
+            {
+                "element": "com.google.classyshark.updater.networking.MessageRunnable.warnUserAboutNewRelease()",
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java",
+                "local": "L[49,52], C[5,5]"
+            }
+        ],
+        "target": [
+            {
+                "element": "com.google.classyshark.updater.networking.MessageRunnable.run()",
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java",
+                "local": "L[40,44], C[5,5]"
+            }
+        ],
+        "type": "INLINE_METHOD",
+        "related": [
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable",
+                "Local": "L[49,52], C[5,5]",
+                "Detail": {
+                    "method": "com.google.classyshark.updater.networking.MessageRunnable.warnUserAboutNewRelease()",
+                    "blockPos": "L[49,52], C[44,5]"
+                },
+                "Code": "private void warnUserAboutNewRelease(){\n  final Icon icon=new ImageIcon(getClass().getResource(ICON_PATH));\n  JOptionPane.showConfirmDialog(null,changelog,title,JOptionPane.DEFAULT_OPTION,JOptionPane.INFORMATION_MESSAGE,icon);\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "ACCESS_REDUCED",
+                "Method": "com.google.classyshark.updater.networking.CompilationUnit",
+                "Local": "L[21,45], C[1,1]",
+                "Detail": {
+                    "previousVar": "com.google.classyshark.updater.networking.MessageRunnable>>>changelog[21,45]"
+                },
+                "Code": "class MessageRunnable implements Runnable {\n  private final String title;\n  private final String changelog;\n  private final String ICON_PATH=\"/resources/ic_update.png\";\n  MessageRunnable(  String title,  String changelog){\n    this.title=buildTitleFrom(title);\n    this.changelog=buildChangelogFrom(changelog);\n  }\n  private String buildTitleFrom(  String title){\n    return \"New ClassyShark version \" + title;\n  }\n  private String buildChangelogFrom(  String changelog){\n    return \"A new ClassyShark version is available for you in the same directory where the old one was!\\nCheck it out!\\nCHANGELOG:\\n\" + changelog;\n  }\n  @Override public void run(){\n    final Icon icon=new ImageIcon(getClass().getResource(ICON_PATH));\n    JOptionPane.showConfirmDialog(null,changelog,title,JOptionPane.DEFAULT_OPTION,JOptionPane.INFORMATION_MESSAGE,icon);\n  }\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.run()",
+                "Local": "L[45,45], C[13,37]",
+                "Detail": null,
+                "Code": "warnUserAboutNewRelease()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.run()",
+                "Local": "L[42,42], C[9,13]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.warnUserAboutNewRelease()",
+                "Local": "L[50,50], C[9,13]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "ACCESS_REDUCED",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable",
+                "Local": "L[27,30], C[5,5]",
+                "Detail": {
+                    "previousVar": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String)>>>changelog[27,30]"
+                },
+                "Code": "MessageRunnable(String title,String changelog){\n  this.title=buildTitleFrom(title);\n  this.changelog=buildChangelogFrom(changelog);\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.run()",
+                "Local": "L[43,43], C[9,128]",
+                "Detail": null,
+                "Code": "JOptionPane.showConfirmDialog(null,changelog,title,JOptionPane.DEFAULT_OPTION,JOptionPane.INFORMATION_MESSAGE,icon)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.warnUserAboutNewRelease()",
+                "Local": "L[51,51], C[9,128]",
+                "Detail": null,
+                "Code": "JOptionPane.showConfirmDialog(null,changelog,title,JOptionPane.DEFAULT_OPTION,JOptionPane.INFORMATION_MESSAGE,icon)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.warnUserAboutNewRelease()",
+                "Local": "L[49,49], C[5,11]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.run()",
+                "Local": "L[44,46], C[20,9]",
+                "Detail": null,
+                "Code": "{\n  warnUserAboutNewRelease();\n}\n",
+                "relationType": "CALL_SOURCE",
+                "distance": 2,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.run()",
+                "Local": "L[42,42], C[9,75]",
+                "Detail": null,
+                "Code": "final Icon icon=new ImageIcon(getClass().getResource(ICON_PATH));\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.warnUserAboutNewRelease()",
+                "Local": "L[50,50], C[9,75]",
+                "Detail": null,
+                "Code": "final Icon icon=new ImageIcon(getClass().getResource(ICON_PATH));\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.run()",
+                "Local": "L[42,42], C[27,74]",
+                "Detail": null,
+                "Code": "new ImageIcon(getClass().getResource(ICON_PATH))",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.warnUserAboutNewRelease()",
+                "Local": "L[50,50], C[27,74]",
+                "Detail": null,
+                "Code": "new ImageIcon(getClass().getResource(ICON_PATH))",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.run()",
+                "Local": "L[42,42], C[27,74]",
+                "Detail": null,
+                "Code": "new ImageIcon(getClass().getResource(ICON_PATH))",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.warnUserAboutNewRelease()",
+                "Local": "L[50,50], C[27,74]",
+                "Detail": null,
+                "Code": "new ImageIcon(getClass().getResource(ICON_PATH))",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String)",
+                "Local": "L[29,29], C[26,54]",
+                "Detail": {
+                    "previousVar": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String)>>>changelog[27,30]"
+                },
+                "Code": "buildChangelogFrom(changelog)",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "ADDED_FieldAccess",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String)",
+                "Local": "L[29,29], C[9,22]",
+                "Detail": {
+                    "previousVar": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String)>>>changelog[27,30]"
+                },
+                "Code": "this.changelog",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String)",
+                "Local": "L[28,28], C[9,43]",
+                "Detail": {
+                    "previousVar": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String)>>>title[27,30]"
+                },
+                "Code": "this.title=buildTitleFrom(title);\n",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String)",
+                "Local": "L[29,29], C[9,55]",
+                "Detail": {
+                    "previousVar": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String)>>>changelog[27,30]"
+                },
+                "Code": "this.changelog=buildChangelogFrom(changelog);\n",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "ADDED_FieldAccess",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String)",
+                "Local": "L[28,28], C[9,18]",
+                "Detail": {
+                    "previousVar": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String)>>>title[27,30]"
+                },
+                "Code": "this.title",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String)",
+                "Local": "L[28,28], C[22,42]",
+                "Detail": {
+                    "previousVar": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String)>>>title[27,30]"
+                },
+                "Code": "buildTitleFrom(title)",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.run().ImageIcon",
+                "Local": "L[42,42], C[41,50]",
+                "Detail": null,
+                "Code": "getClass()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.warnUserAboutNewRelease().ImageIcon",
+                "Local": "L[50,50], C[41,50]",
+                "Detail": null,
+                "Code": "getClass()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "ADDED_NullLiteral",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.run().showConfirmDialog(Component, Object, String, int, int, Icon)",
+                "Local": "L[43,43], C[39,42]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_NullLiteral",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.warnUserAboutNewRelease().showConfirmDialog(Component, Object, String, int, int, Icon)",
+                "Local": "L[51,51], C[39,42]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "METHOD_CALL_ARGUMENTS_CHANGE",
+                "Method": "com.google.classyshark.updater.networking.GuiDownloader.onReleaseDownloaded(File, Release).invokeLater(Runnable)",
+                "Local": "L[40,40], C[9,105]",
+                "Detail": null,
+                "Code": "SwingUtilities.invokeLater(new MessageRunnable(release.getReleaseName(),release.getChangelog()))",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/GuiDownloader.java"
+            },
+            {
+                "Metric": "CLASS_INSTANCE_ARGUMENTS_CHANGE",
+                "Method": "com.google.classyshark.updater.networking.GuiDownloader.onReleaseDownloaded(File, Release).invokeLater(Runnable)",
+                "Local": "L[40,40], C[36,104]",
+                "Detail": null,
+                "Code": "new MessageRunnable(release.getReleaseName(),release.getChangelog())",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/GuiDownloader.java"
+            },
+            {
+                "Metric": "CHANGED_ClassInstanceCreation",
+                "Method": "com.google.classyshark.updater.networking.GuiDownloader.onReleaseDownloaded(File, Release).invokeLater(Runnable)",
+                "Local": "L[40,40], C[36,104]",
+                "Detail": null,
+                "Code": "new MessageRunnable(release.getReleaseName(),release.getChangelog())",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/GuiDownloader.java"
+            },
+            {
+                "Metric": "REMOVED_BooleanLiteral",
+                "Method": "com.google.classyshark.updater.networking.GuiDownloader.onReleaseDownloaded(File, Release).MessageRunnable",
+                "Local": "L[40,40], C[106,109]",
+                "Detail": null,
+                "Code": "true",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/GuiDownloader.java"
+            },
+            {
+                "Metric": "REMOVED_PARAMETER",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable",
+                "Local": "L[28,28], C[60,66]",
+                "Detail": null,
+                "Code": "public MessageRunnable(String title,String changelog,boolean gui){\n  this.title=buildTitleFrom(title);\n  this.changelog=buildChangelogFrom(changelog);\n  this.isGui=gui;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable",
+                "Local": "L[21,21], C[1,6]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_FieldDeclaration",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable",
+                "Local": "L[24,24], C[5,32]",
+                "Detail": null,
+                "Code": "private final boolean isGui;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String, boolean)",
+                "Local": "L[28,28], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "ADDED_ThisExpression",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String)",
+                "Local": "L[29,29], C[9,12]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_ThisExpression",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String, boolean)",
+                "Local": "L[30,30], C[9,12]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String, boolean)",
+                "Local": "L[30,30], C[26,54]",
+                "Detail": null,
+                "Code": "buildChangelogFrom(changelog)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_FieldAccess",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String, boolean)",
+                "Local": "L[30,30], C[9,22]",
+                "Detail": null,
+                "Code": "this.changelog",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_FieldAccess",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String, boolean)",
+                "Local": "L[31,31], C[9,18]",
+                "Detail": null,
+                "Code": "this.isGui",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String, boolean)",
+                "Local": "L[29,29], C[9,43]",
+                "Detail": null,
+                "Code": "this.title=buildTitleFrom(title);\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String, boolean)",
+                "Local": "L[30,30], C[9,55]",
+                "Detail": null,
+                "Code": "this.changelog=buildChangelogFrom(changelog);\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String, boolean)",
+                "Local": "L[31,31], C[9,25]",
+                "Detail": null,
+                "Code": "this.isGui=gui;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "ADDED_ThisExpression",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String)",
+                "Local": "L[28,28], C[9,12]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_ThisExpression",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String, boolean)",
+                "Local": "L[29,29], C[9,12]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_FieldAccess",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String, boolean)",
+                "Local": "L[29,29], C[9,18]",
+                "Detail": null,
+                "Code": "this.title",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String, boolean)",
+                "Local": "L[29,29], C[22,42]",
+                "Detail": null,
+                "Code": "buildTitleFrom(title)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.FieldDeclaration",
+                "Local": "L[24,24], C[5,11]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.FieldDeclaration",
+                "Local": "L[24,24], C[13,17]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            },
+            {
+                "Metric": "REMOVED_ThisExpression",
+                "Method": "com.google.classyshark.updater.networking.MessageRunnable.MessageRunnable(String, String, boolean)",
+                "Local": "L[31,31], C[9,12]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java"
+            }
+        ],
+        "metadata": {
+            "type": "Inline Method",
+            "description": "Inline Method private warnUserAboutNewRelease() : void inlined to public run() : void in class com.google.classyshark.updater.networking.MessageRunnable",
+            "leftSideLocations": [
+                {
+                    "filePath": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java",
+                    "startLine": 49,
+                    "endLine": 52,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "inlined method declaration",
+                    "codeElement": "private warnUserAboutNewRelease() : void"
+                },
+                {
+                    "filePath": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java",
+                    "startLine": 50,
+                    "endLine": 50,
+                    "startColumn": 9,
+                    "endColumn": 76,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "inlined code from inlined method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java",
+                    "startLine": 51,
+                    "endLine": 51,
+                    "startColumn": 9,
+                    "endColumn": 130,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "inlined code from inlined method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java",
+                    "startLine": 42,
+                    "endLine": 47,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "target method declaration before inline",
+                    "codeElement": "public run() : void"
+                },
+                {
+                    "filePath": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java",
+                    "startLine": 45,
+                    "endLine": 45,
+                    "startColumn": 13,
+                    "endColumn": 38,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "inlined method invocation",
+                    "codeElement": "warnUserAboutNewRelease()"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java",
+                    "startLine": 40,
+                    "endLine": 44,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "target method declaration after inline",
+                    "codeElement": "public run() : void"
+                },
+                {
+                    "filePath": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java",
+                    "startLine": 42,
+                    "endLine": 42,
+                    "startColumn": 9,
+                    "endColumn": 76,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "inlined code in target method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "ClassySharkWS/src/com/google/classyshark/updater/networking/MessageRunnable.java",
+                    "startLine": 43,
+                    "endLine": 43,
+                    "startColumn": 9,
+                    "endColumn": 130,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "inlined code in target method declaration",
+                    "codeElement": null
+                }
+            ]
+        }
+    }
+]

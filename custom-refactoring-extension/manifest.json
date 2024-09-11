@@ -1,0 +1,49 @@
+{
+    "manifest_version": 3,
+    "name": "Refactoring-related detector",
+    "description": "GitHub Commit Refactoring-related modification detection",
+    "version": "1.1",
+    "permissions": [
+        "activeTab",
+        "scripting"
+    ],
+    "icons": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+    },
+    "action": {
+        "default_icon": {
+            "16": "icon.png",
+            "48": "icon.png",
+            "128": "icon.png"
+        }
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://github.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "css": [
+                "styles.css"
+            ],
+            "run_at": "document_idle"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "data/*"
+            ],
+            "matches": [
+                "https://github.com/*"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,931 @@
+[
+    {
+        "commit": "424f653e49d81d3aaa2789864034c199d7536faa",
+        "source": [
+            {
+                "element": "com.github.dreamhead.moco.runner.watcher.WatcherService.isModifyEvent()",
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java",
+                "local": "L[106,113], C[5,5]"
+            }
+        ],
+        "target": [
+            {
+                "element": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()",
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java",
+                "local": "L[74,99], C[5,5]"
+            }
+        ],
+        "type": "INLINE_METHOD",
+        "related": [
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService",
+                "Local": "L[106,113], C[5,5]",
+                "Detail": {
+                    "method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isModifyEvent()",
+                    "blockPos": "L[106,113], C[54,5]"
+                },
+                "Code": "private Predicate<WatchEvent<?>> isModifyEvent(){\n  return new Predicate<WatchEvent<?>>(){\n    @Override public boolean apply(    final WatchEvent<?> event){\n      return event.kind().equals(ENTRY_MODIFY);\n    }\n  }\n;\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()",
+                "Local": "L[84,86], C[17,54]",
+                "Detail": {
+                    "previousVar": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()>>>paths[77,95]"
+                },
+                "Code": "List<Path> contextPaths=paths.stream().filter(p -> p.endsWith(context)).collect(Collectors.toList());\n",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isModifyEvent().apply(WatchEvent<?>)",
+                "Local": "L[110,110], C[24,35]",
+                "Detail": null,
+                "Code": "event.kind()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_MarkerAnnotation",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isModifyEvent().apply(WatchEvent<?>)",
+                "Local": "L[108,108], C[13,21]",
+                "Detail": null,
+                "Code": "@Override",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isModifyEvent().apply(WatchEvent<?>)",
+                "Local": "L[109,109], C[13,18]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isModifyEvent()",
+                "Local": "L[107,112], C[16,9]",
+                "Detail": null,
+                "Code": "new Predicate<WatchEvent<?>>(){\n  @Override public boolean apply(  final WatchEvent<?> event){\n    return event.kind().equals(ENTRY_MODIFY);\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isModifyEvent()",
+                "Local": "L[107,112], C[16,9]",
+                "Detail": null,
+                "Code": "new Predicate<WatchEvent<?>>(){\n  @Override public boolean apply(  final WatchEvent<?> event){\n    return event.kind().equals(ENTRY_MODIFY);\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()",
+                "Local": "L[80,80], C[34,41]",
+                "Detail": null,
+                "Code": "e.kind()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop().isModifyEvent()",
+                "Local": "L[81,81], C[70,84]",
+                "Detail": null,
+                "Code": "isModifyEvent()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()",
+                "Local": "L[79,81], C[13,50]",
+                "Detail": null,
+                "Code": "List<WatchEvent<?>> events=key.pollEvents().stream().filter(e -> e.kind().equals(ENTRY_MODIFY)).collect(Collectors.toList());\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()",
+                "Local": "L[79,79], C[42,57]",
+                "Detail": null,
+                "Code": "key.pollEvents()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()",
+                "Local": "L[81,81], C[30,48]",
+                "Detail": null,
+                "Code": "Collectors.toList()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "ADDED_LambdaExpression",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()",
+                "Local": "L[80,80], C[29,62]",
+                "Detail": null,
+                "Code": "e -> e.kind().equals(ENTRY_MODIFY)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.doStart()",
+                "Local": "L[58,65], C[13,13]",
+                "Detail": null,
+                "Code": "@Override public void run(){\n  while (running) {\n    loop();\n  }\n  doStop();\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 5,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "CHANGED_EXPRESSIONSTATEMENT",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.doStart()",
+                "Local": "L[58,64], C[9,11]",
+                "Detail": null,
+                "Code": "result=executor.submit(() -> {\n  while (running) {\n    loop();\n  }\n  doStop();\n}\n);\n",
+                "relationType": "CALL_TARGET",
+                "distance": 8,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()",
+                "Local": "L[79,79], C[13,31]",
+                "Detail": null,
+                "Code": "List<WatchEvent<?>>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()",
+                "Local": "L[85,85], C[38,56]",
+                "Detail": {
+                    "previousVar": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()>>>context[83,93]"
+                },
+                "Code": "p.endsWith(context)",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.doStart()",
+                "Local": "L[60,60], C[17,22]",
+                "Detail": null,
+                "Code": "loop()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.doStart().run()",
+                "Local": "L[61,61], C[21,26]",
+                "Detail": null,
+                "Code": "loop()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "ADDED_WildcardType",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()",
+                "Local": "L[79,79], C[29,29]",
+                "Detail": null,
+                "Code": "?",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_WildcardType",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isModifyEvent()",
+                "Local": "L[107,107], C[41,41]",
+                "Detail": null,
+                "Code": "?",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isModifyEvent()",
+                "Local": "L[106,106], C[5,11]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isModifyEvent()",
+                "Local": "L[106,106], C[13,36]",
+                "Detail": null,
+                "Code": "Predicate<WatchEvent<?>>",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "TRY_CATCH_CHANGE",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()",
+                "Local": "L[75,98], C[9,9]",
+                "Detail": {
+                    "previousVar": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()>>>events[79,95]"
+                },
+                "Code": "try {\n  WatchKey key=service.take();\n  Collection<Path> paths=keys.get(key);\n  List<WatchEvent<?>> events=key.pollEvents().stream().filter(e -> e.kind().equals(ENTRY_MODIFY)).collect(Collectors.toList());\n  for (  WatchEvent<?> event : events) {\n    final Path context=(Path)event.context();\n    List<Path> contextPaths=paths.stream().filter(p -> p.endsWith(context)).collect(Collectors.toList());\n    for (    Path path : contextPaths) {\n      for (      Function<File,Void> listener : this.listeners.get(path)) {\n        listener.apply(path.toFile());\n      }\n      break;\n    }\n  }\n  key.reset();\n}\n catch (ClosedWatchServiceException ignored) {\n}\ncatch (InterruptedException e) {\n  logger.error(\"Error happens\",e);\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "CHANGED_TRYSTATEMENT",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()",
+                "Local": "L[75,98], C[9,9]",
+                "Detail": {
+                    "previousVar": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()>>>events[79,95]"
+                },
+                "Code": "try {\n  WatchKey key=service.take();\n  Collection<Path> paths=keys.get(key);\n  List<WatchEvent<?>> events=key.pollEvents().stream().filter(e -> e.kind().equals(ENTRY_MODIFY)).collect(Collectors.toList());\n  for (  WatchEvent<?> event : events) {\n    final Path context=(Path)event.context();\n    List<Path> contextPaths=paths.stream().filter(p -> p.endsWith(context)).collect(Collectors.toList());\n    for (    Path path : contextPaths) {\n      for (      Function<File,Void> listener : this.listeners.get(path)) {\n        listener.apply(path.toFile());\n      }\n      break;\n    }\n  }\n  key.reset();\n}\n catch (ClosedWatchServiceException ignored) {\n}\ncatch (InterruptedException e) {\n  logger.error(\"Error happens\",e);\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_WildcardType",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isModifyEvent()",
+                "Local": "L[106,106], C[34,34]",
+                "Detail": null,
+                "Code": "?",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isModifyEvent()",
+                "Local": "L[108,111], C[13,13]",
+                "Detail": null,
+                "Code": "@Override public boolean apply(final WatchEvent<?> event){\n  return event.kind().equals(ENTRY_MODIFY);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "ADDED_WHILESTATEMENT",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.doStart()",
+                "Local": "L[59,61], C[13,13]",
+                "Detail": null,
+                "Code": "while (running) {\n  loop();\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 3,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_WHILESTATEMENT",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.doStart().run()",
+                "Local": "L[60,62], C[17,17]",
+                "Detail": null,
+                "Code": "while (running) {\n  loop();\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 3,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "CHANGED_ENHANCEDFORSTATEMENT",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()",
+                "Local": "L[87,92], C[17,17]",
+                "Detail": {
+                    "previousVar": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()>>>path[87,92]"
+                },
+                "Code": "for (Path path : contextPaths) {\n  for (  Function<File,Void> listener : this.listeners.get(path)) {\n    listener.apply(path.toFile());\n  }\n  break;\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "CHANGED_ENHANCEDFORSTATEMENT",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()",
+                "Local": "L[82,93], C[13,13]",
+                "Detail": {
+                    "previousVar": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()>>>events[79,95]"
+                },
+                "Code": "for (WatchEvent<?> event : events) {\n  final Path context=(Path)event.context();\n  List<Path> contextPaths=paths.stream().filter(p -> p.endsWith(context)).collect(Collectors.toList());\n  for (  Path path : contextPaths) {\n    for (    Function<File,Void> listener : this.listeners.get(path)) {\n      listener.apply(path.toFile());\n    }\n    break;\n  }\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()",
+                "Local": "L[84,84], C[43,56]",
+                "Detail": {
+                    "previousVar": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()>>>paths[77,95]"
+                },
+                "Code": "paths.stream()",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "ADDED_LambdaExpression",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()",
+                "Local": "L[85,85], C[33,56]",
+                "Detail": {
+                    "previousVar": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()>>>context[83,93]"
+                },
+                "Code": "p -> p.endsWith(context)",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isModifyEvent()",
+                "Local": "L[107,112], C[9,10]",
+                "Detail": null,
+                "Code": "return new Predicate<WatchEvent<?>>(){\n  @Override public boolean apply(  final WatchEvent<?> event){\n    return event.kind().equals(ENTRY_MODIFY);\n  }\n}\n;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isModifyEvent()",
+                "Local": "L[106,106], C[23,35]",
+                "Detail": null,
+                "Code": "WatchEvent<?>",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_AnonymousClassDeclaration",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.doStart().Runnable",
+                "Local": "L[57,66], C[49,9]",
+                "Detail": null,
+                "Code": "{\n  @Override public void run(){\n    while (running) {\n      loop();\n    }\n    doStop();\n  }\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 6,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isModifyEvent().Predicate<WatchEvent<?>>",
+                "Local": "L[107,107], C[20,43]",
+                "Detail": null,
+                "Code": "Predicate<WatchEvent<?>>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_AnonymousClassDeclaration",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isModifyEvent().Predicate<WatchEvent<?>>",
+                "Local": "L[107,112], C[47,9]",
+                "Detail": null,
+                "Code": "{\n  @Override public boolean apply(  final WatchEvent<?> event){\n    return event.kind().equals(ENTRY_MODIFY);\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "METHOD_CALL_ARGUMENTS_CHANGE",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.doStart().submit(Runnable)",
+                "Local": "L[58,64], C[18,10]",
+                "Detail": null,
+                "Code": "executor.submit(() -> {\n  while (running) {\n    loop();\n  }\n  doStop();\n}\n)",
+                "relationType": "CALL_TARGET",
+                "distance": 6,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "ADDED_LambdaExpression",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.doStart().submit(Runnable)",
+                "Local": "L[58,64], C[34,9]",
+                "Detail": null,
+                "Code": "() -> {\n  while (running) {\n    loop();\n  }\n  doStop();\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 5,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.doStart().submit(Runnable)",
+                "Local": "L[57,66], C[34,9]",
+                "Detail": null,
+                "Code": "new Runnable(){\n  @Override public void run(){\n    while (running) {\n      loop();\n    }\n    doStop();\n  }\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 7,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.doStart().submit(Runnable)",
+                "Local": "L[57,66], C[34,9]",
+                "Detail": null,
+                "Code": "new Runnable(){\n  @Override public void run(){\n    while (running) {\n      loop();\n    }\n    doStop();\n  }\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 7,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isModifyEvent().apply(WatchEvent<?>)",
+                "Local": "L[110,110], C[17,57]",
+                "Detail": null,
+                "Code": "return event.kind().equals(ENTRY_MODIFY);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()",
+                "Local": "L[79,79], C[18,30]",
+                "Detail": null,
+                "Code": "WatchEvent<?>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isModifyEvent()",
+                "Local": "L[107,107], C[30,42]",
+                "Detail": null,
+                "Code": "WatchEvent<?>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_WildcardType",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isModifyEvent().apply(WatchEvent<?>)",
+                "Local": "L[109,109], C[51,51]",
+                "Detail": null,
+                "Code": "?",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isModifyEvent().apply(WatchEvent<?>).SingleVariableDeclaration",
+                "Local": "L[109,109], C[34,38]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isModifyEvent().apply(WatchEvent<?>).SingleVariableDeclaration",
+                "Local": "L[109,109], C[40,52]",
+                "Detail": null,
+                "Code": "WatchEvent<?>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isForPath(Path)",
+                "Local": "L[98,103], C[9,10]",
+                "Detail": null,
+                "Code": "return new Predicate<Path>(){\n  @Override public boolean apply(  final Path path){\n    return path.endsWith(context);\n  }\n}\n;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isForPath(Path).apply(Path)",
+                "Local": "L[101,101], C[17,46]",
+                "Detail": null,
+                "Code": "return path.endsWith(context);\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isForPath(Path).SingleVariableDeclaration",
+                "Local": "L[97,97], C[39,43]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService",
+                "Local": "L[97,104], C[5,5]",
+                "Detail": null,
+                "Code": "private Predicate<Path> isForPath(final Path context){\n  return new Predicate<Path>(){\n    @Override public boolean apply(    final Path path){\n      return path.endsWith(context);\n    }\n  }\n;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isForPath(Path).apply(Path).SingleVariableDeclaration",
+                "Local": "L[100,100], C[34,38]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isForPath(Path).apply(Path)",
+                "Local": "L[101,101], C[24,45]",
+                "Detail": null,
+                "Code": "path.endsWith(context)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "com.github.dreamhead.moco.runner.watcher.CompilationUnit",
+                "Local": "L[20,20], C[1,22]",
+                "Detail": null,
+                "Code": "import java.util.List;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "com.github.dreamhead.moco.runner.watcher.CompilationUnit",
+                "Local": "L[20,20], C[1,22]",
+                "Detail": null,
+                "Code": "import java.util.List;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "com.github.dreamhead.moco.runner.watcher.CompilationUnit",
+                "Local": "L[26,26], C[1,35]",
+                "Detail": null,
+                "Code": "import java.util.stream.Collectors;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "com.github.dreamhead.moco.runner.watcher.CompilationUnit",
+                "Local": "L[26,26], C[1,35]",
+                "Detail": null,
+                "Code": "import java.util.stream.Collectors;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_IMPORT",
+                "Method": "com.github.dreamhead.moco.runner.watcher.CompilationUnit",
+                "Local": "L[6,6], C[1,40]",
+                "Detail": null,
+                "Code": "import com.google.common.base.Predicate;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_ImportDeclaration",
+                "Method": "com.github.dreamhead.moco.runner.watcher.CompilationUnit",
+                "Local": "L[6,6], C[1,40]",
+                "Detail": null,
+                "Code": "import com.google.common.base.Predicate;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop().pollEvents()",
+                "Local": "L[81,81], C[45,60]",
+                "Detail": null,
+                "Code": "key.pollEvents()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop().from(UNKNOWN)",
+                "Local": "L[81,81], C[40,61]",
+                "Detail": null,
+                "Code": "from(key.pollEvents())",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop().isForPath(Path)",
+                "Local": "L[83,83], C[53,70]",
+                "Detail": null,
+                "Code": "isForPath(context)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.doStart()",
+                "Local": "L[63,63], C[13,20]",
+                "Detail": null,
+                "Code": "doStop()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.doStart().run()",
+                "Local": "L[64,64], C[17,24]",
+                "Detail": null,
+                "Code": "doStop()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isForPath(Path)",
+                "Local": "L[97,97], C[5,11]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isForPath(Path)",
+                "Local": "L[97,97], C[13,27]",
+                "Detail": null,
+                "Code": "Predicate<Path>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop().from(UNKNOWN)",
+                "Local": "L[83,83], C[34,44]",
+                "Detail": null,
+                "Code": "from(paths)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()",
+                "Local": "L[86,86], C[34,52]",
+                "Detail": null,
+                "Code": "Collectors.toList()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_MarkerAnnotation",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isForPath(Path).apply(Path)",
+                "Local": "L[99,99], C[13,21]",
+                "Detail": null,
+                "Code": "@Override",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isForPath(Path).apply(Path)",
+                "Local": "L[100,100], C[13,18]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isForPath(Path)",
+                "Local": "L[98,103], C[16,9]",
+                "Detail": null,
+                "Code": "new Predicate<Path>(){\n  @Override public boolean apply(  final Path path){\n    return path.endsWith(context);\n  }\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isForPath(Path)",
+                "Local": "L[98,103], C[16,9]",
+                "Detail": null,
+                "Code": "new Predicate<Path>(){\n  @Override public boolean apply(  final Path path){\n    return path.endsWith(context);\n  }\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.loop()",
+                "Local": "L[84,84], C[17,26]",
+                "Detail": null,
+                "Code": "List<Path>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isForPath(Path)",
+                "Local": "L[99,102], C[13,13]",
+                "Detail": null,
+                "Code": "@Override public boolean apply(final Path path){\n  return path.endsWith(context);\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isForPath(Path).Predicate<Path>",
+                "Local": "L[98,98], C[20,34]",
+                "Detail": null,
+                "Code": "Predicate<Path>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_AnonymousClassDeclaration",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.isForPath(Path).Predicate<Path>",
+                "Local": "L[98,103], C[38,9]",
+                "Detail": null,
+                "Code": "{\n  @Override public boolean apply(  final Path path){\n    return path.endsWith(context);\n  }\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_MarkerAnnotation",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.doStart().run()",
+                "Local": "L[58,58], C[13,21]",
+                "Detail": null,
+                "Code": "@Override",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "com.github.dreamhead.moco.runner.watcher.WatcherService.doStart().run()",
+                "Local": "L[59,59], C[13,18]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java"
+            }
+        ],
+        "metadata": {
+            "type": "Inline Method",
+            "description": "Inline Method private isModifyEvent() : Predicate<WatchEvent<?>> inlined to private loop() : void in class com.github.dreamhead.moco.runner.watcher.WatcherService",
+            "leftSideLocations": [
+                {
+                    "filePath": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java",
+                    "startLine": 106,
+                    "endLine": 113,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "inlined method declaration",
+                    "codeElement": "private isModifyEvent() : Predicate<WatchEvent<?>>"
+                },
+                {
+                    "filePath": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java",
+                    "startLine": 110,
+                    "endLine": 110,
+                    "startColumn": 17,
+                    "endColumn": 58,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "inlined code from inlined method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java",
+                    "startLine": 107,
+                    "endLine": 112,
+                    "startColumn": 9,
+                    "endColumn": 11,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "inlined code from inlined method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java",
+                    "startLine": 76,
+                    "endLine": 95,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "target method declaration before inline",
+                    "codeElement": "private loop() : void"
+                },
+                {
+                    "filePath": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java",
+                    "startLine": 81,
+                    "endLine": 81,
+                    "startColumn": 70,
+                    "endColumn": 85,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "inlined method invocation",
+                    "codeElement": "isModifyEvent()"
+                },
+                {
+                    "filePath": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java",
+                    "startLine": 109,
+                    "endLine": 111,
+                    "startColumn": 61,
+                    "endColumn": 14,
+                    "codeElementType": "BLOCK",
+                    "description": "deleted statement in inlined method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java",
+                    "startLine": 74,
+                    "endLine": 99,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "target method declaration after inline",
+                    "codeElement": "private loop() : void"
+                },
+                {
+                    "filePath": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java",
+                    "startLine": 80,
+                    "endLine": 80,
+                    "startColumn": 34,
+                    "endColumn": 63,
+                    "codeElementType": "LAMBDA_EXPRESSION_BODY",
+                    "description": "inlined code in target method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java",
+                    "startLine": 79,
+                    "endLine": 81,
+                    "startColumn": 13,
+                    "endColumn": 51,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "inlined code in target method declaration",
+                    "codeElement": null
+                }
+            ]
+        }
+    }
+]

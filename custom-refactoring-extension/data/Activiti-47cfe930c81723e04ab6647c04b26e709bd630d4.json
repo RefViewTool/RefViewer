@@ -1,0 +1,810 @@
+[
+    {
+        "commit": "47cfe930c81723e04ab6647c04b26e709bd630d4",
+        "source": [
+            {
+                "element": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl.getCandidateStarterUserIdExpressions()",
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java",
+                "local": "L[181,183], C[3,3]"
+            }
+        ],
+        "target": [
+            {
+                "element": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity.getCandidateStarterUserIdExpressions()",
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java",
+                "local": "L[326,328], C[3,3]"
+            }
+        ],
+        "type": "PUSH_DOWN",
+        "related": [
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity",
+                "Local": "L[326,328], C[3,3]",
+                "Detail": {
+                    "method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity.getCandidateStarterUserIdExpressions()",
+                    "blockPos": "L[326,328], C[65,3]"
+                },
+                "Code": "public Set<Expression> getCandidateStarterUserIdExpressions(){\n  return candidateStarterUserIdExpressions;\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl",
+                "Local": "L[181,183], C[3,3]",
+                "Detail": {
+                    "method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl.getCandidateStarterUserIdExpressions()",
+                    "blockPos": "L[181,183], C[65,3]"
+                },
+                "Code": "public Set<Expression> getCandidateStarterUserIdExpressions(){\n  return candidateStarterUserIdExpressions;\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "ADDED_FieldDeclaration",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity",
+                "Local": "L[65,65], C[3,90]",
+                "Detail": {
+                    "previousVar": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity>>>candidateStarterUserIdExpressions[42,341]"
+                },
+                "Code": "protected Set<Expression> candidateStarterUserIdExpressions=new HashSet<Expression>();\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity",
+                "Local": "L[330,332], C[3,3]",
+                "Detail": {
+                    "previousVar": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity>>>candidateStarterUserIdExpressions[42,341]"
+                },
+                "Code": "public void addCandidateStarterUserIdExpression(Expression userId){\n  candidateStarterUserIdExpressions.add(userId);\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity.getCandidateStarterUserIdExpressions()",
+                "Local": "L[326,326], C[3,8]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity.getCandidateStarterUserIdExpressions()",
+                "Local": "L[326,326], C[10,24]",
+                "Detail": null,
+                "Code": "Set<Expression>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity.getCandidateStarterUserIdExpressions()",
+                "Local": "L[327,327], C[5,45]",
+                "Detail": null,
+                "Code": "return candidateStarterUserIdExpressions;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity.addCandidateStarterUserIdExpression(Expression)",
+                "Local": "L[331,331], C[5,49]",
+                "Detail": {
+                    "previousVar": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity>>>candidateStarterUserIdExpressions[42,341]"
+                },
+                "Code": "candidateStarterUserIdExpressions.add(userId)",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "REMOVED_FieldDeclaration",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl",
+                "Local": "L[46,46], C[3,90]",
+                "Detail": {
+                    "previousVar": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl>>>candidateStarterUserIdExpressions[32,196]"
+                },
+                "Code": "protected Set<Expression> candidateStarterUserIdExpressions=new HashSet<Expression>();\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl",
+                "Local": "L[185,187], C[3,3]",
+                "Detail": {
+                    "previousVar": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl>>>candidateStarterUserIdExpressions[32,196]"
+                },
+                "Code": "public void addCandidateStarterUserIdExpression(Expression userId){\n  candidateStarterUserIdExpressions.add(userId);\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl.getCandidateStarterUserIdExpressions()",
+                "Local": "L[181,181], C[3,8]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl.getCandidateStarterUserIdExpressions()",
+                "Local": "L[181,181], C[10,24]",
+                "Detail": null,
+                "Code": "Set<Expression>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl.addCandidateStarterUserIdExpression(Expression)",
+                "Local": "L[186,186], C[5,49]",
+                "Detail": {
+                    "previousVar": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl>>>candidateStarterUserIdExpressions[32,196]"
+                },
+                "Code": "candidateStarterUserIdExpressions.add(userId)",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl.getCandidateStarterUserIdExpressions()",
+                "Local": "L[182,182], C[5,45]",
+                "Detail": null,
+                "Code": "return candidateStarterUserIdExpressions;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity",
+                "Local": "L[65,65], C[65,89]",
+                "Detail": null,
+                "Code": "new HashSet<Expression>()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity",
+                "Local": "L[65,65], C[65,89]",
+                "Detail": null,
+                "Code": "new HashSet<Expression>()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_FieldDeclaration",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity",
+                "Local": "L[66,66], C[3,91]",
+                "Detail": null,
+                "Code": "protected Set<Expression> candidateStarterGroupIdExpressions=new HashSet<Expression>();\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity",
+                "Local": "L[334,336], C[3,3]",
+                "Detail": null,
+                "Code": "public Set<Expression> getCandidateStarterGroupIdExpressions(){\n  return candidateStarterGroupIdExpressions;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity",
+                "Local": "L[338,340], C[3,3]",
+                "Detail": null,
+                "Code": "public void addCandidateStarterGroupIdExpression(Expression groupId){\n  candidateStarterGroupIdExpressions.add(groupId);\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "org.activiti.engine.impl.persistence.entity.CompilationUnit",
+                "Local": "L[18,18], C[1,25]",
+                "Detail": null,
+                "Code": "import java.util.HashSet;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "org.activiti.engine.impl.persistence.entity.CompilationUnit",
+                "Local": "L[18,18], C[1,25]",
+                "Detail": null,
+                "Code": "import java.util.HashSet;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "org.activiti.engine.impl.persistence.entity.CompilationUnit",
+                "Local": "L[21,21], C[1,21]",
+                "Detail": null,
+                "Code": "import java.util.Set;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "org.activiti.engine.impl.persistence.entity.CompilationUnit",
+                "Local": "L[21,21], C[1,21]",
+                "Detail": null,
+                "Code": "import java.util.Set;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "org.activiti.engine.impl.persistence.entity.CompilationUnit",
+                "Local": "L[23,23], C[1,47]",
+                "Detail": null,
+                "Code": "import org.activiti.engine.delegate.Expression;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "org.activiti.engine.impl.persistence.entity.CompilationUnit",
+                "Local": "L[23,23], C[1,47]",
+                "Detail": null,
+                "Code": "import org.activiti.engine.delegate.Expression;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity",
+                "Local": "L[66,66], C[66,90]",
+                "Detail": null,
+                "Code": "new HashSet<Expression>()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity",
+                "Local": "L[66,66], C[66,90]",
+                "Detail": null,
+                "Code": "new HashSet<Expression>()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity.getCandidateStarterGroupIdExpressions()",
+                "Local": "L[335,335], C[5,46]",
+                "Detail": null,
+                "Code": "return candidateStarterGroupIdExpressions;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity.addCandidateStarterGroupIdExpression(Expression)",
+                "Local": "L[338,338], C[3,8]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity.HashSet<Expression>",
+                "Local": "L[65,65], C[69,87]",
+                "Detail": null,
+                "Code": "HashSet<Expression>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity.addCandidateStarterUserIdExpression(Expression)",
+                "Local": "L[330,330], C[3,8]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity.FieldDeclaration",
+                "Local": "L[66,66], C[3,11]",
+                "Detail": null,
+                "Code": "protected",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity.FieldDeclaration",
+                "Local": "L[66,66], C[13,27]",
+                "Detail": null,
+                "Code": "Set<Expression>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity.addCandidateStarterGroupIdExpression(Expression)",
+                "Local": "L[339,339], C[5,51]",
+                "Detail": null,
+                "Code": "candidateStarterGroupIdExpressions.add(groupId)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity.getCandidateStarterGroupIdExpressions()",
+                "Local": "L[334,334], C[3,8]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity.getCandidateStarterGroupIdExpressions()",
+                "Local": "L[334,334], C[10,24]",
+                "Detail": null,
+                "Code": "Set<Expression>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity.FieldDeclaration",
+                "Local": "L[65,65], C[3,11]",
+                "Detail": null,
+                "Code": "protected",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity.FieldDeclaration",
+                "Local": "L[65,65], C[13,27]",
+                "Detail": null,
+                "Code": "Set<Expression>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity.HashSet<Expression>",
+                "Local": "L[66,66], C[70,88]",
+                "Detail": null,
+                "Code": "HashSet<Expression>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl.HashSet<Expression>",
+                "Local": "L[46,46], C[69,87]",
+                "Detail": null,
+                "Code": "HashSet<Expression>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl.getCandidateStarterGroupIdExpressions()",
+                "Local": "L[190,190], C[5,46]",
+                "Detail": null,
+                "Code": "return candidateStarterGroupIdExpressions;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl.addCandidateStarterGroupIdExpression(Expression)",
+                "Local": "L[194,194], C[5,51]",
+                "Detail": null,
+                "Code": "candidateStarterGroupIdExpressions.add(groupId)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "CHANGED_Javadoc",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl",
+                "Local": "L[29,31], C[1,3]",
+                "Detail": null,
+                "Code": "/** \n * @author Tom Baeyens\n */\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_FieldDeclaration",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl",
+                "Local": "L[47,47], C[3,91]",
+                "Detail": null,
+                "Code": "protected Set<Expression> candidateStarterGroupIdExpressions=new HashSet<Expression>();\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl",
+                "Local": "L[189,191], C[3,3]",
+                "Detail": null,
+                "Code": "public Set<Expression> getCandidateStarterGroupIdExpressions(){\n  return candidateStarterGroupIdExpressions;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl",
+                "Local": "L[193,195], C[3,3]",
+                "Detail": null,
+                "Code": "public void addCandidateStarterGroupIdExpression(Expression groupId){\n  candidateStarterGroupIdExpressions.add(groupId);\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl.FieldDeclaration",
+                "Local": "L[47,47], C[3,11]",
+                "Detail": null,
+                "Code": "protected",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl.FieldDeclaration",
+                "Local": "L[47,47], C[13,27]",
+                "Detail": null,
+                "Code": "Set<Expression>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl",
+                "Local": "L[47,47], C[66,90]",
+                "Detail": null,
+                "Code": "new HashSet<Expression>()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl",
+                "Local": "L[47,47], C[66,90]",
+                "Detail": null,
+                "Code": "new HashSet<Expression>()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_TagElement",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl",
+                "Local": "L[34,34], C[4,24]",
+                "Detail": null,
+                "Code": "\n * @author Saeid Mirzaei",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl.getCandidateStarterGroupIdExpressions()",
+                "Local": "L[189,189], C[3,8]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl.getCandidateStarterGroupIdExpressions()",
+                "Local": "L[189,189], C[10,24]",
+                "Detail": null,
+                "Code": "Set<Expression>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl.addCandidateStarterGroupIdExpression(Expression)",
+                "Local": "L[193,193], C[3,8]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl.HashSet<Expression>",
+                "Local": "L[47,47], C[70,88]",
+                "Detail": null,
+                "Code": "HashSet<Expression>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl.FieldDeclaration",
+                "Local": "L[46,46], C[3,11]",
+                "Detail": null,
+                "Code": "protected",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl.FieldDeclaration",
+                "Local": "L[46,46], C[13,27]",
+                "Detail": null,
+                "Code": "Set<Expression>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_TextElement",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl",
+                "Local": "L[34,34], C[11,24]",
+                "Detail": null,
+                "Code": " Saeid Mirzaei",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl.addCandidateStarterUserIdExpression(Expression)",
+                "Local": "L[185,185], C[3,8]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl",
+                "Local": "L[46,46], C[65,89]",
+                "Detail": null,
+                "Code": "new HashSet<Expression>()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl",
+                "Local": "L[46,46], C[65,89]",
+                "Detail": null,
+                "Code": "new HashSet<Expression>()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_IMPORT",
+                "Method": "org.activiti.engine.impl.pvm.process.CompilationUnit",
+                "Local": "L[18,18], C[1,25]",
+                "Detail": null,
+                "Code": "import java.util.HashSet;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_ImportDeclaration",
+                "Method": "org.activiti.engine.impl.pvm.process.CompilationUnit",
+                "Local": "L[18,18], C[1,25]",
+                "Detail": null,
+                "Code": "import java.util.HashSet;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_IMPORT",
+                "Method": "org.activiti.engine.impl.pvm.process.CompilationUnit",
+                "Local": "L[21,21], C[1,21]",
+                "Detail": null,
+                "Code": "import java.util.Set;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_ImportDeclaration",
+                "Method": "org.activiti.engine.impl.pvm.process.CompilationUnit",
+                "Local": "L[21,21], C[1,21]",
+                "Detail": null,
+                "Code": "import java.util.Set;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_IMPORT",
+                "Method": "org.activiti.engine.impl.pvm.process.CompilationUnit",
+                "Local": "L[24,24], C[1,47]",
+                "Detail": null,
+                "Code": "import org.activiti.engine.delegate.Expression;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_ImportDeclaration",
+                "Method": "org.activiti.engine.impl.pvm.process.CompilationUnit",
+                "Local": "L[24,24], C[1,47]",
+                "Detail": null,
+                "Code": "import org.activiti.engine.delegate.Expression;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.examples.bpmn.authorization.StartAuthorizationTest.testProcessDefinitionList()",
+                "Local": "L[272,272], C[39,78]",
+                "Detail": null,
+                "Code": "ProcessEngines.getDefaultProcessEngine()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/test/java/org/activiti/examples/bpmn/authorization/StartAuthorizationTest.java"
+            },
+            {
+                "Metric": "CHANGED_VAR_VALUE",
+                "Method": "org.activiti.examples.bpmn.authorization.StartAuthorizationTest.testProcessDefinitionList()",
+                "Local": "L[272,273], C[19,102]",
+                "Detail": null,
+                "Code": "authorizedGroups=ProcessEngines.getDefaultProcessEngine().getIdentityService().createGroupQuery().potentialStarter(latestProcessDef.getId()).orderByGroupId().asc().list()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/test/java/org/activiti/examples/bpmn/authorization/StartAuthorizationTest.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "org.activiti.examples.bpmn.authorization.StartAuthorizationTest.containsUserOrGroup(String, String, List<IdentityLink>)",
+                "Local": "L[189,192], C[69,7]",
+                "Detail": null,
+                "Code": "{\n  found=true;\n  break;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/test/java/org/activiti/examples/bpmn/authorization/StartAuthorizationTest.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "org.activiti.examples.bpmn.authorization.StartAuthorizationTest.containsUserOrGroup(String, String, List<IdentityLink>)",
+                "Local": "L[192,195], C[79,7]",
+                "Detail": null,
+                "Code": "{\n  found=true;\n  break;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/test/java/org/activiti/examples/bpmn/authorization/StartAuthorizationTest.java"
+            },
+            {
+                "Metric": "CHANGED_VARIABLE",
+                "Method": "org.activiti.examples.bpmn.authorization.StartAuthorizationTest.testProcessDefinitionList()",
+                "Local": "L[272,273], C[7,103]",
+                "Detail": null,
+                "Code": "List<Group> authorizedGroups=ProcessEngines.getDefaultProcessEngine().getIdentityService().createGroupQuery().potentialStarter(latestProcessDef.getId()).orderByGroupId().asc().list();\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/test/java/org/activiti/examples/bpmn/authorization/StartAuthorizationTest.java"
+            },
+            {
+                "Metric": "TRY_CATCH_CHANGE",
+                "Method": "org.activiti.examples.bpmn.authorization.StartAuthorizationTest.testProcessDefinitionList()",
+                "Local": "L[248,331], C[5,5]",
+                "Detail": null,
+                "Code": "try {\n  ProcessDefinition latestProcessDef=repositoryService.createProcessDefinitionQuery().processDefinitionKey(\"process1\").singleResult();\n  List<User> authorizedUsers=ProcessEngines.getDefaultProcessEngine().getIdentityService().createUserQuery().potentialStarter(latestProcessDef.getId()).list();\n  assertEquals(0,authorizedUsers.size());\n  latestProcessDef=repositoryService.createProcessDefinitionQuery().processDefinitionKey(\"process2\").singleResult();\n  authorizedUsers=ProcessEngines.getDefaultProcessEngine().getIdentityService().createUserQuery().potentialStarter(latestProcessDef.getId()).orderByUserId().asc().list();\n  assertEquals(2,authorizedUsers.size());\n  assertEquals(\"user1\",authorizedUsers.get(0).getId());\n  assertEquals(\"user2\",authorizedUsers.get(1).getId());\n  latestProcessDef=repositoryService.createProcessDefinitionQuery().processDefinitionKey(\"process2\").singleResult();\n  List<Group> authorizedGroups=ProcessEngines.getDefaultProcessEngine().getIdentityService().createGroupQuery().potentialStarter(latestProcessDef.getId()).orderByGroupId().asc().list();\n  assertEquals(0,authorizedGroups.size());\n  latestProcessDef=repositoryService.createProcessDefinitionQuery().processDefinitionKey(\"process4\").singleResult();\n  authorizedGroups=ProcessEngines.getDefaultProcessEngine().getIdentityService().createGroupQuery().potentialStarter(latestProcessDef.getId()).list();\n  assertEquals(3,authorizedGroups.size());\n  assertEquals(\"group1\",authorizedGroups.get(0).getId());\n  assertEquals(\"group2\",authorizedGroups.get(1).getId());\n  assertEquals(\"group3\",authorizedGroups.get(2).getId());\n  List<ProcessDefinition> processDefinitions=repositoryService.createProcessDefinitionQuery().orderByProcessDefinitionName().asc().list();\n  assertEquals(4,processDefinitions.size());\n  assertEquals(\"process1\",processDefinitions.get(0).getKey());\n  assertEquals(\"process2\",processDefinitions.get(1).getKey());\n  assertEquals(\"process3\",processDefinitions.get(2).getKey());\n  assertEquals(\"process4\",processDefinitions.get(3).getKey());\n  processDefinitions=repositoryService.createProcessDefinitionQuery().orderByProcessDefinitionName().asc().startableByUser(\"user1\").list();\n  assertEquals(2,processDefinitions.size());\n  assertEquals(\"process2\",processDefinitions.get(0).getKey());\n  assertEquals(\"process3\",processDefinitions.get(1).getKey());\n  processDefinitions=repositoryService.createProcessDefinitionQuery().startableByUser(\"user2\").list();\n  assertEquals(1,processDefinitions.size());\n  assertEquals(\"process2\",processDefinitions.get(0).getKey());\n  processDefinitions=repositoryService.createProcessDefinitionQuery().startableByUser(\"user4\").list();\n  assertEquals(0,processDefinitions.size());\n  processDefinitions=repositoryService.createProcessDefinitionQuery().startableByUser(\"userInGroup3\").list();\n  assertEquals(1,processDefinitions.size());\n  assertEquals(\"process4\",processDefinitions.get(0).getKey());\n  processDefinitions=repositoryService.createProcessDefinitionQuery().startableByUser(\"userInGroup2\").list();\n  assertEquals(1,processDefinitions.size());\n  assertEquals(\"process4\",processDefinitions.get(0).getKey());\n}\n  finally {\n  tearDownUsersAndGroups();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/test/java/org/activiti/examples/bpmn/authorization/StartAuthorizationTest.java"
+            },
+            {
+                "Metric": "CHANGED_TRYSTATEMENT",
+                "Method": "org.activiti.examples.bpmn.authorization.StartAuthorizationTest.testProcessDefinitionList()",
+                "Local": "L[248,331], C[5,5]",
+                "Detail": null,
+                "Code": "try {\n  ProcessDefinition latestProcessDef=repositoryService.createProcessDefinitionQuery().processDefinitionKey(\"process1\").singleResult();\n  List<User> authorizedUsers=ProcessEngines.getDefaultProcessEngine().getIdentityService().createUserQuery().potentialStarter(latestProcessDef.getId()).list();\n  assertEquals(0,authorizedUsers.size());\n  latestProcessDef=repositoryService.createProcessDefinitionQuery().processDefinitionKey(\"process2\").singleResult();\n  authorizedUsers=ProcessEngines.getDefaultProcessEngine().getIdentityService().createUserQuery().potentialStarter(latestProcessDef.getId()).orderByUserId().asc().list();\n  assertEquals(2,authorizedUsers.size());\n  assertEquals(\"user1\",authorizedUsers.get(0).getId());\n  assertEquals(\"user2\",authorizedUsers.get(1).getId());\n  latestProcessDef=repositoryService.createProcessDefinitionQuery().processDefinitionKey(\"process2\").singleResult();\n  List<Group> authorizedGroups=ProcessEngines.getDefaultProcessEngine().getIdentityService().createGroupQuery().potentialStarter(latestProcessDef.getId()).orderByGroupId().asc().list();\n  assertEquals(0,authorizedGroups.size());\n  latestProcessDef=repositoryService.createProcessDefinitionQuery().processDefinitionKey(\"process4\").singleResult();\n  authorizedGroups=ProcessEngines.getDefaultProcessEngine().getIdentityService().createGroupQuery().potentialStarter(latestProcessDef.getId()).list();\n  assertEquals(3,authorizedGroups.size());\n  assertEquals(\"group1\",authorizedGroups.get(0).getId());\n  assertEquals(\"group2\",authorizedGroups.get(1).getId());\n  assertEquals(\"group3\",authorizedGroups.get(2).getId());\n  List<ProcessDefinition> processDefinitions=repositoryService.createProcessDefinitionQuery().orderByProcessDefinitionName().asc().list();\n  assertEquals(4,processDefinitions.size());\n  assertEquals(\"process1\",processDefinitions.get(0).getKey());\n  assertEquals(\"process2\",processDefinitions.get(1).getKey());\n  assertEquals(\"process3\",processDefinitions.get(2).getKey());\n  assertEquals(\"process4\",processDefinitions.get(3).getKey());\n  processDefinitions=repositoryService.createProcessDefinitionQuery().orderByProcessDefinitionName().asc().startableByUser(\"user1\").list();\n  assertEquals(2,processDefinitions.size());\n  assertEquals(\"process2\",processDefinitions.get(0).getKey());\n  assertEquals(\"process3\",processDefinitions.get(1).getKey());\n  processDefinitions=repositoryService.createProcessDefinitionQuery().startableByUser(\"user2\").list();\n  assertEquals(1,processDefinitions.size());\n  assertEquals(\"process2\",processDefinitions.get(0).getKey());\n  processDefinitions=repositoryService.createProcessDefinitionQuery().startableByUser(\"user4\").list();\n  assertEquals(0,processDefinitions.size());\n  processDefinitions=repositoryService.createProcessDefinitionQuery().startableByUser(\"userInGroup3\").list();\n  assertEquals(1,processDefinitions.size());\n  assertEquals(\"process4\",processDefinitions.get(0).getKey());\n  processDefinitions=repositoryService.createProcessDefinitionQuery().startableByUser(\"userInGroup2\").list();\n  assertEquals(1,processDefinitions.size());\n  assertEquals(\"process4\",processDefinitions.get(0).getKey());\n}\n  finally {\n  tearDownUsersAndGroups();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/test/java/org/activiti/examples/bpmn/authorization/StartAuthorizationTest.java"
+            }
+        ],
+        "metadata": {
+            "type": "Push Down Method",
+            "description": "Push Down Method public getCandidateStarterUserIdExpressions() : Set<Expression> from class org.activiti.engine.impl.pvm.process.ProcessDefinitionImpl to public getCandidateStarterUserIdExpressions() : Set<Expression> from class org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity",
+            "leftSideLocations": [
+                {
+                    "filePath": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java",
+                    "startLine": 181,
+                    "endLine": 183,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public getCandidateStarterUserIdExpressions() : Set<Expression>"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java",
+                    "startLine": 326,
+                    "endLine": 328,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "pushed down method declaration",
+                    "codeElement": "public getCandidateStarterUserIdExpressions() : Set<Expression>"
+                }
+            ]
+        }
+    }
+]

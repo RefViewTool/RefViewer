@@ -1,0 +1,955 @@
+[
+    {
+        "commit": "7442fba627ad103b8c09f0cc1a21a9f588472df8",
+        "source": [
+            {
+                "element": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpClassIfNecessary(Class<?>, byte[])",
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java",
+                "local": "L[55,89], C[5,5]"
+            }
+        ],
+        "target": [
+            {
+                "element": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpDir()",
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java",
+                "local": "L[55,64], C[5,5]"
+            }
+        ],
+        "type": "EXTRACT_METHOD",
+        "related": [
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer",
+                "Local": "L[55,64], C[5,5]",
+                "Detail": {
+                    "method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpDir()",
+                    "blockPos": "L[55,64], C[27,5]"
+                },
+                "Code": "public File dumpDir(){\n  String classDumpDir=\"classdump\";\n  final File dumpDir;\n  if (directory != null) {\n    dumpDir=directory;\n  }\n else {\n    dumpDir=new File(arthasLogHome,classDumpDir);\n  }\n  return dumpDir;\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpDir()",
+                "Local": "L[58,58], C[13,29]",
+                "Detail": null,
+                "Code": "directory != null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpClassIfNecessary(Class<?>, byte[])",
+                "Local": "L[62,62], C[13,29]",
+                "Detail": null,
+                "Code": "directory != null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpDir()",
+                "Local": "L[59,59], C[13,32]",
+                "Detail": null,
+                "Code": "dumpDir=directory;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpClassIfNecessary(Class<?>, byte[])",
+                "Local": "L[63,63], C[13,32]",
+                "Detail": null,
+                "Code": "dumpDir=directory;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpClassIfNecessary(Class<?>, byte[])",
+                "Local": "L[62,64], C[32,9]",
+                "Detail": null,
+                "Code": "{\n  dumpDir=directory;\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "REMOVED_ELSE_STATEMENT",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpClassIfNecessary(Class<?>, byte[])",
+                "Local": "L[64,66], C[16,9]",
+                "Detail": null,
+                "Code": "{\n  dumpDir=new File(arthasLogHome,classDumpDir);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "CHANGED_VARIABLE",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpClassIfNecessary(Class<?>, byte[])",
+                "Local": "L[71,71], C[9,33]",
+                "Detail": null,
+                "Code": "File dumpDir=dumpDir();\n",
+                "relationType": "CALL_TARGET",
+                "distance": 2,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpClassIfNecessary(Class<?>, byte[])",
+                "Local": "L[58,58], C[9,42]",
+                "Detail": null,
+                "Code": "String classDumpDir=\"classdump\";\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpDir()",
+                "Local": "L[61,61], C[13,60]",
+                "Detail": null,
+                "Code": "dumpDir=new File(arthasLogHome,classDumpDir);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpClassIfNecessary(Class<?>, byte[])",
+                "Local": "L[65,65], C[13,60]",
+                "Detail": null,
+                "Code": "dumpDir=new File(arthasLogHome,classDumpDir);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpDir()",
+                "Local": "L[61,61], C[23,59]",
+                "Detail": null,
+                "Code": "new File(arthasLogHome,classDumpDir)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpClassIfNecessary(Class<?>, byte[])",
+                "Local": "L[65,65], C[23,59]",
+                "Detail": null,
+                "Code": "new File(arthasLogHome,classDumpDir)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpDir()",
+                "Local": "L[61,61], C[23,59]",
+                "Detail": null,
+                "Code": "new File(arthasLogHome,classDumpDir)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpClassIfNecessary(Class<?>, byte[])",
+                "Local": "L[65,65], C[23,59]",
+                "Detail": null,
+                "Code": "new File(arthasLogHome,classDumpDir)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpDir()",
+                "Local": "L[56,56], C[9,42]",
+                "Detail": null,
+                "Code": "String classDumpDir=\"classdump\";\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpDir()",
+                "Local": "L[57,57], C[9,27]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpDir()>>>dumpDir[57,64]"
+                },
+                "Code": "final File dumpDir;\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpDir()",
+                "Local": "L[63,63], C[9,23]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpDir()>>>dumpDir[57,64]"
+                },
+                "Code": "return dumpDir;\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpClassIfNecessary(Class<?>, byte[])",
+                "Local": "L[71,71], C[24,32]",
+                "Detail": null,
+                "Code": "dumpDir()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "ADDED_NullLiteral",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpDir()",
+                "Local": "L[58,58], C[26,29]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "REMOVED_NullLiteral",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpClassIfNecessary(Class<?>, byte[])",
+                "Local": "L[62,62], C[26,29]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpDir()",
+                "Local": "L[58,60], C[32,9]",
+                "Detail": null,
+                "Code": "{\n  dumpDir=directory;\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "ADDED_ELSE_STATEMENT",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpDir()",
+                "Local": "L[60,62], C[16,9]",
+                "Detail": null,
+                "Code": "{\n  dumpDir=new File(arthasLogHome,classDumpDir);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpDir()",
+                "Local": "L[55,55], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "CHANGED_VAR_VALUE",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpClassIfNecessary(Class<?>, byte[])",
+                "Local": "L[71,71], C[14,32]",
+                "Detail": null,
+                "Code": "dumpDir=dumpDir()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>).ClassDumpTransformer",
+                "Local": "L[188,188], C[68,86]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.klass100.JadCommand>>>directory[41,260]"
+                },
+                "Code": "new File(directory)",
+                "relationType": "VAR_RELATED",
+                "distance": 8,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>).ClassDumpTransformer",
+                "Local": "L[188,188], C[68,86]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.klass100.JadCommand>>>directory[41,260]"
+                },
+                "Code": "new File(directory)",
+                "relationType": "VAR_RELATED",
+                "distance": 8,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)",
+                "Local": "L[188,188], C[31,87]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)>>>allClasses[180,222]"
+                },
+                "Code": "new ClassDumpTransformer(allClasses,new File(directory))",
+                "relationType": "VAR_RELATED",
+                "distance": 8,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)",
+                "Local": "L[188,188], C[31,87]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)>>>allClasses[180,222]"
+                },
+                "Code": "new ClassDumpTransformer(allClasses,new File(directory))",
+                "relationType": "VAR_RELATED",
+                "distance": 8,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.complete(Completion)",
+                "Local": "L[247,249], C[65,13]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.klass100.JadCommand.complete(Completion)>>>completion[242,259]"
+                },
+                "Code": "{\n  super.complete(completion);\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 11,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.complete(Completion)",
+                "Local": "L[252,254], C[66,13]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.klass100.JadCommand.complete(Completion)>>>completion[242,259]"
+                },
+                "Code": "{\n  super.complete(completion);\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 11,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)",
+                "Local": "L[184,184], C[13,51]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)>>>transformer[184,218]"
+                },
+                "Code": "final ClassDumpTransformer transformer;\n",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)",
+                "Local": "L[188,188], C[17,88]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)>>>transformer[184,218]"
+                },
+                "Code": "transformer=new ClassDumpTransformer(allClasses,new File(directory));\n",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_ANNOTATION",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand",
+                "Local": "L[47,54], C[1,53]",
+                "Detail": null,
+                "Code": "/** \n * @author diecui1202 on 15/11/24.\n * @author hengyunabc 2018-11-16\n */\n@Name(\"jad\") @Summary(\"Decompile class\") @Description(Constants.EXAMPLE + \"  jad java.lang.String\\n\" + \"  jad java.lang.String toString\\n\"+ \"  jad java.lang.String -d /tmp/jad/dump\\n\"+ \"  jad --source-only java.lang.String\\n\"+ \"  jad -c 39eb305e org/apache/log4j/Logger\\n\"+ \"  jad -c 39eb305e -E org\\\\\\\\.apache\\\\\\\\.*\\\\\\\\.StringUtils\\n\"+ Constants.WIKI+ Constants.WIKI_HOME+ \"jad\") public class JadCommand extends AnnotatedCommand {\n  private static final Logger logger=LoggerFactory.getLogger(JadCommand.class);\n  private static Pattern pattern=Pattern.compile(\"(?m)^/\\\\*\\\\s*\\\\*/\\\\s*$\" + System.getProperty(\"line.separator\"));\n  private String classPattern;\n  private String methodName;\n  private String code=null;\n  private String classLoaderClass;\n  private boolean isRegEx=false;\n  private boolean hideUnicode=false;\n  private boolean lineNumber;\n  private String directory;\n  /** \n * jad output source code only\n */\n  private boolean sourceOnly=false;\n  @Argument(argName=\"class-pattern\",index=0) @Description(\"Class name pattern, use either '.' or '/' as separator\") public void setClassPattern(  String classPattern){\n    this.classPattern=classPattern;\n  }\n  @Argument(argName=\"method-name\",index=1,required=false) @Description(\"method name pattern, decompile a specific method instead of the whole class\") public void setMethodName(  String methodName){\n    this.methodName=methodName;\n  }\n  @Option(shortName=\"c\",longName=\"code\") @Description(\"The hash code of the special class's classLoader\") public void setCode(  String code){\n    this.code=code;\n  }\n  @Option(longName=\"classLoaderClass\") @Description(\"The class name of the special class's classLoader.\") public void setClassLoaderClass(  String classLoaderClass){\n    this.classLoaderClass=classLoaderClass;\n  }\n  @Option(shortName=\"E\",longName=\"regex\",flag=true) @Description(\"Enable regular expression to match (wildcard matching by default)\") public void setRegEx(  boolean regEx){\n    isRegEx=regEx;\n  }\n  @Option(longName=\"hideUnicode\",flag=true) @Description(\"hide unicode, default value false\") public void setHideUnicode(  boolean hideUnicode){\n    this.hideUnicode=hideUnicode;\n  }\n  @Option(longName=\"source-only\",flag=true) @Description(\"Output source code only\") public void setSourceOnly(  boolean sourceOnly){\n    this.sourceOnly=sourceOnly;\n  }\n  @Option(longName=\"lineNumber\") @DefaultValue(\"true\") @Description(\"Output source code contins line number, default value true\") public void setLineNumber(  boolean lineNumber){\n    this.lineNumber=lineNumber;\n  }\n  @Option(shortName=\"d\",longName=\"directory\") @Description(\"Sets the destination directory for dummped class files required by cfr decompiler\") public void setDirectory(  String directory){\n    this.directory=directory;\n  }\n  @Override public void process(  CommandProcess process){\n    RowAffect affect=new RowAffect();\n    Instrumentation inst=process.session().getInstrumentation();\n    if (code == null && classLoaderClass != null) {\n      List<ClassLoader> matchedClassLoaders=ClassLoaderUtils.getClassLoaderByClassName(inst,classLoaderClass);\n      if (matchedClassLoaders.size() == 1) {\n        code=Integer.toHexString(matchedClassLoaders.get(0).hashCode());\n      }\n else       if (matchedClassLoaders.size() > 1) {\n        Collection<ClassLoaderVO> classLoaderVOList=ClassUtils.createClassLoaderVOList(matchedClassLoaders);\n        JadModel jadModel=new JadModel().setClassLoaderClass(classLoaderClass).setMatchedClassLoaders(classLoaderVOList);\n        process.appendResult(jadModel);\n        process.end(-1,\"Found more than one classloader by class name, please specify classloader with '-c <classloader hash>'\");\n        return;\n      }\n else {\n        process.end(-1,\"Can not find classloader by class name: \" + classLoaderClass + \".\");\n        return;\n      }\n    }\n    Set<Class<?>> matchedClasses=SearchUtils.searchClassOnly(inst,classPattern,isRegEx,code);\n    try {\n      ExitStatus status=null;\n      if (matchedClasses == null || matchedClasses.isEmpty()) {\n        status=processNoMatch(process);\n      }\n else       if (matchedClasses.size() > 1) {\n        status=processMatches(process,matchedClasses);\n      }\n else {\n        Set<Class<?>> withInnerClasses=SearchUtils.searchClassOnly(inst,matchedClasses.iterator().next().getName() + \"$*\",false,code);\n        if (withInnerClasses.isEmpty()) {\n          withInnerClasses=matchedClasses;\n        }\n        status=processExactMatch(process,affect,inst,matchedClasses,withInnerClasses);\n      }\n      if (!this.sourceOnly) {\n        process.appendResult(new RowAffectModel(affect));\n      }\n      CommandUtils.end(process,status);\n    }\n catch (    Throwable e) {\n      logger.error(\"processing error\",e);\n      process.end(-1,\"processing error\");\n    }\n  }\n  private ExitStatus processExactMatch(  CommandProcess process,  RowAffect affect,  Instrumentation inst,  Set<Class<?>> matchedClasses,  Set<Class<?>> withInnerClasses){\n    Class<?> c=matchedClasses.iterator().next();\n    Set<Class<?>> allClasses=new HashSet<Class<?>>(withInnerClasses);\n    allClasses.add(c);\n    try {\n      final ClassDumpTransformer transformer;\n      if (directory == null) {\n        transformer=new ClassDumpTransformer(allClasses);\n      }\n else {\n        transformer=new ClassDumpTransformer(allClasses,new File(directory));\n      }\n      InstrumentationUtils.retransformClasses(inst,transformer,allClasses);\n      Map<Class<?>,File> classFiles=transformer.getDumpResult();\n      if (classFiles == null || classFiles.isEmpty()) {\n        return ExitStatus.failure(-1,\"jad: fail to dump class file for decompiler, make sure you have write permission of the directory \\\"\" + transformer.dumpDir() + \"\\\" or try with \\\"-d/--directory\\\" to specify the directory of dump files\");\n      }\n      File classFile=classFiles.get(c);\n      Pair<String,NavigableMap<Integer,Integer>> decompileResult=Decompiler.decompileWithMappings(classFile.getAbsolutePath(),methodName,hideUnicode,lineNumber);\n      String source=decompileResult.getFirst();\n      if (source != null) {\n        source=pattern.matcher(source).replaceAll(\"\");\n      }\n else {\n        source=\"unknown\";\n      }\n      JadModel jadModel=new JadModel();\n      jadModel.setSource(source);\n      jadModel.setMappings(decompileResult.getSecond());\n      if (!this.sourceOnly) {\n        jadModel.setClassInfo(ClassUtils.createSimpleClassInfo(c));\n        jadModel.setLocation(ClassUtils.getCodeSource(c.getProtectionDomain().getCodeSource()));\n      }\n      process.appendResult(jadModel);\n      affect.rCnt(classFiles.keySet().size());\n      return ExitStatus.success();\n    }\n catch (    Throwable t) {\n      logger.error(\"jad: fail to decompile class: \" + c.getName(),t);\n      return ExitStatus.failure(-1,\"jad: fail to decompile class: \" + c.getName() + \", please check $HOME/logs/arthas/arthas.log for more details.\");\n    }\n  }\n  private ExitStatus processMatches(  CommandProcess process,  Set<Class<?>> matchedClasses){\n    String usage=\"jad -c <hashcode> \" + classPattern;\n    String msg=\" Found more than one class for: \" + classPattern + \", Please use \"+ usage;\n    process.appendResult(new MessageModel(msg));\n    List<ClassVO> classVOs=ClassUtils.createClassVOList(matchedClasses);\n    JadModel jadModel=new JadModel();\n    jadModel.setMatchedClasses(classVOs);\n    process.appendResult(jadModel);\n    return ExitStatus.failure(-1,msg);\n  }\n  private ExitStatus processNoMatch(  CommandProcess process){\n    return ExitStatus.failure(-1,\"No class found for: \" + classPattern);\n  }\n  @Override public void complete(  Completion completion){\n    int argumentIndex=CompletionUtils.detectArgumentIndex(completion);\n    if (argumentIndex == 1) {\n      if (!CompletionUtils.completeClassName(completion)) {\n        super.complete(completion);\n      }\n      return;\n    }\n else     if (argumentIndex == 2) {\n      if (!CompletionUtils.completeMethodName(completion)) {\n        super.complete(completion);\n      }\n      return;\n    }\n    super.complete(completion);\n  }\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 10,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_FieldDeclaration",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand",
+                "Local": "L[66,66], C[5,29]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.klass100.JadCommand>>>directory[41,260]"
+                },
+                "Code": "private String directory;\n",
+                "relationType": "VAR_RELATED",
+                "distance": 8,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand",
+                "Local": "L[123,127], C[5,5]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.klass100.JadCommand.setDirectory(String)>>>directory[123,127]"
+                },
+                "Code": "@Option(shortName=\"d\",longName=\"directory\") @Description(\"Sets the destination directory for dummped class files required by cfr decompiler\") public void setDirectory(String directory){\n  this.directory=directory;\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 11,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.setDirectory(String)",
+                "Local": "L[126,126], C[9,35]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.klass100.JadCommand.setDirectory(String)>>>directory[123,127]"
+                },
+                "Code": "this.directory=directory;\n",
+                "relationType": "VAR_RELATED",
+                "distance": 11,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)",
+                "Local": "L[193,193], C[17,34]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)>>>classFiles[192,218]"
+                },
+                "Code": "classFiles == null",
+                "relationType": "VAR_RELATED",
+                "distance": 8,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)",
+                "Local": "L[193,193], C[39,58]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)>>>classFiles[192,218]"
+                },
+                "Code": "classFiles.isEmpty()",
+                "relationType": "VAR_RELATED",
+                "distance": 8,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)",
+                "Local": "L[194,195], C[17,92]",
+                "Detail": null,
+                "Code": "return ExitStatus.failure(-1,\"jad: fail to dump class file for decompiler, make sure you have write permission of the directory \\\"\" + transformer.dumpDir() + \"\\\" or try with \\\"-d/--directory\\\" to specify the directory of dump files\");\n",
+                "relationType": "CALL_TARGET",
+                "distance": 3,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)",
+                "Local": "L[194,194], C[152,172]",
+                "Detail": null,
+                "Code": "transformer.dumpDir()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>).failure(UNKNOWN, UNKNOWN)",
+                "Local": "L[194,195], C[47,90]",
+                "Detail": null,
+                "Code": "\"jad: fail to dump class file for decompiler, make sure you have write permission of the directory \\\"\" + transformer.dumpDir() + \"\\\" or try with \\\"-d/--directory\\\" to specify the directory of dump files\"",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)",
+                "Local": "L[185,187], C[36,13]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)>>>transformer[184,218]"
+                },
+                "Code": "{\n  transformer=new ClassDumpTransformer(allClasses);\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_ELSE_STATEMENT",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)",
+                "Local": "L[187,189], C[20,13]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)>>>transformer[184,218]"
+                },
+                "Code": "{\n  transformer=new ClassDumpTransformer(allClasses,new File(directory));\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)",
+                "Local": "L[193,196], C[61,13]",
+                "Detail": null,
+                "Code": "{\n  return ExitStatus.failure(-1,\"jad: fail to dump class file for decompiler, make sure you have write permission of the directory \\\"\" + transformer.dumpDir() + \"\\\" or try with \\\"-d/--directory\\\" to specify the directory of dump files\");\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 4,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_FieldAccess",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.setDirectory(String)",
+                "Local": "L[126,126], C[9,22]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.klass100.JadCommand.setDirectory(String)>>>directory[123,127]"
+                },
+                "Code": "this.directory",
+                "relationType": "VAR_RELATED",
+                "distance": 11,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)",
+                "Local": "L[186,186], C[17,67]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)>>>transformer[184,218]"
+                },
+                "Code": "transformer=new ClassDumpTransformer(allClasses);\n",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "TRY_CATCH_CHANGE",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)",
+                "Local": "L[183,221], C[9,9]",
+                "Detail": null,
+                "Code": "try {\n  final ClassDumpTransformer transformer;\n  if (directory == null) {\n    transformer=new ClassDumpTransformer(allClasses);\n  }\n else {\n    transformer=new ClassDumpTransformer(allClasses,new File(directory));\n  }\n  InstrumentationUtils.retransformClasses(inst,transformer,allClasses);\n  Map<Class<?>,File> classFiles=transformer.getDumpResult();\n  if (classFiles == null || classFiles.isEmpty()) {\n    return ExitStatus.failure(-1,\"jad: fail to dump class file for decompiler, make sure you have write permission of the directory \\\"\" + transformer.dumpDir() + \"\\\" or try with \\\"-d/--directory\\\" to specify the directory of dump files\");\n  }\n  File classFile=classFiles.get(c);\n  Pair<String,NavigableMap<Integer,Integer>> decompileResult=Decompiler.decompileWithMappings(classFile.getAbsolutePath(),methodName,hideUnicode,lineNumber);\n  String source=decompileResult.getFirst();\n  if (source != null) {\n    source=pattern.matcher(source).replaceAll(\"\");\n  }\n else {\n    source=\"unknown\";\n  }\n  JadModel jadModel=new JadModel();\n  jadModel.setSource(source);\n  jadModel.setMappings(decompileResult.getSecond());\n  if (!this.sourceOnly) {\n    jadModel.setClassInfo(ClassUtils.createSimpleClassInfo(c));\n    jadModel.setLocation(ClassUtils.getCodeSource(c.getProtectionDomain().getCodeSource()));\n  }\n  process.appendResult(jadModel);\n  affect.rCnt(classFiles.keySet().size());\n  return ExitStatus.success();\n}\n catch (Throwable t) {\n  logger.error(\"jad: fail to decompile class: \" + c.getName(),t);\n  return ExitStatus.failure(-1,\"jad: fail to decompile class: \" + c.getName() + \", please check $HOME/logs/arthas/arthas.log for more details.\");\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 7,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "CHANGED_TRYSTATEMENT",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)",
+                "Local": "L[183,221], C[9,9]",
+                "Detail": null,
+                "Code": "try {\n  final ClassDumpTransformer transformer;\n  if (directory == null) {\n    transformer=new ClassDumpTransformer(allClasses);\n  }\n else {\n    transformer=new ClassDumpTransformer(allClasses,new File(directory));\n  }\n  InstrumentationUtils.retransformClasses(inst,transformer,allClasses);\n  Map<Class<?>,File> classFiles=transformer.getDumpResult();\n  if (classFiles == null || classFiles.isEmpty()) {\n    return ExitStatus.failure(-1,\"jad: fail to dump class file for decompiler, make sure you have write permission of the directory \\\"\" + transformer.dumpDir() + \"\\\" or try with \\\"-d/--directory\\\" to specify the directory of dump files\");\n  }\n  File classFile=classFiles.get(c);\n  Pair<String,NavigableMap<Integer,Integer>> decompileResult=Decompiler.decompileWithMappings(classFile.getAbsolutePath(),methodName,hideUnicode,lineNumber);\n  String source=decompileResult.getFirst();\n  if (source != null) {\n    source=pattern.matcher(source).replaceAll(\"\");\n  }\n else {\n    source=\"unknown\";\n  }\n  JadModel jadModel=new JadModel();\n  jadModel.setSource(source);\n  jadModel.setMappings(decompileResult.getSecond());\n  if (!this.sourceOnly) {\n    jadModel.setClassInfo(ClassUtils.createSimpleClassInfo(c));\n    jadModel.setLocation(ClassUtils.getCodeSource(c.getProtectionDomain().getCodeSource()));\n  }\n  process.appendResult(jadModel);\n  affect.rCnt(classFiles.keySet().size());\n  return ExitStatus.success();\n}\n catch (Throwable t) {\n  logger.error(\"jad: fail to decompile class: \" + c.getName(),t);\n  return ExitStatus.failure(-1,\"jad: fail to decompile class: \" + c.getName() + \", please check $HOME/logs/arthas/arthas.log for more details.\");\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 7,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)",
+                "Local": "L[185,185], C[17,33]",
+                "Detail": {
+                    "previousVar": "com.taobao.arthas.core.command.klass100.JadCommand>>>directory[41,260]"
+                },
+                "Code": "directory == null",
+                "relationType": "VAR_RELATED",
+                "distance": 8,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)",
+                "Local": "L[194,195], C[24,91]",
+                "Detail": null,
+                "Code": "ExitStatus.failure(-1,\"jad: fail to dump class file for decompiler, make sure you have write permission of the directory \\\"\" + transformer.dumpDir() + \"\\\" or try with \\\"-d/--directory\\\" to specify the directory of dump files\")",
+                "relationType": "CALL_TARGET",
+                "distance": 2,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpDir()",
+                "Local": "L[57,57], C[9,13]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "REMOVED_NullLiteral",
+                "Method": "com.taobao.arthas.core.command.klass100.ClassDumpTransformer.dumpClassIfNecessary(Class<?>, byte[])",
+                "Local": "L[61,61], C[24,27]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java"
+            },
+            {
+                "Metric": "ADDED_NormalAnnotation",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.setDirectory(String)",
+                "Local": "L[123,123], C[5,52]",
+                "Detail": null,
+                "Code": "@Option(shortName=\"d\",longName=\"directory\")",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_SingleMemberAnnotation",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.setDirectory(String)",
+                "Local": "L[124,124], C[5,101]",
+                "Detail": null,
+                "Code": "@Description(\"Sets the destination directory for dummped class files required by cfr decompiler\")",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.setDirectory(String)",
+                "Local": "L[125,125], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_MemberValuePair",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.setDirectory(String)",
+                "Local": "L[123,123], C[13,27]",
+                "Detail": null,
+                "Code": "shortName=\"d\"",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_MemberValuePair",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.setDirectory(String)",
+                "Local": "L[123,123], C[30,51]",
+                "Detail": null,
+                "Code": "longName=\"directory\"",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)",
+                "Local": "L[184,184], C[13,17]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_NullLiteral",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)",
+                "Local": "L[193,193], C[31,34]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)",
+                "Local": "L[176,176], C[13,84]",
+                "Detail": null,
+                "Code": "ClassDumpTransformer transformer=new ClassDumpTransformer(allClasses);\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.FieldDeclaration",
+                "Local": "L[66,66], C[5,11]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand",
+                "Local": "L[47,54], C[14,52]",
+                "Detail": null,
+                "Code": "Constants.EXAMPLE + \"  jad java.lang.String\\n\" + \"  jad java.lang.String toString\\n\"+ \"  jad java.lang.String -d /tmp/jad/dump\\n\"+ \"  jad --source-only java.lang.String\\n\"+ \"  jad -c 39eb305e org/apache/log4j/Logger\\n\"+ \"  jad -c 39eb305e -E org\\\\\\\\.apache\\\\\\\\.*\\\\\\\\.StringUtils\\n\"+ Constants.WIKI+ Constants.WIKI_HOME+ \"jad\"",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "REMOVED_ANNOTATION",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand",
+                "Local": "L[47,53], C[1,53]",
+                "Detail": null,
+                "Code": "/** \n * @author diecui1202 on 15/11/24.\n * @author hengyunabc 2018-11-16\n */\n@Name(\"jad\") @Summary(\"Decompile class\") @Description(Constants.EXAMPLE + \"  jad java.lang.String\\n\" + \"  jad java.lang.String toString\\n\"+ \"  jad --source-only java.lang.String\\n\"+ \"  jad -c 39eb305e org/apache/log4j/Logger\\n\"+ \"  jad -c 39eb305e -E org\\\\\\\\.apache\\\\\\\\.*\\\\\\\\.StringUtils\\n\"+ Constants.WIKI+ Constants.WIKI_HOME+ \"jad\") public class JadCommand extends AnnotatedCommand {\n  private static final Logger logger=LoggerFactory.getLogger(JadCommand.class);\n  private static Pattern pattern=Pattern.compile(\"(?m)^/\\\\*\\\\s*\\\\*/\\\\s*$\" + System.getProperty(\"line.separator\"));\n  private String classPattern;\n  private String methodName;\n  private String code=null;\n  private String classLoaderClass;\n  private boolean isRegEx=false;\n  private boolean hideUnicode=false;\n  private boolean lineNumber;\n  /** \n * jad output source code only\n */\n  private boolean sourceOnly=false;\n  @Argument(argName=\"class-pattern\",index=0) @Description(\"Class name pattern, use either '.' or '/' as separator\") public void setClassPattern(  String classPattern){\n    this.classPattern=classPattern;\n  }\n  @Argument(argName=\"method-name\",index=1,required=false) @Description(\"method name pattern, decompile a specific method instead of the whole class\") public void setMethodName(  String methodName){\n    this.methodName=methodName;\n  }\n  @Option(shortName=\"c\",longName=\"code\") @Description(\"The hash code of the special class's classLoader\") public void setCode(  String code){\n    this.code=code;\n  }\n  @Option(longName=\"classLoaderClass\") @Description(\"The class name of the special class's classLoader.\") public void setClassLoaderClass(  String classLoaderClass){\n    this.classLoaderClass=classLoaderClass;\n  }\n  @Option(shortName=\"E\",longName=\"regex\",flag=true) @Description(\"Enable regular expression to match (wildcard matching by default)\") public void setRegEx(  boolean regEx){\n    isRegEx=regEx;\n  }\n  @Option(longName=\"hideUnicode\",flag=true) @Description(\"hide unicode, default value false\") public void setHideUnicode(  boolean hideUnicode){\n    this.hideUnicode=hideUnicode;\n  }\n  @Option(longName=\"source-only\",flag=true) @Description(\"Output source code only\") public void setSourceOnly(  boolean sourceOnly){\n    this.sourceOnly=sourceOnly;\n  }\n  @Option(longName=\"lineNumber\") @DefaultValue(\"true\") @Description(\"Output source code contins line number, default value true\") public void setLineNumber(  boolean lineNumber){\n    this.lineNumber=lineNumber;\n  }\n  @Override public void process(  CommandProcess process){\n    RowAffect affect=new RowAffect();\n    Instrumentation inst=process.session().getInstrumentation();\n    if (code == null && classLoaderClass != null) {\n      List<ClassLoader> matchedClassLoaders=ClassLoaderUtils.getClassLoaderByClassName(inst,classLoaderClass);\n      if (matchedClassLoaders.size() == 1) {\n        code=Integer.toHexString(matchedClassLoaders.get(0).hashCode());\n      }\n else       if (matchedClassLoaders.size() > 1) {\n        Collection<ClassLoaderVO> classLoaderVOList=ClassUtils.createClassLoaderVOList(matchedClassLoaders);\n        JadModel jadModel=new JadModel().setClassLoaderClass(classLoaderClass).setMatchedClassLoaders(classLoaderVOList);\n        process.appendResult(jadModel);\n        process.end(-1,\"Found more than one classloader by class name, please specify classloader with '-c <classloader hash>'\");\n        return;\n      }\n else {\n        process.end(-1,\"Can not find classloader by class name: \" + classLoaderClass + \".\");\n        return;\n      }\n    }\n    Set<Class<?>> matchedClasses=SearchUtils.searchClassOnly(inst,classPattern,isRegEx,code);\n    try {\n      ExitStatus status=null;\n      if (matchedClasses == null || matchedClasses.isEmpty()) {\n        status=processNoMatch(process);\n      }\n else       if (matchedClasses.size() > 1) {\n        status=processMatches(process,matchedClasses);\n      }\n else {\n        Set<Class<?>> withInnerClasses=SearchUtils.searchClassOnly(inst,matchedClasses.iterator().next().getName() + \"$*\",false,code);\n        if (withInnerClasses.isEmpty()) {\n          withInnerClasses=matchedClasses;\n        }\n        status=processExactMatch(process,affect,inst,matchedClasses,withInnerClasses);\n      }\n      if (!this.sourceOnly) {\n        process.appendResult(new RowAffectModel(affect));\n      }\n      CommandUtils.end(process,status);\n    }\n catch (    Throwable e) {\n      logger.error(\"processing error\",e);\n      process.end(-1,\"processing error\");\n    }\n  }\n  private ExitStatus processExactMatch(  CommandProcess process,  RowAffect affect,  Instrumentation inst,  Set<Class<?>> matchedClasses,  Set<Class<?>> withInnerClasses){\n    Class<?> c=matchedClasses.iterator().next();\n    Set<Class<?>> allClasses=new HashSet<Class<?>>(withInnerClasses);\n    allClasses.add(c);\n    try {\n      ClassDumpTransformer transformer=new ClassDumpTransformer(allClasses);\n      InstrumentationUtils.retransformClasses(inst,transformer,allClasses);\n      Map<Class<?>,File> classFiles=transformer.getDumpResult();\n      File classFile=classFiles.get(c);\n      Pair<String,NavigableMap<Integer,Integer>> decompileResult=Decompiler.decompileWithMappings(classFile.getAbsolutePath(),methodName,hideUnicode,lineNumber);\n      String source=decompileResult.getFirst();\n      if (source != null) {\n        source=pattern.matcher(source).replaceAll(\"\");\n      }\n else {\n        source=\"unknown\";\n      }\n      JadModel jadModel=new JadModel();\n      jadModel.setSource(source);\n      jadModel.setMappings(decompileResult.getSecond());\n      if (!this.sourceOnly) {\n        jadModel.setClassInfo(ClassUtils.createSimpleClassInfo(c));\n        jadModel.setLocation(ClassUtils.getCodeSource(c.getProtectionDomain().getCodeSource()));\n      }\n      process.appendResult(jadModel);\n      affect.rCnt(classFiles.keySet().size());\n      return ExitStatus.success();\n    }\n catch (    Throwable t) {\n      logger.error(\"jad: fail to decompile class: \" + c.getName(),t);\n      return ExitStatus.failure(-1,\"jad: fail to decompile class: \" + c.getName() + \", please check $HOME/logs/arthas/arthas.log for more details.\");\n    }\n  }\n  private ExitStatus processMatches(  CommandProcess process,  Set<Class<?>> matchedClasses){\n    String usage=\"jad -c <hashcode> \" + classPattern;\n    String msg=\" Found more than one class for: \" + classPattern + \", Please use \"+ usage;\n    process.appendResult(new MessageModel(msg));\n    List<ClassVO> classVOs=ClassUtils.createClassVOList(matchedClasses);\n    JadModel jadModel=new JadModel();\n    jadModel.setMatchedClasses(classVOs);\n    process.appendResult(jadModel);\n    return ExitStatus.failure(-1,msg);\n  }\n  private ExitStatus processNoMatch(  CommandProcess process){\n    return ExitStatus.failure(-1,\"No class found for: \" + classPattern);\n  }\n  @Override public void complete(  Completion completion){\n    int argumentIndex=CompletionUtils.detectArgumentIndex(completion);\n    if (argumentIndex == 1) {\n      if (!CompletionUtils.completeClassName(completion)) {\n        super.complete(completion);\n      }\n      return;\n    }\n else     if (argumentIndex == 2) {\n      if (!CompletionUtils.completeMethodName(completion)) {\n        super.complete(completion);\n      }\n      return;\n    }\n    super.complete(completion);\n  }\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_SingleMemberAnnotation",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand",
+                "Local": "L[47,54], C[1,53]",
+                "Detail": null,
+                "Code": "@Description(Constants.EXAMPLE + \"  jad java.lang.String\\n\" + \"  jad java.lang.String toString\\n\"+ \"  jad java.lang.String -d /tmp/jad/dump\\n\"+ \"  jad --source-only java.lang.String\\n\"+ \"  jad -c 39eb305e org/apache/log4j/Logger\\n\"+ \"  jad -c 39eb305e -E org\\\\\\\\.apache\\\\\\\\.*\\\\\\\\.StringUtils\\n\"+ Constants.WIKI+ Constants.WIKI_HOME+ \"jad\")",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "REMOVED_SingleMemberAnnotation",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand",
+                "Local": "L[47,53], C[1,53]",
+                "Detail": null,
+                "Code": "@Description(Constants.EXAMPLE + \"  jad java.lang.String\\n\" + \"  jad java.lang.String toString\\n\"+ \"  jad --source-only java.lang.String\\n\"+ \"  jad -c 39eb305e org/apache/log4j/Logger\\n\"+ \"  jad -c 39eb305e -E org\\\\\\\\.apache\\\\\\\\.*\\\\\\\\.StringUtils\\n\"+ Constants.WIKI+ Constants.WIKI_HOME+ \"jad\")",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_ThisExpression",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.setDirectory(String)",
+                "Local": "L[126,126], C[9,12]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_NullLiteral",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>)",
+                "Local": "L[185,185], C[30,33]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand",
+                "Local": "L[47,53], C[14,52]",
+                "Detail": null,
+                "Code": "Constants.EXAMPLE + \"  jad java.lang.String\\n\" + \"  jad java.lang.String toString\\n\"+ \"  jad --source-only java.lang.String\\n\"+ \"  jad -c 39eb305e org/apache/log4j/Logger\\n\"+ \"  jad -c 39eb305e -E org\\\\\\\\.apache\\\\\\\\.*\\\\\\\\.StringUtils\\n\"+ Constants.WIKI+ Constants.WIKI_HOME+ \"jad\"",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            },
+            {
+                "Metric": "ADDED_PrefixExpression",
+                "Method": "com.taobao.arthas.core.command.klass100.JadCommand.processExactMatch(CommandProcess, RowAffect, Instrumentation, Set<Class<?>>, Set<Class<?>>).failure(UNKNOWN, UNKNOWN)",
+                "Local": "L[194,194], C[43,44]",
+                "Detail": null,
+                "Code": "-1",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java"
+            }
+        ],
+        "metadata": {
+            "type": "Extract Method",
+            "description": "Extract Method public dumpDir() : File extracted from private dumpClassIfNecessary(clazz Class<?>, data byte[]) : void in class com.taobao.arthas.core.command.klass100.ClassDumpTransformer",
+            "leftSideLocations": [
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java",
+                    "startLine": 55,
+                    "endLine": 89,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "private dumpClassIfNecessary(clazz Class<?>, data byte[]) : void"
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java",
+                    "startLine": 58,
+                    "endLine": 58,
+                    "startColumn": 9,
+                    "endColumn": 43,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java",
+                    "startLine": 63,
+                    "endLine": 63,
+                    "startColumn": 13,
+                    "endColumn": 33,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java",
+                    "startLine": 65,
+                    "endLine": 65,
+                    "startColumn": 13,
+                    "endColumn": 61,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java",
+                    "startLine": 62,
+                    "endLine": 66,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java",
+                    "startLine": 62,
+                    "endLine": 64,
+                    "startColumn": 32,
+                    "endColumn": 10,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java",
+                    "startLine": 64,
+                    "endLine": 66,
+                    "startColumn": 16,
+                    "endColumn": 10,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java",
+                    "startLine": 55,
+                    "endLine": 64,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "public dumpDir() : File"
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java",
+                    "startLine": 56,
+                    "endLine": 56,
+                    "startColumn": 9,
+                    "endColumn": 43,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java",
+                    "startLine": 59,
+                    "endLine": 59,
+                    "startColumn": 13,
+                    "endColumn": 33,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java",
+                    "startLine": 61,
+                    "endLine": 61,
+                    "startColumn": 13,
+                    "endColumn": 61,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java",
+                    "startLine": 58,
+                    "endLine": 62,
+                    "startColumn": 9,
+                    "endColumn": 10,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java",
+                    "startLine": 58,
+                    "endLine": 60,
+                    "startColumn": 32,
+                    "endColumn": 10,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java",
+                    "startLine": 60,
+                    "endLine": 62,
+                    "startColumn": 16,
+                    "endColumn": 10,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java",
+                    "startLine": 66,
+                    "endLine": 94,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "private dumpClassIfNecessary(clazz Class<?>, data byte[]) : void"
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java",
+                    "startLine": 71,
+                    "endLine": 71,
+                    "startColumn": 24,
+                    "endColumn": 33,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "dumpDir()"
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java",
+                    "startLine": 57,
+                    "endLine": 57,
+                    "startColumn": 9,
+                    "endColumn": 28,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "core/src/main/java/com/taobao/arthas/core/command/klass100/ClassDumpTransformer.java",
+                    "startLine": 63,
+                    "endLine": 63,
+                    "startColumn": 9,
+                    "endColumn": 24,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ]
+        }
+    }
+]

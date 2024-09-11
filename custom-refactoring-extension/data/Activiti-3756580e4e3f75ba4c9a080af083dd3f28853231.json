@@ -1,0 +1,541 @@
+[
+    {
+        "commit": "3756580e4e3f75ba4c9a080af083dd3f28853231",
+        "source": [
+            {
+                "element": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.setUp()",
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java",
+                "local": "L[44,48], C[3,3]"
+            }
+        ],
+        "target": [
+            {
+                "element": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.createAppContext(String)",
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java",
+                "local": "L[49,52], C[3,3]"
+            }
+        ],
+        "type": "RENAME_METHOD",
+        "related": [
+            {
+                "Metric": "ADDED_PARAMETER",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest",
+                "Local": "L[49,49], C[35,40]",
+                "Detail": {
+                    "method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.createAppContext(String)",
+                    "blockPos": "L[49,52], C[48,3]"
+                },
+                "Code": "protected void createAppContext(String path){\n  this.applicationContext=new ClassPathXmlApplicationContext(path);\n  this.repositoryService=applicationContext.getBean(RepositoryService.class);\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "RENAME_ELEMENT",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest",
+                "Local": "L[49,52], C[3,3]",
+                "Detail": {
+                    "method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.createAppContext(String)",
+                    "blockPos": "L[49,52], C[48,3]"
+                },
+                "Code": "protected void createAppContext(String path){\n  this.applicationContext=new ClassPathXmlApplicationContext(path);\n  this.repositoryService=applicationContext.getBean(RepositoryService.class);\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "REMOVED_EXCEPTION_THROWN",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest",
+                "Local": "L[44,44], C[33,41]",
+                "Detail": {
+                    "method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.setUp()",
+                    "blockPos": "L[44,48], C[43,3]"
+                },
+                "Code": "protected void setUp() throws Exception {\n  super.setUp();\n  this.applicationContext=new ClassPathXmlApplicationContext(\"org/activiti/spring/test/autodeployment/SpringAutoDeployTest-context.xml\");\n  this.repositoryService=applicationContext.getBean(RepositoryService.class);\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "CLASS_INSTANCE_ARGUMENTS_CHANGE",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.testNoRedeploymentForSpringContainerRestart()",
+                "Local": "L[88,88], C[5,56]",
+                "Detail": {
+                    "previousVar": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest>>>CTX_NO_DROP_PATH[33,148]"
+                },
+                "Code": "new ClassPathXmlApplicationContext(CTX_NO_DROP_PATH)",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "CHANGED_ClassInstanceCreation",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.testNoRedeploymentForSpringContainerRestart()",
+                "Local": "L[88,88], C[5,56]",
+                "Detail": {
+                    "previousVar": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest>>>CTX_NO_DROP_PATH[33,148]"
+                },
+                "Code": "new ClassPathXmlApplicationContext(CTX_NO_DROP_PATH)",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "CHANGED_EXPRESSIONSTATEMENT",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.testNoRedeploymentForSpringContainerRestart()",
+                "Local": "L[88,88], C[5,57]",
+                "Detail": {
+                    "previousVar": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest>>>CTX_NO_DROP_PATH[33,148]"
+                },
+                "Code": "new ClassPathXmlApplicationContext(CTX_NO_DROP_PATH);\n",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.testAutoDeployWithCreateDropOnCleanDb().assertEquals(UNKNOWN, UNKNOWN)",
+                "Local": "L[126,126], C[21,68]",
+                "Detail": {
+                    "previousVar": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest>>>repositoryService[33,148]"
+                },
+                "Code": "repositoryService.createProcessDefinitionQuery()",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "CLASS_INSTANCE_ARGUMENTS_CHANGE",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.testResourceRedeploymentAfterProcessDefinitionChange()",
+                "Local": "L[111,111], C[28,79]",
+                "Detail": {
+                    "previousVar": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest>>>CTX_NO_DROP_PATH[33,148]"
+                },
+                "Code": "new ClassPathXmlApplicationContext(CTX_NO_DROP_PATH)",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "CHANGED_ClassInstanceCreation",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.testResourceRedeploymentAfterProcessDefinitionChange()",
+                "Local": "L[111,111], C[28,79]",
+                "Detail": {
+                    "previousVar": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest>>>CTX_NO_DROP_PATH[33,148]"
+                },
+                "Code": "new ClassPathXmlApplicationContext(CTX_NO_DROP_PATH)",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "TRY_CATCH_CHANGE",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.testResourceRedeploymentAfterProcessDefinitionChange()",
+                "Local": "L[110,116], C[5,5]",
+                "Detail": {
+                    "previousVar": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest>>>repositoryService[33,148]"
+                },
+                "Code": "try {\n  applicationContext=new ClassPathXmlApplicationContext(CTX_NO_DROP_PATH);\n  repositoryService=(RepositoryService)applicationContext.getBean(\"repositoryService\");\n}\n  finally {\n  IoUtil.writeStringToFile(originalBpmnFileContent,filePath);\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "CHANGED_TRYSTATEMENT",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.testResourceRedeploymentAfterProcessDefinitionChange()",
+                "Local": "L[110,116], C[5,5]",
+                "Detail": {
+                    "previousVar": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest>>>repositoryService[33,148]"
+                },
+                "Code": "try {\n  applicationContext=new ClassPathXmlApplicationContext(CTX_NO_DROP_PATH);\n  repositoryService=(RepositoryService)applicationContext.getBean(\"repositoryService\");\n}\n  finally {\n  IoUtil.writeStringToFile(originalBpmnFileContent,filePath);\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.createAppContext(String)",
+                "Local": "L[50,50], C[5,71]",
+                "Detail": null,
+                "Code": "this.applicationContext=new ClassPathXmlApplicationContext(path);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.setUp()",
+                "Local": "L[46,46], C[5,141]",
+                "Detail": null,
+                "Code": "this.applicationContext=new ClassPathXmlApplicationContext(\"org/activiti/spring/test/autodeployment/SpringAutoDeployTest-context.xml\");\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.setUp()",
+                "Local": "L[45,45], C[5,18]",
+                "Detail": null,
+                "Code": "super.setUp();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.testBasicActivitiSpringIntegration()",
+                "Local": "L[62,62], C[5,96]",
+                "Detail": null,
+                "Code": "createAppContext(\"org/activiti/spring/test/autodeployment/SpringAutoDeployTest-context.xml\")",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.testResourceRedeploymentAfterProcessDefinitionChange()",
+                "Local": "L[95,95], C[5,30]",
+                "Detail": null,
+                "Code": "createAppContext(CTX_PATH)",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "ADDED_FieldDeclaration",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest",
+                "Local": "L[39,40], C[3,81]",
+                "Detail": {
+                    "previousVar": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest>>>CTX_PATH[33,148]"
+                },
+                "Code": "protected static final String CTX_PATH=\"org/activiti/spring/test/autodeployment/SpringAutoDeployTest-context.xml\";\n",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "ADDED_FieldDeclaration",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest",
+                "Local": "L[41,42], C[3,89]",
+                "Detail": {
+                    "previousVar": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest>>>CTX_NO_DROP_PATH[33,148]"
+                },
+                "Code": "protected static final String CTX_NO_DROP_PATH=\"org/activiti/spring/test/autodeployment/SpringAutoDeployTest-no-drop-context.xml\";\n",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "ADDED_FieldDeclaration",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest",
+                "Local": "L[43,44], C[3,102]",
+                "Detail": {
+                    "previousVar": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest>>>CTX_CREATE_DROP_CLEAN_DB[33,148]"
+                },
+                "Code": "protected static final String CTX_CREATE_DROP_CLEAN_DB=\"org/activiti/spring/test/autodeployment/SpringAutoDeployTest-create-drop-clean-db-context.xml\";\n",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest",
+                "Local": "L[123,127], C[3,3]",
+                "Detail": null,
+                "Code": "public void testAutoDeployWithCreateDropOnCleanDb(){\n  createAppContext(CTX_CREATE_DROP_CLEAN_DB);\n  assertEquals(1,repositoryService.createDeploymentQuery().count());\n  assertEquals(3,repositoryService.createProcessDefinitionQuery().count());\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 3,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "CHANGED_EXPRESSIONSTATEMENT",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.testResourceRedeploymentAfterProcessDefinitionChange()",
+                "Local": "L[111,111], C[7,80]",
+                "Detail": {
+                    "previousVar": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest>>>applicationContext[33,148]"
+                },
+                "Code": "applicationContext=new ClassPathXmlApplicationContext(CTX_NO_DROP_PATH);\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.testAutoDeployWithCreateDropOnCleanDb()",
+                "Local": "L[126,126], C[5,77]",
+                "Detail": {
+                    "previousVar": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest>>>repositoryService[33,148]"
+                },
+                "Code": "assertEquals(3,repositoryService.createProcessDefinitionQuery().count())",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.testAutoDeployWithCreateDropOnCleanDb().assertEquals(UNKNOWN, UNKNOWN)",
+                "Local": "L[125,125], C[21,61]",
+                "Detail": {
+                    "previousVar": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest>>>repositoryService[33,148]"
+                },
+                "Code": "repositoryService.createDeploymentQuery()",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.testAutoDeployWithCreateDropOnCleanDb()",
+                "Local": "L[124,124], C[5,46]",
+                "Detail": null,
+                "Code": "createAppContext(CTX_CREATE_DROP_CLEAN_DB)",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.createAppContext(String)",
+                "Local": "L[50,50], C[31,70]",
+                "Detail": null,
+                "Code": "new ClassPathXmlApplicationContext(path)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.setUp()",
+                "Local": "L[46,46], C[31,140]",
+                "Detail": null,
+                "Code": "new ClassPathXmlApplicationContext(\"org/activiti/spring/test/autodeployment/SpringAutoDeployTest-context.xml\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.createAppContext(String)",
+                "Local": "L[50,50], C[31,70]",
+                "Detail": null,
+                "Code": "new ClassPathXmlApplicationContext(path)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.setUp()",
+                "Local": "L[46,46], C[31,140]",
+                "Detail": null,
+                "Code": "new ClassPathXmlApplicationContext(\"org/activiti/spring/test/autodeployment/SpringAutoDeployTest-context.xml\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.testNoRedeploymentForSpringContainerRestart()",
+                "Local": "L[81,81], C[5,30]",
+                "Detail": null,
+                "Code": "createAppContext(CTX_PATH)",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.testAutoDeployWithCreateDropOnCleanDb()",
+                "Local": "L[125,125], C[5,70]",
+                "Detail": {
+                    "previousVar": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest>>>repositoryService[33,148]"
+                },
+                "Code": "assertEquals(1,repositoryService.createDeploymentQuery().count())",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "REMOVED_SuperMethodInvocation",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.setUp()",
+                "Local": "L[45,45], C[5,17]",
+                "Detail": null,
+                "Code": "super.setUp()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.FieldDeclaration",
+                "Local": "L[39,39], C[3,11]",
+                "Detail": null,
+                "Code": "protected",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.FieldDeclaration",
+                "Local": "L[39,39], C[13,18]",
+                "Detail": null,
+                "Code": "static",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.FieldDeclaration",
+                "Local": "L[39,39], C[20,24]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "REMOVED_FieldDeclaration",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest",
+                "Local": "L[39,39], C[3,129]",
+                "Detail": null,
+                "Code": "protected static final String CTX_NO_DROP=\"org/activiti/spring/test/autodeployment/SpringAutoDeployTest-no-drop-context.xml\";\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.testAutoDeployWithCreateDropOnCleanDb()",
+                "Local": "L[123,123], C[3,8]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.FieldDeclaration",
+                "Local": "L[43,43], C[3,11]",
+                "Detail": null,
+                "Code": "protected",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.FieldDeclaration",
+                "Local": "L[43,43], C[13,18]",
+                "Detail": null,
+                "Code": "static",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.FieldDeclaration",
+                "Local": "L[43,43], C[20,24]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.FieldDeclaration",
+                "Local": "L[39,39], C[3,11]",
+                "Detail": null,
+                "Code": "protected",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.FieldDeclaration",
+                "Local": "L[39,39], C[13,18]",
+                "Detail": null,
+                "Code": "static",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.FieldDeclaration",
+                "Local": "L[39,39], C[20,24]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.FieldDeclaration",
+                "Local": "L[41,41], C[3,11]",
+                "Detail": null,
+                "Code": "protected",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.FieldDeclaration",
+                "Local": "L[41,41], C[13,18]",
+                "Detail": null,
+                "Code": "static",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.activiti.spring.test.autodeployment.SpringAutoDeployTest.FieldDeclaration",
+                "Local": "L[41,41], C[20,24]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java"
+            }
+        ],
+        "metadata": {
+            "type": "Rename Method",
+            "description": "Rename Method protected setUp() : void renamed to protected createAppContext(path String) : void in class org.activiti.spring.test.autodeployment.SpringAutoDeployTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java",
+                    "startLine": 44,
+                    "endLine": 48,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "protected setUp() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java",
+                    "startLine": 49,
+                    "endLine": 52,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "renamed method declaration",
+                    "codeElement": "protected createAppContext(path String) : void"
+                }
+            ]
+        }
+    }
+]

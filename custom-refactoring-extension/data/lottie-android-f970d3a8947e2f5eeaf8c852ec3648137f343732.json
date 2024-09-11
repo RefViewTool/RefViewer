@@ -1,0 +1,859 @@
+[
+    {
+        "commit": "f970d3a8947e2f5eeaf8c852ec3648137f343732",
+        "source": [
+            {
+                "element": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSync(JsonReader, String)",
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java",
+                "local": "L[236,248], C[3,3]"
+            }
+        ],
+        "target": [
+            {
+                "element": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSyncInternal(JsonReader, String, boolean)",
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java",
+                "local": "L[244,257], C[3,3]"
+            }
+        ],
+        "type": "EXTRACT_METHOD",
+        "related": [
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory",
+                "Local": "L[244,257], C[3,3]",
+                "Detail": {
+                    "method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSyncInternal(JsonReader, String, boolean)",
+                    "blockPos": "L[245,257], C[72,3]"
+                },
+                "Code": "private static LottieResult<LottieComposition> fromJsonReaderSyncInternal(JsonReader reader,@Nullable String cacheKey,boolean close){\n  try {\n    LottieComposition composition=LottieCompositionParser.parse(reader);\n    LottieCompositionCache.getInstance().put(cacheKey,composition);\n    return new LottieResult<>(composition);\n  }\n catch (  Exception e) {\n    return new LottieResult<>(e);\n  }\n finally {\n    if (close) {\n      closeQuietly(reader);\n    }\n  }\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSyncInternal(JsonReader, String, boolean)",
+                "Local": "L[249,249], C[14,44]",
+                "Detail": null,
+                "Code": "new LottieResult<>(composition)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSync(JsonReader, String)",
+                "Local": "L[244,244], C[14,44]",
+                "Detail": null,
+                "Code": "new LottieResult<>(composition)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSyncInternal(JsonReader, String, boolean)",
+                "Local": "L[249,249], C[14,44]",
+                "Detail": null,
+                "Code": "new LottieResult<>(composition)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSync(JsonReader, String)",
+                "Local": "L[244,244], C[14,44]",
+                "Detail": null,
+                "Code": "new LottieResult<>(composition)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "TRY_CATCH_CHANGE",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromZipStreamSyncInternal(ZipInputStream, String)",
+                "Local": "L[286,306], C[5,5]",
+                "Detail": null,
+                "Code": "try {\n  ZipEntry entry=inputStream.getNextEntry();\n  while (entry != null) {\n    if (entry.getName().contains(\"__MACOSX\")) {\n      inputStream.closeEntry();\n    }\n else     if (entry.getName().contains(\".json\")) {\n      JsonReader reader=new JsonReader(new InputStreamReader(inputStream));\n      composition=LottieCompositionFactory.fromJsonReaderSyncInternal(reader,null,false).getValue();\n    }\n else     if (entry.getName().contains(\".png\")) {\n      String[] splitName=entry.getName().split(\"/\");\n      String name=splitName[splitName.length - 1];\n      images.put(name,BitmapFactory.decodeStream(inputStream));\n    }\n else {\n      inputStream.closeEntry();\n    }\n    entry=inputStream.getNextEntry();\n  }\n}\n catch (IOException e) {\n  return new LottieResult<>(e);\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 10,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "CHANGED_TRYSTATEMENT",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromZipStreamSyncInternal(ZipInputStream, String)",
+                "Local": "L[286,306], C[5,5]",
+                "Detail": null,
+                "Code": "try {\n  ZipEntry entry=inputStream.getNextEntry();\n  while (entry != null) {\n    if (entry.getName().contains(\"__MACOSX\")) {\n      inputStream.closeEntry();\n    }\n else     if (entry.getName().contains(\".json\")) {\n      JsonReader reader=new JsonReader(new InputStreamReader(inputStream));\n      composition=LottieCompositionFactory.fromJsonReaderSyncInternal(reader,null,false).getValue();\n    }\n else     if (entry.getName().contains(\".png\")) {\n      String[] splitName=entry.getName().split(\"/\");\n      String name=splitName[splitName.length - 1];\n      images.put(name,BitmapFactory.decodeStream(inputStream));\n    }\n else {\n      inputStream.closeEntry();\n    }\n    entry=inputStream.getNextEntry();\n  }\n}\n catch (IOException e) {\n  return new LottieResult<>(e);\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 10,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "REMOVED_TRY_CATCH",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSync(JsonReader, String)",
+                "Local": "L[241,247], C[5,5]",
+                "Detail": null,
+                "Code": "try {\n  LottieComposition composition=LottieCompositionParser.parse(reader);\n  LottieCompositionCache.getInstance().put(cacheKey,composition);\n  return new LottieResult<>(composition);\n}\n catch (Exception e) {\n  return new LottieResult<>(e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_TRYSTATEMENT",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSyncInternal(JsonReader, String, boolean)",
+                "Local": "L[246,256], C[5,5]",
+                "Detail": null,
+                "Code": "try {\n  LottieComposition composition=LottieCompositionParser.parse(reader);\n  LottieCompositionCache.getInstance().put(cacheKey,composition);\n  return new LottieResult<>(composition);\n}\n catch (Exception e) {\n  return new LottieResult<>(e);\n}\n finally {\n  if (close) {\n    closeQuietly(reader);\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "REMOVED_TRYSTATEMENT",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSync(JsonReader, String)",
+                "Local": "L[241,247], C[5,5]",
+                "Detail": null,
+                "Code": "try {\n  LottieComposition composition=LottieCompositionParser.parse(reader);\n  LottieCompositionCache.getInstance().put(cacheKey,composition);\n  return new LottieResult<>(composition);\n}\n catch (Exception e) {\n  return new LottieResult<>(e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromZipStreamSyncInternal(ZipInputStream, String).JsonReader",
+                "Local": "L[292,292], C[46,79]",
+                "Detail": {
+                    "previousVar": "com.airbnb.lottie.LottieCompositionFactory.fromZipStreamSyncInternal(ZipInputStream, String)>>>inputStream[281,329]"
+                },
+                "Code": "new InputStreamReader(inputStream)",
+                "relationType": "VAR_RELATED",
+                "distance": 5,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromZipStreamSyncInternal(ZipInputStream, String).JsonReader",
+                "Local": "L[292,292], C[46,79]",
+                "Detail": {
+                    "previousVar": "com.airbnb.lottie.LottieCompositionFactory.fromZipStreamSyncInternal(ZipInputStream, String)>>>inputStream[281,329]"
+                },
+                "Code": "new InputStreamReader(inputStream)",
+                "relationType": "VAR_RELATED",
+                "distance": 5,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_MarkerAnnotation",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSync(JsonReader, String).SingleVariableDeclaration",
+                "Local": "L[240,240], C[87,95]",
+                "Detail": null,
+                "Code": "@Nullable",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSyncInternal(JsonReader, String, boolean)",
+                "Local": "L[244,244], C[18,48]",
+                "Detail": null,
+                "Code": "LottieResult<LottieComposition>",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSyncInternal(JsonReader, String, boolean)",
+                "Local": "L[253,255], C[18,7]",
+                "Detail": null,
+                "Code": "{\n  closeQuietly(reader);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSyncInternal(JsonReader, String, boolean)",
+                "Local": "L[244,244], C[3,9]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSyncInternal(JsonReader, String, boolean)",
+                "Local": "L[244,244], C[11,16]",
+                "Detail": null,
+                "Code": "static",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSyncInternal(JsonReader, String, boolean)",
+                "Local": "L[251,251], C[14,34]",
+                "Detail": null,
+                "Code": "new LottieResult<>(e)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSync(JsonReader, String)",
+                "Local": "L[246,246], C[14,34]",
+                "Detail": null,
+                "Code": "new LottieResult<>(e)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSyncInternal(JsonReader, String, boolean)",
+                "Local": "L[251,251], C[14,34]",
+                "Detail": null,
+                "Code": "new LottieResult<>(e)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSync(JsonReader, String)",
+                "Local": "L[246,246], C[14,34]",
+                "Detail": null,
+                "Code": "new LottieResult<>(e)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSyncInternal(JsonReader, String, boolean).LottieResult<>",
+                "Local": "L[249,249], C[18,31]",
+                "Detail": null,
+                "Code": "LottieResult<>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSync(JsonReader, String).LottieResult<>",
+                "Local": "L[244,244], C[18,31]",
+                "Detail": null,
+                "Code": "LottieResult<>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_MarkerAnnotation",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSyncInternal(JsonReader, String, boolean).SingleVariableDeclaration",
+                "Local": "L[245,245], C[30,38]",
+                "Detail": null,
+                "Code": "@Nullable",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "METHOD_CALL_ARGUMENTS_CHANGE",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromZipStreamSyncInternal(ZipInputStream, String).fromJsonReaderSyncInternal(JsonReader, String, boolean)",
+                "Local": "L[293,293], C[25,96]",
+                "Detail": null,
+                "Code": "LottieCompositionFactory.fromJsonReaderSyncInternal(reader,null,false)",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSync(JsonReader, String)",
+                "Local": "L[241,241], C[12,61]",
+                "Detail": null,
+                "Code": "fromJsonReaderSyncInternal(reader,cacheKey,true)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSyncInternal(JsonReader, String, boolean)",
+                "Local": "L[251,251], C[7,35]",
+                "Detail": null,
+                "Code": "return new LottieResult<>(e);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSync(JsonReader, String)",
+                "Local": "L[246,246], C[7,35]",
+                "Detail": null,
+                "Code": "return new LottieResult<>(e);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "CHANGED_EXPRESSIONSTATEMENT",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromZipStreamSyncInternal(ZipInputStream, String)",
+                "Local": "L[293,293], C[11,108]",
+                "Detail": null,
+                "Code": "composition=LottieCompositionFactory.fromJsonReaderSyncInternal(reader,null,false).getValue();\n",
+                "relationType": "CALL_TARGET",
+                "distance": 3,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSyncInternal(JsonReader, String, boolean)",
+                "Local": "L[254,254], C[9,28]",
+                "Detail": null,
+                "Code": "closeQuietly(reader)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_CATCH_CLAUSE",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSyncInternal(JsonReader, String, boolean)",
+                "Local": "L[250,252], C[7,5]",
+                "Detail": null,
+                "Code": "catch (Exception e) {\n  return new LottieResult<>(e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "REMOVED_CATCH_CLAUSE",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSync(JsonReader, String)",
+                "Local": "L[245,247], C[7,5]",
+                "Detail": null,
+                "Code": "catch (Exception e) {\n  return new LottieResult<>(e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_CatchClause",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSyncInternal(JsonReader, String, boolean)",
+                "Local": "L[250,252], C[7,5]",
+                "Detail": null,
+                "Code": "catch (Exception e) {\n  return new LottieResult<>(e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "REMOVED_CatchClause",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSync(JsonReader, String)",
+                "Local": "L[245,247], C[7,5]",
+                "Detail": null,
+                "Code": "catch (Exception e) {\n  return new LottieResult<>(e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_TRY_CATCH",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSyncInternal(JsonReader, String, boolean)",
+                "Local": "L[246,256], C[5,5]",
+                "Detail": null,
+                "Code": "try {\n  LottieComposition composition=LottieCompositionParser.parse(reader);\n  LottieCompositionCache.getInstance().put(cacheKey,composition);\n  return new LottieResult<>(composition);\n}\n catch (Exception e) {\n  return new LottieResult<>(e);\n}\n finally {\n  if (close) {\n    closeQuietly(reader);\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSync(JsonReader, String)",
+                "Local": "L[241,241], C[5,62]",
+                "Detail": null,
+                "Code": "return fromJsonReaderSyncInternal(reader,cacheKey,true);\n",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "REMOVED_MarkerAnnotation",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSync(JsonReader, String).SingleVariableDeclaration",
+                "Local": "L[240,240], C[87,95]",
+                "Detail": null,
+                "Code": "@Nullable",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSyncInternal(JsonReader, String, boolean)",
+                "Local": "L[247,247], C[39,75]",
+                "Detail": null,
+                "Code": "LottieCompositionParser.parse(reader)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSync(JsonReader, String)",
+                "Local": "L[242,242], C[39,75]",
+                "Detail": null,
+                "Code": "LottieCompositionParser.parse(reader)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSyncInternal(JsonReader, String, boolean).LottieResult<>",
+                "Local": "L[251,251], C[18,31]",
+                "Detail": null,
+                "Code": "LottieResult<>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSync(JsonReader, String).LottieResult<>",
+                "Local": "L[246,246], C[18,31]",
+                "Detail": null,
+                "Code": "LottieResult<>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "CHANGED_WHILESTATEMENT",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromZipStreamSyncInternal(ZipInputStream, String)",
+                "Local": "L[288,303], C[7,7]",
+                "Detail": null,
+                "Code": "while (entry != null) {\n  if (entry.getName().contains(\"__MACOSX\")) {\n    inputStream.closeEntry();\n  }\n else   if (entry.getName().contains(\".json\")) {\n    JsonReader reader=new JsonReader(new InputStreamReader(inputStream));\n    composition=LottieCompositionFactory.fromJsonReaderSyncInternal(reader,null,false).getValue();\n  }\n else   if (entry.getName().contains(\".png\")) {\n    String[] splitName=entry.getName().split(\"/\");\n    String name=splitName[splitName.length - 1];\n    images.put(name,BitmapFactory.decodeStream(inputStream));\n  }\n else {\n    inputStream.closeEntry();\n  }\n  entry=inputStream.getNextEntry();\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 8,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromZipStreamSyncInternal(ZipInputStream, String)",
+                "Local": "L[292,292], C[31,80]",
+                "Detail": {
+                    "previousVar": "com.airbnb.lottie.LottieCompositionFactory.fromZipStreamSyncInternal(ZipInputStream, String)>>>inputStream[281,329]"
+                },
+                "Code": "new JsonReader(new InputStreamReader(inputStream))",
+                "relationType": "VAR_RELATED",
+                "distance": 5,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromZipStreamSyncInternal(ZipInputStream, String)",
+                "Local": "L[292,292], C[31,80]",
+                "Detail": {
+                    "previousVar": "com.airbnb.lottie.LottieCompositionFactory.fromZipStreamSyncInternal(ZipInputStream, String)>>>inputStream[281,329]"
+                },
+                "Code": "new JsonReader(new InputStreamReader(inputStream))",
+                "relationType": "VAR_RELATED",
+                "distance": 5,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_BooleanLiteral",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSync(JsonReader, String).fromJsonReaderSyncInternal(JsonReader, String, boolean)",
+                "Local": "L[241,241], C[57,60]",
+                "Detail": null,
+                "Code": "true",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSyncInternal(JsonReader, String, boolean)",
+                "Local": "L[248,248], C[7,42]",
+                "Detail": null,
+                "Code": "LottieCompositionCache.getInstance()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSync(JsonReader, String)",
+                "Local": "L[243,243], C[7,42]",
+                "Detail": null,
+                "Code": "LottieCompositionCache.getInstance()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSyncInternal(JsonReader, String, boolean)",
+                "Local": "L[247,247], C[7,76]",
+                "Detail": null,
+                "Code": "LottieComposition composition=LottieCompositionParser.parse(reader);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSync(JsonReader, String)",
+                "Local": "L[242,242], C[7,76]",
+                "Detail": null,
+                "Code": "LottieComposition composition=LottieCompositionParser.parse(reader);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSyncInternal(JsonReader, String, boolean)",
+                "Local": "L[249,249], C[7,45]",
+                "Detail": null,
+                "Code": "return new LottieResult<>(composition);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSync(JsonReader, String)",
+                "Local": "L[244,244], C[7,45]",
+                "Detail": null,
+                "Code": "return new LottieResult<>(composition);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSync(JsonReader, String)",
+                "Local": "L[240,240], C[17,47]",
+                "Detail": null,
+                "Code": "LottieResult<LottieComposition>",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromJsonReaderSync(JsonReader, String)",
+                "Local": "L[240,240], C[17,47]",
+                "Detail": null,
+                "Code": "LottieResult<LottieComposition>",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "CHANGED_EXISTING_IF_BLOCK",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromZipStreamSyncInternal(ZipInputStream, String)",
+                "Local": "L[291,294], C[55,9]",
+                "Detail": null,
+                "Code": "{\n  JsonReader reader=new JsonReader(new InputStreamReader(inputStream));\n  composition=LottieCompositionFactory.fromJsonReaderSyncInternal(reader,null,false).getValue();\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 4,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromZipStreamSyncInternal(ZipInputStream, String)",
+                "Local": "L[289,291], C[51,9]",
+                "Detail": {
+                    "previousVar": "com.airbnb.lottie.LottieCompositionFactory.fromZipStreamSyncInternal(ZipInputStream, String)>>>inputStream[281,329]"
+                },
+                "Code": "{\n  inputStream.closeEntry();\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 5,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_ELSE_STATEMENT",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromZipStreamSyncInternal(ZipInputStream, String)",
+                "Local": "L[298,300], C[16,9]",
+                "Detail": {
+                    "previousVar": "com.airbnb.lottie.LottieCompositionFactory.fromZipStreamSyncInternal(ZipInputStream, String)>>>inputStream[281,329]"
+                },
+                "Code": "{\n  inputStream.closeEntry();\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 5,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromZipStreamSyncInternal(ZipInputStream, String)",
+                "Local": "L[292,292], C[11,81]",
+                "Detail": {
+                    "previousVar": "com.airbnb.lottie.LottieCompositionFactory.fromZipStreamSyncInternal(ZipInputStream, String)>>>reader[292,294]"
+                },
+                "Code": "JsonReader reader=new JsonReader(new InputStreamReader(inputStream));\n",
+                "relationType": "VAR_RELATED",
+                "distance": 5,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "ADDED_BooleanLiteral",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromZipStreamSyncInternal(ZipInputStream, String).fromJsonReaderSyncInternal(JsonReader, String, boolean)",
+                "Local": "L[293,293], C[91,95]",
+                "Detail": null,
+                "Code": "false",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "REMOVED_BooleanLiteral",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromZipStreamSyncInternal(ZipInputStream, String).fromJsonInputStreamSync(InputStream, String, boolean)",
+                "Local": "L[283,283], C[97,101]",
+                "Detail": null,
+                "Code": "false",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_NullLiteral",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromZipStreamSyncInternal(ZipInputStream, String).fromJsonReaderSyncInternal(JsonReader, String, boolean)",
+                "Local": "L[293,293], C[85,88]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.airbnb.lottie.LottieCompositionFactory.fromUrl(Context, String).call()",
+                "Local": "L[66,66], C[24,54]",
+                "Detail": null,
+                "Code": "LottieResult<LottieComposition>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java"
+            }
+        ],
+        "metadata": {
+            "type": "Extract Method",
+            "description": "Extract Method private fromJsonReaderSyncInternal(reader JsonReader, cacheKey String, close boolean) : LottieResult<LottieComposition> extracted from public fromJsonReaderSync(reader JsonReader, cacheKey String) : LottieResult<LottieComposition> in class com.airbnb.lottie.LottieCompositionFactory",
+            "leftSideLocations": [
+                {
+                    "filePath": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java",
+                    "startLine": 236,
+                    "endLine": 248,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public fromJsonReaderSync(reader JsonReader, cacheKey String) : LottieResult<LottieComposition>"
+                },
+                {
+                    "filePath": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java",
+                    "startLine": 242,
+                    "endLine": 242,
+                    "startColumn": 7,
+                    "endColumn": 77,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java",
+                    "startLine": 243,
+                    "endLine": 243,
+                    "startColumn": 7,
+                    "endColumn": 71,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java",
+                    "startLine": 244,
+                    "endLine": 244,
+                    "startColumn": 7,
+                    "endColumn": 46,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java",
+                    "startLine": 246,
+                    "endLine": 246,
+                    "startColumn": 7,
+                    "endColumn": 36,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java",
+                    "startLine": 241,
+                    "endLine": 247,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "TRY_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java",
+                    "startLine": 245,
+                    "endLine": 247,
+                    "startColumn": 7,
+                    "endColumn": 6,
+                    "codeElementType": "CATCH_CLAUSE",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java",
+                    "startLine": 244,
+                    "endLine": 257,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "private fromJsonReaderSyncInternal(reader JsonReader, cacheKey String, close boolean) : LottieResult<LottieComposition>"
+                },
+                {
+                    "filePath": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java",
+                    "startLine": 247,
+                    "endLine": 247,
+                    "startColumn": 7,
+                    "endColumn": 77,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java",
+                    "startLine": 248,
+                    "endLine": 248,
+                    "startColumn": 7,
+                    "endColumn": 71,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java",
+                    "startLine": 249,
+                    "endLine": 249,
+                    "startColumn": 7,
+                    "endColumn": 46,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java",
+                    "startLine": 251,
+                    "endLine": 251,
+                    "startColumn": 7,
+                    "endColumn": 36,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java",
+                    "startLine": 246,
+                    "endLine": 256,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "TRY_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java",
+                    "startLine": 250,
+                    "endLine": 252,
+                    "startColumn": 7,
+                    "endColumn": 6,
+                    "codeElementType": "CATCH_CLAUSE",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java",
+                    "startLine": 236,
+                    "endLine": 242,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public fromJsonReaderSync(reader JsonReader, cacheKey String) : LottieResult<LottieComposition>"
+                },
+                {
+                    "filePath": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java",
+                    "startLine": 241,
+                    "endLine": 241,
+                    "startColumn": 12,
+                    "endColumn": 62,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "fromJsonReaderSyncInternal(reader,cacheKey,true)"
+                },
+                {
+                    "filePath": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java",
+                    "startLine": 254,
+                    "endLine": 254,
+                    "startColumn": 9,
+                    "endColumn": 30,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java",
+                    "startLine": 253,
+                    "endLine": 255,
+                    "startColumn": 18,
+                    "endColumn": 8,
+                    "codeElementType": "BLOCK",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java",
+                    "startLine": 253,
+                    "endLine": 255,
+                    "startColumn": 7,
+                    "endColumn": 8,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java",
+                    "startLine": 252,
+                    "endLine": 256,
+                    "startColumn": 15,
+                    "endColumn": 6,
+                    "codeElementType": "FINALLY_BLOCK",
+                    "description": "added statement in extracted method declaration",
+                    "codeElement": null
+                }
+            ]
+        }
+    }
+]

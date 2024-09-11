@@ -1,0 +1,419 @@
+[
+    {
+        "commit": "2188eb2e4e102aa0746b21a8f3a91c22f41d51ca",
+        "source": [
+            {
+                "element": "org.apache.ibatis.datasource.pooled.PooledConnection.getValidConnection()",
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java",
+                "local": "L[247,252], C[3,3]"
+            }
+        ],
+        "target": [
+            {
+                "element": "org.apache.ibatis.datasource.pooled.PooledConnection.checkConnection()",
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java",
+                "local": "L[253,257], C[3,3]"
+            }
+        ],
+        "type": "RENAME_METHOD",
+        "related": [
+            {
+                "Metric": "CHANGED_RETURN_TYPE",
+                "Method": "org.apache.ibatis.datasource.pooled.PooledConnection",
+                "Local": "L[253,257], C[3,3]",
+                "Detail": {
+                    "method": "org.apache.ibatis.datasource.pooled.PooledConnection.checkConnection()",
+                    "blockPos": "L[253,257], C[54,3]"
+                },
+                "Code": "private void checkConnection() throws SQLException {\n  if (!valid) {\n    throw new SQLException(\"Error accessing PooledConnection. Connection is invalid.\");\n  }\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            },
+            {
+                "Metric": "ADDED_EXCEPTION_THROWN",
+                "Method": "org.apache.ibatis.datasource.pooled.PooledConnection",
+                "Local": "L[253,253], C[41,52]",
+                "Detail": {
+                    "method": "org.apache.ibatis.datasource.pooled.PooledConnection.checkConnection()",
+                    "blockPos": "L[253,257], C[54,3]"
+                },
+                "Code": "private void checkConnection() throws SQLException {\n  if (!valid) {\n    throw new SQLException(\"Error accessing PooledConnection. Connection is invalid.\");\n  }\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            },
+            {
+                "Metric": "RENAME_ELEMENT",
+                "Method": "org.apache.ibatis.datasource.pooled.PooledConnection",
+                "Local": "L[253,257], C[3,3]",
+                "Detail": {
+                    "method": "org.apache.ibatis.datasource.pooled.PooledConnection.checkConnection()",
+                    "blockPos": "L[253,257], C[54,3]"
+                },
+                "Code": "private void checkConnection() throws SQLException {\n  if (!valid) {\n    throw new SQLException(\"Error accessing PooledConnection. Connection is invalid.\");\n  }\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.ibatis.datasource.pooled.PooledConnection.invoke(Object, Method, Object[])",
+                "Local": "L[244,244], C[11,27]",
+                "Detail": null,
+                "Code": "checkConnection()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            },
+            {
+                "Metric": "CHANGED_EXISTING_IF_BLOCK",
+                "Method": "org.apache.ibatis.datasource.pooled.PooledConnection.checkConnection()",
+                "Local": "L[254,256], C[17,5]",
+                "Detail": null,
+                "Code": "{\n  throw new SQLException(\"Error accessing PooledConnection. Connection is invalid.\");\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "org.apache.ibatis.datasource.pooled.PooledConnection.checkConnection()",
+                "Local": "L[255,255], C[13,88]",
+                "Detail": null,
+                "Code": "new SQLException(\"Error accessing PooledConnection. Connection is invalid.\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "org.apache.ibatis.datasource.pooled.PooledConnection.getValidConnection()",
+                "Local": "L[249,249], C[13,95]",
+                "Detail": null,
+                "Code": "new DataSourceException(\"Error accessing PooledConnection. Connection is invalid.\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "org.apache.ibatis.datasource.pooled.PooledConnection.checkConnection()",
+                "Local": "L[255,255], C[13,88]",
+                "Detail": null,
+                "Code": "new SQLException(\"Error accessing PooledConnection. Connection is invalid.\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "org.apache.ibatis.datasource.pooled.PooledConnection.getValidConnection()",
+                "Local": "L[249,249], C[13,95]",
+                "Detail": null,
+                "Code": "new DataSourceException(\"Error accessing PooledConnection. Connection is invalid.\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            },
+            {
+                "Metric": "METHOD_CALL_ARGUMENTS_CHANGE",
+                "Method": "org.apache.ibatis.datasource.pooled.PooledConnection.invoke(Object, Method, Object[]).invoke(Object, Object[])",
+                "Local": "L[246,246], C[16,50]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.datasource.pooled.PooledConnection.invoke(Object, Method, Object[])>>>method[232,251]"
+                },
+                "Code": "method.invoke(realConnection,args)",
+                "relationType": "VAR_RELATED",
+                "distance": 6,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.datasource.pooled.PooledConnection.invoke(Object, Method, Object[]).invoke(Object, Object[])",
+                "Local": "L[240,240], C[30,49]",
+                "Detail": null,
+                "Code": "getValidConnection()",
+                "relationType": "CALL_SOURCE",
+                "distance": 1,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.ibatis.datasource.pooled.PooledConnection.invoke(Object, Method, Object[])",
+                "Local": "L[240,240], C[13,38]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.datasource.pooled.PooledConnection.invoke(Object, Method, Object[])>>>method[232,251]"
+                },
+                "Code": "method.getDeclaringClass()",
+                "relationType": "VAR_RELATED",
+                "distance": 6,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "org.apache.ibatis.datasource.pooled.PooledConnection.getValidConnection()",
+                "Local": "L[251,251], C[5,26]",
+                "Detail": null,
+                "Code": "return realConnection;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            },
+            {
+                "Metric": "CHANGED_RETURN_VALUE",
+                "Method": "org.apache.ibatis.datasource.pooled.PooledConnection.invoke(Object, Method, Object[])",
+                "Local": "L[246,246], C[9,51]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.datasource.pooled.PooledConnection.invoke(Object, Method, Object[])>>>method[232,251]"
+                },
+                "Code": "return method.invoke(realConnection,args);\n",
+                "relationType": "VAR_RELATED",
+                "distance": 6,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            },
+            {
+                "Metric": "CHANGED_EXISTING_ELSE_BLOCK",
+                "Method": "org.apache.ibatis.datasource.pooled.PooledConnection.invoke(Object, Method, Object[])",
+                "Local": "L[238,250], C[12,5]",
+                "Detail": null,
+                "Code": "{\n  try {\n    if (method.getDeclaringClass() != Object.class) {\n      checkConnection();\n    }\n    return method.invoke(realConnection,args);\n  }\n catch (  Throwable t) {\n    throw ExceptionUtil.unwrapThrowable(t);\n  }\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 6,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "org.apache.ibatis.datasource.pooled.PooledConnection.invoke(Object, Method, Object[])",
+                "Local": "L[240,245], C[57,9]",
+                "Detail": null,
+                "Code": "{\n  checkConnection();\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 2,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            },
+            {
+                "Metric": "ADDED_THROWSTATEMENT",
+                "Method": "org.apache.ibatis.datasource.pooled.PooledConnection.checkConnection()",
+                "Local": "L[255,255], C[7,89]",
+                "Detail": null,
+                "Code": "throw new SQLException(\"Error accessing PooledConnection. Connection is invalid.\");\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            },
+            {
+                "Metric": "REMOVED_THROWSTATEMENT",
+                "Method": "org.apache.ibatis.datasource.pooled.PooledConnection.getValidConnection()",
+                "Local": "L[249,249], C[7,96]",
+                "Detail": null,
+                "Code": "throw new DataSourceException(\"Error accessing PooledConnection. Connection is invalid.\");\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            },
+            {
+                "Metric": "TRY_CATCH_CHANGE",
+                "Method": "org.apache.ibatis.datasource.pooled.PooledConnection.invoke(Object, Method, Object[])",
+                "Local": "L[239,249], C[7,7]",
+                "Detail": null,
+                "Code": "try {\n  if (method.getDeclaringClass() != Object.class) {\n    checkConnection();\n  }\n  return method.invoke(realConnection,args);\n}\n catch (Throwable t) {\n  throw ExceptionUtil.unwrapThrowable(t);\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 5,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            },
+            {
+                "Metric": "CHANGED_TRYSTATEMENT",
+                "Method": "org.apache.ibatis.datasource.pooled.PooledConnection.invoke(Object, Method, Object[])",
+                "Local": "L[239,249], C[7,7]",
+                "Detail": null,
+                "Code": "try {\n  if (method.getDeclaringClass() != Object.class) {\n    checkConnection();\n  }\n  return method.invoke(realConnection,args);\n}\n catch (Throwable t) {\n  throw ExceptionUtil.unwrapThrowable(t);\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 5,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "org.apache.ibatis.datasource.pooled.PooledConnection.invoke(Object, Method, Object[])",
+                "Local": "L[240,240], C[13,54]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.datasource.pooled.PooledConnection.invoke(Object, Method, Object[])>>>method[232,251]"
+                },
+                "Code": "method.getDeclaringClass() != Object.class",
+                "relationType": "VAR_RELATED",
+                "distance": 6,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "org.apache.ibatis.datasource.pooled.CompilationUnit",
+                "Local": "L[22,22], C[1,29]",
+                "Detail": null,
+                "Code": "import java.sql.SQLException;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "org.apache.ibatis.datasource.pooled.CompilationUnit",
+                "Local": "L[22,22], C[1,29]",
+                "Detail": null,
+                "Code": "import java.sql.SQLException;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            },
+            {
+                "Metric": "REMOVED_IMPORT",
+                "Method": "org.apache.ibatis.datasource.pooled.CompilationUnit",
+                "Local": "L[18,18], C[1,56]",
+                "Detail": null,
+                "Code": "import org.apache.ibatis.datasource.DataSourceException;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            },
+            {
+                "Metric": "REMOVED_ImportDeclaration",
+                "Method": "org.apache.ibatis.datasource.pooled.CompilationUnit",
+                "Local": "L[18,18], C[1,56]",
+                "Detail": null,
+                "Code": "import org.apache.ibatis.datasource.DataSourceException;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            },
+            {
+                "Metric": "ADDED_TypeLiteral",
+                "Method": "org.apache.ibatis.datasource.pooled.PooledConnection.invoke(Object, Method, Object[])",
+                "Local": "L[240,240], C[43,54]",
+                "Detail": null,
+                "Code": "Object.class",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.ibatis.jdbc.PooledDataSourceTest.shouldNotFailCallingToStringOverAnInvalidConnection()",
+                "Local": "L[77,77], C[5,16]",
+                "Detail": null,
+                "Code": "c.toString()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/jdbc/PooledDataSourceTest.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "org.apache.ibatis.jdbc.PooledDataSourceTest.shouldNotFailCallingToStringOverAnInvalidConnection()",
+                "Local": "L[74,74], C[5,71]",
+                "Detail": null,
+                "Code": "PooledDataSource ds=createPooledDataSource(JPETSTORE_PROPERTIES);\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/jdbc/PooledDataSourceTest.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "org.apache.ibatis.jdbc.PooledDataSourceTest.shouldNotFailCallingToStringOverAnInvalidConnection()",
+                "Local": "L[75,75], C[5,38]",
+                "Detail": null,
+                "Code": "Connection c=ds.getConnection();\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/jdbc/PooledDataSourceTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.ibatis.jdbc.PooledDataSourceTest.shouldNotFailCallingToStringOverAnInvalidConnection()",
+                "Local": "L[74,74], C[27,70]",
+                "Detail": null,
+                "Code": "createPooledDataSource(JPETSTORE_PROPERTIES)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/jdbc/PooledDataSourceTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "org.apache.ibatis.jdbc.PooledDataSourceTest",
+                "Local": "L[72,78], C[3,3]",
+                "Detail": null,
+                "Code": "@Test public void shouldNotFailCallingToStringOverAnInvalidConnection() throws Exception {\n  PooledDataSource ds=createPooledDataSource(JPETSTORE_PROPERTIES);\n  Connection c=ds.getConnection();\n  c.close();\n  c.toString();\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/jdbc/PooledDataSourceTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.ibatis.jdbc.PooledDataSourceTest.shouldNotFailCallingToStringOverAnInvalidConnection()",
+                "Local": "L[75,75], C[20,37]",
+                "Detail": null,
+                "Code": "ds.getConnection()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/jdbc/PooledDataSourceTest.java"
+            },
+            {
+                "Metric": "ADDED_MarkerAnnotation",
+                "Method": "org.apache.ibatis.jdbc.PooledDataSourceTest.shouldNotFailCallingToStringOverAnInvalidConnection()",
+                "Local": "L[72,72], C[3,7]",
+                "Detail": null,
+                "Code": "@Test",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/jdbc/PooledDataSourceTest.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.ibatis.jdbc.PooledDataSourceTest.shouldNotFailCallingToStringOverAnInvalidConnection()",
+                "Local": "L[73,73], C[3,8]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/jdbc/PooledDataSourceTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.ibatis.jdbc.PooledDataSourceTest.shouldNotFailCallingToStringOverAnInvalidConnection()",
+                "Local": "L[76,76], C[5,13]",
+                "Detail": null,
+                "Code": "c.close()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/jdbc/PooledDataSourceTest.java"
+            }
+        ],
+        "metadata": {
+            "type": "Rename Method",
+            "description": "Rename Method private getValidConnection() : Connection renamed to private checkConnection() : void in class org.apache.ibatis.datasource.pooled.PooledConnection",
+            "leftSideLocations": [
+                {
+                    "filePath": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java",
+                    "startLine": 247,
+                    "endLine": 252,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private getValidConnection() : Connection"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java",
+                    "startLine": 253,
+                    "endLine": 257,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "renamed method declaration",
+                    "codeElement": "private checkConnection() : void"
+                }
+            ]
+        }
+    }
+]

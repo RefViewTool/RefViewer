@@ -1,0 +1,1027 @@
+[
+    {
+        "commit": "12182709dac0244a8e9e1de5adaebe355d13600e",
+        "source": [
+            {
+                "element": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                "local": "L[39,57], C[3,3]"
+            }
+        ],
+        "target": [
+            {
+                "element": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                "local": "L[50,68], C[3,3]"
+            }
+        ],
+        "type": "EXTRACT_METHOD",
+        "related": [
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines",
+                "Local": "L[50,68], C[3,3]",
+                "Detail": {
+                    "method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                    "blockPos": "L[51,68], C[80,3]"
+                },
+                "Code": "@Override protected Object evaluate(String script,String language,Bindings bindings){\n  ScriptEngine scriptEngine=null;\n  try {\n    scriptEngine=Extender.resolveScriptEngine(language);\n  }\n catch (  InvalidSyntaxException e) {\n    throw new ActivitiException(\"problem resolving scripting engine\" + e.getMessage(),e);\n  }\n  if (scriptEngine == null) {\n    return super.evaluate(script,language,bindings);\n  }\n  try {\n    return scriptEngine.eval(script,bindings);\n  }\n catch (  ScriptException e) {\n    throw new ActivitiException(\"problem evaluating script: \" + e.getMessage(),e);\n  }\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope, boolean).evaluate(String, String, VariableScope)",
+                "Local": "L[47,47], C[39,89]",
+                "Detail": {
+                    "previousVar": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope, boolean)>>>variableScope[45,48]"
+                },
+                "Code": "createBindings(variableScope,storeScriptVariables)",
+                "relationType": "VAR_RELATED",
+                "distance": 4,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[52,52], C[5,37]",
+                "Detail": null,
+                "Code": "ScriptEngine scriptEngine=null;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[41,41], C[5,37]",
+                "Detail": null,
+                "Code": "ScriptEngine scriptEngine=null;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_TRY_CATCH",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[52,56], C[5,5]",
+                "Detail": null,
+                "Code": "try {\n  return scriptEngine.eval(script,bindings);\n}\n catch (ScriptException e) {\n  throw new ActivitiException(\"problem evaluating script: \" + e.getMessage(),e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_TRYSTATEMENT",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[63,67], C[5,5]",
+                "Detail": null,
+                "Code": "try {\n  return scriptEngine.eval(script,bindings);\n}\n catch (ScriptException e) {\n  throw new ActivitiException(\"problem evaluating script: \" + e.getMessage(),e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_TRYSTATEMENT",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[52,56], C[5,5]",
+                "Detail": null,
+                "Code": "try {\n  return scriptEngine.eval(script,bindings);\n}\n catch (ScriptException e) {\n  throw new ActivitiException(\"problem evaluating script: \" + e.getMessage(),e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_TRY_CATCH",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[42,46], C[5,5]",
+                "Detail": null,
+                "Code": "try {\n  scriptEngine=Extender.resolveScriptEngine(language);\n}\n catch (InvalidSyntaxException e) {\n  throw new ActivitiException(\"problem resolving scripting engine\" + e.getMessage(),e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_TRYSTATEMENT",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[53,57], C[5,5]",
+                "Detail": null,
+                "Code": "try {\n  scriptEngine=Extender.resolveScriptEngine(language);\n}\n catch (InvalidSyntaxException e) {\n  throw new ActivitiException(\"problem resolving scripting engine\" + e.getMessage(),e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_TRYSTATEMENT",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[42,46], C[5,5]",
+                "Detail": null,
+                "Code": "try {\n  scriptEngine=Extender.resolveScriptEngine(language);\n}\n catch (InvalidSyntaxException e) {\n  throw new ActivitiException(\"problem resolving scripting engine\" + e.getMessage(),e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[56,56], C[13,91]",
+                "Detail": null,
+                "Code": "new ActivitiException(\"problem resolving scripting engine\" + e.getMessage(),e)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[45,45], C[13,91]",
+                "Detail": null,
+                "Code": "new ActivitiException(\"problem resolving scripting engine\" + e.getMessage(),e)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[56,56], C[13,91]",
+                "Detail": null,
+                "Code": "new ActivitiException(\"problem resolving scripting engine\" + e.getMessage(),e)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[45,45], C[13,91]",
+                "Detail": null,
+                "Code": "new ActivitiException(\"problem resolving scripting engine\" + e.getMessage(),e)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[59,59], C[9,28]",
+                "Detail": null,
+                "Code": "scriptEngine == null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[48,48], C[9,28]",
+                "Detail": null,
+                "Code": "scriptEngine == null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings).ActivitiException",
+                "Local": "L[66,66], C[35,80]",
+                "Detail": null,
+                "Code": "\"problem evaluating script: \" + e.getMessage()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope).ActivitiException",
+                "Local": "L[55,55], C[35,80]",
+                "Detail": null,
+                "Code": "\"problem evaluating script: \" + e.getMessage()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[54,54], C[22,59]",
+                "Detail": null,
+                "Code": "Extender.resolveScriptEngine(language)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[43,43], C[22,59]",
+                "Detail": null,
+                "Code": "Extender.resolveScriptEngine(language)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[66,66], C[13,84]",
+                "Detail": null,
+                "Code": "new ActivitiException(\"problem evaluating script: \" + e.getMessage(),e)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[55,55], C[13,84]",
+                "Detail": null,
+                "Code": "new ActivitiException(\"problem evaluating script: \" + e.getMessage(),e)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[66,66], C[13,84]",
+                "Detail": null,
+                "Code": "new ActivitiException(\"problem evaluating script: \" + e.getMessage(),e)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[55,55], C[13,84]",
+                "Detail": null,
+                "Code": "new ActivitiException(\"problem evaluating script: \" + e.getMessage(),e)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[60,60], C[7,56]",
+                "Detail": null,
+                "Code": "return super.evaluate(script,language,bindings);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[49,49], C[7,61]",
+                "Detail": null,
+                "Code": "return super.evaluate(script,language,variableScope);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[42,42], C[12,47]",
+                "Detail": null,
+                "Code": "evaluate(script,language,bindings)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[64,64], C[7,49]",
+                "Detail": null,
+                "Code": "return scriptEngine.eval(script,bindings);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[53,53], C[7,49]",
+                "Detail": null,
+                "Code": "return scriptEngine.eval(script,bindings);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[64,64], C[14,48]",
+                "Detail": null,
+                "Code": "scriptEngine.eval(script,bindings)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[53,53], C[14,48]",
+                "Detail": null,
+                "Code": "scriptEngine.eval(script,bindings)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_NullLiteral",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[59,59], C[25,28]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_NullLiteral",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[48,48], C[25,28]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_SuperMethodInvocation",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[60,60], C[14,55]",
+                "Detail": null,
+                "Code": "super.evaluate(script,language,bindings)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_SuperMethodInvocation",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[49,49], C[14,60]",
+                "Detail": null,
+                "Code": "super.evaluate(script,language,variableScope)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[56,56], C[74,87]",
+                "Detail": null,
+                "Code": "e.getMessage()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[45,45], C[74,87]",
+                "Detail": null,
+                "Code": "e.getMessage()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[42,42], C[5,48]",
+                "Detail": null,
+                "Code": "return evaluate(script,language,bindings);\n",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope, boolean)",
+                "Local": "L[47,47], C[12,90]",
+                "Detail": null,
+                "Code": "evaluate(script,language,createBindings(variableScope,storeScriptVariables))",
+                "relationType": "CALL_SOURCE",
+                "distance": 1,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope, boolean)",
+                "Local": "L[47,47], C[5,91]",
+                "Detail": null,
+                "Code": "return evaluate(script,language,createBindings(variableScope,storeScriptVariables));\n",
+                "relationType": "CALL_SOURCE",
+                "distance": 1,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_ANNOTATION",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[39,39], C[3,11]",
+                "Detail": null,
+                "Code": "@Override public Object evaluate(String script,String language,VariableScope variableScope){\n  Bindings bindings=createBindings(variableScope);\n  return evaluate(script,language,bindings);\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 3,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[48,50], C[31,5]",
+                "Detail": null,
+                "Code": "{\n  return super.evaluate(script,language,variableScope);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_MarkerAnnotation",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[39,39], C[3,11]",
+                "Detail": null,
+                "Code": "@Override",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[66,66], C[67,80]",
+                "Detail": null,
+                "Code": "e.getMessage()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[55,55], C[67,80]",
+                "Detail": null,
+                "Code": "e.getMessage()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings).ActivitiException",
+                "Local": "L[56,56], C[35,87]",
+                "Detail": null,
+                "Code": "\"problem resolving scripting engine\" + e.getMessage()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope).ActivitiException",
+                "Local": "L[45,45], C[35,87]",
+                "Detail": null,
+                "Code": "\"problem resolving scripting engine\" + e.getMessage()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_THROWSTATEMENT",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[66,66], C[7,85]",
+                "Detail": null,
+                "Code": "throw new ActivitiException(\"problem evaluating script: \" + e.getMessage(),e);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_THROWSTATEMENT",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[55,55], C[7,85]",
+                "Detail": null,
+                "Code": "throw new ActivitiException(\"problem evaluating script: \" + e.getMessage(),e);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines",
+                "Local": "L[45,48], C[3,3]",
+                "Detail": null,
+                "Code": "@Override public Object evaluate(String script,String language,VariableScope variableScope,boolean storeScriptVariables){\n  return evaluate(script,language,createBindings(variableScope,storeScriptVariables));\n}\n",
+                "relationType": "CALL_SOURCE",
+                "distance": 3,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_CATCH_CLAUSE",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[55,57], C[7,5]",
+                "Detail": null,
+                "Code": "catch (InvalidSyntaxException e) {\n  throw new ActivitiException(\"problem resolving scripting engine\" + e.getMessage(),e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_CATCH_CLAUSE",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[44,46], C[7,5]",
+                "Detail": null,
+                "Code": "catch (InvalidSyntaxException e) {\n  throw new ActivitiException(\"problem resolving scripting engine\" + e.getMessage(),e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_CatchClause",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[55,57], C[7,5]",
+                "Detail": null,
+                "Code": "catch (InvalidSyntaxException e) {\n  throw new ActivitiException(\"problem resolving scripting engine\" + e.getMessage(),e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_CatchClause",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[44,46], C[7,5]",
+                "Detail": null,
+                "Code": "catch (InvalidSyntaxException e) {\n  throw new ActivitiException(\"problem resolving scripting engine\" + e.getMessage(),e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_TRY_CATCH",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[53,57], C[5,5]",
+                "Detail": null,
+                "Code": "try {\n  scriptEngine=Extender.resolveScriptEngine(language);\n}\n catch (InvalidSyntaxException e) {\n  throw new ActivitiException(\"problem resolving scripting engine\" + e.getMessage(),e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[54,54], C[7,60]",
+                "Detail": null,
+                "Code": "scriptEngine=Extender.resolveScriptEngine(language);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[43,43], C[7,60]",
+                "Detail": null,
+                "Code": "scriptEngine=Extender.resolveScriptEngine(language);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_THROWSTATEMENT",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[56,56], C[7,92]",
+                "Detail": null,
+                "Code": "throw new ActivitiException(\"problem resolving scripting engine\" + e.getMessage(),e);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_THROWSTATEMENT",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[45,45], C[7,92]",
+                "Detail": null,
+                "Code": "throw new ActivitiException(\"problem resolving scripting engine\" + e.getMessage(),e);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_NullLiteral",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[52,52], C[33,36]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_NullLiteral",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[41,41], C[33,36]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[59,61], C[31,5]",
+                "Detail": null,
+                "Code": "{\n  return super.evaluate(script,language,bindings);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_MarkerAnnotation",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[50,50], C[3,11]",
+                "Detail": null,
+                "Code": "@Override",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[51,51], C[3,11]",
+                "Detail": null,
+                "Code": "protected",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_CATCH_CLAUSE",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[65,67], C[7,5]",
+                "Detail": null,
+                "Code": "catch (ScriptException e) {\n  throw new ActivitiException(\"problem evaluating script: \" + e.getMessage(),e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_CATCH_CLAUSE",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[54,56], C[7,5]",
+                "Detail": null,
+                "Code": "catch (ScriptException e) {\n  throw new ActivitiException(\"problem evaluating script: \" + e.getMessage(),e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_CatchClause",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[65,67], C[7,5]",
+                "Detail": null,
+                "Code": "catch (ScriptException e) {\n  throw new ActivitiException(\"problem evaluating script: \" + e.getMessage(),e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "REMOVED_CatchClause",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope)",
+                "Local": "L[54,56], C[7,5]",
+                "Detail": null,
+                "Code": "catch (ScriptException e) {\n  throw new ActivitiException(\"problem evaluating script: \" + e.getMessage(),e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_TRY_CATCH",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, Bindings)",
+                "Local": "L[63,67], C[5,5]",
+                "Detail": null,
+                "Code": "try {\n  return scriptEngine.eval(script,bindings);\n}\n catch (ScriptException e) {\n  throw new ActivitiException(\"problem evaluating script: \" + e.getMessage(),e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "ADDED_MarkerAnnotation",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope, boolean)",
+                "Local": "L[45,45], C[3,11]",
+                "Detail": null,
+                "Code": "@Override",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.activiti.osgi.OsgiScriptingEngines.evaluate(String, String, VariableScope, boolean)",
+                "Local": "L[46,46], C[3,8]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java"
+            }
+        ],
+        "metadata": {
+            "type": "Extract Method",
+            "description": "Extract Method protected evaluate(script String, language String, bindings Bindings) : Object extracted from public evaluate(script String, language String, variableScope VariableScope) : Object in class org.activiti.osgi.OsgiScriptingEngines",
+            "leftSideLocations": [
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 39,
+                    "endLine": 57,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public evaluate(script String, language String, variableScope VariableScope) : Object"
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 41,
+                    "endLine": 41,
+                    "startColumn": 5,
+                    "endColumn": 38,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 43,
+                    "endLine": 43,
+                    "startColumn": 7,
+                    "endColumn": 61,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 45,
+                    "endLine": 45,
+                    "startColumn": 7,
+                    "endColumn": 93,
+                    "codeElementType": "THROW_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 53,
+                    "endLine": 53,
+                    "startColumn": 7,
+                    "endColumn": 50,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 55,
+                    "endLine": 55,
+                    "startColumn": 7,
+                    "endColumn": 86,
+                    "codeElementType": "THROW_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 49,
+                    "endLine": 49,
+                    "startColumn": 7,
+                    "endColumn": 62,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 42,
+                    "endLine": 46,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "TRY_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 44,
+                    "endLine": 46,
+                    "startColumn": 7,
+                    "endColumn": 6,
+                    "codeElementType": "CATCH_CLAUSE",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 48,
+                    "endLine": 50,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 52,
+                    "endLine": 56,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "TRY_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 54,
+                    "endLine": 56,
+                    "startColumn": 7,
+                    "endColumn": 6,
+                    "codeElementType": "CATCH_CLAUSE",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 48,
+                    "endLine": 50,
+                    "startColumn": 31,
+                    "endColumn": 6,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 50,
+                    "endLine": 68,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "protected evaluate(script String, language String, bindings Bindings) : Object"
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 52,
+                    "endLine": 52,
+                    "startColumn": 5,
+                    "endColumn": 38,
+                    "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 54,
+                    "endLine": 54,
+                    "startColumn": 7,
+                    "endColumn": 61,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 56,
+                    "endLine": 56,
+                    "startColumn": 7,
+                    "endColumn": 93,
+                    "codeElementType": "THROW_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 64,
+                    "endLine": 64,
+                    "startColumn": 7,
+                    "endColumn": 50,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 66,
+                    "endLine": 66,
+                    "startColumn": 7,
+                    "endColumn": 86,
+                    "codeElementType": "THROW_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 60,
+                    "endLine": 60,
+                    "startColumn": 7,
+                    "endColumn": 57,
+                    "codeElementType": "RETURN_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 53,
+                    "endLine": 57,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "TRY_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 55,
+                    "endLine": 57,
+                    "startColumn": 7,
+                    "endColumn": 6,
+                    "codeElementType": "CATCH_CLAUSE",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 59,
+                    "endLine": 61,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "IF_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 63,
+                    "endLine": 67,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "TRY_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 65,
+                    "endLine": 67,
+                    "startColumn": 7,
+                    "endColumn": 6,
+                    "codeElementType": "CATCH_CLAUSE",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 59,
+                    "endLine": 61,
+                    "startColumn": 31,
+                    "endColumn": 6,
+                    "codeElementType": "BLOCK",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 39,
+                    "endLine": 43,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public evaluate(script String, language String, variableScope VariableScope) : Object"
+                },
+                {
+                    "filePath": "modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java",
+                    "startLine": 42,
+                    "endLine": 42,
+                    "startColumn": 12,
+                    "endColumn": 48,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "evaluate(script,language,bindings)"
+                }
+            ]
+        }
+    }
+]

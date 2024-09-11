@@ -1,0 +1,421 @@
+[
+    {
+        "commit": "f0fa2f8fb76571b9037e394b11cb7daafaa04ca9",
+        "source": [
+            {
+                "element": "com.lmax.disruptor.RingBuffer.addGatingSequences(Sequence, Sequence...)",
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java",
+                "local": "L[151,175], C[5,5]"
+            }
+        ],
+        "target": [
+            {
+                "element": "com.lmax.disruptor.RingBuffer.addSequences(T, AtomicReferenceFieldUpdater<T,Sequence[]>, Sequence, Sequence...)",
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java",
+                "local": "L[157,186], C[5,5]"
+            }
+        ],
+        "type": "RENAME_METHOD",
+        "related": [
+            {
+                "Metric": "ADDED_PARAMETER",
+                "Method": "com.lmax.disruptor.RingBuffer",
+                "Local": "L[158,158], C[42,83]",
+                "Detail": {
+                    "method": "com.lmax.disruptor.RingBuffer.addSequences(T, AtomicReferenceFieldUpdater<T,Sequence[]>, Sequence, Sequence...)",
+                    "blockPos": "L[161,186], C[5,5]"
+                },
+                "Code": "private static <T>void addSequences(final T holder,AtomicReferenceFieldUpdater<T,Sequence[]> updater,final Sequence cursor,final Sequence... sequencesToAdd){\n  Sequence[] tempGatingSequences=null;\n  long cursorSequence;\n  Sequence[] currentSequences;\n  do {\n    currentSequences=updater.get(holder);\n    tempGatingSequences=copyOf(currentSequences,currentSequences.length + sequencesToAdd.length);\n    cursorSequence=cursor.get();\n    int index=currentSequences.length;\n    for (    Sequence sequence : sequencesToAdd) {\n      sequence.set(cursorSequence);\n      tempGatingSequences[index++]=sequence;\n    }\n  }\n while (!updater.compareAndSet(holder,currentSequences,tempGatingSequences));\n  cursorSequence=cursor.get();\n  for (  Sequence sequence : sequencesToAdd) {\n    sequence.set(cursorSequence);\n  }\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "ADDED_PARAMETER",
+                "Method": "com.lmax.disruptor.RingBuffer",
+                "Local": "L[157,157], C[48,48]",
+                "Detail": {
+                    "method": "com.lmax.disruptor.RingBuffer.addSequences(T, AtomicReferenceFieldUpdater<T,Sequence[]>, Sequence, Sequence...)",
+                    "blockPos": "L[161,186], C[5,5]"
+                },
+                "Code": "private static <T>void addSequences(final T holder,AtomicReferenceFieldUpdater<T,Sequence[]> updater,final Sequence cursor,final Sequence... sequencesToAdd){\n  Sequence[] tempGatingSequences=null;\n  long cursorSequence;\n  Sequence[] currentSequences;\n  do {\n    currentSequences=updater.get(holder);\n    tempGatingSequences=copyOf(currentSequences,currentSequences.length + sequencesToAdd.length);\n    cursorSequence=cursor.get();\n    int index=currentSequences.length;\n    for (    Sequence sequence : sequencesToAdd) {\n      sequence.set(cursorSequence);\n      tempGatingSequences[index++]=sequence;\n    }\n  }\n while (!updater.compareAndSet(holder,currentSequences,tempGatingSequences));\n  cursorSequence=cursor.get();\n  for (  Sequence sequence : sequencesToAdd) {\n    sequence.set(cursorSequence);\n  }\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "RENAME_ELEMENT",
+                "Method": "com.lmax.disruptor.RingBuffer",
+                "Local": "L[157,186], C[5,5]",
+                "Detail": {
+                    "method": "com.lmax.disruptor.RingBuffer.addSequences(T, AtomicReferenceFieldUpdater<T,Sequence[]>, Sequence, Sequence...)",
+                    "blockPos": "L[161,186], C[5,5]"
+                },
+                "Code": "private static <T>void addSequences(final T holder,AtomicReferenceFieldUpdater<T,Sequence[]> updater,final Sequence cursor,final Sequence... sequencesToAdd){\n  Sequence[] tempGatingSequences=null;\n  long cursorSequence;\n  Sequence[] currentSequences;\n  do {\n    currentSequences=updater.get(holder);\n    tempGatingSequences=copyOf(currentSequences,currentSequences.length + sequencesToAdd.length);\n    cursorSequence=cursor.get();\n    int index=currentSequences.length;\n    for (    Sequence sequence : sequencesToAdd) {\n      sequence.set(cursorSequence);\n      tempGatingSequences[index++]=sequence;\n    }\n  }\n while (!updater.compareAndSet(holder,currentSequences,tempGatingSequences));\n  cursorSequence=cursor.get();\n  for (  Sequence sequence : sequencesToAdd) {\n    sequence.set(cursorSequence);\n  }\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "ADDED_DOSTATEMENT",
+                "Method": "com.lmax.disruptor.RingBuffer.addSequences(T, AtomicReferenceFieldUpdater<T,Sequence[]>, Sequence, Sequence...)",
+                "Local": "L[166,179], C[9,86]",
+                "Detail": null,
+                "Code": "do {\n  currentSequences=updater.get(holder);\n  tempGatingSequences=copyOf(currentSequences,currentSequences.length + sequencesToAdd.length);\n  cursorSequence=cursor.get();\n  int index=currentSequences.length;\n  for (  Sequence sequence : sequencesToAdd) {\n    sequence.set(cursorSequence);\n    tempGatingSequences[index++]=sequence;\n  }\n}\n while (!updater.compareAndSet(holder,currentSequences,tempGatingSequences));\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "REMOVED_DOSTATEMENT",
+                "Method": "com.lmax.disruptor.RingBuffer.addGatingSequences(Sequence, Sequence...)",
+                "Local": "L[156,168], C[9,91]",
+                "Detail": null,
+                "Code": "do {\n  tempGatingSequences=copyOf(gatingSequences,gatingSequences.length + sequences.length);\n  cursorSequence=cursor.get();\n  int index=gatingSequences.length;\n  for (  Sequence sequence : sequences) {\n    sequence.set(cursorSequence);\n    tempGatingSequences[index++]=sequence;\n  }\n}\n while (!sequenceUpdater.compareAndSet(this,gatingSequences,tempGatingSequences));\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "ADDED_ENHANCEDFORSTATEMENT",
+                "Method": "com.lmax.disruptor.RingBuffer.addSequences(T, AtomicReferenceFieldUpdater<T,Sequence[]>, Sequence, Sequence...)",
+                "Local": "L[182,185], C[9,9]",
+                "Detail": null,
+                "Code": "for (Sequence sequence : sequencesToAdd) {\n  sequence.set(cursorSequence);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "REMOVED_ENHANCEDFORSTATEMENT",
+                "Method": "com.lmax.disruptor.RingBuffer.addGatingSequences(Sequence, Sequence...)",
+                "Local": "L[171,174], C[9,9]",
+                "Detail": null,
+                "Code": "for (Sequence sequence : tempGatingSequences) {\n  sequence.set(cursorSequence);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.lmax.disruptor.RingBuffer.addSequences(T, AtomicReferenceFieldUpdater<T,Sequence[]>, Sequence, Sequence...)",
+                "Local": "L[164,164], C[9,36]",
+                "Detail": null,
+                "Code": "Sequence[] currentSequences;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.lmax.disruptor.RingBuffer.addSequences(T, AtomicReferenceFieldUpdater<T,Sequence[]>, Sequence, Sequence...)",
+                "Local": "L[168,168], C[32,50]",
+                "Detail": null,
+                "Code": "updater.get(holder)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.lmax.disruptor.RingBuffer.addSequences(T, AtomicReferenceFieldUpdater<T,Sequence[]>, Sequence, Sequence...)",
+                "Local": "L[179,179], C[17,84]",
+                "Detail": null,
+                "Code": "updater.compareAndSet(holder,currentSequences,tempGatingSequences)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.lmax.disruptor.RingBuffer.addGatingSequences(Sequence, Sequence...)",
+                "Local": "L[168,168], C[17,89]",
+                "Detail": null,
+                "Code": "sequenceUpdater.compareAndSet(this,gatingSequences,tempGatingSequences)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "com.lmax.disruptor.RingBuffer.addSequences(T, AtomicReferenceFieldUpdater<T,Sequence[]>, Sequence, Sequence...).SingleVariableDeclaration",
+                "Local": "L[158,158], C[42,83]",
+                "Detail": null,
+                "Code": "AtomicReferenceFieldUpdater<T,Sequence[]>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "com.lmax.disruptor.RingBuffer.addSequences(T, AtomicReferenceFieldUpdater<T,Sequence[]>, Sequence, Sequence...)",
+                "Local": "L[172,172], C[13,48]",
+                "Detail": null,
+                "Code": "int index=currentSequences.length;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "com.lmax.disruptor.RingBuffer.addGatingSequences(Sequence, Sequence...)",
+                "Local": "L[161,161], C[13,47]",
+                "Detail": null,
+                "Code": "int index=gatingSequences.length;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "ADDED_ENHANCEDFORSTATEMENT",
+                "Method": "com.lmax.disruptor.RingBuffer.addSequences(T, AtomicReferenceFieldUpdater<T,Sequence[]>, Sequence, Sequence...)",
+                "Local": "L[173,177], C[13,13]",
+                "Detail": null,
+                "Code": "for (Sequence sequence : sequencesToAdd) {\n  sequence.set(cursorSequence);\n  tempGatingSequences[index++]=sequence;\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "REMOVED_ENHANCEDFORSTATEMENT",
+                "Method": "com.lmax.disruptor.RingBuffer.addGatingSequences(Sequence, Sequence...)",
+                "Local": "L[162,166], C[13,13]",
+                "Detail": null,
+                "Code": "for (Sequence sequence : sequences) {\n  sequence.set(cursorSequence);\n  tempGatingSequences[index++]=sequence;\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "com.lmax.disruptor.RingBuffer.addSequences(T, AtomicReferenceFieldUpdater<T,Sequence[]>, Sequence, Sequence...)",
+                "Local": "L[169,169], C[13,108]",
+                "Detail": null,
+                "Code": "tempGatingSequences=copyOf(currentSequences,currentSequences.length + sequencesToAdd.length);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "com.lmax.disruptor.RingBuffer.addGatingSequences(Sequence, Sequence...)",
+                "Local": "L[158,158], C[13,101]",
+                "Detail": null,
+                "Code": "tempGatingSequences=copyOf(gatingSequences,gatingSequences.length + sequences.length);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "com.lmax.disruptor.RingBuffer.addSequences(T, AtomicReferenceFieldUpdater<T,Sequence[]>, Sequence, Sequence...)",
+                "Local": "L[168,168], C[13,51]",
+                "Detail": null,
+                "Code": "currentSequences=updater.get(holder);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "REMOVED_ThisExpression",
+                "Method": "com.lmax.disruptor.RingBuffer.addGatingSequences(Sequence, Sequence...).compareAndSet(UNKNOWN, UNKNOWN, UNKNOWN)",
+                "Local": "L[168,168], C[47,50]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "com.lmax.disruptor.RingBuffer.addSequences(T, AtomicReferenceFieldUpdater<T,Sequence[]>, Sequence, Sequence...)",
+                "Local": "L[169,169], C[35,107]",
+                "Detail": null,
+                "Code": "copyOf(currentSequences,currentSequences.length + sequencesToAdd.length)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "com.lmax.disruptor.RingBuffer.addGatingSequences(Sequence, Sequence...)",
+                "Local": "L[158,158], C[35,100]",
+                "Detail": null,
+                "Code": "copyOf(gatingSequences,gatingSequences.length + sequences.length)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "com.lmax.disruptor.RingBuffer.addSequences(T, AtomicReferenceFieldUpdater<T,Sequence[]>, Sequence, Sequence...)",
+                "Local": "L[157,157], C[13,18]",
+                "Detail": null,
+                "Code": "static",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "ADDED_TypeParameter",
+                "Method": "com.lmax.disruptor.RingBuffer.addSequences(T, AtomicReferenceFieldUpdater<T,Sequence[]>, Sequence, Sequence...)",
+                "Local": "L[157,157], C[21,21]",
+                "Detail": null,
+                "Code": "T",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "ADDED_PrefixExpression",
+                "Method": "com.lmax.disruptor.RingBuffer.addSequences(T, AtomicReferenceFieldUpdater<T,Sequence[]>, Sequence, Sequence...)",
+                "Local": "L[179,179], C[16,84]",
+                "Detail": null,
+                "Code": "!updater.compareAndSet(holder,currentSequences,tempGatingSequences)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "REMOVED_PrefixExpression",
+                "Method": "com.lmax.disruptor.RingBuffer.addGatingSequences(Sequence, Sequence...)",
+                "Local": "L[168,168], C[16,89]",
+                "Detail": null,
+                "Code": "!sequenceUpdater.compareAndSet(this,gatingSequences,tempGatingSequences)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "com.lmax.disruptor.RingBuffer.addSequences(T, AtomicReferenceFieldUpdater<T,Sequence[]>, Sequence, Sequence...).copyOf(Object[], int)",
+                "Local": "L[169,169], C[60,106]",
+                "Detail": null,
+                "Code": "currentSequences.length + sequencesToAdd.length",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "com.lmax.disruptor.RingBuffer.addGatingSequences(Sequence, Sequence...).copyOf(Object[], int)",
+                "Local": "L[158,158], C[59,99]",
+                "Detail": null,
+                "Code": "gatingSequences.length + sequences.length",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "ADDED_Javadoc",
+                "Method": "com.lmax.disruptor.RingBuffer.addGatingSequences(Sequence...)",
+                "Local": "L[146,151], C[5,7]",
+                "Detail": null,
+                "Code": "/** \n * Add the specified gating sequences to this instance of the Disruptor.  They will safely and atomically added to the list of gating sequences.\n * @param gatingSequences The sequences to add.\n */\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "METHOD_CALL_ARGUMENTS_CHANGE",
+                "Method": "com.lmax.disruptor.RingBuffer.addGatingSequences(Sequence...).addSequences(Object, AtomicReferenceFieldUpdater, Sequence, Sequence[])",
+                "Local": "L[154,154], C[9,68]",
+                "Detail": null,
+                "Code": "addSequences(this,sequenceUpdater,cursor,gatingSequences)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "ADDED_ThisExpression",
+                "Method": "com.lmax.disruptor.RingBuffer.addGatingSequences(Sequence...).addSequences(Object, AtomicReferenceFieldUpdater, Sequence, Sequence[])",
+                "Local": "L[154,154], C[22,25]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "com.lmax.disruptor.RingBuffer.addGatingSequences(Sequence...)",
+                "Local": "L[147,148], C[8,67]",
+                "Detail": null,
+                "Code": "\n * Add the specified gating sequences to this instance of the Disruptor.  They will safely and atomically added to the list of gating sequences.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "com.lmax.disruptor.RingBuffer.addGatingSequences(Sequence...)",
+                "Local": "L[150,150], C[8,51]",
+                "Detail": null,
+                "Code": "\n * @param gatingSequences The sequences to add.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "com.lmax.disruptor.RingBuffer.addGatingSequences(Sequence...)",
+                "Local": "L[150,150], C[30,51]",
+                "Detail": null,
+                "Code": " The sequences to add.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "com.lmax.disruptor.RingBuffer.addGatingSequences(Sequence...)",
+                "Local": "L[147,147], C[8,87]",
+                "Detail": null,
+                "Code": "Add the specified gating sequences to this instance of the Disruptor.  They will",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "com.lmax.disruptor.RingBuffer.addGatingSequences(Sequence...)",
+                "Local": "L[148,148], C[8,67]",
+                "Detail": null,
+                "Code": "safely and atomically added to the list of gating sequences.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/com/lmax/disruptor/RingBuffer.java"
+            }
+        ],
+        "metadata": {
+            "type": "Rename Method",
+            "description": "Rename Method private addGatingSequences(cursor Sequence, sequences Sequence...) : void renamed to private addSequences(holder T, updater AtomicReferenceFieldUpdater<T,Sequence[]>, cursor Sequence, sequencesToAdd Sequence...) : void in class com.lmax.disruptor.RingBuffer",
+            "leftSideLocations": [
+                {
+                    "filePath": "src/main/java/com/lmax/disruptor/RingBuffer.java",
+                    "startLine": 151,
+                    "endLine": 175,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "private addGatingSequences(cursor Sequence, sequences Sequence...) : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "src/main/java/com/lmax/disruptor/RingBuffer.java",
+                    "startLine": 157,
+                    "endLine": 186,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "renamed method declaration",
+                    "codeElement": "private addSequences(holder T, updater AtomicReferenceFieldUpdater<T,Sequence[]>, cursor Sequence, sequencesToAdd Sequence...) : void"
+                }
+            ]
+        }
+    }
+]

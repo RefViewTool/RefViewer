@@ -1,0 +1,582 @@
+[
+    {
+        "commit": "66646796c2173423655c7faf2b458b658143e6b5",
+        "source": [
+            {
+                "element": "org.apache.zookeeper.server.quorum.FollowerZooKeeperServer.shutdown()",
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/FollowerZooKeeperServer.java",
+                "local": "L[134,150], C[5,5]"
+            }
+        ],
+        "target": [
+            {
+                "element": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer.shutdown()",
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java",
+                "local": "L[159,175], C[5,5]"
+            }
+        ],
+        "type": "PULL_UP",
+        "related": [
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer",
+                "Local": "L[159,175], C[5,5]",
+                "Detail": {
+                    "method": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer.shutdown()",
+                    "blockPos": "L[160,175], C[28,5]"
+                },
+                "Code": "@Override public void shutdown(){\n  LOG.info(\"Shutting down\");\n  try {\n    super.shutdown();\n  }\n catch (  Exception e) {\n    LOG.warn(\"Ignoring unexpected exception during shutdown\",e);\n  }\n  try {\n    if (syncProcessor != null) {\n      syncProcessor.shutdown();\n    }\n  }\n catch (  Exception e) {\n    LOG.warn(\"Ignoring unexpected exception in syncprocessor shutdown\",e);\n  }\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "org.apache.zookeeper.server.quorum.FollowerZooKeeperServer",
+                "Local": "L[134,150], C[5,5]",
+                "Detail": {
+                    "method": "org.apache.zookeeper.server.quorum.FollowerZooKeeperServer.shutdown()",
+                    "blockPos": "L[135,150], C[28,5]"
+                },
+                "Code": "@Override public void shutdown(){\n  LOG.info(\"Shutting down\");\n  try {\n    super.shutdown();\n  }\n catch (  Exception e) {\n    LOG.warn(\"Ignoring unexpected exception during shutdown\",e);\n  }\n  try {\n    if (syncProcessor != null) {\n      syncProcessor.shutdown();\n    }\n  }\n catch (  Exception e) {\n    LOG.warn(\"Ignoring unexpected exception in syncprocessor shutdown\",e);\n  }\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/FollowerZooKeeperServer.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "org.apache.zookeeper.server.quorum.FollowerZooKeeperServer.shutdown()",
+                "Local": "L[143,143], C[17,37]",
+                "Detail": null,
+                "Code": "syncProcessor != null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/FollowerZooKeeperServer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.zookeeper.server.quorum.FollowerZooKeeperServer.shutdown()",
+                "Local": "L[147,148], C[13,22]",
+                "Detail": null,
+                "Code": "LOG.warn(\"Ignoring unexpected exception in syncprocessor shutdown\",e)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/FollowerZooKeeperServer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.zookeeper.server.quorum.FollowerZooKeeperServer.shutdown()",
+                "Local": "L[144,144], C[17,40]",
+                "Detail": null,
+                "Code": "syncProcessor.shutdown()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/FollowerZooKeeperServer.java"
+            },
+            {
+                "Metric": "REMOVED_CATCH_CLAUSE",
+                "Method": "org.apache.zookeeper.server.quorum.FollowerZooKeeperServer.shutdown()",
+                "Local": "L[146,149], C[11,9]",
+                "Detail": null,
+                "Code": "catch (Exception e) {\n  LOG.warn(\"Ignoring unexpected exception in syncprocessor shutdown\",e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/FollowerZooKeeperServer.java"
+            },
+            {
+                "Metric": "REMOVED_CatchClause",
+                "Method": "org.apache.zookeeper.server.quorum.FollowerZooKeeperServer.shutdown()",
+                "Local": "L[146,149], C[11,9]",
+                "Detail": null,
+                "Code": "catch (Exception e) {\n  LOG.warn(\"Ignoring unexpected exception in syncprocessor shutdown\",e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/FollowerZooKeeperServer.java"
+            },
+            {
+                "Metric": "REMOVED_FieldDeclaration",
+                "Method": "org.apache.zookeeper.server.quorum.FollowerZooKeeperServer",
+                "Local": "L[49,49], C[5,39]",
+                "Detail": {
+                    "previousVar": "org.apache.zookeeper.server.quorum.FollowerZooKeeperServer>>>syncProcessor[36,161]"
+                },
+                "Code": "SyncRequestProcessor syncProcessor;\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/FollowerZooKeeperServer.java"
+            },
+            {
+                "Metric": "REMOVED_NullLiteral",
+                "Method": "org.apache.zookeeper.server.quorum.FollowerZooKeeperServer.shutdown()",
+                "Local": "L[143,143], C[34,37]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/FollowerZooKeeperServer.java"
+            },
+            {
+                "Metric": "REMOVED_CATCH_CLAUSE",
+                "Method": "org.apache.zookeeper.server.quorum.FollowerZooKeeperServer.shutdown()",
+                "Local": "L[139,141], C[11,9]",
+                "Detail": null,
+                "Code": "catch (Exception e) {\n  LOG.warn(\"Ignoring unexpected exception during shutdown\",e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/FollowerZooKeeperServer.java"
+            },
+            {
+                "Metric": "REMOVED_CatchClause",
+                "Method": "org.apache.zookeeper.server.quorum.FollowerZooKeeperServer.shutdown()",
+                "Local": "L[139,141], C[11,9]",
+                "Detail": null,
+                "Code": "catch (Exception e) {\n  LOG.warn(\"Ignoring unexpected exception during shutdown\",e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/FollowerZooKeeperServer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.zookeeper.server.quorum.FollowerZooKeeperServer.shutdown()",
+                "Local": "L[136,136], C[9,33]",
+                "Detail": null,
+                "Code": "LOG.info(\"Shutting down\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/FollowerZooKeeperServer.java"
+            },
+            {
+                "Metric": "REMOVED_TRY_CATCH",
+                "Method": "org.apache.zookeeper.server.quorum.FollowerZooKeeperServer.shutdown()",
+                "Local": "L[137,141], C[9,9]",
+                "Detail": null,
+                "Code": "try {\n  super.shutdown();\n}\n catch (Exception e) {\n  LOG.warn(\"Ignoring unexpected exception during shutdown\",e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/FollowerZooKeeperServer.java"
+            },
+            {
+                "Metric": "REMOVED_TRYSTATEMENT",
+                "Method": "org.apache.zookeeper.server.quorum.FollowerZooKeeperServer.shutdown()",
+                "Local": "L[137,141], C[9,9]",
+                "Detail": null,
+                "Code": "try {\n  super.shutdown();\n}\n catch (Exception e) {\n  LOG.warn(\"Ignoring unexpected exception during shutdown\",e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/FollowerZooKeeperServer.java"
+            },
+            {
+                "Metric": "REMOVED_TRY_CATCH",
+                "Method": "org.apache.zookeeper.server.quorum.FollowerZooKeeperServer.shutdown()",
+                "Local": "L[142,149], C[9,9]",
+                "Detail": null,
+                "Code": "try {\n  if (syncProcessor != null) {\n    syncProcessor.shutdown();\n  }\n}\n catch (Exception e) {\n  LOG.warn(\"Ignoring unexpected exception in syncprocessor shutdown\",e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/FollowerZooKeeperServer.java"
+            },
+            {
+                "Metric": "REMOVED_TRYSTATEMENT",
+                "Method": "org.apache.zookeeper.server.quorum.FollowerZooKeeperServer.shutdown()",
+                "Local": "L[142,149], C[9,9]",
+                "Detail": null,
+                "Code": "try {\n  if (syncProcessor != null) {\n    syncProcessor.shutdown();\n  }\n}\n catch (Exception e) {\n  LOG.warn(\"Ignoring unexpected exception in syncprocessor shutdown\",e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/FollowerZooKeeperServer.java"
+            },
+            {
+                "Metric": "REMOVED_MarkerAnnotation",
+                "Method": "org.apache.zookeeper.server.quorum.FollowerZooKeeperServer.shutdown()",
+                "Local": "L[134,134], C[5,13]",
+                "Detail": null,
+                "Code": "@Override",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/FollowerZooKeeperServer.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.apache.zookeeper.server.quorum.FollowerZooKeeperServer.shutdown()",
+                "Local": "L[135,135], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/FollowerZooKeeperServer.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "org.apache.zookeeper.server.quorum.FollowerZooKeeperServer.shutdown()",
+                "Local": "L[143,145], C[40,13]",
+                "Detail": null,
+                "Code": "{\n  syncProcessor.shutdown();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/FollowerZooKeeperServer.java"
+            },
+            {
+                "Metric": "REMOVED_SuperMethodInvocation",
+                "Method": "org.apache.zookeeper.server.quorum.FollowerZooKeeperServer.shutdown()",
+                "Local": "L[138,138], C[13,28]",
+                "Detail": null,
+                "Code": "super.shutdown()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/FollowerZooKeeperServer.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "org.apache.zookeeper.server.quorum.FollowerZooKeeperServer.shutdown()",
+                "Local": "L[138,138], C[13,29]",
+                "Detail": null,
+                "Code": "super.shutdown();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/FollowerZooKeeperServer.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.zookeeper.server.quorum.FollowerZooKeeperServer.shutdown()",
+                "Local": "L[140,140], C[13,72]",
+                "Detail": null,
+                "Code": "LOG.warn(\"Ignoring unexpected exception during shutdown\",e)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/FollowerZooKeeperServer.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer.shutdown()",
+                "Local": "L[163,163], C[13,29]",
+                "Detail": null,
+                "Code": "super.shutdown();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            },
+            {
+                "Metric": "ADDED_SuperMethodInvocation",
+                "Method": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer.shutdown()",
+                "Local": "L[163,163], C[13,28]",
+                "Detail": null,
+                "Code": "super.shutdown()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer.shutdown()",
+                "Local": "L[161,161], C[9,33]",
+                "Detail": null,
+                "Code": "LOG.info(\"Shutting down\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer.shutdown()",
+                "Local": "L[168,170], C[40,13]",
+                "Detail": null,
+                "Code": "{\n  syncProcessor.shutdown();\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            },
+            {
+                "Metric": "ADDED_MarkerAnnotation",
+                "Method": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer.shutdown()",
+                "Local": "L[159,159], C[5,13]",
+                "Detail": null,
+                "Code": "@Override",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer.shutdown()",
+                "Local": "L[160,160], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer.shutdown()",
+                "Local": "L[172,173], C[13,22]",
+                "Detail": null,
+                "Code": "LOG.warn(\"Ignoring unexpected exception in syncprocessor shutdown\",e)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            },
+            {
+                "Metric": "ADDED_TRY_CATCH",
+                "Method": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer.shutdown()",
+                "Local": "L[162,166], C[9,9]",
+                "Detail": null,
+                "Code": "try {\n  super.shutdown();\n}\n catch (Exception e) {\n  LOG.warn(\"Ignoring unexpected exception during shutdown\",e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            },
+            {
+                "Metric": "ADDED_CATCH_CLAUSE",
+                "Method": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer.shutdown()",
+                "Local": "L[164,166], C[11,9]",
+                "Detail": null,
+                "Code": "catch (Exception e) {\n  LOG.warn(\"Ignoring unexpected exception during shutdown\",e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            },
+            {
+                "Metric": "ADDED_CatchClause",
+                "Method": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer.shutdown()",
+                "Local": "L[164,166], C[11,9]",
+                "Detail": null,
+                "Code": "catch (Exception e) {\n  LOG.warn(\"Ignoring unexpected exception during shutdown\",e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            },
+            {
+                "Metric": "ADDED_TRYSTATEMENT",
+                "Method": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer.shutdown()",
+                "Local": "L[162,166], C[9,9]",
+                "Detail": null,
+                "Code": "try {\n  super.shutdown();\n}\n catch (Exception e) {\n  LOG.warn(\"Ignoring unexpected exception during shutdown\",e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            },
+            {
+                "Metric": "ADDED_TRYSTATEMENT",
+                "Method": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer.shutdown()",
+                "Local": "L[167,174], C[9,9]",
+                "Detail": null,
+                "Code": "try {\n  if (syncProcessor != null) {\n    syncProcessor.shutdown();\n  }\n}\n catch (Exception e) {\n  LOG.warn(\"Ignoring unexpected exception in syncprocessor shutdown\",e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            },
+            {
+                "Metric": "ADDED_TRY_CATCH",
+                "Method": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer.shutdown()",
+                "Local": "L[167,174], C[9,9]",
+                "Detail": null,
+                "Code": "try {\n  if (syncProcessor != null) {\n    syncProcessor.shutdown();\n  }\n}\n catch (Exception e) {\n  LOG.warn(\"Ignoring unexpected exception in syncprocessor shutdown\",e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            },
+            {
+                "Metric": "ADDED_CATCH_CLAUSE",
+                "Method": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer.shutdown()",
+                "Local": "L[171,174], C[11,9]",
+                "Detail": null,
+                "Code": "catch (Exception e) {\n  LOG.warn(\"Ignoring unexpected exception in syncprocessor shutdown\",e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            },
+            {
+                "Metric": "ADDED_CatchClause",
+                "Method": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer.shutdown()",
+                "Local": "L[171,174], C[11,9]",
+                "Detail": null,
+                "Code": "catch (Exception e) {\n  LOG.warn(\"Ignoring unexpected exception in syncprocessor shutdown\",e);\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer.shutdown()",
+                "Local": "L[168,168], C[17,37]",
+                "Detail": null,
+                "Code": "syncProcessor != null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            },
+            {
+                "Metric": "ADDED_FieldDeclaration",
+                "Method": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer",
+                "Local": "L[43,43], C[5,49]",
+                "Detail": {
+                    "previousVar": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer>>>syncProcessor[34,176]"
+                },
+                "Code": "protected SyncRequestProcessor syncProcessor;\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer.shutdown()",
+                "Local": "L[165,165], C[13,72]",
+                "Detail": null,
+                "Code": "LOG.warn(\"Ignoring unexpected exception during shutdown\",e)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            },
+            {
+                "Metric": "ADDED_NullLiteral",
+                "Method": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer.shutdown()",
+                "Local": "L[168,168], C[34,37]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer.shutdown()",
+                "Local": "L[169,169], C[17,40]",
+                "Detail": null,
+                "Code": "syncProcessor.shutdown()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "REMOVED_FieldDeclaration",
+                "Method": "org.apache.zookeeper.server.quorum.FollowerZooKeeperServer",
+                "Local": "L[47,47], C[5,36]",
+                "Detail": null,
+                "Code": "CommitProcessor commitProcessor;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/FollowerZooKeeperServer.java"
+            },
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "org.apache.zookeeper.server.quorum.CompilationUnit",
+                "Local": "L[29,29], C[1,56]",
+                "Detail": null,
+                "Code": "import org.apache.zookeeper.server.SyncRequestProcessor;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "org.apache.zookeeper.server.quorum.CompilationUnit",
+                "Local": "L[29,29], C[1,56]",
+                "Detail": null,
+                "Code": "import org.apache.zookeeper.server.SyncRequestProcessor;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer.FieldDeclaration",
+                "Local": "L[42,42], C[5,13]",
+                "Detail": null,
+                "Code": "protected",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            },
+            {
+                "Metric": "ADDED_FieldDeclaration",
+                "Method": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer",
+                "Local": "L[42,42], C[5,46]",
+                "Detail": null,
+                "Code": "protected CommitProcessor commitProcessor;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.zookeeper.server.quorum.LearnerZooKeeperServer.FieldDeclaration",
+                "Local": "L[43,43], C[5,13]",
+                "Detail": null,
+                "Code": "protected",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java"
+            },
+            {
+                "Metric": "REMOVED_FieldDeclaration",
+                "Method": "org.apache.zookeeper.server.quorum.ObserverZooKeeperServer",
+                "Local": "L[51,51], C[5,44]",
+                "Detail": null,
+                "Code": "private CommitProcessor commitProcessor;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/ObserverZooKeeperServer.java"
+            },
+            {
+                "Metric": "REMOVED_FieldDeclaration",
+                "Method": "org.apache.zookeeper.server.quorum.ObserverZooKeeperServer",
+                "Local": "L[52,52], C[5,47]",
+                "Detail": null,
+                "Code": "private SyncRequestProcessor syncProcessor;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/ObserverZooKeeperServer.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.apache.zookeeper.server.quorum.ObserverZooKeeperServer.FieldDeclaration",
+                "Local": "L[52,52], C[5,11]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/ObserverZooKeeperServer.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.apache.zookeeper.server.quorum.ObserverZooKeeperServer.FieldDeclaration",
+                "Local": "L[51,51], C[5,11]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/java/main/org/apache/zookeeper/server/quorum/ObserverZooKeeperServer.java"
+            }
+        ],
+        "metadata": {
+            "type": "Pull Up Method",
+            "description": "Pull Up Method public shutdown() : void from class org.apache.zookeeper.server.quorum.FollowerZooKeeperServer to public shutdown() : void from class org.apache.zookeeper.server.quorum.LearnerZooKeeperServer",
+            "leftSideLocations": [
+                {
+                    "filePath": "src/java/main/org/apache/zookeeper/server/quorum/FollowerZooKeeperServer.java",
+                    "startLine": 134,
+                    "endLine": 150,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public shutdown() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java",
+                    "startLine": 159,
+                    "endLine": 175,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "pulled up method declaration",
+                    "codeElement": "public shutdown() : void"
+                }
+            ]
+        }
+    }
+]

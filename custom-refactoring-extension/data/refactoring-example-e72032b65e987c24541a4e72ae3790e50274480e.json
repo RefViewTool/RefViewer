@@ -1,0 +1,365 @@
+[
+    {
+      "commit": "e72032b65e987c24541a4e72ae3790e50274480e",
+      "source": [
+        {
+          "element": "extractmethod.Calculadora.printResult(int, double)",
+          "file": "src/extractmethod/Calculadora.java",
+          "local": "L[14,21], C[5,5]"
+        }
+      ],
+      "target": [
+        {
+          "element": "extractmethod.Calculadora.main(String[])",
+          "file": "src/extractmethod/Calculadora.java",
+          "local": "L[5,15], C[5,5]"
+        }
+      ],
+      "type": "INLINE_METHOD",
+      "related": [
+        {
+          "Metric": "REMOVED_METHOD",
+          "Method": "extractmethod.Calculadora",
+          "Local": "L[14,21], C[5,5]",
+          "Detail": {
+            "method": "extractmethod.Calculadora.printResult(int, double)",
+            "blockPos": "L[14,21], C[61,5]"
+          },
+          "Code": "private static void printResult(int soma,double media){\n  System.out.println(\"A soma dos números é: \" + soma);\n  System.out.println(\"A média dos números é: \" + media);\n  int aditionalVariable=soma + media;\n  int layerTwo=aditionalVariable + 1;\n}\n",
+          "relationType": "MENTIONED_DECLARATION",
+          "distance": 0,
+          "file": "src/extractmethod/Calculadora.java"
+        },
+        {
+          "Metric": "ADDED_METHOD_CALL",
+          "Method": "extractmethod.Calculadora.main(String[])",
+          "Local": "L[14,14], C[36,55]",
+          "Detail": null,
+          "Code": "Double.valueOf(soma)",
+          "relationType": "MENTIONED",
+          "distance": 0,
+          "file": "src/extractmethod/Calculadora.java"
+        },
+        {
+          "Metric": "REMOVED_METHOD_CALL",
+          "Method": "extractmethod.Calculadora.newMethodOnlyToCall()",
+          "Local": "L[25,25], C[9,25]",
+          "Detail": null,
+          "Code": "printResult(0,0)",
+          "relationType": "CALL_SOURCE",
+          "distance": 1,
+          "file": "src/extractmethod/Calculadora.java"
+        },
+        {
+          "Metric": "REMOVED_InfixExpression",
+          "Method": "extractmethod.Calculadora.printResult(int, double)",
+          "Local": "L[18,18], C[33,44]",
+          "Detail": null,
+          "Code": "soma + media",
+          "relationType": "MENTIONED",
+          "distance": 0,
+          "file": "src/extractmethod/Calculadora.java"
+        },
+        {
+          "Metric": "REMOVED_InfixExpression",
+          "Method": "extractmethod.Calculadora.printResult(int, double)",
+          "Local": "L[20,20], C[24,44]",
+          "Detail": null,
+          "Code": "aditionalVariable + 1",
+          "relationType": "MENTIONED",
+          "distance": 0,
+          "file": "src/extractmethod/Calculadora.java"
+        },
+        {
+          "Metric": "ADDED_METHOD_CALL",
+          "Method": "extractmethod.Calculadora.main(String[])",
+          "Local": "L[11,11], C[9,59]",
+          "Detail": null,
+          "Code": "System.out.println(\"A soma dos números é: \" + soma)",
+          "relationType": "MENTIONED",
+          "distance": 0,
+          "file": "src/extractmethod/Calculadora.java"
+        },
+        {
+          "Metric": "REMOVED_METHOD_CALL",
+          "Method": "extractmethod.Calculadora.printResult(int, double)",
+          "Local": "L[15,15], C[9,59]",
+          "Detail": null,
+          "Code": "System.out.println(\"A soma dos números é: \" + soma)",
+          "relationType": "MENTIONED",
+          "distance": 0,
+          "file": "src/extractmethod/Calculadora.java"
+        },
+        {
+          "Metric": "ADDED_METHOD_CALL",
+          "Method": "extractmethod.Calculadora.main(String[])",
+          "Local": "L[12,12], C[9,61]",
+          "Detail": null,
+          "Code": "System.out.println(\"A média dos números é: \" + media)",
+          "relationType": "MENTIONED",
+          "distance": 0,
+          "file": "src/extractmethod/Calculadora.java"
+        },
+        {
+          "Metric": "REMOVED_METHOD_CALL",
+          "Method": "extractmethod.Calculadora.printResult(int, double)",
+          "Local": "L[16,16], C[9,61]",
+          "Detail": null,
+          "Code": "System.out.println(\"A média dos números é: \" + media)",
+          "relationType": "MENTIONED",
+          "distance": 0,
+          "file": "src/extractmethod/Calculadora.java"
+        },
+        {
+          "Metric": "REMOVED_Modifier",
+          "Method": "extractmethod.Calculadora.printResult(int, double)",
+          "Local": "L[14,14], C[5,11]",
+          "Detail": null,
+          "Code": "private",
+          "relationType": "SIGNATURE",
+          "distance": 1,
+          "file": "src/extractmethod/Calculadora.java"
+        },
+        {
+          "Metric": "REMOVED_Modifier",
+          "Method": "extractmethod.Calculadora.printResult(int, double)",
+          "Local": "L[14,14], C[13,18]",
+          "Detail": null,
+          "Code": "static",
+          "relationType": "SIGNATURE",
+          "distance": 1,
+          "file": "src/extractmethod/Calculadora.java"
+        },
+        {
+          "Metric": "REMOVED_VARIABLE",
+          "Method": "extractmethod.Calculadora.printResult(int, double)",
+          "Local": "L[18,18], C[9,45]",
+          "Detail": null,
+          "Code": "int aditionalVariable=soma + media;\n",
+          "relationType": "MENTIONED",
+          "distance": 0,
+          "file": "src/extractmethod/Calculadora.java"
+        },
+        {
+          "Metric": "REMOVED_VARIABLE",
+          "Method": "extractmethod.Calculadora.printResult(int, double)",
+          "Local": "L[20,20], C[9,45]",
+          "Detail": null,
+          "Code": "int layerTwo=aditionalVariable + 1;\n",
+          "relationType": "MENTIONED",
+          "distance": 0,
+          "file": "src/extractmethod/Calculadora.java"
+        },
+        {
+          "Metric": "ADDED_VARIABLE",
+          "Method": "extractmethod.Calculadora.main(String[])",
+          "Local": "L[14,14], C[9,64]",
+          "Detail": null,
+          "Code": "double aditionalVariable=Double.valueOf(soma) + media;\n",
+          "relationType": "MENTIONED",
+          "distance": 0,
+          "file": "src/extractmethod/Calculadora.java"
+        },
+        {
+          "Metric": "ADDED_InfixExpression",
+          "Method": "extractmethod.Calculadora.main(String[]).println(String)",
+          "Local": "L[11,11], C[28,58]",
+          "Detail": null,
+          "Code": "\"A soma dos números é: \" + soma",
+          "relationType": "MENTIONED",
+          "distance": 0,
+          "file": "src/extractmethod/Calculadora.java"
+        },
+        {
+          "Metric": "REMOVED_InfixExpression",
+          "Method": "extractmethod.Calculadora.printResult(int, double).println(String)",
+          "Local": "L[15,15], C[28,58]",
+          "Detail": null,
+          "Code": "\"A soma dos números é: \" + soma",
+          "relationType": "MENTIONED",
+          "distance": 0,
+          "file": "src/extractmethod/Calculadora.java"
+        },
+        {
+          "Metric": "REMOVED_METHOD_CALL",
+          "Method": "extractmethod.Calculadora.main(String[])",
+          "Local": "L[11,11], C[9,32]",
+          "Detail": null,
+          "Code": "printResult(soma,media)",
+          "relationType": "MENTIONED",
+          "distance": 0,
+          "file": "src/extractmethod/Calculadora.java"
+        },
+        {
+          "Metric": "ADDED_InfixExpression",
+          "Method": "extractmethod.Calculadora.main(String[]).println(String)",
+          "Local": "L[12,12], C[28,60]",
+          "Detail": null,
+          "Code": "\"A média dos números é: \" + media",
+          "relationType": "MENTIONED",
+          "distance": 0,
+          "file": "src/extractmethod/Calculadora.java"
+        },
+        {
+          "Metric": "REMOVED_InfixExpression",
+          "Method": "extractmethod.Calculadora.printResult(int, double).println(String)",
+          "Local": "L[16,16], C[28,60]",
+          "Detail": null,
+          "Code": "\"A média dos números é: \" + media",
+          "relationType": "MENTIONED",
+          "distance": 0,
+          "file": "src/extractmethod/Calculadora.java"
+        },
+        {
+          "Metric": "REMOVED_METHOD_CALL",
+          "Method": "extractmethod.Calculadora.calcularSoma(int[])",
+          "Local": "L[33,33], C[9,28]",
+          "Detail": null,
+          "Code": "printResult(soma,0)",
+          "relationType": "CALL_SOURCE",
+          "distance": 1,
+          "file": "src/extractmethod/Calculadora.java"
+        },
+        {
+          "Metric": "ADDED_InfixExpression",
+          "Method": "extractmethod.Calculadora.main(String[])",
+          "Local": "L[14,14], C[36,63]",
+          "Detail": null,
+          "Code": "Double.valueOf(soma) + media",
+          "relationType": "MENTIONED",
+          "distance": 0,
+          "file": "src/extractmethod/Calculadora.java"
+        }
+      ],
+      "notRelated": [
+        {
+          "Metric": "CHANGED_FieldDeclaration",
+          "Method": "extractmethod.Calculadora.InnerCalculator",
+          "Local": "L[35,35], C[9,32]",
+          "Detail": null,
+          "Code": "int notMatterField2=3;\n",
+          "relationType": "NOT_RELATED",
+          "distance": 99,
+          "file": "src/extractmethod/Calculadora.java"
+        }
+      ],
+      "metadata": {
+        "type": "Inline Method",
+        "description": "Inline Method private printResult(soma int, media double) : void inlined to public main(args String[]) : void in class extractmethod.Calculadora",
+        "leftSideLocations": [
+          {
+            "filePath": "src/extractmethod/Calculadora.java",
+            "startLine": 14,
+            "endLine": 21,
+            "startColumn": 5,
+            "endColumn": 6,
+            "codeElementType": "METHOD_DECLARATION",
+            "description": "inlined method declaration",
+            "codeElement": "private printResult(soma int, media double) : void"
+          },
+          {
+            "filePath": "src/extractmethod/Calculadora.java",
+            "startLine": 15,
+            "endLine": 15,
+            "startColumn": 9,
+            "endColumn": 63,
+            "codeElementType": "EXPRESSION_STATEMENT",
+            "description": "inlined code from inlined method declaration",
+            "codeElement": null
+          },
+          {
+            "filePath": "src/extractmethod/Calculadora.java",
+            "startLine": 16,
+            "endLine": 16,
+            "startColumn": 9,
+            "endColumn": 66,
+            "codeElementType": "EXPRESSION_STATEMENT",
+            "description": "inlined code from inlined method declaration",
+            "codeElement": null
+          },
+          {
+            "filePath": "src/extractmethod/Calculadora.java",
+            "startLine": 18,
+            "endLine": 18,
+            "startColumn": 9,
+            "endColumn": 46,
+            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+            "description": "inlined code from inlined method declaration",
+            "codeElement": null
+          },
+          {
+            "filePath": "src/extractmethod/Calculadora.java",
+            "startLine": 5,
+            "endLine": 12,
+            "startColumn": 5,
+            "endColumn": 6,
+            "codeElementType": "METHOD_DECLARATION",
+            "description": "target method declaration before inline",
+            "codeElement": "public main(args String[]) : void"
+          },
+          {
+            "filePath": "src/extractmethod/Calculadora.java",
+            "startLine": 11,
+            "endLine": 11,
+            "startColumn": 9,
+            "endColumn": 33,
+            "codeElementType": "METHOD_INVOCATION",
+            "description": "inlined method invocation",
+            "codeElement": "printResult(soma,media)"
+          },
+          {
+            "filePath": "src/extractmethod/Calculadora.java",
+            "startLine": 20,
+            "endLine": 20,
+            "startColumn": 9,
+            "endColumn": 46,
+            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+            "description": "deleted statement in inlined method declaration",
+            "codeElement": null
+          }
+        ],
+        "rightSideLocations": [
+          {
+            "filePath": "src/extractmethod/Calculadora.java",
+            "startLine": 5,
+            "endLine": 15,
+            "startColumn": 5,
+            "endColumn": 6,
+            "codeElementType": "METHOD_DECLARATION",
+            "description": "target method declaration after inline",
+            "codeElement": "public main(args String[]) : void"
+          },
+          {
+            "filePath": "src/extractmethod/Calculadora.java",
+            "startLine": 11,
+            "endLine": 11,
+            "startColumn": 9,
+            "endColumn": 63,
+            "codeElementType": "EXPRESSION_STATEMENT",
+            "description": "inlined code in target method declaration",
+            "codeElement": null
+          },
+          {
+            "filePath": "src/extractmethod/Calculadora.java",
+            "startLine": 12,
+            "endLine": 12,
+            "startColumn": 9,
+            "endColumn": 66,
+            "codeElementType": "EXPRESSION_STATEMENT",
+            "description": "inlined code in target method declaration",
+            "codeElement": null
+          },
+          {
+            "filePath": "src/extractmethod/Calculadora.java",
+            "startLine": 14,
+            "endLine": 14,
+            "startColumn": 9,
+            "endColumn": 65,
+            "codeElementType": "VARIABLE_DECLARATION_STATEMENT",
+            "description": "inlined code in target method declaration",
+            "codeElement": null
+          }
+        ]
+      }
+    }
+  ]

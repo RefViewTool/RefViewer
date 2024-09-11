@@ -1,0 +1,295 @@
+[
+    {
+        "commit": "b2f7fcb9e910a13f1a239e74447c496fda66ac80",
+        "source": [
+            {
+                "element": "the.bytecode.club.bytecodeviewer.translation.Language.printLanguageKeys()",
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java",
+                "local": "L[93,104], C[2,2]"
+            }
+        ],
+        "target": [
+            {
+                "element": "the.bytecode.club.bytecodeviewer.translation.Language.printMissingLanguageKeys()",
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java",
+                "local": "L[94,110], C[2,2]"
+            }
+        ],
+        "type": "RENAME_METHOD",
+        "related": [
+            {
+                "Metric": "RENAME_ELEMENT",
+                "Method": "the.bytecode.club.bytecodeviewer.translation.Language",
+                "Local": "L[94,110], C[2,2]",
+                "Detail": {
+                    "method": "the.bytecode.club.bytecodeviewer.translation.Language.printMissingLanguageKeys()",
+                    "blockPos": "L[95,110], C[2,2]"
+                },
+                "Code": "public void printMissingLanguageKeys() throws IOException {\n  if (this != ENGLISH)   return;\n  LinkedMap<String,String> translationMap=BytecodeViewer.gson.fromJson(IOUtils.toString(Resources.class.getResourceAsStream(resourcePath),StandardCharsets.UTF_8),new TypeToken<LinkedMap<String,String>>(){\n  }\n.getType());\n  HashSet<String> existingKeys=new HashSet<>();\n  for (  Translation t : Translation.values())   existingKeys.add(t.name());\n  for (  String key : translationMap.keySet())   if (!existingKeys.contains(key) && !key.startsWith(\"TODO\"))   System.err.println(key + \",\");\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "the.bytecode.club.bytecodeviewer.translation.Language.printMissingLanguageKeys()",
+                "Local": "L[103,103], C[3,17]",
+                "Detail": null,
+                "Code": "HashSet<String>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "the.bytecode.club.bytecodeviewer.translation.Language.printMissingLanguageKeys()",
+                "Local": "L[103,103], C[34,48]",
+                "Detail": null,
+                "Code": "new HashSet<>()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "the.bytecode.club.bytecodeviewer.translation.Language.printMissingLanguageKeys()",
+                "Local": "L[103,103], C[34,48]",
+                "Detail": null,
+                "Code": "new HashSet<>()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "the.bytecode.club.bytecodeviewer.translation.Language.printMissingLanguageKeys()",
+                "Local": "L[108,108], C[7,60]",
+                "Detail": null,
+                "Code": "!existingKeys.contains(key) && !key.startsWith(\"TODO\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "the.bytecode.club.bytecodeviewer.translation.Language.printMissingLanguageKeys()",
+                "Local": "L[108,108], C[8,33]",
+                "Detail": null,
+                "Code": "existingKeys.contains(key)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "the.bytecode.club.bytecodeviewer.translation.Language.printMissingLanguageKeys()",
+                "Local": "L[105,105], C[4,29]",
+                "Detail": null,
+                "Code": "existingKeys.add(t.name())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "the.bytecode.club.bytecodeviewer.translation.Language.printMissingLanguageKeys()",
+                "Local": "L[109,109], C[5,33]",
+                "Detail": null,
+                "Code": "System.err.println(key + \",\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "the.bytecode.club.bytecodeviewer.translation.Language.printLanguageKeys()",
+                "Local": "L[103,103], C[4,32]",
+                "Detail": null,
+                "Code": "System.out.println(key + \",\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "the.bytecode.club.bytecodeviewer.translation.Language.printMissingLanguageKeys()",
+                "Local": "L[104,104], C[23,42]",
+                "Detail": null,
+                "Code": "Translation.values()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java"
+            },
+            {
+                "Metric": "ADDED_ENHANCEDFORSTATEMENT",
+                "Method": "the.bytecode.club.bytecodeviewer.translation.Language.printMissingLanguageKeys()",
+                "Local": "L[107,109], C[3,34]",
+                "Detail": null,
+                "Code": "for (String key : translationMap.keySet()) if (!existingKeys.contains(key) && !key.startsWith(\"TODO\")) System.err.println(key + \",\");\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java"
+            },
+            {
+                "Metric": "REMOVED_ENHANCEDFORSTATEMENT",
+                "Method": "the.bytecode.club.bytecodeviewer.translation.Language.printLanguageKeys()",
+                "Local": "L[102,103], C[3,33]",
+                "Detail": null,
+                "Code": "for (String key : translationMap.keySet()) System.out.println(key + \",\");\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "the.bytecode.club.bytecodeviewer.translation.Language.printMissingLanguageKeys()",
+                "Local": "L[103,103], C[3,49]",
+                "Detail": null,
+                "Code": "HashSet<String> existingKeys=new HashSet<>();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java"
+            },
+            {
+                "Metric": "ADDED_ENHANCEDFORSTATEMENT",
+                "Method": "the.bytecode.club.bytecodeviewer.translation.Language.printMissingLanguageKeys()",
+                "Local": "L[104,105], C[3,30]",
+                "Detail": null,
+                "Code": "for (Translation t : Translation.values()) existingKeys.add(t.name());\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "the.bytecode.club.bytecodeviewer.translation.Language.printMissingLanguageKeys()",
+                "Local": "L[108,108], C[39,60]",
+                "Detail": null,
+                "Code": "key.startsWith(\"TODO\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "the.bytecode.club.bytecodeviewer.translation.Language.printMissingLanguageKeys()",
+                "Local": "L[109,109], C[5,34]",
+                "Detail": null,
+                "Code": "System.err.println(key + \",\");\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java"
+            },
+            {
+                "Metric": "ADDED_PrefixExpression",
+                "Method": "the.bytecode.club.bytecodeviewer.translation.Language.printMissingLanguageKeys()",
+                "Local": "L[108,108], C[7,33]",
+                "Detail": null,
+                "Code": "!existingKeys.contains(key)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java"
+            },
+            {
+                "Metric": "ADDED_PrefixExpression",
+                "Method": "the.bytecode.club.bytecodeviewer.translation.Language.printMissingLanguageKeys()",
+                "Local": "L[108,108], C[38,60]",
+                "Detail": null,
+                "Code": "!key.startsWith(\"TODO\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "the.bytecode.club.bytecodeviewer.translation.Language.printMissingLanguageKeys().add(String)",
+                "Local": "L[105,105], C[21,28]",
+                "Detail": null,
+                "Code": "t.name()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "the.bytecode.club.bytecodeviewer.translation.Language.loadLanguage()",
+                "Local": "L[57,57], C[3,28]",
+                "Detail": null,
+                "Code": "printMissingLanguageKeys()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java"
+            },
+            {
+                "Metric": "CHANGED_EnumDeclaration",
+                "Method": "the.bytecode.club.bytecodeviewer.translation.CompilationUnit",
+                "Local": "L[16,131], C[1,1]",
+                "Detail": null,
+                "Code": "/** \n * All of the supported languages\n * @author Konloch\n * @since 6/28/2021\n */\npublic enum Language {ENGLISH(\"/translations/english.json\",\"English\",\"en\"), MANDARIN(\"/translations/mandarin.json\",\"普通话\",\"zh_cn\",\"zh\"), GERMAN(\"/translations/german.json\",\"Deutsche\",\"de\"); private static final HashedMap<String,Language> languageCodeLookup;\nstatic {\n  languageCodeLookup=new HashedMap<>();\n  for (  Language l : values())   l.languageCode.forEach((langCode) -> languageCodeLookup.put(langCode,l));\n}\nprivate final String resourcePath;\nprivate final String readableName;\nprivate final HashSet<String> languageCode;\nLanguage(String resourcePath,String readableName,String... languageCodes){\n  this.resourcePath=resourcePath;\n  this.languageCode=new HashSet<>(Arrays.asList(languageCodes));\n  this.readableName=readableName;\n}\npublic void loadLanguage() throws IOException {\n  printMissingLanguageKeys();\n  HashMap<String,String> translationMap=BytecodeViewer.gson.fromJson(IOUtils.toString(Resources.class.getResourceAsStream(resourcePath),StandardCharsets.UTF_8),new TypeToken<HashMap<String,String>>(){\n  }\n.getType());\n  for (  Translation translation : Translation.values()) {\n    TranslatedComponent text=translation.getTranslatedComponent();\n    if (!translationMap.containsKey(text.key))     continue;\n    text.value=translationMap.get(text.key);\n    if (translation.getTranslatedComponent().runOnUpdate.isEmpty()) {\n      System.err.println(\"Translation Reference \" + translation.name() + \" is missing component attachment, skipping...\");\n      continue;\n    }\n    translation.getTranslatedComponent().runOnUpdate.forEach(Runnable::run);\n  }\n}\npublic void printMissingLanguageKeys() throws IOException {\n  if (this != ENGLISH)   return;\n  LinkedMap<String,String> translationMap=BytecodeViewer.gson.fromJson(IOUtils.toString(Resources.class.getResourceAsStream(resourcePath),StandardCharsets.UTF_8),new TypeToken<LinkedMap<String,String>>(){\n  }\n.getType());\n  HashSet<String> existingKeys=new HashSet<>();\n  for (  Translation t : Translation.values())   existingKeys.add(t.name());\n  for (  String key : translationMap.keySet())   if (!existingKeys.contains(key) && !key.startsWith(\"TODO\"))   System.err.println(key + \",\");\n}\npublic String getResourcePath(){\n  return resourcePath;\n}\npublic HashSet<String> getLanguageCode(){\n  return languageCode;\n}\npublic String getReadableName(){\n  return readableName;\n}\npublic static HashedMap<String,Language> getLanguageCodeLookup(){\n  return languageCodeLookup;\n}\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 4,
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java"
+            },
+            {
+                "Metric": "ADDED_ParameterizedType",
+                "Method": "the.bytecode.club.bytecodeviewer.translation.Language.printMissingLanguageKeys().HashSet<>",
+                "Local": "L[103,103], C[38,46]",
+                "Detail": null,
+                "Code": "HashSet<>",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "REMOVED_IMPORT",
+                "Method": "the.bytecode.club.bytecodeviewer.translation.CompilationUnit",
+                "Local": "L[4,4], C[1,55]",
+                "Detail": null,
+                "Code": "import org.apache.commons.collections4.CollectionUtils;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java"
+            },
+            {
+                "Metric": "REMOVED_ImportDeclaration",
+                "Method": "the.bytecode.club.bytecodeviewer.translation.CompilationUnit",
+                "Local": "L[4,4], C[1,55]",
+                "Detail": null,
+                "Code": "import org.apache.commons.collections4.CollectionUtils;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java"
+            }
+        ],
+        "metadata": {
+            "type": "Rename Method",
+            "description": "Rename Method public printLanguageKeys() : void renamed to public printMissingLanguageKeys() : void in class the.bytecode.club.bytecodeviewer.translation.Language",
+            "leftSideLocations": [
+                {
+                    "filePath": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java",
+                    "startLine": 93,
+                    "endLine": 104,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public printLanguageKeys() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java",
+                    "startLine": 94,
+                    "endLine": 110,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "renamed method declaration",
+                    "codeElement": "public printMissingLanguageKeys() : void"
+                }
+            ]
+        }
+    }
+]

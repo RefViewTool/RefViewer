@@ -1,0 +1,569 @@
+[
+    {
+        "commit": "14721cdd69fe9a5315bd825241e1d683a88ea6f8",
+        "source": [
+            {
+                "element": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java",
+                "local": "L[28,44], C[3,3]"
+            }
+        ],
+        "target": [
+            {
+                "element": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.terminateExecution(ActivityExecution, ActivityImpl, ActivityExecution)",
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java",
+                "local": "L[50,63], C[3,3]"
+            }
+        ],
+        "type": "EXTRACT_METHOD",
+        "related": [
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior",
+                "Local": "L[50,63], C[3,3]",
+                "Detail": {
+                    "method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.terminateExecution(ActivityExecution, ActivityImpl, ActivityExecution)",
+                    "blockPos": "L[50,63], C[138,3]"
+                },
+                "Code": "private void terminateExecution(ActivityExecution execution,ActivityImpl terminateEndEventActivity,ActivityExecution scopeExecution){\n  sendCancelledEvent(execution,terminateEndEventActivity,scopeExecution);\n  scopeExecution.destroyScope(\"terminate end event fired\");\n  ((InterpretableExecution)scopeExecution).setActivity(terminateEndEventActivity);\n  scopeExecution.end();\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[36,36], C[11,32]",
+                "Detail": {
+                    "previousVar": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)>>>superExecution[35,45]"
+                },
+                "Code": "superExecution != null",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.terminateExecution(ActivityExecution, ActivityImpl, ActivityExecution)",
+                "Local": "L[50,50], C[3,9]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "SIGNATURE",
+                "distance": 1,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[39,39], C[11,54]",
+                "Detail": {
+                    "previousVar": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)>>>superExecution[35,45]"
+                },
+                "Code": "superExecution=superExecution.getParent();\n",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_WHILESTATEMENT",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[38,40], C[9,9]",
+                "Detail": {
+                    "previousVar": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)>>>superExecution[35,45]"
+                },
+                "Code": "while (superExecution.getParent() != null) {\n  superExecution=superExecution.getParent();\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[41,41], C[9,40]",
+                "Detail": {
+                    "previousVar": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)>>>scopeExecution[30,48]"
+                },
+                "Code": "scopeExecution=superExecution;\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[38,38], C[16,41]",
+                "Detail": {
+                    "previousVar": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)>>>superExecution[35,45]"
+                },
+                "Code": "superExecution.getParent()",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[34,34], C[12,55]",
+                "Detail": {
+                    "previousVar": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)>>>scopeExecution[30,48]"
+                },
+                "Code": "scopeExecution.getSuperExecutionId() != null",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[35,35], C[157,192]",
+                "Detail": {
+                    "previousVar": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)>>>scopeExecution[30,48]"
+                },
+                "Code": "scopeExecution.getSuperExecutionId()",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_CastExpression",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[35,35], C[42,208]",
+                "Detail": {
+                    "previousVar": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)>>>scopeExecution[30,48]"
+                },
+                "Code": "(ActivityExecution)Context.getProcessEngineConfiguration().getRuntimeService().createExecutionQuery().executionId(scopeExecution.getSuperExecutionId()).singleResult()",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[35,35], C[7,209]",
+                "Detail": {
+                    "previousVar": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)>>>scopeExecution[30,48]"
+                },
+                "Code": "ActivityExecution superExecution=(ActivityExecution)Context.getProcessEngineConfiguration().getRuntimeService().createExecutionQuery().executionId(scopeExecution.getSuperExecutionId()).singleResult();\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.terminateExecution(ActivityExecution, ActivityImpl, ActivityExecution)",
+                "Local": "L[52,52], C[5,77]",
+                "Detail": null,
+                "Code": "sendCancelledEvent(execution,terminateEndEventActivity,scopeExecution)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[33,33], C[5,77]",
+                "Detail": null,
+                "Code": "sendCancelledEvent(execution,terminateEndEventActivity,scopeExecution)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[43,43], C[9,21]",
+                "Detail": {
+                    "previousVar": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)>>>loop[32,48]"
+                },
+                "Code": "loop=false;\n",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[38,38], C[16,49]",
+                "Detail": {
+                    "previousVar": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)>>>superExecution[35,45]"
+                },
+                "Code": "superExecution.getParent() != null",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[34,34], C[12,47]",
+                "Detail": {
+                    "previousVar": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)>>>scopeExecution[30,48]"
+                },
+                "Code": "scopeExecution.getSuperExecutionId()",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[39,39], C[28,53]",
+                "Detail": {
+                    "previousVar": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)>>>superExecution[35,45]"
+                },
+                "Code": "superExecution.getParent()",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_CastExpression",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.terminateExecution(ActivityExecution, ActivityImpl, ActivityExecution)",
+                "Local": "L[60,60], C[6,43]",
+                "Detail": null,
+                "Code": "(InterpretableExecution)scopeExecution",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "REMOVED_CastExpression",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[41,41], C[6,43]",
+                "Detail": null,
+                "Code": "(InterpretableExecution)scopeExecution",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.terminateExecution(ActivityExecution, ActivityImpl, ActivityExecution)",
+                "Local": "L[55,55], C[5,60]",
+                "Detail": null,
+                "Code": "scopeExecution.destroyScope(\"terminate end event fired\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[36,36], C[5,60]",
+                "Detail": null,
+                "Code": "scopeExecution.destroyScope(\"terminate end event fired\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[47,47], C[5,76]",
+                "Detail": null,
+                "Code": "terminateExecution(execution,terminateEndEventActivity,scopeExecution)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_ParenthesizedExpression",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.terminateExecution(ActivityExecution, ActivityImpl, ActivityExecution).setActivity(UNKNOWN)",
+                "Local": "L[60,60], C[5,44]",
+                "Detail": null,
+                "Code": "((InterpretableExecution)scopeExecution)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "REMOVED_ParenthesizedExpression",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution).setActivity(UNKNOWN)",
+                "Local": "L[41,41], C[5,44]",
+                "Detail": null,
+                "Code": "((InterpretableExecution)scopeExecution)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[32,32], C[5,24]",
+                "Detail": {
+                    "previousVar": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)>>>loop[32,48]"
+                },
+                "Code": "boolean loop=true;\n",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_WHILESTATEMENT",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[34,45], C[5,5]",
+                "Detail": {
+                    "previousVar": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)>>>scopeExecution[30,48]"
+                },
+                "Code": "while (scopeExecution.getSuperExecutionId() != null && loop) {\n  ActivityExecution superExecution=(ActivityExecution)Context.getProcessEngineConfiguration().getRuntimeService().createExecutionQuery().executionId(scopeExecution.getSuperExecutionId()).singleResult();\n  if (superExecution != null) {\n    while (superExecution.getParent() != null) {\n      superExecution=superExecution.getParent();\n    }\n    scopeExecution=superExecution;\n  }\n else {\n    loop=false;\n  }\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[36,42], C[35,7]",
+                "Detail": {
+                    "previousVar": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)>>>scopeExecution[30,48]"
+                },
+                "Code": "{\n  while (superExecution.getParent() != null) {\n    superExecution=superExecution.getParent();\n  }\n  scopeExecution=superExecution;\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_ELSE_STATEMENT",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[42,44], C[14,7]",
+                "Detail": {
+                    "previousVar": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)>>>loop[32,48]"
+                },
+                "Code": "{\n  loop=false;\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.terminateExecution(ActivityExecution, ActivityImpl, ActivityExecution)",
+                "Local": "L[62,62], C[5,24]",
+                "Detail": null,
+                "Code": "scopeExecution.end()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[43,43], C[5,24]",
+                "Detail": null,
+                "Code": "scopeExecution.end()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.terminateExecution(ActivityExecution, ActivityImpl, ActivityExecution)",
+                "Local": "L[60,60], C[5,83]",
+                "Detail": null,
+                "Code": "((InterpretableExecution)scopeExecution).setActivity(terminateEndEventActivity)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[41,41], C[5,83]",
+                "Detail": null,
+                "Code": "((InterpretableExecution)scopeExecution).setActivity(terminateEndEventActivity)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "ADDED_NullLiteral",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[38,38], C[46,49]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[35,35], C[62,100]",
+                "Detail": null,
+                "Code": "Context.getProcessEngineConfiguration()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_NullLiteral",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[34,34], C[52,55]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_BooleanLiteral",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[43,43], C[16,20]",
+                "Detail": null,
+                "Code": "false",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_BooleanLiteral",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[32,32], C[20,23]",
+                "Detail": null,
+                "Code": "true",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            },
+            {
+                "Metric": "ADDED_NullLiteral",
+                "Method": "org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior.execute(ActivityExecution)",
+                "Local": "L[36,36], C[29,32]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java"
+            }
+        ],
+        "metadata": {
+            "type": "Extract Method",
+            "description": "Extract Method private terminateExecution(execution ActivityExecution, terminateEndEventActivity ActivityImpl, scopeExecution ActivityExecution) : void extracted from public execute(execution ActivityExecution) : void in class org.activiti.engine.impl.bpmn.behavior.TerminateEndEventActivityBehavior",
+            "leftSideLocations": [
+                {
+                    "filePath": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java",
+                    "startLine": 28,
+                    "endLine": 44,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration before extraction",
+                    "codeElement": "public execute(execution ActivityExecution) : void"
+                },
+                {
+                    "filePath": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java",
+                    "startLine": 33,
+                    "endLine": 33,
+                    "startColumn": 5,
+                    "endColumn": 79,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java",
+                    "startLine": 36,
+                    "endLine": 36,
+                    "startColumn": 5,
+                    "endColumn": 62,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java",
+                    "startLine": 41,
+                    "endLine": 41,
+                    "startColumn": 5,
+                    "endColumn": 85,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java",
+                    "startLine": 43,
+                    "endLine": 43,
+                    "startColumn": 5,
+                    "endColumn": 26,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code from source method declaration",
+                    "codeElement": null
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java",
+                    "startLine": 50,
+                    "endLine": 63,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "extracted method declaration",
+                    "codeElement": "private terminateExecution(execution ActivityExecution, terminateEndEventActivity ActivityImpl, scopeExecution ActivityExecution) : void"
+                },
+                {
+                    "filePath": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java",
+                    "startLine": 52,
+                    "endLine": 52,
+                    "startColumn": 5,
+                    "endColumn": 79,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java",
+                    "startLine": 55,
+                    "endLine": 55,
+                    "startColumn": 5,
+                    "endColumn": 62,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java",
+                    "startLine": 60,
+                    "endLine": 60,
+                    "startColumn": 5,
+                    "endColumn": 85,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java",
+                    "startLine": 62,
+                    "endLine": 62,
+                    "startColumn": 5,
+                    "endColumn": 26,
+                    "codeElementType": "EXPRESSION_STATEMENT",
+                    "description": "extracted code to extracted method declaration",
+                    "codeElement": null
+                },
+                {
+                    "filePath": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java",
+                    "startLine": 28,
+                    "endLine": 48,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "source method declaration after extraction",
+                    "codeElement": "public execute(execution ActivityExecution) : void"
+                },
+                {
+                    "filePath": "modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java",
+                    "startLine": 47,
+                    "endLine": 47,
+                    "startColumn": 5,
+                    "endColumn": 77,
+                    "codeElementType": "METHOD_INVOCATION",
+                    "description": "extracted method invocation",
+                    "codeElement": "terminateExecution(execution,terminateEndEventActivity,scopeExecution)"
+                }
+            ]
+        }
+    }
+]

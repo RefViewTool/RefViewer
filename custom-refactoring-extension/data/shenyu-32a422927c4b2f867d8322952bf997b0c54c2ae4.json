@@ -1,0 +1,2903 @@
+[
+    {
+        "commit": "32a422927c4b2f867d8322952bf997b0c54c2ae4",
+        "source": [
+            {
+                "element": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getProps()",
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java",
+                "local": "L[78,85], C[5,5]"
+            }
+        ],
+        "target": [
+            {
+                "element": "org.apache.shenyu.register.common.config.PropertiesConfig.getProps()",
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java",
+                "local": "L[29,36], C[5,5]"
+            }
+        ],
+        "type": "PULL_UP",
+        "related": [
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig",
+                "Local": "L[29,36], C[5,5]",
+                "Detail": {
+                    "method": "org.apache.shenyu.register.common.config.PropertiesConfig.getProps()",
+                    "blockPos": "L[34,36], C[34,5]"
+                },
+                "Code": "/** \n * getProps.\n * @return String\n */\npublic Properties getProps(){\n  return props;\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.shenyu.client.alibaba.dubbo.AlibabaDubboServiceBeanListener.AlibabaDubboServiceBeanListener(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[65,65], C[28,44]",
+                "Detail": {
+                    "previousVar": "org.apache.shenyu.client.alibaba.dubbo.AlibabaDubboServiceBeanListener.AlibabaDubboServiceBeanListener(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)>>>config[64,76]"
+                },
+                "Code": "config.getDubbo()",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "shenyu-client/shenyu-client-dubbo/shenyu-client-alibaba-dubbo/src/main/java/org/apache/shenyu/client/alibaba/dubbo/AlibabaDubboServiceBeanListener.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.client.alibaba.dubbo.AlibabaDubboServiceBeanListener.AlibabaDubboServiceBeanListener(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[65,65], C[28,44]",
+                "Detail": null,
+                "Code": "config.getProps()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "shenyu-client/shenyu-client-dubbo/shenyu-client-alibaba-dubbo/src/main/java/org/apache/shenyu/client/alibaba/dubbo/AlibabaDubboServiceBeanListener.java"
+            },
+            {
+                "Metric": "CHANGED_VARIABLE",
+                "Method": "org.apache.shenyu.client.alibaba.dubbo.AlibabaDubboServiceBeanListener.AlibabaDubboServiceBeanListener(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[65,65], C[9,56]",
+                "Detail": null,
+                "Code": "Properties props=config.getDubbo().getProps();\n",
+                "relationType": "CALL_TARGET",
+                "distance": 2,
+                "file": "shenyu-client/shenyu-client-dubbo/shenyu-client-alibaba-dubbo/src/main/java/org/apache/shenyu/client/alibaba/dubbo/AlibabaDubboServiceBeanListener.java"
+            },
+            {
+                "Metric": "CHANGED_VAR_VALUE",
+                "Method": "org.apache.shenyu.client.alibaba.dubbo.AlibabaDubboServiceBeanListener.AlibabaDubboServiceBeanListener(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[65,65], C[20,55]",
+                "Detail": null,
+                "Code": "props=config.getDubbo().getProps()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "shenyu-client/shenyu-client-dubbo/shenyu-client-alibaba-dubbo/src/main/java/org/apache/shenyu/client/alibaba/dubbo/AlibabaDubboServiceBeanListener.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.shenyu.client.apache.dubbo.ApacheDubboServiceBeanListener.ApacheDubboServiceBeanListener(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[70,70], C[28,44]",
+                "Detail": {
+                    "previousVar": "org.apache.shenyu.client.apache.dubbo.ApacheDubboServiceBeanListener.ApacheDubboServiceBeanListener(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)>>>config[69,82]"
+                },
+                "Code": "config.getDubbo()",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "shenyu-client/shenyu-client-dubbo/shenyu-client-apache-dubbo/src/main/java/org/apache/shenyu/client/apache/dubbo/ApacheDubboServiceBeanListener.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.client.apache.dubbo.ApacheDubboServiceBeanListener.ApacheDubboServiceBeanListener(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[70,70], C[28,44]",
+                "Detail": null,
+                "Code": "config.getProps()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "shenyu-client/shenyu-client-dubbo/shenyu-client-apache-dubbo/src/main/java/org/apache/shenyu/client/apache/dubbo/ApacheDubboServiceBeanListener.java"
+            },
+            {
+                "Metric": "CHANGED_VAR_VALUE",
+                "Method": "org.apache.shenyu.client.apache.dubbo.ApacheDubboServiceBeanListener.ApacheDubboServiceBeanListener(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[70,70], C[20,55]",
+                "Detail": null,
+                "Code": "props=config.getDubbo().getProps()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "shenyu-client/shenyu-client-dubbo/shenyu-client-apache-dubbo/src/main/java/org/apache/shenyu/client/apache/dubbo/ApacheDubboServiceBeanListener.java"
+            },
+            {
+                "Metric": "CHANGED_VARIABLE",
+                "Method": "org.apache.shenyu.client.apache.dubbo.ApacheDubboServiceBeanListener.ApacheDubboServiceBeanListener(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[70,70], C[9,56]",
+                "Detail": null,
+                "Code": "Properties props=config.getDubbo().getProps();\n",
+                "relationType": "CALL_TARGET",
+                "distance": 2,
+                "file": "shenyu-client/shenyu-client-dubbo/shenyu-client-apache-dubbo/src/main/java/org/apache/shenyu/client/apache/dubbo/ApacheDubboServiceBeanListener.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.shenyu.client.grpc.GrpcClientBeanPostProcessor.GrpcClientBeanPostProcessor(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[76,76], C[28,43]",
+                "Detail": {
+                    "previousVar": "org.apache.shenyu.client.grpc.GrpcClientBeanPostProcessor.GrpcClientBeanPostProcessor(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)>>>config[69,88]"
+                },
+                "Code": "config.getGrpc()",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "shenyu-client/shenyu-client-grpc/src/main/java/org/apache/shenyu/client/grpc/GrpcClientBeanPostProcessor.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.client.grpc.GrpcClientBeanPostProcessor.GrpcClientBeanPostProcessor(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[76,76], C[28,44]",
+                "Detail": null,
+                "Code": "config.getProps()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "shenyu-client/shenyu-client-grpc/src/main/java/org/apache/shenyu/client/grpc/GrpcClientBeanPostProcessor.java"
+            },
+            {
+                "Metric": "CHANGED_VAR_VALUE",
+                "Method": "org.apache.shenyu.client.grpc.GrpcClientBeanPostProcessor.GrpcClientBeanPostProcessor(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[76,76], C[20,54]",
+                "Detail": null,
+                "Code": "props=config.getGrpc().getProps()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "shenyu-client/shenyu-client-grpc/src/main/java/org/apache/shenyu/client/grpc/GrpcClientBeanPostProcessor.java"
+            },
+            {
+                "Metric": "CHANGED_VARIABLE",
+                "Method": "org.apache.shenyu.client.grpc.GrpcClientBeanPostProcessor.GrpcClientBeanPostProcessor(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[76,76], C[9,55]",
+                "Detail": null,
+                "Code": "Properties props=config.getGrpc().getProps();\n",
+                "relationType": "CALL_TARGET",
+                "distance": 2,
+                "file": "shenyu-client/shenyu-client-grpc/src/main/java/org/apache/shenyu/client/grpc/GrpcClientBeanPostProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.shenyu.client.grpc.GrpcContextRefreshedEventListener.GrpcContextRefreshedEventListener(ShenyuRegisterCenterConfig)",
+                "Local": "L[55,55], C[28,43]",
+                "Detail": {
+                    "previousVar": "org.apache.shenyu.client.grpc.GrpcContextRefreshedEventListener.GrpcContextRefreshedEventListener(ShenyuRegisterCenterConfig)>>>config[49,66]"
+                },
+                "Code": "config.getGrpc()",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "shenyu-client/shenyu-client-grpc/src/main/java/org/apache/shenyu/client/grpc/GrpcContextRefreshedEventListener.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.client.grpc.GrpcContextRefreshedEventListener.GrpcContextRefreshedEventListener(ShenyuRegisterCenterConfig)",
+                "Local": "L[55,55], C[28,44]",
+                "Detail": null,
+                "Code": "config.getProps()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "shenyu-client/shenyu-client-grpc/src/main/java/org/apache/shenyu/client/grpc/GrpcContextRefreshedEventListener.java"
+            },
+            {
+                "Metric": "CHANGED_VARIABLE",
+                "Method": "org.apache.shenyu.client.grpc.GrpcContextRefreshedEventListener.GrpcContextRefreshedEventListener(ShenyuRegisterCenterConfig)",
+                "Local": "L[55,55], C[9,55]",
+                "Detail": null,
+                "Code": "Properties props=config.getGrpc().getProps();\n",
+                "relationType": "CALL_TARGET",
+                "distance": 2,
+                "file": "shenyu-client/shenyu-client-grpc/src/main/java/org/apache/shenyu/client/grpc/GrpcContextRefreshedEventListener.java"
+            },
+            {
+                "Metric": "CHANGED_VAR_VALUE",
+                "Method": "org.apache.shenyu.client.grpc.GrpcContextRefreshedEventListener.GrpcContextRefreshedEventListener(ShenyuRegisterCenterConfig)",
+                "Local": "L[55,55], C[20,54]",
+                "Detail": null,
+                "Code": "props=config.getGrpc().getProps()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "shenyu-client/shenyu-client-grpc/src/main/java/org/apache/shenyu/client/grpc/GrpcContextRefreshedEventListener.java"
+            },
+            {
+                "Metric": "CHANGED_VAR_VALUE",
+                "Method": "org.apache.shenyu.client.springcloud.init.ContextRegisterListener.ContextRegisterListener(ShenyuRegisterCenterConfig, Environment)",
+                "Local": "L[67,67], C[20,54]",
+                "Detail": null,
+                "Code": "props=config.getHttp().getProps()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "shenyu-client/shenyu-client-http/shenyu-client-springcloud/src/main/java/org/apache/shenyu/client/springcloud/init/ContextRegisterListener.java"
+            },
+            {
+                "Metric": "CHANGED_VARIABLE",
+                "Method": "org.apache.shenyu.client.springcloud.init.ContextRegisterListener.ContextRegisterListener(ShenyuRegisterCenterConfig, Environment)",
+                "Local": "L[67,67], C[9,55]",
+                "Detail": null,
+                "Code": "Properties props=config.getHttp().getProps();\n",
+                "relationType": "CALL_TARGET",
+                "distance": 2,
+                "file": "shenyu-client/shenyu-client-http/shenyu-client-springcloud/src/main/java/org/apache/shenyu/client/springcloud/init/ContextRegisterListener.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.shenyu.client.springcloud.init.ContextRegisterListener.ContextRegisterListener(ShenyuRegisterCenterConfig, Environment)",
+                "Local": "L[67,67], C[28,43]",
+                "Detail": {
+                    "previousVar": "org.apache.shenyu.client.springcloud.init.ContextRegisterListener.ContextRegisterListener(ShenyuRegisterCenterConfig, Environment)>>>config[60,83]"
+                },
+                "Code": "config.getHttp()",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "shenyu-client/shenyu-client-http/shenyu-client-springcloud/src/main/java/org/apache/shenyu/client/springcloud/init/ContextRegisterListener.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.client.springcloud.init.ContextRegisterListener.ContextRegisterListener(ShenyuRegisterCenterConfig, Environment)",
+                "Local": "L[67,67], C[28,44]",
+                "Detail": null,
+                "Code": "config.getProps()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "shenyu-client/shenyu-client-http/shenyu-client-springcloud/src/main/java/org/apache/shenyu/client/springcloud/init/ContextRegisterListener.java"
+            },
+            {
+                "Metric": "CHANGED_VARIABLE",
+                "Method": "org.apache.shenyu.client.springcloud.init.SpringCloudClientBeanPostProcessor.SpringCloudClientBeanPostProcessor(ShenyuRegisterCenterConfig, Environment, ShenyuClientRegisterRepository)",
+                "Local": "L[70,70], C[9,55]",
+                "Detail": null,
+                "Code": "Properties props=config.getHttp().getProps();\n",
+                "relationType": "CALL_TARGET",
+                "distance": 2,
+                "file": "shenyu-client/shenyu-client-http/shenyu-client-springcloud/src/main/java/org/apache/shenyu/client/springcloud/init/SpringCloudClientBeanPostProcessor.java"
+            },
+            {
+                "Metric": "CHANGED_VAR_VALUE",
+                "Method": "org.apache.shenyu.client.springcloud.init.SpringCloudClientBeanPostProcessor.SpringCloudClientBeanPostProcessor(ShenyuRegisterCenterConfig, Environment, ShenyuClientRegisterRepository)",
+                "Local": "L[70,70], C[20,54]",
+                "Detail": null,
+                "Code": "props=config.getHttp().getProps()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "shenyu-client/shenyu-client-http/shenyu-client-springcloud/src/main/java/org/apache/shenyu/client/springcloud/init/SpringCloudClientBeanPostProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.shenyu.client.springcloud.init.SpringCloudClientBeanPostProcessor.SpringCloudClientBeanPostProcessor(ShenyuRegisterCenterConfig, Environment, ShenyuClientRegisterRepository)",
+                "Local": "L[70,70], C[28,43]",
+                "Detail": {
+                    "previousVar": "org.apache.shenyu.client.springcloud.init.SpringCloudClientBeanPostProcessor.SpringCloudClientBeanPostProcessor(ShenyuRegisterCenterConfig, Environment, ShenyuClientRegisterRepository)>>>config[59,81]"
+                },
+                "Code": "config.getHttp()",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "shenyu-client/shenyu-client-http/shenyu-client-springcloud/src/main/java/org/apache/shenyu/client/springcloud/init/SpringCloudClientBeanPostProcessor.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.client.springcloud.init.SpringCloudClientBeanPostProcessor.SpringCloudClientBeanPostProcessor(ShenyuRegisterCenterConfig, Environment, ShenyuClientRegisterRepository)",
+                "Local": "L[70,70], C[28,44]",
+                "Detail": null,
+                "Code": "config.getProps()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "shenyu-client/shenyu-client-http/shenyu-client-springcloud/src/main/java/org/apache/shenyu/client/springcloud/init/SpringCloudClientBeanPostProcessor.java"
+            },
+            {
+                "Metric": "CHANGED_VARIABLE",
+                "Method": "org.apache.shenyu.client.springmvc.init.ContextRegisterListener.ContextRegisterListener(ShenyuRegisterCenterConfig)",
+                "Local": "L[63,63], C[9,55]",
+                "Detail": null,
+                "Code": "Properties props=config.getHttp().getProps();\n",
+                "relationType": "CALL_TARGET",
+                "distance": 2,
+                "file": "shenyu-client/shenyu-client-http/shenyu-client-springmvc/src/main/java/org/apache/shenyu/client/springmvc/init/ContextRegisterListener.java"
+            },
+            {
+                "Metric": "CHANGED_VAR_VALUE",
+                "Method": "org.apache.shenyu.client.springmvc.init.ContextRegisterListener.ContextRegisterListener(ShenyuRegisterCenterConfig)",
+                "Local": "L[63,63], C[20,54]",
+                "Detail": null,
+                "Code": "props=config.getHttp().getProps()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "shenyu-client/shenyu-client-http/shenyu-client-springmvc/src/main/java/org/apache/shenyu/client/springmvc/init/ContextRegisterListener.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.shenyu.client.springmvc.init.ContextRegisterListener.ContextRegisterListener(ShenyuRegisterCenterConfig)",
+                "Local": "L[63,63], C[28,43]",
+                "Detail": {
+                    "previousVar": "org.apache.shenyu.client.springmvc.init.ContextRegisterListener.ContextRegisterListener(ShenyuRegisterCenterConfig)>>>config[57,79]"
+                },
+                "Code": "config.getHttp()",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "shenyu-client/shenyu-client-http/shenyu-client-springmvc/src/main/java/org/apache/shenyu/client/springmvc/init/ContextRegisterListener.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.client.springmvc.init.ContextRegisterListener.ContextRegisterListener(ShenyuRegisterCenterConfig)",
+                "Local": "L[63,63], C[28,44]",
+                "Detail": null,
+                "Code": "config.getProps()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "shenyu-client/shenyu-client-http/shenyu-client-springmvc/src/main/java/org/apache/shenyu/client/springmvc/init/ContextRegisterListener.java"
+            },
+            {
+                "Metric": "CHANGED_VARIABLE",
+                "Method": "org.apache.shenyu.client.springmvc.init.SpringMvcClientBeanPostProcessor.SpringMvcClientBeanPostProcessor(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[66,66], C[9,55]",
+                "Detail": null,
+                "Code": "Properties props=config.getHttp().getProps();\n",
+                "relationType": "CALL_TARGET",
+                "distance": 2,
+                "file": "shenyu-client/shenyu-client-http/shenyu-client-springmvc/src/main/java/org/apache/shenyu/client/springmvc/init/SpringMvcClientBeanPostProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.shenyu.client.springmvc.init.SpringMvcClientBeanPostProcessor.SpringMvcClientBeanPostProcessor(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[66,66], C[28,43]",
+                "Detail": {
+                    "previousVar": "org.apache.shenyu.client.springmvc.init.SpringMvcClientBeanPostProcessor.SpringMvcClientBeanPostProcessor(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)>>>config[60,83]"
+                },
+                "Code": "config.getHttp()",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "shenyu-client/shenyu-client-http/shenyu-client-springmvc/src/main/java/org/apache/shenyu/client/springmvc/init/SpringMvcClientBeanPostProcessor.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.client.springmvc.init.SpringMvcClientBeanPostProcessor.SpringMvcClientBeanPostProcessor(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[66,66], C[28,44]",
+                "Detail": null,
+                "Code": "config.getProps()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "shenyu-client/shenyu-client-http/shenyu-client-springmvc/src/main/java/org/apache/shenyu/client/springmvc/init/SpringMvcClientBeanPostProcessor.java"
+            },
+            {
+                "Metric": "CHANGED_VAR_VALUE",
+                "Method": "org.apache.shenyu.client.springmvc.init.SpringMvcClientBeanPostProcessor.SpringMvcClientBeanPostProcessor(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[66,66], C[20,54]",
+                "Detail": null,
+                "Code": "props=config.getHttp().getProps()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "shenyu-client/shenyu-client-http/shenyu-client-springmvc/src/main/java/org/apache/shenyu/client/springmvc/init/SpringMvcClientBeanPostProcessor.java"
+            },
+            {
+                "Metric": "CHANGED_VARIABLE",
+                "Method": "org.apache.shenyu.client.motan.MotanServiceBeanPostProcessor.MotanServiceBeanPostProcessor(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[75,75], C[9,56]",
+                "Detail": null,
+                "Code": "Properties props=config.getMotan().getProps();\n",
+                "relationType": "CALL_TARGET",
+                "distance": 2,
+                "file": "shenyu-client/shenyu-client-motan/src/main/java/org/apache/shenyu/client/motan/MotanServiceBeanPostProcessor.java"
+            },
+            {
+                "Metric": "CHANGED_VAR_VALUE",
+                "Method": "org.apache.shenyu.client.motan.MotanServiceBeanPostProcessor.MotanServiceBeanPostProcessor(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[75,75], C[20,55]",
+                "Detail": null,
+                "Code": "props=config.getMotan().getProps()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "shenyu-client/shenyu-client-motan/src/main/java/org/apache/shenyu/client/motan/MotanServiceBeanPostProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.shenyu.client.motan.MotanServiceBeanPostProcessor.MotanServiceBeanPostProcessor(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[75,75], C[28,44]",
+                "Detail": {
+                    "previousVar": "org.apache.shenyu.client.motan.MotanServiceBeanPostProcessor.MotanServiceBeanPostProcessor(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)>>>config[74,87]"
+                },
+                "Code": "config.getMotan()",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "shenyu-client/shenyu-client-motan/src/main/java/org/apache/shenyu/client/motan/MotanServiceBeanPostProcessor.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.client.motan.MotanServiceBeanPostProcessor.MotanServiceBeanPostProcessor(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[75,75], C[28,44]",
+                "Detail": null,
+                "Code": "config.getProps()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "shenyu-client/shenyu-client-motan/src/main/java/org/apache/shenyu/client/motan/MotanServiceBeanPostProcessor.java"
+            },
+            {
+                "Metric": "CHANGED_VARIABLE",
+                "Method": "org.apache.shenyu.client.sofa.SofaServiceBeanPostProcessor.SofaServiceBeanPostProcessor(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[69,69], C[9,55]",
+                "Detail": null,
+                "Code": "Properties props=config.getSofa().getProps();\n",
+                "relationType": "CALL_TARGET",
+                "distance": 2,
+                "file": "shenyu-client/shenyu-client-sofa/src/main/java/org/apache/shenyu/client/sofa/SofaServiceBeanPostProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.shenyu.client.sofa.SofaServiceBeanPostProcessor.SofaServiceBeanPostProcessor(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[69,69], C[28,43]",
+                "Detail": {
+                    "previousVar": "org.apache.shenyu.client.sofa.SofaServiceBeanPostProcessor.SofaServiceBeanPostProcessor(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)>>>config[68,81]"
+                },
+                "Code": "config.getSofa()",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "shenyu-client/shenyu-client-sofa/src/main/java/org/apache/shenyu/client/sofa/SofaServiceBeanPostProcessor.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.client.sofa.SofaServiceBeanPostProcessor.SofaServiceBeanPostProcessor(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[69,69], C[28,44]",
+                "Detail": null,
+                "Code": "config.getProps()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "shenyu-client/shenyu-client-sofa/src/main/java/org/apache/shenyu/client/sofa/SofaServiceBeanPostProcessor.java"
+            },
+            {
+                "Metric": "CHANGED_VAR_VALUE",
+                "Method": "org.apache.shenyu.client.sofa.SofaServiceBeanPostProcessor.SofaServiceBeanPostProcessor(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[69,69], C[20,54]",
+                "Detail": null,
+                "Code": "props=config.getSofa().getProps()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "shenyu-client/shenyu-client-sofa/src/main/java/org/apache/shenyu/client/sofa/SofaServiceBeanPostProcessor.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.shenyu.client.tars.TarsContextRefreshedEventListener.TarsContextRefreshedEventListener(ShenyuRegisterCenterConfig)",
+                "Local": "L[54,54], C[28,43]",
+                "Detail": {
+                    "previousVar": "org.apache.shenyu.client.tars.TarsContextRefreshedEventListener.TarsContextRefreshedEventListener(ShenyuRegisterCenterConfig)>>>config[48,65]"
+                },
+                "Code": "config.getTars()",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "shenyu-client/shenyu-client-tars/src/main/java/org/apache/shenyu/client/tars/TarsContextRefreshedEventListener.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.client.tars.TarsContextRefreshedEventListener.TarsContextRefreshedEventListener(ShenyuRegisterCenterConfig)",
+                "Local": "L[54,54], C[28,44]",
+                "Detail": null,
+                "Code": "config.getProps()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "shenyu-client/shenyu-client-tars/src/main/java/org/apache/shenyu/client/tars/TarsContextRefreshedEventListener.java"
+            },
+            {
+                "Metric": "CHANGED_VAR_VALUE",
+                "Method": "org.apache.shenyu.client.tars.TarsContextRefreshedEventListener.TarsContextRefreshedEventListener(ShenyuRegisterCenterConfig)",
+                "Local": "L[54,54], C[20,54]",
+                "Detail": null,
+                "Code": "props=config.getTars().getProps()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "shenyu-client/shenyu-client-tars/src/main/java/org/apache/shenyu/client/tars/TarsContextRefreshedEventListener.java"
+            },
+            {
+                "Metric": "CHANGED_VARIABLE",
+                "Method": "org.apache.shenyu.client.tars.TarsContextRefreshedEventListener.TarsContextRefreshedEventListener(ShenyuRegisterCenterConfig)",
+                "Local": "L[54,54], C[9,55]",
+                "Detail": null,
+                "Code": "Properties props=config.getTars().getProps();\n",
+                "relationType": "CALL_TARGET",
+                "distance": 2,
+                "file": "shenyu-client/shenyu-client-tars/src/main/java/org/apache/shenyu/client/tars/TarsContextRefreshedEventListener.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.shenyu.client.tars.TarsServiceBeanPostProcessor.TarsServiceBeanPostProcessor(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[64,64], C[28,43]",
+                "Detail": {
+                    "previousVar": "org.apache.shenyu.client.tars.TarsServiceBeanPostProcessor.TarsServiceBeanPostProcessor(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)>>>config[63,76]"
+                },
+                "Code": "config.getTars()",
+                "relationType": "VAR_RELATED",
+                "distance": 3,
+                "file": "shenyu-client/shenyu-client-tars/src/main/java/org/apache/shenyu/client/tars/TarsServiceBeanPostProcessor.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.shenyu.client.tars.TarsServiceBeanPostProcessor.TarsServiceBeanPostProcessor(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[64,64], C[28,44]",
+                "Detail": null,
+                "Code": "config.getProps()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "shenyu-client/shenyu-client-tars/src/main/java/org/apache/shenyu/client/tars/TarsServiceBeanPostProcessor.java"
+            },
+            {
+                "Metric": "CHANGED_VAR_VALUE",
+                "Method": "org.apache.shenyu.client.tars.TarsServiceBeanPostProcessor.TarsServiceBeanPostProcessor(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[64,64], C[20,54]",
+                "Detail": null,
+                "Code": "props=config.getTars().getProps()",
+                "relationType": "CALL_TARGET",
+                "distance": 1,
+                "file": "shenyu-client/shenyu-client-tars/src/main/java/org/apache/shenyu/client/tars/TarsServiceBeanPostProcessor.java"
+            },
+            {
+                "Metric": "CHANGED_VARIABLE",
+                "Method": "org.apache.shenyu.client.tars.TarsServiceBeanPostProcessor.TarsServiceBeanPostProcessor(ShenyuRegisterCenterConfig, ShenyuClientRegisterRepository)",
+                "Local": "L[64,64], C[9,55]",
+                "Detail": null,
+                "Code": "Properties props=config.getTars().getProps();\n",
+                "relationType": "CALL_TARGET",
+                "distance": 2,
+                "file": "shenyu-client/shenyu-client-tars/src/main/java/org/apache/shenyu/client/tars/TarsServiceBeanPostProcessor.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig.getProps()",
+                "Local": "L[30,30], C[8,16]",
+                "Detail": null,
+                "Code": "\n * getProps.",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig.getProps()",
+                "Local": "L[32,32], C[8,21]",
+                "Detail": null,
+                "Code": "\n * @return String",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_Javadoc",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig.getProps()",
+                "Local": "L[29,33], C[5,7]",
+                "Detail": null,
+                "Code": "/** \n * getProps.\n * @return String\n */\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig.getProps()",
+                "Local": "L[34,34], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig.setProps(Properties)",
+                "Local": "L[41,41], C[8,25]",
+                "Detail": {
+                    "previousVar": "org.apache.shenyu.register.common.config.PropertiesConfig.setProps(Properties)>>>props[38,45]"
+                },
+                "Code": "\n * @param props props",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig.getProps()",
+                "Local": "L[32,32], C[15,21]",
+                "Detail": null,
+                "Code": " String",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig.getProps()",
+                "Local": "L[30,30], C[8,16]",
+                "Detail": null,
+                "Code": "getProps.",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig.setProps(Properties)",
+                "Local": "L[44,44], C[9,27]",
+                "Detail": {
+                    "previousVar": "org.apache.shenyu.register.common.config.PropertiesConfig.setProps(Properties)>>>props[38,45]"
+                },
+                "Code": "this.props=props;\n",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_FieldAccess",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig.setProps(Properties)",
+                "Local": "L[44,44], C[9,18]",
+                "Detail": {
+                    "previousVar": "org.apache.shenyu.register.common.config.PropertiesConfig.setProps(Properties)>>>props[38,45]"
+                },
+                "Code": "this.props",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_CLASS",
+                "Method": "org.apache.shenyu.register.common.config.CompilationUnit",
+                "Local": "L[22,46], C[1,1]",
+                "Detail": {
+                    "previousVar": "org.apache.shenyu.register.common.config.PropertiesConfig>>>props[22,46]"
+                },
+                "Code": "/** \n * PropertiesConfig.\n */\npublic class PropertiesConfig {\n  private Properties props=new Properties();\n  /** \n * getProps.\n * @return String\n */\n  public Properties getProps(){\n    return props;\n  }\n  /** \n * setProps.\n * @param props props\n */\n  public void setProps(  final Properties props){\n    this.props=props;\n  }\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig.getProps()",
+                "Local": "L[35,35], C[9,21]",
+                "Detail": null,
+                "Code": "return props;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_Javadoc",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig.setProps(Properties)",
+                "Local": "L[38,42], C[5,7]",
+                "Detail": {
+                    "previousVar": "org.apache.shenyu.register.common.config.PropertiesConfig.setProps(Properties)>>>props[38,45]"
+                },
+                "Code": "/** \n * setProps.\n * @param props props\n */\n",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_FieldDeclaration",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig",
+                "Local": "L[27,27], C[5,48]",
+                "Detail": {
+                    "previousVar": "org.apache.shenyu.register.common.config.PropertiesConfig>>>props[22,46]"
+                },
+                "Code": "private Properties props=new Properties();\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig",
+                "Local": "L[38,45], C[5,5]",
+                "Detail": {
+                    "previousVar": "org.apache.shenyu.register.common.config.PropertiesConfig.setProps(Properties)>>>props[38,45]"
+                },
+                "Code": "/** \n * setProps.\n * @param props props\n */\npublic void setProps(final Properties props){\n  this.props=props;\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "REMOVED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getProps()",
+                "Local": "L[79,79], C[8,16]",
+                "Detail": null,
+                "Code": "getProps.",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getProps()",
+                "Local": "L[79,79], C[8,16]",
+                "Detail": null,
+                "Code": "\n * getProps.",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getProps()",
+                "Local": "L[81,81], C[8,21]",
+                "Detail": null,
+                "Code": "\n * @return String",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getProps()",
+                "Local": "L[81,81], C[15,21]",
+                "Detail": null,
+                "Code": " String",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_Javadoc",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getProps()",
+                "Local": "L[78,82], C[5,7]",
+                "Detail": null,
+                "Code": "/** \n * getProps.\n * @return String\n */\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getProps()",
+                "Local": "L[83,83], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getProps()",
+                "Local": "L[84,84], C[9,21]",
+                "Detail": null,
+                "Code": "return props;\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "org.apache.shenyu.client.springcloud.init.SpringCloudClientBeanPostProcessor.postProcessAfterInitialization(Object, String)",
+                "Local": "L[85,87], C[21,9]",
+                "Detail": null,
+                "Code": "{\n  return bean;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-client/shenyu-client-http/shenyu-client-springcloud/src/main/java/org/apache/shenyu/client/springcloud/init/SpringCloudClientBeanPostProcessor.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "org.apache.shenyu.client.springcloud.init.SpringCloudClientBeanPostProcessor.postProcessAfterInitialization(Object, String)",
+                "Local": "L[94,96], C[50,13]",
+                "Detail": null,
+                "Code": "{\n  return bean;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-client/shenyu-client-http/shenyu-client-springcloud/src/main/java/org/apache/shenyu/client/springcloud/init/SpringCloudClientBeanPostProcessor.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "org.apache.shenyu.client.springmvc.init.SpringMvcClientBeanPostProcessor.postProcessAfterInitialization(Object, String)",
+                "Local": "L[87,89], C[21,9]",
+                "Detail": null,
+                "Code": "{\n  return bean;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-client/shenyu-client-http/shenyu-client-springmvc/src/main/java/org/apache/shenyu/client/springmvc/init/SpringMvcClientBeanPostProcessor.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "org.apache.shenyu.client.springmvc.init.SpringMvcClientBeanPostProcessor.postProcessAfterInitialization(Object, String)",
+                "Local": "L[95,97], C[50,13]",
+                "Detail": null,
+                "Code": "{\n  return bean;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-client/shenyu-client-http/shenyu-client-springmvc/src/main/java/org/apache/shenyu/client/springmvc/init/SpringMvcClientBeanPostProcessor.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "org.apache.shenyu.client.tars.TarsServiceBeanPostProcessorTest.init()",
+                "Local": "L[49,49], C[48,84]",
+                "Detail": null,
+                "Code": "new ShenyuRegisterCenterConfig.Tars()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-client/shenyu-client-tars/src/test/java/org/apache/shenyu/client/tars/TarsServiceBeanPostProcessorTest.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "org.apache.shenyu.client.tars.TarsServiceBeanPostProcessorTest.init()",
+                "Local": "L[49,49], C[48,84]",
+                "Detail": null,
+                "Code": "new ShenyuRegisterCenterConfig.Tars()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-client/shenyu-client-tars/src/test/java/org/apache/shenyu/client/tars/TarsServiceBeanPostProcessorTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.shenyu.client.tars.TarsServiceBeanPostProcessorTest.init()",
+                "Local": "L[50,50], C[9,33]",
+                "Detail": null,
+                "Code": "tars.setProps(properties)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-client/shenyu-client-tars/src/test/java/org/apache/shenyu/client/tars/TarsServiceBeanPostProcessorTest.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "org.apache.shenyu.client.tars.TarsServiceBeanPostProcessorTest.init()",
+                "Local": "L[49,49], C[9,85]",
+                "Detail": null,
+                "Code": "ShenyuRegisterCenterConfig.Tars tars=new ShenyuRegisterCenterConfig.Tars();\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-client/shenyu-client-tars/src/test/java/org/apache/shenyu/client/tars/TarsServiceBeanPostProcessorTest.java"
+            },
+            {
+                "Metric": "METHOD_CALL_ARGUMENTS_CHANGE",
+                "Method": "org.apache.shenyu.client.tars.TarsServiceBeanPostProcessorTest.init().setTars(UNKNOWN)",
+                "Local": "L[55,55], C[9,40]",
+                "Detail": null,
+                "Code": "mockRegisterCenter.setTars(tars)",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-client/shenyu-client-tars/src/test/java/org/apache/shenyu/client/tars/TarsServiceBeanPostProcessorTest.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig",
+                "Local": "L[23,23], C[4,20]",
+                "Detail": null,
+                "Code": "PropertiesConfig.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig.setProps(Properties)",
+                "Local": "L[39,39], C[8,16]",
+                "Detail": null,
+                "Code": "\n * setProps.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig.setProps(Properties).SingleVariableDeclaration",
+                "Local": "L[43,43], C[26,30]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_ThisExpression",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig.setProps(Properties)",
+                "Local": "L[44,44], C[9,12]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig.setProps(Properties)",
+                "Local": "L[39,39], C[8,16]",
+                "Detail": null,
+                "Code": "setProps.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig.setProps(Properties)",
+                "Local": "L[41,41], C[20,25]",
+                "Detail": null,
+                "Code": " props",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_PackageDeclaration",
+                "Method": "org.apache.shenyu.register.common.config.CompilationUnit",
+                "Local": "L[18,18], C[1,49]",
+                "Detail": null,
+                "Code": "package org.apache.shenyu.register.common.config;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_IMPORT",
+                "Method": "org.apache.shenyu.register.common.config.CompilationUnit",
+                "Local": "L[20,20], C[1,28]",
+                "Detail": null,
+                "Code": "import java.util.Properties;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_ImportDeclaration",
+                "Method": "org.apache.shenyu.register.common.config.CompilationUnit",
+                "Local": "L[20,20], C[1,28]",
+                "Detail": null,
+                "Code": "import java.util.Properties;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig.FieldDeclaration",
+                "Local": "L[27,27], C[5,11]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig",
+                "Local": "L[27,27], C[32,47]",
+                "Detail": null,
+                "Code": "new Properties()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig",
+                "Local": "L[27,27], C[32,47]",
+                "Detail": null,
+                "Code": "new Properties()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig.setProps(Properties)",
+                "Local": "L[43,43], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_Javadoc",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig",
+                "Local": "L[22,24], C[1,3]",
+                "Detail": null,
+                "Code": "/** \n * PropertiesConfig.\n */\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig",
+                "Local": "L[25,25], C[1,6]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.PropertiesConfig",
+                "Local": "L[23,23], C[4,20]",
+                "Detail": null,
+                "Code": "\n * PropertiesConfig.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getMotan()",
+                "Local": "L[141,141], C[9,21]",
+                "Detail": null,
+                "Code": "return motan;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setSofa(Sofa)",
+                "Local": "L[163,163], C[8,16]",
+                "Detail": null,
+                "Code": "\n * set sofa.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setSofa(Sofa)",
+                "Local": "L[165,165], C[8,27]",
+                "Detail": null,
+                "Code": "\n * @param sofa the sofa",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Javadoc",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setSofa(Sofa)",
+                "Local": "L[162,166], C[5,7]",
+                "Detail": null,
+                "Code": "/** \n * set sofa.\n * @param sofa the sofa\n */\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setSofa(Sofa)",
+                "Local": "L[167,167], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.FieldDeclaration",
+                "Local": "L[37,37], C[5,11]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_ThisExpression",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.ShenyuRegisterCenterConfig(String, String, Properties)",
+                "Local": "L[37,37], C[9,12]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[31,31], C[27,37]",
+                "Detail": null,
+                "Code": "new Dubbo()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[31,31], C[27,37]",
+                "Detail": null,
+                "Code": "new Dubbo()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setGrpc(Grpc).SingleVariableDeclaration",
+                "Local": "L[131,131], C[25,29]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setHttp(Http)",
+                "Local": "L[95,95], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setProps(Properties)",
+                "Local": "L[92,92], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Javadoc",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setHttp(Http)",
+                "Local": "L[90,94], C[5,7]",
+                "Detail": null,
+                "Code": "/** \n * set http.\n * @param http the http\n */\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_Javadoc",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setProps(Properties)",
+                "Local": "L[87,91], C[5,7]",
+                "Detail": null,
+                "Code": "/** \n * setProps.\n * @param props props\n */\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Javadoc",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setGrpc(Grpc)",
+                "Local": "L[126,130], C[5,7]",
+                "Detail": null,
+                "Code": "/** \n * set grpc.\n * @param grpc the grpc\n */\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setGrpc(Grpc)",
+                "Local": "L[131,131], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setGrpc(Grpc)",
+                "Local": "L[129,129], C[19,27]",
+                "Detail": null,
+                "Code": " the grpc",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[35,35], C[27,37]",
+                "Detail": null,
+                "Code": "new Motan()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[35,35], C[27,37]",
+                "Detail": null,
+                "Code": "new Motan()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Javadoc",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getSofa()",
+                "Local": "L[153,157], C[5,7]",
+                "Detail": null,
+                "Code": "/** \n * get sofa.\n * @return the sofa\n */\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getSofa()",
+                "Local": "L[158,158], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setMotan(Motan)",
+                "Local": "L[150,150], C[9,27]",
+                "Detail": null,
+                "Code": "this.motan=motan;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_ThisExpression",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setDubbo(Dubbo)",
+                "Local": "L[114,114], C[9,12]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getTars()",
+                "Local": "L[177,177], C[9,20]",
+                "Detail": null,
+                "Code": "return tars;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_HIERARCHY",
+                "Method": "org.apache.shenyu.register.common.config.CompilationUnit",
+                "Local": "L[20,212], C[1,1]",
+                "Detail": null,
+                "Code": "/** \n * Governance center configuration.\n */\npublic final class ShenyuRegisterCenterConfig extends PropertiesConfig {\n  private String registerType;\n  private String serverLists;\n  private Http http=new Http();\n  private Dubbo dubbo=new Dubbo();\n  private Grpc grpc=new Grpc();\n  private Motan motan=new Motan();\n  private Sofa sofa=new Sofa();\n  private Tars tars=new Tars();\n  public ShenyuRegisterCenterConfig(){\n  }\n  /** \n * getRegisterType.\n * @return String\n */\n  public String getRegisterType(){\n    return registerType;\n  }\n  /** \n * setRegisterType.\n * @param registerType registerType\n */\n  public void setRegisterType(  final String registerType){\n    this.registerType=registerType;\n  }\n  /** \n * getServerLists.\n * @return String\n */\n  public String getServerLists(){\n    return serverLists;\n  }\n  /** \n * setServerLists.\n * @param serverLists serverLists\n */\n  public void setServerLists(  final String serverLists){\n    this.serverLists=serverLists;\n  }\n  /** \n * get http.\n * @return the http\n */\n  public Http getHttp(){\n    return http;\n  }\n  /** \n * set http.\n * @param http the http\n */\n  public void setHttp(  final Http http){\n    this.http=http;\n  }\n  /** \n * get dubbo.\n * @return the dubbo\n */\n  public Dubbo getDubbo(){\n    return dubbo;\n  }\n  /** \n * set dubbo.\n * @param dubbo the dubbo\n */\n  public void setDubbo(  final Dubbo dubbo){\n    this.dubbo=dubbo;\n  }\n  /** \n * get grpc.\n * @return the grpc\n */\n  public Grpc getGrpc(){\n    return grpc;\n  }\n  /** \n * set grpc.\n * @param grpc the grpc\n */\n  public void setGrpc(  final Grpc grpc){\n    this.grpc=grpc;\n  }\n  /** \n * get motan.\n * @return the motan\n */\n  public Motan getMotan(){\n    return motan;\n  }\n  /** \n * set motan.\n * @param motan the motan\n */\n  public void setMotan(  final Motan motan){\n    this.motan=motan;\n  }\n  /** \n * get sofa.\n * @return the sofa\n */\n  public Sofa getSofa(){\n    return sofa;\n  }\n  /** \n * set sofa.\n * @param sofa the sofa\n */\n  public void setSofa(  final Sofa sofa){\n    this.sofa=sofa;\n  }\n  /** \n * get tars.\n * @return the tars\n */\n  public Tars getTars(){\n    return tars;\n  }\n  /** \n * set tars.\n * @param tars the tars\n */\n  public void setTars(  final Tars tars){\n    this.tars=tars;\n  }\npublic static class Http extends PropertiesConfig {\n  }\npublic static class Dubbo extends PropertiesConfig {\n  }\npublic static class Grpc extends PropertiesConfig {\n  }\npublic static class Motan extends PropertiesConfig {\n  }\npublic static class Sofa extends PropertiesConfig {\n  }\npublic static class Tars extends PropertiesConfig {\n  }\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_IMPORT",
+                "Method": "org.apache.shenyu.register.common.config.CompilationUnit",
+                "Local": "L[20,20], C[1,28]",
+                "Detail": null,
+                "Code": "import java.util.Properties;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_ImportDeclaration",
+                "Method": "org.apache.shenyu.register.common.config.CompilationUnit",
+                "Local": "L[20,20], C[1,28]",
+                "Detail": null,
+                "Code": "import java.util.Properties;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_FieldAccess",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setTars(Tars)",
+                "Local": "L[186,186], C[9,17]",
+                "Detail": null,
+                "Code": "this.tars",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_ThisExpression",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setTars(Tars)",
+                "Local": "L[186,186], C[9,12]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.FieldDeclaration",
+                "Local": "L[31,31], C[5,11]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setMotan(Motan)",
+                "Local": "L[145,145], C[8,17]",
+                "Detail": null,
+                "Code": "set motan.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.ShenyuRegisterCenterConfig(String, String, Properties).SingleVariableDeclaration",
+                "Local": "L[36,36], C[39,43]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setTars(Tars)",
+                "Local": "L[181,181], C[8,16]",
+                "Detail": null,
+                "Code": "set tars.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_FieldAccess",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setHttp(Http)",
+                "Local": "L[96,96], C[9,17]",
+                "Detail": null,
+                "Code": "this.http",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_FieldAccess",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setProps(Properties)",
+                "Local": "L[93,93], C[9,18]",
+                "Detail": null,
+                "Code": "this.props",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setMotan(Motan).SingleVariableDeclaration",
+                "Local": "L[149,149], C[26,30]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.ShenyuRegisterCenterConfig(String, String, Properties).SingleVariableDeclaration",
+                "Local": "L[36,36], C[92,96]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getDubbo()",
+                "Local": "L[100,100], C[8,17]",
+                "Detail": null,
+                "Code": "\n * get dubbo.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getDubbo()",
+                "Local": "L[102,102], C[8,24]",
+                "Detail": null,
+                "Code": "\n * @return the dubbo",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_ThisExpression",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.ShenyuRegisterCenterConfig(String, String, Properties)",
+                "Local": "L[38,38], C[9,12]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setDubbo(Dubbo)",
+                "Local": "L[109,109], C[8,17]",
+                "Detail": null,
+                "Code": "\n * set dubbo.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setDubbo(Dubbo)",
+                "Local": "L[111,111], C[8,29]",
+                "Detail": null,
+                "Code": "\n * @param dubbo the dubbo",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.FieldDeclaration",
+                "Local": "L[33,33], C[5,11]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setHttp(Http).SingleVariableDeclaration",
+                "Local": "L[95,95], C[25,29]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setProps(Properties).SingleVariableDeclaration",
+                "Local": "L[92,92], C[26,30]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_ThisExpression",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setMotan(Motan)",
+                "Local": "L[150,150], C[9,12]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_FieldAccess",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setDubbo(Dubbo)",
+                "Local": "L[114,114], C[9,18]",
+                "Detail": null,
+                "Code": "this.dubbo",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.ShenyuRegisterCenterConfig(String, String, Properties)",
+                "Local": "L[36,36], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setDubbo(Dubbo).SingleVariableDeclaration",
+                "Local": "L[113,113], C[26,30]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "CHANGED_ClassInstanceCreation",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[29,29], C[25,34]",
+                "Detail": null,
+                "Code": "new Http()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getTars()",
+                "Local": "L[174,174], C[15,23]",
+                "Detail": null,
+                "Code": " the tars",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getTars()",
+                "Local": "L[172,172], C[8,16]",
+                "Detail": null,
+                "Code": "\n * get tars.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getTars()",
+                "Local": "L[174,174], C[8,23]",
+                "Detail": null,
+                "Code": "\n * @return the tars",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getGrpc()",
+                "Local": "L[120,120], C[15,23]",
+                "Detail": null,
+                "Code": " the grpc",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setTars(Tars)",
+                "Local": "L[183,183], C[19,27]",
+                "Detail": null,
+                "Code": " the tars",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setGrpc(Grpc)",
+                "Local": "L[127,127], C[8,16]",
+                "Detail": null,
+                "Code": "set grpc.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[37,37], C[25,34]",
+                "Detail": null,
+                "Code": "new Sofa()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[37,37], C[25,34]",
+                "Detail": null,
+                "Code": "new Sofa()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setDubbo(Dubbo)",
+                "Local": "L[109,109], C[8,17]",
+                "Detail": null,
+                "Code": "set dubbo.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setGrpc(Grpc)",
+                "Local": "L[132,132], C[9,25]",
+                "Detail": null,
+                "Code": "this.grpc=grpc;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[33,33], C[25,34]",
+                "Detail": null,
+                "Code": "new Grpc()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[33,33], C[25,34]",
+                "Detail": null,
+                "Code": "new Grpc()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[39,39], C[25,34]",
+                "Detail": null,
+                "Code": "new Tars()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[39,39], C[25,34]",
+                "Detail": null,
+                "Code": "new Tars()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setDubbo(Dubbo)",
+                "Local": "L[114,114], C[9,27]",
+                "Detail": null,
+                "Code": "this.dubbo=dubbo;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getGrpc()",
+                "Local": "L[118,118], C[8,16]",
+                "Detail": null,
+                "Code": "get grpc.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setTars(Tars).SingleVariableDeclaration",
+                "Local": "L[185,185], C[25,29]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getSofa()",
+                "Local": "L[154,154], C[8,16]",
+                "Detail": null,
+                "Code": "get sofa.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getHttp()",
+                "Local": "L[82,82], C[8,16]",
+                "Detail": null,
+                "Code": "get http.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getMotan()",
+                "Local": "L[138,138], C[15,24]",
+                "Detail": null,
+                "Code": " the motan",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_FieldAccess",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.ShenyuRegisterCenterConfig(String, String, Properties)",
+                "Local": "L[38,38], C[9,24]",
+                "Detail": null,
+                "Code": "this.serverLists",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.ShenyuRegisterCenterConfig(String, String, Properties)",
+                "Local": "L[37,37], C[9,41]",
+                "Detail": null,
+                "Code": "this.registerType=registerType;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.ShenyuRegisterCenterConfig(String, String, Properties)",
+                "Local": "L[38,38], C[9,39]",
+                "Detail": null,
+                "Code": "this.serverLists=serverLists;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.ShenyuRegisterCenterConfig(String, String, Properties)",
+                "Local": "L[39,39], C[9,27]",
+                "Detail": null,
+                "Code": "this.props=props;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setMotan(Motan)",
+                "Local": "L[145,145], C[8,17]",
+                "Detail": null,
+                "Code": "\n * set motan.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setMotan(Motan)",
+                "Local": "L[147,147], C[8,29]",
+                "Detail": null,
+                "Code": "\n * @param motan the motan",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.Grpc",
+                "Local": "L[197,197], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.Grpc",
+                "Local": "L[197,197], C[12,17]",
+                "Detail": null,
+                "Code": "static",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "CHANGED_VAR_VALUE",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.FieldDeclaration",
+                "Local": "L[29,29], C[18,34]",
+                "Detail": null,
+                "Code": "http=new Http()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setGrpc(Grpc)",
+                "Local": "L[127,127], C[8,16]",
+                "Detail": null,
+                "Code": "\n * set grpc.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setGrpc(Grpc)",
+                "Local": "L[129,129], C[8,27]",
+                "Detail": null,
+                "Code": "\n * @param grpc the grpc",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setTars(Tars)",
+                "Local": "L[181,181], C[8,16]",
+                "Detail": null,
+                "Code": "\n * set tars.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setTars(Tars)",
+                "Local": "L[183,183], C[8,27]",
+                "Detail": null,
+                "Code": "\n * @param tars the tars",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Javadoc",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getMotan()",
+                "Local": "L[135,139], C[5,7]",
+                "Detail": null,
+                "Code": "/** \n * get motan.\n * @return the motan\n */\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getMotan()",
+                "Local": "L[140,140], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Javadoc",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getTars()",
+                "Local": "L[171,175], C[5,7]",
+                "Detail": null,
+                "Code": "/** \n * get tars.\n * @return the tars\n */\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getTars()",
+                "Local": "L[176,176], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Javadoc",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getGrpc()",
+                "Local": "L[117,121], C[5,7]",
+                "Detail": null,
+                "Code": "/** \n * get grpc.\n * @return the grpc\n */\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getGrpc()",
+                "Local": "L[122,122], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getHttp()",
+                "Local": "L[82,82], C[8,16]",
+                "Detail": null,
+                "Code": "\n * get http.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getHttp()",
+                "Local": "L[84,84], C[8,23]",
+                "Detail": null,
+                "Code": "\n * @return the http",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getDubbo()",
+                "Local": "L[102,102], C[15,24]",
+                "Detail": null,
+                "Code": " the dubbo",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getGrpc()",
+                "Local": "L[118,118], C[8,16]",
+                "Detail": null,
+                "Code": "\n * get grpc.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getGrpc()",
+                "Local": "L[120,120], C[8,23]",
+                "Detail": null,
+                "Code": "\n * @return the grpc",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setHttp(Http)",
+                "Local": "L[93,93], C[19,27]",
+                "Detail": null,
+                "Code": " the http",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setProps(Properties)",
+                "Local": "L[90,90], C[20,25]",
+                "Detail": null,
+                "Code": " props",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_ThisExpression",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setGrpc(Grpc)",
+                "Local": "L[132,132], C[9,12]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_PARAMETER",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[92,92], C[32,41]",
+                "Detail": null,
+                "Code": "/** \n * setProps.\n * @param props props\n */\npublic void setProps(final Properties props){\n  this.props=props;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_PARAMETER",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[95,95], C[31,34]",
+                "Detail": null,
+                "Code": "/** \n * set http.\n * @param http the http\n */\npublic void setHttp(final Http http){\n  this.http=http;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "RENAME_ELEMENT",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[90,97], C[5,5]",
+                "Detail": null,
+                "Code": "/** \n * set http.\n * @param http the http\n */\npublic void setHttp(final Http http){\n  this.http=http;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "VAR_TYPE_CHANGED",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[29,29], C[5,35]",
+                "Detail": null,
+                "Code": "private Http http=new Http();\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "CHANGED_FieldDeclaration",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[29,29], C[5,35]",
+                "Detail": null,
+                "Code": "private Http http=new Http();\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "CHANGED_RETURN_TYPE",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[81,88], C[5,5]",
+                "Detail": null,
+                "Code": "/** \n * get http.\n * @return the http\n */\npublic Http getHttp(){\n  return http;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "RENAME_ELEMENT",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[81,88], C[5,5]",
+                "Detail": null,
+                "Code": "/** \n * get http.\n * @return the http\n */\npublic Http getHttp(){\n  return http;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_FieldDeclaration",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[31,31], C[5,38]",
+                "Detail": null,
+                "Code": "private Dubbo dubbo=new Dubbo();\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_FieldDeclaration",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[33,33], C[5,35]",
+                "Detail": null,
+                "Code": "private Grpc grpc=new Grpc();\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_FieldDeclaration",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[35,35], C[5,38]",
+                "Detail": null,
+                "Code": "private Motan motan=new Motan();\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_FieldDeclaration",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[37,37], C[5,35]",
+                "Detail": null,
+                "Code": "private Sofa sofa=new Sofa();\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_FieldDeclaration",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[39,39], C[5,35]",
+                "Detail": null,
+                "Code": "private Tars tars=new Tars();\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[99,106], C[5,5]",
+                "Detail": null,
+                "Code": "/** \n * get dubbo.\n * @return the dubbo\n */\npublic Dubbo getDubbo(){\n  return dubbo;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[108,115], C[5,5]",
+                "Detail": null,
+                "Code": "/** \n * set dubbo.\n * @param dubbo the dubbo\n */\npublic void setDubbo(final Dubbo dubbo){\n  this.dubbo=dubbo;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[117,124], C[5,5]",
+                "Detail": null,
+                "Code": "/** \n * get grpc.\n * @return the grpc\n */\npublic Grpc getGrpc(){\n  return grpc;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[126,133], C[5,5]",
+                "Detail": null,
+                "Code": "/** \n * set grpc.\n * @param grpc the grpc\n */\npublic void setGrpc(final Grpc grpc){\n  this.grpc=grpc;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[135,142], C[5,5]",
+                "Detail": null,
+                "Code": "/** \n * get motan.\n * @return the motan\n */\npublic Motan getMotan(){\n  return motan;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[144,151], C[5,5]",
+                "Detail": null,
+                "Code": "/** \n * set motan.\n * @param motan the motan\n */\npublic void setMotan(final Motan motan){\n  this.motan=motan;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[153,160], C[5,5]",
+                "Detail": null,
+                "Code": "/** \n * get sofa.\n * @return the sofa\n */\npublic Sofa getSofa(){\n  return sofa;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[162,169], C[5,5]",
+                "Detail": null,
+                "Code": "/** \n * set sofa.\n * @param sofa the sofa\n */\npublic void setSofa(final Sofa sofa){\n  this.sofa=sofa;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[171,178], C[5,5]",
+                "Detail": null,
+                "Code": "/** \n * get tars.\n * @return the tars\n */\npublic Tars getTars(){\n  return tars;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[180,187], C[5,5]",
+                "Detail": null,
+                "Code": "/** \n * set tars.\n * @param tars the tars\n */\npublic void setTars(final Tars tars){\n  this.tars=tars;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_CLASS",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[189,191], C[5,5]",
+                "Detail": null,
+                "Code": "public static class Http extends PropertiesConfig {\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_CLASS",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[193,195], C[5,5]",
+                "Detail": null,
+                "Code": "public static class Dubbo extends PropertiesConfig {\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_CLASS",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[197,199], C[5,5]",
+                "Detail": null,
+                "Code": "public static class Grpc extends PropertiesConfig {\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_CLASS",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[201,203], C[5,5]",
+                "Detail": null,
+                "Code": "public static class Motan extends PropertiesConfig {\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_CLASS",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[205,207], C[5,5]",
+                "Detail": null,
+                "Code": "public static class Sofa extends PropertiesConfig {\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_CLASS",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[209,211], C[5,5]",
+                "Detail": null,
+                "Code": "public static class Tars extends PropertiesConfig {\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig",
+                "Local": "L[36,40], C[5,5]",
+                "Detail": null,
+                "Code": "public ShenyuRegisterCenterConfig(final String registerType,final String serverLists,final Properties props){\n  this.registerType=registerType;\n  this.serverLists=serverLists;\n  this.props=props;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_FieldAccess",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setMotan(Motan)",
+                "Local": "L[150,150], C[9,18]",
+                "Detail": null,
+                "Code": "this.motan",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getGrpc()",
+                "Local": "L[123,123], C[9,20]",
+                "Detail": null,
+                "Code": "return grpc;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Javadoc",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setMotan(Motan)",
+                "Local": "L[144,148], C[5,7]",
+                "Detail": null,
+                "Code": "/** \n * set motan.\n * @param motan the motan\n */\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setMotan(Motan)",
+                "Local": "L[149,149], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.Http",
+                "Local": "L[189,189], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.Http",
+                "Local": "L[189,189], C[12,17]",
+                "Detail": null,
+                "Code": "static",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.Tars",
+                "Local": "L[209,209], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.Tars",
+                "Local": "L[209,209], C[12,17]",
+                "Detail": null,
+                "Code": "static",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getDubbo()",
+                "Local": "L[100,100], C[8,17]",
+                "Detail": null,
+                "Code": "get dubbo.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_FieldAccess",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setGrpc(Grpc)",
+                "Local": "L[132,132], C[9,17]",
+                "Detail": null,
+                "Code": "this.grpc",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_FieldAccess",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setSofa(Sofa)",
+                "Local": "L[168,168], C[9,17]",
+                "Detail": null,
+                "Code": "this.sofa",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_FieldAccess",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.ShenyuRegisterCenterConfig(String, String, Properties)",
+                "Local": "L[39,39], C[9,18]",
+                "Detail": null,
+                "Code": "this.props",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Javadoc",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getDubbo()",
+                "Local": "L[99,103], C[5,7]",
+                "Detail": null,
+                "Code": "/** \n * get dubbo.\n * @return the dubbo\n */\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getDubbo()",
+                "Local": "L[104,104], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setHttp(Http)",
+                "Local": "L[91,91], C[8,16]",
+                "Detail": null,
+                "Code": "set http.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setProps(Properties)",
+                "Local": "L[88,88], C[8,16]",
+                "Detail": null,
+                "Code": "setProps.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Javadoc",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setDubbo(Dubbo)",
+                "Local": "L[108,112], C[5,7]",
+                "Detail": null,
+                "Code": "/** \n * set dubbo.\n * @param dubbo the dubbo\n */\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setDubbo(Dubbo)",
+                "Local": "L[113,113], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getHttp()",
+                "Local": "L[84,84], C[15,23]",
+                "Detail": null,
+                "Code": " the http",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setSofa(Sofa)",
+                "Local": "L[163,163], C[8,16]",
+                "Detail": null,
+                "Code": "set sofa.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getSofa()",
+                "Local": "L[154,154], C[8,16]",
+                "Detail": null,
+                "Code": "\n * get sofa.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getSofa()",
+                "Local": "L[156,156], C[8,23]",
+                "Detail": null,
+                "Code": "\n * @return the sofa",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.Sofa",
+                "Local": "L[205,205], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.Sofa",
+                "Local": "L[205,205], C[12,17]",
+                "Detail": null,
+                "Code": "static",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_ThisExpression",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setSofa(Sofa)",
+                "Local": "L[168,168], C[9,12]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.Dubbo",
+                "Local": "L[193,193], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.Dubbo",
+                "Local": "L[193,193], C[12,17]",
+                "Detail": null,
+                "Code": "static",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getSofa()",
+                "Local": "L[156,156], C[15,23]",
+                "Detail": null,
+                "Code": " the sofa",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.ShenyuRegisterCenterConfig(String, String, Properties).SingleVariableDeclaration",
+                "Local": "L[36,36], C[66,70]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setDubbo(Dubbo)",
+                "Local": "L[111,111], C[20,29]",
+                "Detail": null,
+                "Code": " the dubbo",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getTars()",
+                "Local": "L[172,172], C[8,16]",
+                "Detail": null,
+                "Code": "get tars.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getMotan()",
+                "Local": "L[136,136], C[8,17]",
+                "Detail": null,
+                "Code": "get motan.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Javadoc",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getHttp()",
+                "Local": "L[81,85], C[5,7]",
+                "Detail": null,
+                "Code": "/** \n * get http.\n * @return the http\n */\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getHttp()",
+                "Local": "L[86,86], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getMotan()",
+                "Local": "L[136,136], C[8,17]",
+                "Detail": null,
+                "Code": "\n * get motan.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getMotan()",
+                "Local": "L[138,138], C[8,24]",
+                "Detail": null,
+                "Code": "\n * @return the motan",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setMotan(Motan)",
+                "Local": "L[147,147], C[20,29]",
+                "Detail": null,
+                "Code": " the motan",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.Motan",
+                "Local": "L[201,201], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.Motan",
+                "Local": "L[201,201], C[12,17]",
+                "Detail": null,
+                "Code": "static",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_ThisExpression",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.ShenyuRegisterCenterConfig(String, String, Properties)",
+                "Local": "L[39,39], C[9,12]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.FieldDeclaration",
+                "Local": "L[35,35], C[5,11]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setHttp(Http)",
+                "Local": "L[93,93], C[8,27]",
+                "Detail": null,
+                "Code": "\n * @param http the http",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setProps(Properties)",
+                "Local": "L[90,90], C[8,25]",
+                "Detail": null,
+                "Code": "\n * @param props props",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setHttp(Http)",
+                "Local": "L[91,91], C[8,16]",
+                "Detail": null,
+                "Code": "\n * set http.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_TagElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setProps(Properties)",
+                "Local": "L[88,88], C[8,16]",
+                "Detail": null,
+                "Code": "\n * setProps.",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getHttp()",
+                "Local": "L[87,87], C[9,20]",
+                "Detail": null,
+                "Code": "return http;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getSofa()",
+                "Local": "L[159,159], C[9,20]",
+                "Detail": null,
+                "Code": "return sofa;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setSofa(Sofa)",
+                "Local": "L[168,168], C[9,25]",
+                "Detail": null,
+                "Code": "this.sofa=sofa;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setSofa(Sofa).SingleVariableDeclaration",
+                "Local": "L[167,167], C[25,29]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Javadoc",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setTars(Tars)",
+                "Local": "L[180,184], C[5,7]",
+                "Detail": null,
+                "Code": "/** \n * set tars.\n * @param tars the tars\n */\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setTars(Tars)",
+                "Local": "L[185,185], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.FieldDeclaration",
+                "Local": "L[39,39], C[5,11]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setHttp(Http)",
+                "Local": "L[96,96], C[9,25]",
+                "Detail": null,
+                "Code": "this.http=http;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setProps(Properties)",
+                "Local": "L[93,93], C[9,27]",
+                "Detail": null,
+                "Code": "this.props=props;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.getDubbo()",
+                "Local": "L[105,105], C[9,21]",
+                "Detail": null,
+                "Code": "return dubbo;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_TextElement",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setSofa(Sofa)",
+                "Local": "L[165,165], C[19,27]",
+                "Detail": null,
+                "Code": " the sofa",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_FieldAccess",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.ShenyuRegisterCenterConfig(String, String, Properties)",
+                "Local": "L[37,37], C[9,25]",
+                "Detail": null,
+                "Code": "this.registerType",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_ThisExpression",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setHttp(Http)",
+                "Local": "L[96,96], C[9,12]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "REMOVED_ThisExpression",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setProps(Properties)",
+                "Local": "L[93,93], C[9,12]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig.setTars(Tars)",
+                "Local": "L[186,186], C[9,25]",
+                "Detail": null,
+                "Code": "this.tars=tars;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java"
+            }
+        ],
+        "metadata": {
+            "type": "Pull Up Method",
+            "description": "Pull Up Method public getProps() : Properties from class org.apache.shenyu.register.common.config.ShenyuRegisterCenterConfig to public getProps() : Properties from class org.apache.shenyu.register.common.config.PropertiesConfig",
+            "leftSideLocations": [
+                {
+                    "filePath": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java",
+                    "startLine": 78,
+                    "endLine": 85,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public getProps() : Properties"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/PropertiesConfig.java",
+                    "startLine": 29,
+                    "endLine": 36,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "pulled up method declaration",
+                    "codeElement": "public getProps() : Properties"
+                }
+            ]
+        }
+    }
+]

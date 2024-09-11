@@ -1,0 +1,911 @@
+[
+    {
+        "commit": "2a68f4f608bcb1ec225130b43694f458158e0b2b",
+        "source": [
+            {
+                "element": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.deleteAddress()",
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java",
+                "local": "L[101,119], C[3,3]"
+            }
+        ],
+        "target": [
+            {
+                "element": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.shouldClear2ndLevelCache()",
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java",
+                "local": "L[54,72], C[3,3]"
+            }
+        ],
+        "type": "RENAME_METHOD",
+        "related": [
+            {
+                "Metric": "RENAME_ELEMENT",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest",
+                "Local": "L[54,72], C[3,3]",
+                "Detail": {
+                    "method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.shouldClear2ndLevelCache()",
+                    "blockPos": "L[55,72], C[42,3]"
+                },
+                "Code": "@Test public void shouldClear2ndLevelCache(){\n  SqlSession session=sqlSessionFactory.openSession();\n  try {\n    personDAO=new PersonDAOImpl(session);\n    Person p=personDAO.findById(1);\n    Assert.assertEquals(2,p.getAddresses().size());\n    Address address=p.getAddresses().get(0);\n    personDAO.deleteAddress(address.getId());\n    p=personDAO.findById(1);\n    Assert.assertEquals(1,p.getAddresses().size());\n    Assert.assertTrue(p.getAddresses().get(0).getId() != address.getId());\n    session.commit();\n  }\n  finally {\n    if (session != null) {\n      session.close();\n    }\n  }\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.shouldClear2ndLevelCache()",
+                "Local": "L[63,63], C[11,31]",
+                "Detail": null,
+                "Code": "personDAO.findById(1)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find().setId(UNKNOWN)",
+                "Local": "L[65,65], C[7,21]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest>>>person[33,120]"
+                },
+                "Code": "person.setId(1)",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[78,78], C[7,40]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>work[76,94]"
+                },
+                "Code": "work.setStreet(\"100 nowhere lane\")",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find().assertEquals(UNKNOWN, UNKNOWN)",
+                "Local": "L[91,91], C[36,50]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>p[89,94]"
+                },
+                "Code": "p.getLastname()",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "ADDED_EXPRESSIONSTATEMENT",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.shouldClear2ndLevelCache()",
+                "Local": "L[63,63], C[7,32]",
+                "Detail": null,
+                "Code": "p=personDAO.findById(1);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.shouldClear2ndLevelCache()",
+                "Local": "L[59,59], C[7,39]",
+                "Detail": null,
+                "Code": "Person p=personDAO.findById(1);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.deleteAddress()",
+                "Local": "L[106,106], C[7,52]",
+                "Detail": null,
+                "Code": "Person p=personDAO.findById(person.getId());\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.deleteAddress()",
+                "Local": "L[110,110], C[7,45]",
+                "Detail": null,
+                "Code": "p=personDAO.findById(person.getId());\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[74,74], C[7,26]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>home[69,94]"
+                },
+                "Code": "home.setZip(\"27613\")",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[66,66], C[7,33]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest>>>person[33,120]"
+                },
+                "Code": "person.setFirstname(\"John\")",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[80,80], C[7,25]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>work[76,94]"
+                },
+                "Code": "work.setState(\"nc\")",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find().findById(UNKNOWN)",
+                "Local": "L[89,89], C[37,50]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest>>>person[33,120]"
+                },
+                "Code": "person.getId()",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.shouldClear2ndLevelCache()",
+                "Local": "L[59,59], C[18,38]",
+                "Detail": null,
+                "Code": "personDAO.findById(1)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.deleteAddress()",
+                "Local": "L[70,70], C[7,19]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>home[69,94]"
+                },
+                "Code": "home.setId(1)",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.deleteAddress()",
+                "Local": "L[106,106], C[18,51]",
+                "Detail": null,
+                "Code": "personDAO.findById(person.getId())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[84,84], C[7,25]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>addresses[83,94]"
+                },
+                "Code": "addresses.add(home)",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.deleteAddress().findById(UNKNOWN)",
+                "Local": "L[110,110], C[30,43]",
+                "Detail": null,
+                "Code": "person.getId()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[86,86], C[7,36]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest>>>person[33,120]"
+                },
+                "Code": "person.setAddresses(addresses)",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[67,67], C[7,33]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest>>>person[33,120]"
+                },
+                "Code": "person.setLastname(\"Smith\")",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[95,95], C[11,25]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>session[60,99]"
+                },
+                "Code": "session != null",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find().assertEquals(UNKNOWN, UNKNOWN)",
+                "Local": "L[90,90], C[35,50]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>p[89,94]"
+                },
+                "Code": "p.getFirstname()",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[91,91], C[7,51]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>p[89,94]"
+                },
+                "Code": "Assert.assertEquals(\"Smith\",p.getLastname())",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_IF_STATEMENT",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[95,97], C[28,7]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>session[60,99]"
+                },
+                "Code": "{\n  session.close();\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[85,85], C[7,25]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>addresses[83,94]"
+                },
+                "Code": "addresses.add(work)",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[71,71], C[7,40]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>home[69,94]"
+                },
+                "Code": "home.setStreet(\"1 somewhere lane\")",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find().assertEquals(UNKNOWN, UNKNOWN)",
+                "Local": "L[92,92], C[30,45]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>p[89,94]"
+                },
+                "Code": "p.getAddresses()",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[89,89], C[18,51]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest>>>personDAO[33,120]"
+                },
+                "Code": "personDAO.findById(person.getId())",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[60,60], C[26,56]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest>>>sqlSessionFactory[33,120]"
+                },
+                "Code": "sqlSessionFactory.openSession()",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[62,62], C[19,44]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>session[60,99]"
+                },
+                "Code": "new PersonDAOImpl(session)",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[62,62], C[19,44]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>session[60,99]"
+                },
+                "Code": "new PersonDAOImpl(session)",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[96,96], C[9,23]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>session[60,99]"
+                },
+                "Code": "session.close()",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[77,77], C[7,19]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>home[69,94]"
+                },
+                "Code": "home.setId(2)",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[93,93], C[7,22]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>session[60,99]"
+                },
+                "Code": "session.commit()",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[72,72], C[7,26]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>home[69,94]"
+                },
+                "Code": "home.setCity(\"cary\")",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[90,90], C[7,51]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>p[89,94]"
+                },
+                "Code": "Assert.assertEquals(\"John\",p.getFirstname())",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.deleteAddress().findById(UNKNOWN)",
+                "Local": "L[106,106], C[37,50]",
+                "Detail": null,
+                "Code": "person.getId()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[60,60], C[5,57]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest>>>sqlSessionFactory[33,120]"
+                },
+                "Code": "SqlSession session=sqlSessionFactory.openSession();\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_TRY_CATCH",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[61,98], C[5,5]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest>>>personDAO[33,120]"
+                },
+                "Code": "try {\n  personDAO=new PersonDAOImpl(session);\n  person=new Person();\n  person.setId(1);\n  person.setFirstname(\"John\");\n  person.setLastname(\"Smith\");\n  Address home=new Address();\n  home.setId(1);\n  home.setStreet(\"1 somewhere lane\");\n  home.setCity(\"cary\");\n  home.setState(\"nc\");\n  home.setZip(\"27613\");\n  Address work=new Address();\n  home.setId(2);\n  work.setStreet(\"100 nowhere lane\");\n  work.setCity(\"raleigh\");\n  work.setState(\"nc\");\n  work.setZip(\"27614\");\n  List<Address> addresses=new ArrayList<Address>();\n  addresses.add(home);\n  addresses.add(work);\n  person.setAddresses(addresses);\n  personDAO.create(person);\n  Person p=personDAO.findById(person.getId());\n  Assert.assertEquals(\"John\",p.getFirstname());\n  Assert.assertEquals(\"Smith\",p.getLastname());\n  Assert.assertEquals(2,p.getAddresses().size());\n  session.commit();\n}\n  finally {\n  if (session != null) {\n    session.close();\n  }\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_TRYSTATEMENT",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[61,98], C[5,5]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest>>>personDAO[33,120]"
+                },
+                "Code": "try {\n  personDAO=new PersonDAOImpl(session);\n  person=new Person();\n  person.setId(1);\n  person.setFirstname(\"John\");\n  person.setLastname(\"Smith\");\n  Address home=new Address();\n  home.setId(1);\n  home.setStreet(\"1 somewhere lane\");\n  home.setCity(\"cary\");\n  home.setState(\"nc\");\n  home.setZip(\"27613\");\n  Address work=new Address();\n  home.setId(2);\n  work.setStreet(\"100 nowhere lane\");\n  work.setCity(\"raleigh\");\n  work.setState(\"nc\");\n  work.setZip(\"27614\");\n  List<Address> addresses=new ArrayList<Address>();\n  addresses.add(home);\n  addresses.add(work);\n  person.setAddresses(addresses);\n  personDAO.create(person);\n  Person p=personDAO.findById(person.getId());\n  Assert.assertEquals(\"John\",p.getFirstname());\n  Assert.assertEquals(\"Smith\",p.getLastname());\n  Assert.assertEquals(2,p.getAddresses().size());\n  session.commit();\n}\n  finally {\n  if (session != null) {\n    session.close();\n  }\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[73,73], C[7,25]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>home[69,94]"
+                },
+                "Code": "home.setState(\"nc\")",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_TRY_CATCH",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.deleteAddress()",
+                "Local": "L[104,118], C[5,5]",
+                "Detail": null,
+                "Code": "try {\n  personDAO=new PersonDAOImpl(session);\n  Person p=personDAO.findById(person.getId());\n  Assert.assertEquals(2,p.getAddresses().size());\n  Address address=p.getAddresses().get(0);\n  personDAO.deleteAddress(address.getId());\n  p=personDAO.findById(person.getId());\n  Assert.assertEquals(1,p.getAddresses().size());\n  Assert.assertTrue(p.getAddresses().get(0).getId() != address.getId());\n  session.commit();\n}\n  finally {\n  if (session != null) {\n    session.close();\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "ADDED_TRYSTATEMENT",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.shouldClear2ndLevelCache()",
+                "Local": "L[57,71], C[5,5]",
+                "Detail": null,
+                "Code": "try {\n  personDAO=new PersonDAOImpl(session);\n  Person p=personDAO.findById(1);\n  Assert.assertEquals(2,p.getAddresses().size());\n  Address address=p.getAddresses().get(0);\n  personDAO.deleteAddress(address.getId());\n  p=personDAO.findById(1);\n  Assert.assertEquals(1,p.getAddresses().size());\n  Assert.assertTrue(p.getAddresses().get(0).getId() != address.getId());\n  session.commit();\n}\n  finally {\n  if (session != null) {\n    session.close();\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_TRYSTATEMENT",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.deleteAddress()",
+                "Local": "L[104,118], C[5,5]",
+                "Detail": null,
+                "Code": "try {\n  personDAO=new PersonDAOImpl(session);\n  Person p=personDAO.findById(person.getId());\n  Assert.assertEquals(2,p.getAddresses().size());\n  Address address=p.getAddresses().get(0);\n  personDAO.deleteAddress(address.getId());\n  p=personDAO.findById(person.getId());\n  Assert.assertEquals(1,p.getAddresses().size());\n  Assert.assertTrue(p.getAddresses().get(0).getId() != address.getId());\n  session.commit();\n}\n  finally {\n  if (session != null) {\n    session.close();\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.deleteAddress()",
+                "Local": "L[110,110], C[11,44]",
+                "Detail": null,
+                "Code": "personDAO.findById(person.getId())",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[81,81], C[7,26]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>work[76,94]"
+                },
+                "Code": "work.setZip(\"27614\")",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[87,87], C[7,30]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest>>>personDAO[33,120]"
+                },
+                "Code": "personDAO.create(person)",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[92,92], C[7,53]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>p[89,94]"
+                },
+                "Code": "Assert.assertEquals(2,p.getAddresses().size())",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[62,62], C[7,45]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest>>>personDAO[33,120]"
+                },
+                "Code": "personDAO=new PersonDAOImpl(session);\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_EXPRESSIONSTATEMENT",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[64,64], C[7,28]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest>>>person[33,120]"
+                },
+                "Code": "person=new Person();\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[69,69], C[7,35]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>home[69,94]"
+                },
+                "Code": "Address home=new Address();\n",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[76,76], C[7,35]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>work[76,94]"
+                },
+                "Code": "Address work=new Address();\n",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[83,83], C[7,57]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>addresses[83,94]"
+                },
+                "Code": "List<Address> addresses=new ArrayList<Address>();\n",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[89,89], C[7,52]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest>>>personDAO[33,120]"
+                },
+                "Code": "Person p=personDAO.findById(person.getId());\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "ADDED_TRY_CATCH",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.shouldClear2ndLevelCache()",
+                "Local": "L[57,71], C[5,5]",
+                "Detail": null,
+                "Code": "try {\n  personDAO=new PersonDAOImpl(session);\n  Person p=personDAO.findById(1);\n  Assert.assertEquals(2,p.getAddresses().size());\n  Address address=p.getAddresses().get(0);\n  personDAO.deleteAddress(address.getId());\n  p=personDAO.findById(1);\n  Assert.assertEquals(1,p.getAddresses().size());\n  Assert.assertTrue(p.getAddresses().get(0).getId() != address.getId());\n  session.commit();\n}\n  finally {\n  if (session != null) {\n    session.close();\n  }\n}\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_FieldDeclaration",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest",
+                "Local": "L[37,37], C[3,31]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest>>>person[33,120]"
+                },
+                "Code": "private static Person person;\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest",
+                "Local": "L[57,99], C[3,3]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest>>>personDAO[33,120]"
+                },
+                "Code": "@Test public void find(){\n  SqlSession session=sqlSessionFactory.openSession();\n  try {\n    personDAO=new PersonDAOImpl(session);\n    person=new Person();\n    person.setId(1);\n    person.setFirstname(\"John\");\n    person.setLastname(\"Smith\");\n    Address home=new Address();\n    home.setId(1);\n    home.setStreet(\"1 somewhere lane\");\n    home.setCity(\"cary\");\n    home.setState(\"nc\");\n    home.setZip(\"27613\");\n    Address work=new Address();\n    home.setId(2);\n    work.setStreet(\"100 nowhere lane\");\n    work.setCity(\"raleigh\");\n    work.setState(\"nc\");\n    work.setZip(\"27614\");\n    List<Address> addresses=new ArrayList<Address>();\n    addresses.add(home);\n    addresses.add(work);\n    person.setAddresses(addresses);\n    personDAO.create(person);\n    Person p=personDAO.findById(person.getId());\n    Assert.assertEquals(\"John\",p.getFirstname());\n    Assert.assertEquals(\"Smith\",p.getLastname());\n    Assert.assertEquals(2,p.getAddresses().size());\n    session.commit();\n  }\n  finally {\n    if (session != null) {\n      session.close();\n    }\n  }\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[79,79], C[7,29]",
+                "Detail": {
+                    "previousVar": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()>>>work[76,94]"
+                },
+                "Code": "work.setCity(\"raleigh\")",
+                "relationType": "VAR_RELATED",
+                "distance": 2,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[69,69], C[22,34]",
+                "Detail": null,
+                "Code": "new Address()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[69,69], C[22,34]",
+                "Detail": null,
+                "Code": "new Address()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[76,76], C[22,34]",
+                "Detail": null,
+                "Code": "new Address()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[76,76], C[22,34]",
+                "Detail": null,
+                "Code": "new Address()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_IMPORT",
+                "Method": "org.apache.ibatis.submitted.clearcache.CompilationUnit",
+                "Local": "L[20,20], C[1,27]",
+                "Detail": null,
+                "Code": "import java.util.ArrayList;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_ImportDeclaration",
+                "Method": "org.apache.ibatis.submitted.clearcache.CompilationUnit",
+                "Local": "L[20,20], C[1,27]",
+                "Detail": null,
+                "Code": "import java.util.ArrayList;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_IMPORT",
+                "Method": "org.apache.ibatis.submitted.clearcache.CompilationUnit",
+                "Local": "L[21,21], C[1,22]",
+                "Detail": null,
+                "Code": "import java.util.List;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_ImportDeclaration",
+                "Method": "org.apache.ibatis.submitted.clearcache.CompilationUnit",
+                "Local": "L[21,21], C[1,22]",
+                "Detail": null,
+                "Code": "import java.util.List;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[83,83], C[7,19]",
+                "Detail": null,
+                "Code": "List<Address>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_MarkerAnnotation",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[57,57], C[3,7]",
+                "Detail": null,
+                "Code": "@Test",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[58,58], C[3,8]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[64,64], C[16,27]",
+                "Detail": null,
+                "Code": "new Person()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[64,64], C[16,27]",
+                "Detail": null,
+                "Code": "new Person()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.FieldDeclaration",
+                "Local": "L[37,37], C[3,9]",
+                "Detail": null,
+                "Code": "private",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.FieldDeclaration",
+                "Local": "L[37,37], C[11,16]",
+                "Detail": null,
+                "Code": "static",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_NullLiteral",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[95,95], C[22,25]",
+                "Detail": null,
+                "Code": "null",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[83,83], C[33,56]",
+                "Detail": null,
+                "Code": "new ArrayList<Address>()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find()",
+                "Local": "L[83,83], C[33,56]",
+                "Detail": null,
+                "Code": "new ArrayList<Address>()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            },
+            {
+                "Metric": "REMOVED_ParameterizedType",
+                "Method": "org.apache.ibatis.submitted.clearcache.PersonDAOTest.find().ArrayList<Address>",
+                "Local": "L[83,83], C[37,54]",
+                "Detail": null,
+                "Code": "ArrayList<Address>",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java"
+            }
+        ],
+        "metadata": {
+            "type": "Rename Method",
+            "description": "Rename Method public deleteAddress() : void renamed to public shouldClear2ndLevelCache() : void in class org.apache.ibatis.submitted.clearcache.PersonDAOTest",
+            "leftSideLocations": [
+                {
+                    "filePath": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java",
+                    "startLine": 101,
+                    "endLine": 119,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public deleteAddress() : void"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java",
+                    "startLine": 54,
+                    "endLine": 72,
+                    "startColumn": 3,
+                    "endColumn": 4,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "renamed method declaration",
+                    "codeElement": "public shouldClear2ndLevelCache() : void"
+                }
+            ]
+        }
+    }
+]

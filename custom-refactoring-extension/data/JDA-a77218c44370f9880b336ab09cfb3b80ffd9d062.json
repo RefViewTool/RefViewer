@@ -1,0 +1,475 @@
+[
+    {
+        "commit": "a77218c44370f9880b336ab09cfb3b80ffd9d062",
+        "source": [
+            {
+                "element": "net.dv8tion.jda.api.requests.restaction.MessageAction.addFile(byte[], String, AttachmentOption...)",
+                "file": "src/main/java/net/dv8tion/jda/api/requests/restaction/MessageAction.java",
+                "local": "L[571,606], C[5,5]"
+            }
+        ],
+        "target": [
+            {
+                "element": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.addFile(byte[], String, AttachmentOption...)",
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java",
+                "local": "L[319,327], C[5,5]"
+            }
+        ],
+        "type": "PUSH_DOWN",
+        "related": [
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl",
+                "Local": "L[319,327], C[5,5]",
+                "Detail": {
+                    "method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.addFile(byte[], String, AttachmentOption...)",
+                    "blockPos": "L[322,327], C[5,5]"
+                },
+                "Code": "@Nonnull @Override public MessageAction addFile(@Nonnull byte[] data,@Nonnull String name,@Nonnull AttachmentOption... options){\n  Checks.notNull(data,\"Data\");\n  final long maxSize=getMaxFileSize();\n  Checks.check(data.length <= maxSize,\"File may not exceed the maximum file length of %d bytes!\",maxSize);\n  return addFile(new ByteArrayInputStream(data),name,options);\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.dv8tion.jda.api.requests.restaction.MessageAction.addFile(byte[], String, AttachmentOption...)",
+                "Local": "L[603,603], C[30,37]",
+                "Detail": null,
+                "Code": "getJDA()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/api/requests/restaction/MessageAction.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "net.dv8tion.jda.api.requests.restaction.MessageAction.addFile(byte[], String, AttachmentOption...)",
+                "Local": "L[603,603], C[9,13]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/api/requests/restaction/MessageAction.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.dv8tion.jda.api.requests.restaction.MessageAction.addFile(byte[], String, AttachmentOption...)",
+                "Local": "L[602,602], C[9,36]",
+                "Detail": null,
+                "Code": "Checks.notNull(data,\"Data\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/api/requests/restaction/MessageAction.java"
+            },
+            {
+                "Metric": "REMOVED_InfixExpression",
+                "Method": "net.dv8tion.jda.api.requests.restaction.MessageAction.addFile(byte[], String, AttachmentOption...).check(UNKNOWN, UNKNOWN, UNKNOWN)",
+                "Local": "L[604,604], C[22,43]",
+                "Detail": null,
+                "Code": "data.length <= maxSize",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/api/requests/restaction/MessageAction.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.dv8tion.jda.api.requests.restaction.MessageAction.addFile(byte[], String, AttachmentOption...)",
+                "Local": "L[605,605], C[16,69]",
+                "Detail": null,
+                "Code": "addFile(new ByteArrayInputStream(data),name,options)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/api/requests/restaction/MessageAction.java"
+            },
+            {
+                "Metric": "REMOVED_CLASS_INSTANCE",
+                "Method": "net.dv8tion.jda.api.requests.restaction.MessageAction.addFile(byte[], String, AttachmentOption...).addFile(InputStream, String, AttachmentOption[])",
+                "Local": "L[605,605], C[24,53]",
+                "Detail": null,
+                "Code": "new ByteArrayInputStream(data)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/api/requests/restaction/MessageAction.java"
+            },
+            {
+                "Metric": "REMOVED_ClassInstanceCreation",
+                "Method": "net.dv8tion.jda.api.requests.restaction.MessageAction.addFile(byte[], String, AttachmentOption...).addFile(InputStream, String, AttachmentOption[])",
+                "Local": "L[605,605], C[24,53]",
+                "Detail": null,
+                "Code": "new ByteArrayInputStream(data)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/api/requests/restaction/MessageAction.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "net.dv8tion.jda.api.requests.restaction.MessageAction.addFile(byte[], String, AttachmentOption...)",
+                "Local": "L[604,604], C[9,113]",
+                "Detail": null,
+                "Code": "Checks.check(data.length <= maxSize,\"File may not exceed the maximum file length of %d bytes!\",maxSize)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/api/requests/restaction/MessageAction.java"
+            },
+            {
+                "Metric": "REMOVED_VARIABLE",
+                "Method": "net.dv8tion.jda.api.requests.restaction.MessageAction.addFile(byte[], String, AttachmentOption...)",
+                "Local": "L[603,603], C[9,73]",
+                "Detail": null,
+                "Code": "final long maxSize=getJDA().getSelfUser().getAllowedFileSize();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/api/requests/restaction/MessageAction.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "net.dv8tion.jda.api.requests.restaction.MessageAction.addFile(byte[], String, AttachmentOption...)",
+                "Local": "L[605,605], C[9,70]",
+                "Detail": null,
+                "Code": "return addFile(new ByteArrayInputStream(data),name,options);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/api/requests/restaction/MessageAction.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "net.dv8tion.jda.api.requests.restaction.MessageAction.addFile(byte[], String, AttachmentOption...)",
+                "Local": "L[600,600], C[5,11]",
+                "Detail": null,
+                "Code": "default",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/api/requests/restaction/MessageAction.java"
+            },
+            {
+                "Metric": "ADDED_Dimension",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.addFile(byte[], String, AttachmentOption...)",
+                "Local": "L[321,321], C[47,48]",
+                "Detail": null,
+                "Code": "[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.addFile(byte[], String, AttachmentOption...)",
+                "Local": "L[324,324], C[30,45]",
+                "Detail": null,
+                "Code": "getMaxFileSize()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.addFile(byte[], String, AttachmentOption...)",
+                "Local": "L[325,325], C[9,113]",
+                "Detail": null,
+                "Code": "Checks.check(data.length <= maxSize,\"File may not exceed the maximum file length of %d bytes!\",maxSize)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "ADDED_MarkerAnnotation",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.addFile(byte[], String, AttachmentOption...).SingleVariableDeclaration",
+                "Local": "L[321,321], C[34,41]",
+                "Detail": null,
+                "Code": "@Nonnull",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "ADDED_ArrayType",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.addFile(byte[], String, AttachmentOption...).SingleVariableDeclaration",
+                "Local": "L[321,321], C[43,48]",
+                "Detail": null,
+                "Code": "byte[]",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "ADDED_InfixExpression",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.addFile(byte[], String, AttachmentOption...).check(UNKNOWN, UNKNOWN, UNKNOWN)",
+                "Local": "L[325,325], C[22,43]",
+                "Detail": null,
+                "Code": "data.length <= maxSize",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.addFile(byte[], String, AttachmentOption...)",
+                "Local": "L[324,324], C[9,13]",
+                "Detail": null,
+                "Code": "final",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "ADDED_MarkerAnnotation",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.addFile(byte[], String, AttachmentOption...).SingleVariableDeclaration",
+                "Local": "L[321,321], C[56,63]",
+                "Detail": null,
+                "Code": "@Nonnull",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.addFile(byte[], String, AttachmentOption...)",
+                "Local": "L[326,326], C[16,69]",
+                "Detail": null,
+                "Code": "addFile(new ByteArrayInputStream(data),name,options)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "ADDED_MarkerAnnotation",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.addFile(byte[], String, AttachmentOption...)",
+                "Local": "L[319,319], C[5,12]",
+                "Detail": null,
+                "Code": "@Nonnull",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "ADDED_MarkerAnnotation",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.addFile(byte[], String, AttachmentOption...)",
+                "Local": "L[320,320], C[5,13]",
+                "Detail": null,
+                "Code": "@Override",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.addFile(byte[], String, AttachmentOption...)",
+                "Local": "L[321,321], C[5,10]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "ADDED_VARIABLE",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.addFile(byte[], String, AttachmentOption...)",
+                "Local": "L[324,324], C[9,46]",
+                "Detail": null,
+                "Code": "final long maxSize=getMaxFileSize();\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.addFile(byte[], String, AttachmentOption...)",
+                "Local": "L[326,326], C[9,70]",
+                "Detail": null,
+                "Code": "return addFile(new ByteArrayInputStream(data),name,options);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "ADDED_CLASS_INSTANCE",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.addFile(byte[], String, AttachmentOption...).addFile(InputStream, String, AttachmentOption[])",
+                "Local": "L[326,326], C[24,53]",
+                "Detail": null,
+                "Code": "new ByteArrayInputStream(data)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "ADDED_ClassInstanceCreation",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.addFile(byte[], String, AttachmentOption...).addFile(InputStream, String, AttachmentOption[])",
+                "Local": "L[326,326], C[24,53]",
+                "Detail": null,
+                "Code": "new ByteArrayInputStream(data)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.addFile(byte[], String, AttachmentOption...)",
+                "Local": "L[323,323], C[9,36]",
+                "Detail": null,
+                "Code": "Checks.notNull(data,\"Data\")",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "REMOVED_IMPORT",
+                "Method": "net.dv8tion.jda.api.requests.restaction.CompilationUnit",
+                "Local": "L[36,36], C[1,36]",
+                "Detail": null,
+                "Code": "import java.io.ByteArrayInputStream;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/net/dv8tion/jda/api/requests/restaction/MessageAction.java"
+            },
+            {
+                "Metric": "REMOVED_ImportDeclaration",
+                "Method": "net.dv8tion.jda.api.requests.restaction.CompilationUnit",
+                "Local": "L[36,36], C[1,36]",
+                "Detail": null,
+                "Code": "import java.io.ByteArrayInputStream;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/net/dv8tion/jda/api/requests/restaction/MessageAction.java"
+            },
+            {
+                "Metric": "CHANGED_ELSE_CONDITION",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.getJSON()",
+                "Local": "L[516,516], C[17,68]",
+                "Detail": null,
+                "Code": "obj.put(\"embeds\",DataArray.fromCollection(embeds));\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "CHANGED_ELSE_CONDITION",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.getJSON()",
+                "Local": "L[520,520], C[17,55]",
+                "Detail": null,
+                "Code": "obj.put(\"content\",content.toString());\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "CHANGED_ELSE_CONDITION",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.getJSON()",
+                "Local": "L[524,524], C[17,40]",
+                "Detail": null,
+                "Code": "obj.put(\"nonce\",nonce);\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "CHANGED_ELSE_CONDITION",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.getJSON()",
+                "Local": "L[528,528], C[17,76]",
+                "Detail": null,
+                "Code": "obj.put(\"components\",DataArray.fromCollection(components));\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.getJSON()",
+                "Local": "L[540,540], C[17,68]",
+                "Detail": null,
+                "Code": "obj.put(\"embeds\",DataArray.fromCollection(embeds));\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.getJSON()",
+                "Local": "L[542,542], C[17,55]",
+                "Detail": null,
+                "Code": "obj.put(\"content\",content.toString());\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.getJSON()",
+                "Local": "L[544,544], C[17,40]",
+                "Detail": null,
+                "Code": "obj.put(\"nonce\",nonce);\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.getJSON()",
+                "Local": "L[546,546], C[17,76]",
+                "Detail": null,
+                "Code": "obj.put(\"components\",DataArray.fromCollection(components));\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.getJSON()",
+                "Local": "L[548,551], C[17,56]",
+                "Detail": null,
+                "Code": "obj.put(\"attachments\",DataArray.fromCollection(retainedAttachments.stream().map(id -> DataObject.empty().put(\"id\",id)).collect(Collectors.toList())));\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.checkPermission(Permission)",
+                "Local": "L[580,580], C[13,19]",
+                "Detail": null,
+                "Code": "return;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "net.dv8tion.jda.internal.requests.restaction.MessageActionImpl.checkPermission(Permission)",
+                "Local": "L[583,583], C[13,19]",
+                "Detail": null,
+                "Code": "return;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java"
+            }
+        ],
+        "metadata": {
+            "type": "Push Down Method",
+            "description": "Push Down Method public addFile(data byte[], name String, options AttachmentOption...) : MessageAction from class net.dv8tion.jda.api.requests.restaction.MessageAction to public addFile(data byte[], name String, options AttachmentOption...) : MessageAction from class net.dv8tion.jda.internal.requests.restaction.MessageActionImpl",
+            "leftSideLocations": [
+                {
+                    "filePath": "src/main/java/net/dv8tion/jda/api/requests/restaction/MessageAction.java",
+                    "startLine": 571,
+                    "endLine": 606,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public addFile(data byte[], name String, options AttachmentOption...) : MessageAction"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java",
+                    "startLine": 319,
+                    "endLine": 327,
+                    "startColumn": 5,
+                    "endColumn": 6,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "pushed down method declaration",
+                    "codeElement": "public addFile(data byte[], name String, options AttachmentOption...) : MessageAction"
+                }
+            ]
+        }
+    }
+]

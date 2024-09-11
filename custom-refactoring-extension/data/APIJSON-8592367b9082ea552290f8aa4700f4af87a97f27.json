@@ -1,0 +1,370 @@
+[
+    {
+        "commit": "8592367b9082ea552290f8aa4700f4af87a97f27",
+        "source": [
+            {
+                "element": "apijson.demo.server.DemoParser.parseCorrectRequest(JSONObject)",
+                "file": "APIJSON-Java-Server/APIJSONDemo/src/main/java/apijson/demo/server/DemoParser.java",
+                "local": "L[129,132], C[2,2]"
+            }
+        ],
+        "target": [
+            {
+                "element": "zuo.biao.apijson.server.AbstractParser.parseCorrectRequest(JSONObject)",
+                "file": "APIJSON-Java-Server/APIJSONLibrary/src/main/java/zuo/biao/apijson/server/AbstractParser.java",
+                "local": "L[343,346], C[2,2]"
+            }
+        ],
+        "type": "PULL_UP",
+        "related": [
+            {
+                "Metric": "ADDED_METHOD",
+                "Method": "zuo.biao.apijson.server.AbstractParser",
+                "Local": "L[343,346], C[2,2]",
+                "Detail": {
+                    "method": "zuo.biao.apijson.server.AbstractParser.parseCorrectRequest(JSONObject)",
+                    "blockPos": "L[344,346], C[76,2]"
+                },
+                "Code": "@Override public JSONObject parseCorrectRequest(JSONObject target) throws Exception {\n  return Structure.parseRequest(requestMethod,\"\",target,requestObject,getMaxUpdateCount(),this);\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "APIJSON-Java-Server/APIJSONLibrary/src/main/java/zuo/biao/apijson/server/AbstractParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD",
+                "Method": "apijson.demo.server.DemoParser",
+                "Local": "L[129,132], C[2,2]",
+                "Detail": {
+                    "method": "apijson.demo.server.DemoParser.parseCorrectRequest(JSONObject)",
+                    "blockPos": "L[130,132], C[76,2]"
+                },
+                "Code": "@Override public JSONObject parseCorrectRequest(JSONObject target) throws Exception {\n  return Structure.parseRequest(requestMethod,\"\",target,requestObject,getMaxUpdateCount(),this);\n}\n",
+                "relationType": "MENTIONED_DECLARATION",
+                "distance": 0,
+                "file": "APIJSON-Java-Server/APIJSONDemo/src/main/java/apijson/demo/server/DemoParser.java"
+            },
+            {
+                "Metric": "REMOVED_MarkerAnnotation",
+                "Method": "apijson.demo.server.DemoParser.parseCorrectRequest(JSONObject)",
+                "Local": "L[129,129], C[2,10]",
+                "Detail": null,
+                "Code": "@Override",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "APIJSON-Java-Server/APIJSONDemo/src/main/java/apijson/demo/server/DemoParser.java"
+            },
+            {
+                "Metric": "REMOVED_Modifier",
+                "Method": "apijson.demo.server.DemoParser.parseCorrectRequest(JSONObject)",
+                "Local": "L[130,130], C[2,7]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "APIJSON-Java-Server/APIJSONDemo/src/main/java/apijson/demo/server/DemoParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "apijson.demo.server.DemoParser.parseCorrectRequest(JSONObject).parseRequest(UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN)",
+                "Local": "L[131,131], C[75,93]",
+                "Detail": null,
+                "Code": "getMaxUpdateCount()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "APIJSON-Java-Server/APIJSONDemo/src/main/java/apijson/demo/server/DemoParser.java"
+            },
+            {
+                "Metric": "REMOVED_ThisExpression",
+                "Method": "apijson.demo.server.DemoParser.parseCorrectRequest(JSONObject).parseRequest(UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN)",
+                "Local": "L[131,131], C[96,99]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "APIJSON-Java-Server/APIJSONDemo/src/main/java/apijson/demo/server/DemoParser.java"
+            },
+            {
+                "Metric": "REMOVED_RETURN_VALUE",
+                "Method": "apijson.demo.server.DemoParser.parseCorrectRequest(JSONObject)",
+                "Local": "L[131,131], C[3,101]",
+                "Detail": null,
+                "Code": "return Structure.parseRequest(requestMethod,\"\",target,requestObject,getMaxUpdateCount(),this);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "APIJSON-Java-Server/APIJSONDemo/src/main/java/apijson/demo/server/DemoParser.java"
+            },
+            {
+                "Metric": "REMOVED_INTERFACE",
+                "Method": "apijson.demo.server.CompilationUnit",
+                "Local": "L[31,140], C[1,1]",
+                "Detail": {
+                    "previousVar": "apijson.demo.server.DemoParser.parseCorrectRequest(JSONObject)>>>target[129,132]"
+                },
+                "Code": "/** \n * 请求解析器\n * @author Lemon\n */\npublic class DemoParser extends AbstractParser implements SQLCreator {\n  public DemoParser(){\n    super();\n  }\n  public DemoParser(  RequestMethod method){\n    super(method);\n  }\n  public DemoParser(  RequestMethod method,  boolean noVerify){\n    super(method,noVerify);\n  }\n  protected HttpSession session;\n  public HttpSession getSession(){\n    return session;\n  }\n  public AbstractParser setSession(  HttpSession session){\n    this.session=session;\n    setVisitor(DemoVerifier.getVisitor(session));\n    return this;\n  }\n  @Override public Verifier createVerifier(){\n    return new DemoVerifier();\n  }\n  @Override public SQLConfig createSQLConfig(){\n    return new DemoSQLConfig();\n  }\n  @Override public SQLExecutor createSQLExecutor(){\n    return new DemoSQLExecutor();\n  }\n  @Override public JSONObject parseResponse(  JSONObject request){\n    if (session != null && request != null && request.get(JSONRequest.KEY_FORMAT) == null) {\n      request.put(JSONRequest.KEY_FORMAT,session.getAttribute(JSONRequest.KEY_FORMAT));\n    }\n    return super.parseResponse(request);\n  }\n  @Override public DemoObjectParser createObjectParser(  JSONObject request,  String parentPath,  String name,  SQLConfig arrayConfig) throws Exception {\n    return new DemoObjectParser(session,request,parentPath,name,arrayConfig){\n      @Override public JSONObject parseResponse(      JSONRequest request) throws Exception {\n        DemoParser demoParser=new DemoParser(RequestMethod.GET);\n        demoParser.setSession(session);\n        demoParser.setNoVerifyLogin(noVerifyLogin);\n        demoParser.setNoVerifyRole(noVerifyRole);\n        return demoParser.parseResponse(request);\n      }\n    }\n.setMethod(requestMethod).setParser(this);\n  }\n  @Override protected void onVerifyContent() throws Exception {\n    if (session != null && requestObject.get(JSONRequest.KEY_VERSION) == null) {\n      requestObject.put(JSONRequest.KEY_VERSION,session.getAttribute(JSONRequest.KEY_VERSION));\n    }\n    super.onVerifyContent();\n  }\n  @Override public JSONObject parseCorrectRequest(  JSONObject target) throws Exception {\n    return Structure.parseRequest(requestMethod,\"\",target,requestObject,getMaxUpdateCount(),this);\n  }\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 1,
+                "file": "APIJSON-Java-Server/APIJSONDemo/src/main/java/apijson/demo/server/DemoParser.java"
+            },
+            {
+                "Metric": "REMOVED_METHOD_CALL",
+                "Method": "apijson.demo.server.DemoParser.parseCorrectRequest(JSONObject)",
+                "Local": "L[131,131], C[10,100]",
+                "Detail": null,
+                "Code": "Structure.parseRequest(requestMethod,\"\",target,requestObject,getMaxUpdateCount(),this)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "APIJSON-Java-Server/APIJSONDemo/src/main/java/apijson/demo/server/DemoParser.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "zuo.biao.apijson.server.AbstractParser.getJoinObject(String, JSONObject, String)",
+                "Local": "L[889,891], C[41,5]",
+                "Detail": {
+                    "previousVar": "zuo.biao.apijson.server.AbstractParser.getJoinObject(String, JSONObject, String)>>>obj[858,911]"
+                },
+                "Code": "{\n  requestObj.put(k,obj.get(k));\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 5,
+                "file": "APIJSON-Java-Server/APIJSONLibrary/src/main/java/zuo/biao/apijson/server/AbstractParser.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "zuo.biao.apijson.server.AbstractParser.getJoinObject(String, JSONObject, String)",
+                "Local": "L[902,905], C[36,5]",
+                "Detail": {
+                    "previousVar": "zuo.biao.apijson.server.AbstractParser.getJoinObject(String, JSONObject, String)>>>obj[858,911]"
+                },
+                "Code": "{\n  requestObj.put(k,obj.get(k));\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 5,
+                "file": "APIJSON-Java-Server/APIJSONLibrary/src/main/java/zuo/biao/apijson/server/AbstractParser.java"
+            },
+            {
+                "Metric": "ADDED_INTERFACE",
+                "Method": "zuo.biao.apijson.server.CompilationUnit",
+                "Local": "L[45,1141], C[1,1]",
+                "Detail": null,
+                "Code": "/** \n * parser for parsing request to JSONObject\n * @author Lemon\n */\npublic abstract class AbstractParser implements Parser, SQLCreator {\n  protected static final String TAG=\"AbstractParser\";\n  /** \n * GET\n */\n  public AbstractParser(){\n    this(null);\n  }\n  /** \n * @param requestMethod null ? requestMethod = GET\n */\n  public AbstractParser(  RequestMethod method){\n    this(method,false);\n  }\n  /** \n * @param requestMethod null ? requestMethod = GET\n * @param noVerify 仅限于为服务端提供方法免验证特权，普通请求不要设置为true！ 如果对应Table有权限也建议用默认值false，保持和客户端权限一致\n */\n  public AbstractParser(  RequestMethod method,  boolean noVerify){\n    super();\n    setMethod(method);\n    setNoVerify(noVerify);\n  }\n  @NotNull protected Visitor visitor;\n  @NotNull @Override public Visitor getVisitor(){\n    if (visitor == null) {\n      visitor=new Visitor(){\n        @Override public Long getId(){\n          return 0L;\n        }\n        @Override public List<Long> getContactIdList(){\n          return null;\n        }\n      }\n;\n    }\n    return visitor;\n  }\n  @Override public AbstractParser setVisitor(  @NotNull Visitor visitor){\n    this.visitor=visitor;\n    return this;\n  }\n  protected RequestMethod requestMethod;\n  @NotNull @Override public RequestMethod getMethod(){\n    return requestMethod;\n  }\n  @NotNull @Override public AbstractParser setMethod(  RequestMethod method){\n    this.requestMethod=method == null ? GET : method;\n    return this;\n  }\n  protected JSONObject requestObject;\n  @Override public JSONObject getRequest(){\n    return requestObject;\n  }\n  @Override public AbstractParser setRequest(  JSONObject request){\n    this.requestObject=request;\n    return this;\n  }\n  protected Verifier verifier;\n  protected RequestRole globleRole;\n  public AbstractParser setGlobleRole(  RequestRole globleRole){\n    this.globleRole=globleRole;\n    return this;\n  }\n  protected String globleDatabase;\n  public AbstractParser setGlobleDatabase(  String globleDatabase){\n    this.globleDatabase=globleDatabase;\n    return this;\n  }\n  protected boolean globleFormat;\n  public AbstractParser setGlobleFormat(  Boolean globleFormat){\n    this.globleFormat=globleFormat;\n    return this;\n  }\n  @Override public boolean isNoVerify(){\n    return noVerifyLogin && noVerifyRole && noVerifyContent;\n  }\n  @Override public AbstractParser setNoVerify(  boolean noVerify){\n    setNoVerifyLogin(noVerify);\n    setNoVerifyRole(noVerify);\n    setNoVerifyContent(noVerify);\n    return this;\n  }\n  protected boolean noVerifyLogin;\n  @Override public boolean isNoVerifyLogin(){\n    return noVerifyLogin;\n  }\n  @Override public AbstractParser setNoVerifyLogin(  boolean noVerifyLogin){\n    this.noVerifyLogin=noVerifyLogin;\n    return this;\n  }\n  protected boolean noVerifyRole;\n  @Override public boolean isNoVerifyRole(){\n    return noVerifyRole;\n  }\n  @Override public AbstractParser setNoVerifyRole(  boolean noVerifyRole){\n    this.noVerifyRole=noVerifyRole;\n    return this;\n  }\n  protected boolean noVerifyContent;\n  @Override public boolean isNoVerifyContent(){\n    return noVerifyContent;\n  }\n  @Override public AbstractParser setNoVerifyContent(  boolean noVerifyContent){\n    this.noVerifyContent=noVerifyContent;\n    return this;\n  }\n  protected SQLExecutor sqlExecutor;\n  protected Map<String,Object> queryResultMap;\n  /** \n * 解析请求json并获取对应结果\n * @param request\n * @return\n */\n  @Override public String parse(  String request){\n    return JSON.toJSONString(parseResponse(request));\n  }\n  /** \n * 解析请求json并获取对应结果\n * @param request\n * @return\n */\n  @NotNull @Override public String parse(  JSONObject request){\n    return JSON.toJSONString(parseResponse(request));\n  }\n  /** \n * 解析请求json并获取对应结果\n * @param request 先parseRequest中URLDecoder.decode(request, UTF_8);再parseResponse(getCorrectRequest(...))\n * @return parseResponse(requestObject);\n */\n  @NotNull @Override public JSONObject parseResponse(  String request){\n    Log.d(TAG,\"\\n\\n\\n\\n<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\\n\" + requestMethod + \"/parseResponse  request = \\n\"+ request+ \"\\n\\n\");\n    try {\n      requestObject=parseRequest(request);\n    }\n catch (    Exception e) {\n      return newErrorResult(e);\n    }\n    return parseResponse(requestObject);\n  }\n  /** \n * 解析请求json并获取对应结果\n * @param request\n * @return requestObject\n */\n  @NotNull @Override public JSONObject parseResponse(  JSONObject request){\n    long startTime=System.currentTimeMillis();\n    Log.d(TAG,\"parseResponse  startTime = \" + startTime + \"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\\n\\n\\n \");\n    requestObject=request;\n    verifier=createVerifier().setVisitor(getVisitor());\n    if (RequestMethod.isPublicMethod(requestMethod) == false) {\n      try {\n        if (noVerifyLogin == false) {\n          onVerifyLogin();\n        }\n        if (noVerifyContent == false) {\n          onVerifyContent();\n        }\n      }\n catch (      Exception e) {\n        return extendErrorResult(requestObject,e);\n      }\n    }\n    if (noVerifyRole == false && globleRole == null) {\n      try {\n        setGlobleRole(RequestRole.get(requestObject.getString(JSONRequest.KEY_ROLE)));\n        requestObject.remove(JSONRequest.KEY_ROLE);\n      }\n catch (      Exception e) {\n        return extendErrorResult(requestObject,e);\n      }\n    }\n    try {\n      setGlobleDatabase(requestObject.getString(JSONRequest.KEY_DATABASE));\n      setGlobleFormat(requestObject.getBooleanValue(JSONRequest.KEY_FORMAT));\n      requestObject.remove(JSONRequest.KEY_DATABASE);\n      requestObject.remove(JSONRequest.KEY_FORMAT);\n    }\n catch (    Exception e) {\n      return extendErrorResult(requestObject,e);\n    }\n    final String requestString=JSON.toJSONString(request);\n    queryResultMap=new HashMap<String,Object>();\n    Exception error=null;\n    sqlExecutor=createSQLExecutor();\n    try {\n      requestObject=onObjectParse(request,null,null,null);\n    }\n catch (    Exception e) {\n      e.printStackTrace();\n      error=e;\n    }\n    sqlExecutor.close();\n    sqlExecutor=null;\n    requestObject=verifier.removeAccessInfo(requestObject);\n    requestObject=error == null ? extendSuccessResult(requestObject) : extendErrorResult(requestObject,error);\n    queryResultMap.clear();\n    Log.d(TAG,\"\\n\\n\\n\\n<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\\n \" + requestMethod + \"/parseResponse  request = \\n\"+ requestString+ \"\\n\\n\");\n    Log.d(TAG,\"parse  return response = \\n\" + JSON.toJSONString(requestObject) + \"\\n >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> \\n\\n\\n\");\n    long endTime=System.currentTimeMillis();\n    Log.d(TAG,\"parseResponse  endTime = \" + endTime + \";  duration = \"+ (endTime - startTime)+ \">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\\n\\n\\n\");\n    return globleFormat ? new JSONResponse(requestObject) : requestObject;\n  }\n  protected void onVerifyLogin() throws Exception {\n    verifier.verifyLogin();\n  }\n  protected void onVerifyContent() throws Exception {\n    requestObject=parseCorrectRequest();\n  }\n  /** \n * 解析请求JSONObject\n * @param request => URLDecoder.decode(request, UTF_8);\n * @return\n * @throws Exception \n */\n  @NotNull public static JSONObject parseRequest(  String request) throws Exception {\n    JSONObject obj=JSON.parseObject(request);\n    if (obj == null) {\n      throw new UnsupportedEncodingException(\"JSON格式不合法！\");\n    }\n    return obj;\n  }\n  @Override public JSONObject parseCorrectRequest(  JSONObject target) throws Exception {\n    return Structure.parseRequest(requestMethod,\"\",target,requestObject,getMaxUpdateCount(),this);\n  }\n  /** \n * 新建带状态内容的JSONObject\n * @param code\n * @param msg\n * @return\n */\n  public static JSONObject newResult(  int code,  String msg){\n    return extendResult(null,code,msg);\n  }\n  /** \n * 添加JSONObject的状态内容，一般用于错误提示结果\n * @param object\n * @param code\n * @param msg\n * @return\n */\n  public static JSONObject extendResult(  JSONObject object,  int code,  String msg){\n    if (object == null) {\n      object=new JSONObject(true);\n    }\n    if (object.containsKey(JSONResponse.KEY_CODE) == false) {\n      object.put(JSONResponse.KEY_CODE,code);\n    }\n    String m=StringUtil.getString(object.getString(JSONResponse.KEY_MSG));\n    if (m.isEmpty() == false) {\n      msg=m + \" ;\\n \" + StringUtil.getString(msg);\n    }\n    object.put(JSONResponse.KEY_MSG,msg);\n    return object;\n  }\n  /** \n * 添加请求成功的状态内容\n * @param object\n * @return\n */\n  public static JSONObject extendSuccessResult(  JSONObject object){\n    return extendResult(object,JSONResponse.CODE_SUCCESS,JSONResponse.MSG_SUCCEED);\n  }\n  /** \n * 获取请求成功的状态内容\n * @return\n */\n  public static JSONObject newSuccessResult(){\n    return newResult(JSONResponse.CODE_SUCCESS,JSONResponse.MSG_SUCCEED);\n  }\n  /** \n * 添加请求成功的状态内容\n * @param object\n * @return\n */\n  public static JSONObject extendErrorResult(  JSONObject object,  Exception e){\n    JSONObject error=newErrorResult(e);\n    return extendResult(object,error.getIntValue(JSONResponse.KEY_CODE),error.getString(JSONResponse.KEY_MSG));\n  }\n  /** \n * 新建错误状态内容\n * @param e\n * @return\n */\n  public static JSONObject newErrorResult(  Exception e){\n    if (e != null) {\n      e.printStackTrace();\n      int code;\n      if (e instanceof UnsupportedEncodingException) {\n        code=JSONResponse.CODE_UNSUPPORTED_ENCODING;\n      }\n else       if (e instanceof IllegalAccessException) {\n        code=JSONResponse.CODE_ILLEGAL_ACCESS;\n      }\n else       if (e instanceof UnsupportedOperationException) {\n        code=JSONResponse.CODE_UNSUPPORTED_OPERATION;\n      }\n else       if (e instanceof NotExistException) {\n        code=JSONResponse.CODE_NOT_FOUND;\n      }\n else       if (e instanceof IllegalArgumentException) {\n        code=JSONResponse.CODE_ILLEGAL_ARGUMENT;\n      }\n else       if (e instanceof NotLoggedInException) {\n        code=JSONResponse.CODE_NOT_LOGGED_IN;\n      }\n else       if (e instanceof TimeoutException) {\n        code=JSONResponse.CODE_TIME_OUT;\n      }\n else       if (e instanceof ConflictException) {\n        code=JSONResponse.CODE_CONFLICT;\n      }\n else       if (e instanceof ConditionErrorException) {\n        code=JSONResponse.CODE_CONDITION_ERROR;\n      }\n else       if (e instanceof UnsupportedDataTypeException) {\n        code=JSONResponse.CODE_UNSUPPORTED_TYPE;\n      }\n else       if (e instanceof OutOfRangeException) {\n        code=JSONResponse.CODE_OUT_OF_RANGE;\n      }\n else       if (e instanceof NullPointerException) {\n        code=JSONResponse.CODE_NULL_POINTER;\n      }\n else {\n        code=JSONResponse.CODE_SERVER_ERROR;\n      }\n      return newResult(code,e.getMessage());\n    }\n    return newResult(JSONResponse.CODE_SERVER_ERROR,JSONResponse.MSG_SERVER_ERROR);\n  }\n  /** \n * 获取正确的请求，非GET请求必须是服务器指定的\n * @param method\n * @param request\n * @return\n * @throws Exception \n */\n  @Override public JSONObject parseCorrectRequest() throws Exception {\n    if (RequestMethod.isPublicMethod(requestMethod)) {\n      return requestObject;\n    }\n    String tag=requestObject.getString(JSONRequest.KEY_TAG);\n    if (StringUtil.isNotEmpty(tag,true) == false) {\n      throw new IllegalArgumentException(\"请设置tag！一般是Table名\");\n    }\n    int version=requestObject.getIntValue(JSONRequest.KEY_VERSION);\n    JSONObject object=null;\n    String error=\"\";\n    try {\n      object=getStructure(\"Request\",JSONRequest.KEY_TAG,tag,version);\n    }\n catch (    Exception e) {\n      error=e.getMessage();\n    }\n    if (object == null) {\n      throw new UnsupportedOperationException(\"非开放请求必须是Request表中校验规则允许的操作！\\n \" + error);\n    }\n    JSONObject target=null;\n    if (zuo.biao.apijson.JSONObject.isTableKey(tag) && object.containsKey(tag) == false) {\n      target=new JSONObject(true);\n      target.put(tag,object);\n    }\n else {\n      target=object;\n    }\n    requestObject.remove(JSONRequest.KEY_TAG);\n    requestObject.remove(JSONRequest.KEY_VERSION);\n    return parseCorrectRequest((JSONObject)target.clone());\n  }\n  /** \n * 获取正确的返回结果\n * @param method\n * @param response\n * @return\n * @throws Exception \n */\n  @Override public JSONObject parseCorrectResponse(  String table,  JSONObject response) throws Exception {\n    return response;\n  }\n  /** \n * 获取Request或Response内指定JSON结构\n * @param table\n * @param key\n * @param value\n * @param version\n * @return\n * @throws Exception\n */\n  @Override public JSONObject getStructure(  @NotNull String table,  String key,  String value,  int version) throws Exception {\n    SQLConfig config=createSQLConfig().setMethod(GET).setTable(table);\n    config.setPrepared(false);\n    config.setColumn(\"structure\");\n    Map<String,Object> where=new HashMap<String,Object>();\n    where.put(\"method\",requestMethod.name());\n    if (key != null) {\n      where.put(key,value);\n    }\n    if (version > 0) {\n      where.put(JSONRequest.KEY_VERSION + \"{}\",\">=\" + version);\n    }\n    config.setWhere(where);\n    config.setOrder(JSONRequest.KEY_VERSION + (version > 0 ? \"+\" : \"-\"));\n    config.setCount(1);\n    SQLExecutor executor=createSQLExecutor();\n    try {\n      JSONObject result=executor.execute(config.setCacheStatic(true));\n      return getJSONObject(result,\"structure\");\n    }\n  finally {\n      executor.close();\n    }\n  }\n  /** \n * 获取单个对象，该对象处于parentObject内\n * @param parentPath parentObject的路径\n * @param name parentObject的key\n * @param request parentObject的value\n * @param config for array item\n * @return\n * @throws Exception \n */\n  @Override public JSONObject onObjectParse(  final JSONObject request,  String parentPath,  String name,  final SQLConfig arrayConfig) throws Exception {\n    Log.i(TAG,\"\\ngetObject:  parentPath = \" + parentPath + \";\\n name = \"+ name+ \"; request = \"+ JSON.toJSONString(request));\n    if (request == null) {\n      return null;\n    }\n    int type=arrayConfig == null ? 0 : arrayConfig.getType();\n    ObjectParser op=createObjectParser(request,parentPath,name,arrayConfig).parse();\n    JSONObject response=null;\n    if (op != null) {\n      if (arrayConfig == null) {\n        response=op.executeSQL().response();\n      }\n else {\n        int query=arrayConfig.getQuery();\n        if (type == SQLConfig.TYPE_ITEM_CHILD_0 && query != JSONRequest.QUERY_TABLE && arrayConfig.getPosition() == 0) {\n          JSONObject rp=op.setMethod(RequestMethod.HEAD).executeSQL().getSqlReponse();\n          if (rp != null) {\n            int index=parentPath.lastIndexOf(\"]/\");\n            if (index >= 0) {\n              int total=rp.getIntValue(JSONResponse.KEY_COUNT);\n              putQueryResult(parentPath.substring(0,index) + \"]/\" + JSONResponse.KEY_TOTAL,total);\n              if (total <= arrayConfig.getCount() * arrayConfig.getPage()) {\n                query=JSONRequest.QUERY_TOTAL;\n              }\n            }\n          }\n          op.setMethod(requestMethod);\n        }\n        if (query == JSONRequest.QUERY_TOTAL) {\n          response=null;\n        }\n else {\n          response=op.executeSQL(arrayConfig.getCount(),arrayConfig.getPage(),arrayConfig.getPosition()).response();\n        }\n      }\n      op.recycle();\n      op=null;\n    }\n    return response;\n  }\n  /** \n * 获取对象数组，该对象数组处于parentObject内\n * @param parentPath parentObject的路径\n * @param name parentObject的key\n * @param request parentObject的value\n * @return \n * @throws Exception\n */\n  @Override public JSONArray onArrayParse(  JSONObject request,  String parentPath,  String name) throws Exception {\n    Log.i(TAG,\"\\n\\n\\n getArray parentPath = \" + parentPath + \"; name = \"+ name+ \"; request = \"+ JSON.toJSONString(request));\n    if (RequestMethod.isGetMethod(requestMethod,false) == false) {\n      throw new UnsupportedOperationException(\"key[]:{}只支持GET方法！不允许传 \" + name + \":{} ！\");\n    }\n    if (request == null || request.isEmpty()) {\n      return null;\n    }\n    String path=getAbsPath(parentPath,name);\n    final int query=request.getIntValue(JSONRequest.KEY_QUERY);\n    final int count=request.getIntValue(JSONRequest.KEY_COUNT);\n    final int page=request.getIntValue(JSONRequest.KEY_PAGE);\n    final String join=request.getString(JSONRequest.KEY_JOIN);\n    request.remove(JSONRequest.KEY_QUERY);\n    request.remove(JSONRequest.KEY_COUNT);\n    request.remove(JSONRequest.KEY_PAGE);\n    request.remove(JSONRequest.KEY_JOIN);\n    Log.d(TAG,\"getArray  query = \" + query + \"; count = \"+ count+ \"; page = \"+ page+ \"; join = \"+ join);\n    if (request.isEmpty()) {\n      Log.e(TAG,\"getArray  request.isEmpty() >> return null;\");\n      return null;\n    }\n    int max=getMaxQueryCount();\n    int size=count <= 0 || count > max ? max : count;\n    Log.d(TAG,\"getArray  size = \" + size + \"; page = \"+ page);\n    int index=name == null ? -1 : name.lastIndexOf(\"[]\");\n    String childPath=index <= 0 ? null : Pair.parseEntry(name.substring(0,index),true).getKey();\n    String[] childKeys=StringUtil.split(childPath,\"-\",false);\n    if (childKeys == null || childKeys.length <= 0 || request.containsKey(childKeys[0]) == false) {\n      childKeys=null;\n    }\n    JSONArray response=new JSONArray();\n    SQLConfig config=createSQLConfig().setMethod(requestMethod).setCount(size).setPage(page).setQuery(query).setJoinList(onJoinParse(join,request));\n    JSONObject parent;\n    for (int i=0; i < size; i++) {\n      parent=onObjectParse(request,path,\"\" + i,config.setType(SQLConfig.TYPE_ITEM).setPosition(i));\n      if (parent == null || parent.isEmpty()) {\n        break;\n      }\n      response.add(getValue(parent,childKeys));\n    }\n    Object fo=childKeys == null || response.isEmpty() ? null : response.get(0);\n    if (fo instanceof Boolean || fo instanceof Number || fo instanceof String) {\n      putQueryResult(path,response);\n    }\n    request.put(JSONRequest.KEY_QUERY,query);\n    request.put(JSONRequest.KEY_COUNT,count);\n    request.put(JSONRequest.KEY_PAGE,page);\n    request.put(JSONRequest.KEY_JOIN,join);\n    Log.i(TAG,\"getArray  return response = \\n\" + JSON.toJSONString(response) + \"\\n>>>>>>>>>>>>>>>\\n\\n\\n\");\n    return response;\n  }\n  /** \n * 多表同时筛选\n * @param join \"&/User/id@,</User[]/User/id{}@,</[]/Comment/momentId@\"\n * @param request\n * @return \n * @throws Exception \n */\n  private List<Join> onJoinParse(  String join,  JSONObject request) throws Exception {\n    String[] sArr=request == null || request.isEmpty() ? null : StringUtil.split(join);\n    if (sArr == null || sArr.length <= 0) {\n      Log.e(TAG,\"doJoin  sArr == null || sArr.length <= 0 >> return request;\");\n      return null;\n    }\n    List<Join> joinList=new ArrayList<>();\n    JSONObject tableObj;\n    String targetPath;\n    JSONObject targetObj;\n    String targetTable;\n    String targetKey;\n    String path;\n    for (int i=0; i < sArr.length; i++) {\n      path=\"\" + sArr[i];\n      int index=path.indexOf(\"/\");\n      if (index < 0) {\n        throw new IllegalArgumentException(JSONRequest.KEY_JOIN + \":value 中value不合法！\" + \"必须为 &/Table0/key0,</Table1/key1,... 这种形式！\");\n      }\n      String joinType=path.substring(0,index);\n      path=path.substring(index + 1);\n      index=path.indexOf(\"/\");\n      String table=index < 0 ? null : path.substring(0,index);\n      String key=StringUtil.isEmpty(table,true) ? null : path.substring(index + 1);\n      if (StringUtil.isEmpty(key,true)) {\n        throw new IllegalArgumentException(JSONRequest.KEY_JOIN + \":value 中value不合法！\" + \"必须为 &/Table0/key0,</Table1/key1,... 这种形式！\");\n      }\n      tableObj=request.getJSONObject(table);\n      targetPath=tableObj == null ? null : tableObj.getString(key);\n      if (StringUtil.isEmpty(targetPath,true)) {\n        throw new IllegalArgumentException(table + \".\" + key+ \":value 中value必须为引用赋值的路径 '/targetTable/targetKey' ！\");\n      }\n      index=targetPath.lastIndexOf(\"/\");\n      targetKey=index < 0 ? null : targetPath.substring(index + 1);\n      if (StringUtil.isEmpty(targetKey,true)) {\n        throw new IllegalArgumentException(table + \".\" + key+ \":'/targetTable/targetKey' 中targetKey不能为空！\");\n      }\n      targetPath=targetPath.substring(0,index);\n      index=targetPath.lastIndexOf(\"/\");\n      targetTable=index < 0 ? targetPath : targetPath.substring(index + 1);\n      targetObj=request.getJSONObject(targetTable);\n      if (targetObj == null) {\n        throw new IllegalArgumentException(targetTable + \".\" + targetKey+ \":'/targetTable/targetKey' 中路径对应的对象不存在！\");\n      }\n      tableObj.put(key,tableObj.remove(key));\n      Join j=new Join();\n      j.setJoinType(joinType);\n      j.setName(table);\n      j.setTargetName(targetTable);\n      j.setTargetKey(targetKey);\n      j.setKeyAndType(key);\n      j.setTable(getJoinObject(table,tableObj,key));\n      joinList.add(j);\n    }\n    return joinList;\n  }\n  private static final List<String> JOIN_COPY_KEY_LIST;\nstatic {\n    JOIN_COPY_KEY_LIST=new ArrayList<String>();\n    JOIN_COPY_KEY_LIST.add(JSONRequest.KEY_SCHEMA);\n    JOIN_COPY_KEY_LIST.add(JSONRequest.KEY_COLUMN);\n    JOIN_COPY_KEY_LIST.add(JSONRequest.KEY_ORDER);\n    JOIN_COPY_KEY_LIST.add(JSONRequest.KEY_COMBINE);\n    JOIN_COPY_KEY_LIST.add(JSONRequest.KEY_HAVING);\n    JOIN_COPY_KEY_LIST.add(JSONRequest.KEY_GROUP);\n  }\n  /** \n * 取指定json对象的id集合\n * @param table\n * @param key\n * @param obj\n * @param targetKey \n * @return null ? 全部 : 有限的数组\n */\n  private JSONObject getJoinObject(  String table,  JSONObject obj,  String key){\n    if (obj == null || obj.isEmpty()) {\n      Log.e(TAG,\"getIdList  obj == null || obj.isEmpty() >> return null;\");\n      return null;\n    }\n    if (StringUtil.isEmpty(key,true)) {\n      Log.e(TAG,\"getIdList  StringUtil.isEmpty(key, true) >> return null;\");\n      return null;\n    }\n    if (StringUtil.isEmpty(obj.getString(JSONRequest.KEY_COLUMN),true)) {\n      throw new IllegalArgumentException(\"join的副表 \" + table + \" 必须有非空的 \"+ JSONRequest.KEY_COLUMN+ \" ! 否则JOIN的性能优化无效，反而多耗性能！\");\n    }\n    JSONObject requestObj=new JSONObject(true);\n    Set<String> set=new LinkedHashSet<>(obj.keySet());\n    for (    String k : set) {\n      if (StringUtil.isEmpty(k,true)) {\n        continue;\n      }\n      if (k.startsWith(\"@\")) {\n        if (JOIN_COPY_KEY_LIST.contains(k)) {\n          requestObj.put(k,obj.get(k));\n        }\n      }\n else {\n        if (k.endsWith(\"@\")) {\n          if (k.equals(key)) {\n            continue;\n          }\n          throw new UnsupportedOperationException(table + \".\" + k+ \" 不合法！\"+ JSONRequest.KEY_JOIN+ \" 关联的Table中只能有1个 key@:value ！\");\n        }\n        if (k.contains(\"()\") == false) {\n          requestObj.put(k,obj.get(k));\n        }\n      }\n    }\n    return requestObj;\n  }\n  @Override public int getMaxQueryCount(){\n    return MAX_QUERY_COUNT;\n  }\n  @Override public int getMaxUpdateCount(){\n    return MAX_UPDATE_COUNT;\n  }\n  /** \n * 根据路径取值\n * @param parent\n * @param pathKeys\n * @return\n */\n  protected static Object getValue(  JSONObject parent,  String[] pathKeys){\n    if (parent == null || pathKeys == null || pathKeys.length <= 0) {\n      Log.w(TAG,\"getChild  parent == null || pathKeys == null || pathKeys.length <= 0 >> return parent;\");\n      return parent;\n    }\n    final int last=pathKeys.length - 1;\n    for (int i=0; i < last; i++) {\n      if (parent == null) {\n        break;\n      }\n      parent=getJSONObject(parent,pathKeys[i]);\n    }\n    return parent == null ? null : parent.get(pathKeys[last]);\n  }\n  /** \n * 获取被依赖引用的key的路径, 实时替换[] -> []/i\n * @param parentPath\n * @param valuePath\n * @return\n */\n  public static String getValuePath(  String parentPath,  String valuePath){\n    if (valuePath.startsWith(\"/\")) {\n      valuePath=getAbsPath(parentPath,valuePath);\n    }\n else {\n      valuePath=replaceArrayChildPath(parentPath,valuePath);\n    }\n    return valuePath;\n  }\n  /** \n * 获取绝对路径\n * @param path\n * @param name\n * @return\n */\n  public static String getAbsPath(  String path,  String name){\n    Log.i(TAG,\"getPath  path = \" + path + \"; name = \"+ name+ \" <<<<<<<<<<<<<\");\n    path=StringUtil.getString(path);\n    name=StringUtil.getString(name);\n    if (StringUtil.isNotEmpty(path,false)) {\n      if (StringUtil.isNotEmpty(name,false)) {\n        path+=((name.startsWith(\"/\") ? \"\" : \"/\") + name);\n      }\n    }\n else {\n      path=name;\n    }\n    if (path.startsWith(\"/\")) {\n      path=path.substring(1);\n    }\n    Log.i(TAG,\"getPath  return \" + path + \" >>>>>>>>>>>>>>>>\");\n    return path;\n  }\n  /** \n * 替换[] -> []/i 不能写在getAbsPath里，因为name不一定是依赖路径\n * @param parentPath\n * @param valuePath\n * @return\n */\n  public static String replaceArrayChildPath(  String parentPath,  String valuePath){\n    String[] ps=StringUtil.split(parentPath,\"]/\");\n    if (ps != null && ps.length > 1) {\n      String[] vs=StringUtil.split(valuePath,\"]/\");\n      if (vs != null && vs.length > 0) {\n        String pos;\n        for (int i=0; i < ps.length - 1; i++) {\n          if (ps[i] == null || ps[i].equals(vs[i]) == false) {\n            break;\n          }\n          pos=ps[i + 1].contains(\"/\") == false ? ps[i + 1] : ps[i + 1].substring(0,ps[i + 1].indexOf(\"/\"));\n          if (vs[i + 1].startsWith(pos + \"/\") == false) {\n            vs[i + 1]=pos + \"/\" + vs[i + 1];\n          }\n        }\n        return StringUtil.getString(vs,\"]/\");\n      }\n    }\n    return valuePath;\n  }\n  /** \n * 将已获取完成的object的内容替换requestObject里对应的值\n * @param path object的路径\n * @param result 需要被关联的object\n */\n  @Override public synchronized void putQueryResult(  String path,  Object result){\n    Log.i(TAG,\"\\n putQueryResult  valuePath = \" + path + \"; result = \"+ result+ \"\\n <<<<<<<<<<<<<<<<<<<<<<<\");\n    Log.d(TAG,\"putQueryResult  queryResultMap.containsKey(valuePath) >> queryResultMap.put(path, result);\");\n    queryResultMap.put(path,result);\n  }\n  /** \n * 根据路径获取值\n * @param valuePath\n * @return parent == null ? valuePath : parent.get(keys[keys.length - 1])\n */\n  @Override public Object getValueByPath(  String valuePath){\n    Log.i(TAG,\"<<<<<<<<<<<<<<< \\n getValueByPath  valuePath = \" + valuePath + \"\\n <<<<<<<<<<<<<<<<<<\");\n    if (StringUtil.isEmpty(valuePath,true)) {\n      Log.e(TAG,\"getValueByPath  StringUtil.isNotEmpty(valuePath, true) == false >> return null;\");\n      return null;\n    }\n    Object target=queryResultMap.get(valuePath);\n    if (target != null) {\n      return target;\n    }\n    Set<String> set=queryResultMap.keySet();\n    JSONObject parent=null;\n    String[] keys=null;\n    for (    String path : set) {\n      if (valuePath.startsWith(path + \"/\")) {\n        try {\n          parent=(JSONObject)queryResultMap.get(path);\n        }\n catch (        Exception e) {\n          Log.e(TAG,\"getValueByPath  try { parent = (JSONObject) queryResultMap.get(path); } catch { \" + \"\\n parent not instanceof JSONObject!\");\n          parent=null;\n        }\n        if (parent != null) {\n          keys=StringUtil.splitPath(valuePath.substring(path.length()));\n        }\n        break;\n      }\n    }\n    if (keys != null && keys.length > 1) {\n      for (int i=0; i < keys.length - 1; i++) {\n        if (parent == null) {\n          break;\n        }\n        parent=getJSONObject(parent,keys[i]);\n      }\n    }\n    if (parent != null) {\n      Log.i(TAG,\"getValueByPath >> get from queryResultMap >> return  parent.get(keys[keys.length - 1]);\");\n      target=parent.get(keys[keys.length - 1]);\n      if (target != null) {\n        Log.i(TAG,\"getValueByPath >> getValue >> return target = \" + target);\n        return target;\n      }\n    }\n    target=getValue(requestObject,StringUtil.splitPath(valuePath));\n    if (target != null) {\n      Log.i(TAG,\"getValueByPath >> getValue >> return target = \" + target);\n      return target;\n    }\n    Log.i(TAG,\"getValueByPath  return valuePath;\");\n    return valuePath;\n  }\n  public static JSONObject getJSONObject(  JSONObject object,  String key){\n    try {\n      return object.getJSONObject(key);\n    }\n catch (    Exception e) {\n      Log.i(TAG,\"getJSONObject  try { return object.getJSONObject(key);\" + \" } catch (Exception e) { \\n\" + e.getMessage());\n    }\n    return null;\n  }\n  /** \n * 获取数据库返回的String\n * @param config\n * @return\n * @throws Exception\n */\n  @Override public synchronized JSONObject executeSQL(  SQLConfig config) throws Exception {\n    Log.i(TAG,\"executeSQL  config = \" + JSON.toJSONString(config));\n    if (noVerifyRole == false) {\n      if (config.getRole() == null) {\n        if (globleRole != null) {\n          config.setRole(globleRole);\n        }\n else {\n          config.setRole(getVisitor().getId() <= 0 ? RequestRole.UNKNOWN : RequestRole.LOGIN);\n        }\n      }\n      verifier.verify(config);\n    }\n    if (config.getDatabase() == null && globleDatabase != null) {\n      config.setDatabase(globleDatabase);\n    }\n    return parseCorrectResponse(config.getTable(),sqlExecutor.execute(config));\n  }\n}\n",
+                "relationType": "CALL_TARGET",
+                "distance": 4,
+                "file": "APIJSON-Java-Server/APIJSONLibrary/src/main/java/zuo/biao/apijson/server/AbstractParser.java"
+            },
+            {
+                "Metric": "ADDED_MarkerAnnotation",
+                "Method": "zuo.biao.apijson.server.AbstractParser.parseCorrectRequest(JSONObject)",
+                "Local": "L[343,343], C[2,10]",
+                "Detail": null,
+                "Code": "@Override",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "APIJSON-Java-Server/APIJSONLibrary/src/main/java/zuo/biao/apijson/server/AbstractParser.java"
+            },
+            {
+                "Metric": "ADDED_Modifier",
+                "Method": "zuo.biao.apijson.server.AbstractParser.parseCorrectRequest(JSONObject)",
+                "Local": "L[344,344], C[2,7]",
+                "Detail": null,
+                "Code": "public",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "APIJSON-Java-Server/APIJSONLibrary/src/main/java/zuo/biao/apijson/server/AbstractParser.java"
+            },
+            {
+                "Metric": "CHANGED_EXISTING_IF_BLOCK",
+                "Method": "zuo.biao.apijson.server.AbstractParser.getValueByPath(String)",
+                "Local": "L[1042,1044], C[23,3]",
+                "Detail": {
+                    "previousVar": "zuo.biao.apijson.server.AbstractParser.getValueByPath(String)>>>target[1041,1095]"
+                },
+                "Code": "{\n  return target;\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 5,
+                "file": "APIJSON-Java-Server/APIJSONLibrary/src/main/java/zuo/biao/apijson/server/AbstractParser.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "zuo.biao.apijson.server.AbstractParser.getValueByPath(String)",
+                "Local": "L[1088,1091], C[23,3]",
+                "Detail": {
+                    "previousVar": "zuo.biao.apijson.server.AbstractParser>>>TAG[45,1141]"
+                },
+                "Code": "{\n  Log.i(TAG,\"getValueByPath >> getValue >> return target = \" + target);\n  return target;\n}\n",
+                "relationType": "VAR_RELATED",
+                "distance": 5,
+                "file": "APIJSON-Java-Server/APIJSONLibrary/src/main/java/zuo/biao/apijson/server/AbstractParser.java"
+            },
+            {
+                "Metric": "ADDED_RETURN_VALUE",
+                "Method": "zuo.biao.apijson.server.AbstractParser.parseCorrectRequest(JSONObject)",
+                "Local": "L[345,345], C[3,101]",
+                "Detail": null,
+                "Code": "return Structure.parseRequest(requestMethod,\"\",target,requestObject,getMaxUpdateCount(),this);\n",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "APIJSON-Java-Server/APIJSONLibrary/src/main/java/zuo/biao/apijson/server/AbstractParser.java"
+            },
+            {
+                "Metric": "ADDED_CastExpression",
+                "Method": "zuo.biao.apijson.server.AbstractParser.parseCorrectRequest().parseCorrectRequest(JSONObject)",
+                "Local": "L[499,499], C[30,56]",
+                "Detail": {
+                    "previousVar": "zuo.biao.apijson.server.AbstractParser.parseCorrectRequest()>>>target[488,500]"
+                },
+                "Code": "(JSONObject)target.clone()",
+                "relationType": "VAR_RELATED",
+                "distance": 5,
+                "file": "APIJSON-Java-Server/APIJSONLibrary/src/main/java/zuo/biao/apijson/server/AbstractParser.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "zuo.biao.apijson.server.AbstractParser.parseCorrectRequest(JSONObject)",
+                "Local": "L[345,345], C[10,100]",
+                "Detail": null,
+                "Code": "Structure.parseRequest(requestMethod,\"\",target,requestObject,getMaxUpdateCount(),this)",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "APIJSON-Java-Server/APIJSONLibrary/src/main/java/zuo/biao/apijson/server/AbstractParser.java"
+            },
+            {
+                "Metric": "ADDED_METHOD_CALL",
+                "Method": "zuo.biao.apijson.server.AbstractParser.parseCorrectRequest(JSONObject).parseRequest(UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN)",
+                "Local": "L[345,345], C[75,93]",
+                "Detail": null,
+                "Code": "getMaxUpdateCount()",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "APIJSON-Java-Server/APIJSONLibrary/src/main/java/zuo/biao/apijson/server/AbstractParser.java"
+            },
+            {
+                "Metric": "ADDED_ThisExpression",
+                "Method": "zuo.biao.apijson.server.AbstractParser.parseCorrectRequest(JSONObject).parseRequest(UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN)",
+                "Local": "L[345,345], C[96,99]",
+                "Detail": null,
+                "Code": "this",
+                "relationType": "MENTIONED",
+                "distance": 0,
+                "file": "APIJSON-Java-Server/APIJSONLibrary/src/main/java/zuo/biao/apijson/server/AbstractParser.java"
+            }
+        ],
+        "notRelated": [
+            {
+                "Metric": "REMOVED_IMPORT",
+                "Method": "apijson.demo.server.CompilationUnit",
+                "Local": "L[25,25], C[1,42]",
+                "Detail": null,
+                "Code": "import zuo.biao.apijson.server.SQLCreator;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "APIJSON-Java-Server/APIJSONDemo/src/main/java/apijson/demo/server/DemoParser.java"
+            },
+            {
+                "Metric": "REMOVED_ImportDeclaration",
+                "Method": "apijson.demo.server.CompilationUnit",
+                "Local": "L[25,25], C[1,42]",
+                "Detail": null,
+                "Code": "import zuo.biao.apijson.server.SQLCreator;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "APIJSON-Java-Server/APIJSONDemo/src/main/java/apijson/demo/server/DemoParser.java"
+            },
+            {
+                "Metric": "REMOVED_IMPORT",
+                "Method": "apijson.demo.server.CompilationUnit",
+                "Local": "L[27,27], C[1,41]",
+                "Detail": null,
+                "Code": "import zuo.biao.apijson.server.Structure;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "APIJSON-Java-Server/APIJSONDemo/src/main/java/apijson/demo/server/DemoParser.java"
+            },
+            {
+                "Metric": "REMOVED_ImportDeclaration",
+                "Method": "apijson.demo.server.CompilationUnit",
+                "Local": "L[27,27], C[1,41]",
+                "Detail": null,
+                "Code": "import zuo.biao.apijson.server.Structure;\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "APIJSON-Java-Server/APIJSONDemo/src/main/java/apijson/demo/server/DemoParser.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "zuo.biao.apijson.server.AbstractParser.getJoinObject(String, JSONObject, String)",
+                "Local": "L[884,886], C[37,4]",
+                "Detail": null,
+                "Code": "{\n  continue;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "APIJSON-Java-Server/APIJSONLibrary/src/main/java/zuo/biao/apijson/server/AbstractParser.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "zuo.biao.apijson.server.AbstractParser.getJoinObject(String, JSONObject, String)",
+                "Local": "L[895,897], C[25,6]",
+                "Detail": null,
+                "Code": "{\n  continue;\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "APIJSON-Java-Server/APIJSONLibrary/src/main/java/zuo/biao/apijson/server/AbstractParser.java"
+            },
+            {
+                "Metric": "CHANGED_IF_CONDITION",
+                "Method": "zuo.biao.apijson.server.AbstractParser.onJoinParse(String, JSONObject)",
+                "Local": "L[775,778], C[19,4]",
+                "Detail": null,
+                "Code": "{\n  throw new IllegalArgumentException(JSONRequest.KEY_JOIN + \":value 中value不合法！\" + \"必须为 &/Table0/key0,</Table1/key1,... 这种形式！\");\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "APIJSON-Java-Server/APIJSONLibrary/src/main/java/zuo/biao/apijson/server/AbstractParser.java"
+            },
+            {
+                "Metric": "ADDED_IF_STATEMENT",
+                "Method": "zuo.biao.apijson.server.AbstractParser.onJoinParse(String, JSONObject)",
+                "Local": "L[788,791], C[39,4]",
+                "Detail": null,
+                "Code": "{\n  throw new IllegalArgumentException(JSONRequest.KEY_JOIN + \":value 中value不合法！\" + \"必须为 &/Table0/key0,</Table1/key1,... 这种形式！\");\n}\n",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "APIJSON-Java-Server/APIJSONLibrary/src/main/java/zuo/biao/apijson/server/AbstractParser.java"
+            },
+            {
+                "Metric": "REMOVED_CastExpression",
+                "Method": "zuo.biao.apijson.server.AbstractParser.parseCorrectRequest().parseCorrectRequest()",
+                "Local": "L[497,497], C[30,56]",
+                "Detail": null,
+                "Code": "(JSONObject)target.clone()",
+                "relationType": "NOT_RELATED",
+                "distance": 99,
+                "file": "APIJSON-Java-Server/APIJSONLibrary/src/main/java/zuo/biao/apijson/server/AbstractParser.java"
+            }
+        ],
+        "metadata": {
+            "type": "Pull Up Method",
+            "description": "Pull Up Method public parseCorrectRequest(target JSONObject) : JSONObject from class apijson.demo.server.DemoParser to public parseCorrectRequest(target JSONObject) : JSONObject from class zuo.biao.apijson.server.AbstractParser",
+            "leftSideLocations": [
+                {
+                    "filePath": "APIJSON-Java-Server/APIJSONDemo/src/main/java/apijson/demo/server/DemoParser.java",
+                    "startLine": 129,
+                    "endLine": 132,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "original method declaration",
+                    "codeElement": "public parseCorrectRequest(target JSONObject) : JSONObject"
+                }
+            ],
+            "rightSideLocations": [
+                {
+                    "filePath": "APIJSON-Java-Server/APIJSONLibrary/src/main/java/zuo/biao/apijson/server/AbstractParser.java",
+                    "startLine": 343,
+                    "endLine": 346,
+                    "startColumn": 2,
+                    "endColumn": 3,
+                    "codeElementType": "METHOD_DECLARATION",
+                    "description": "pulled up method declaration",
+                    "codeElement": "public parseCorrectRequest(target JSONObject) : JSONObject"
+                }
+            ]
+        }
+    }
+]
