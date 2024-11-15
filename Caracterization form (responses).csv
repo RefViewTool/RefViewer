@@ -1,0 +1,12 @@
+Hour;Developer ID;How many years of programming experience do you have?;How do you rate your level of experience with refactoring?;How do you rate your level of experience with code reviews?;Do you consider it important to evaluate refactorings isolated during a code review?;When reviewing a refactoring, what are the most important points to observe? Ex: Behavior, Code affected, complexity...
+23/07/2024 14:16;4;10+ years;5;4;4;Code affected ÿ
+23/07/2024 14:39;7;10+ years;5;5;2;The impact of these changes on untested code
+23/07/2024 15:22;6;10+ years;4;4;4;Any possible unintended behavior changes, test coverage of the impacted code areas
+23/07/2024 21:46;2;10+ years;4;4;3;The code affected, the complexity of the new code, and the guarantee that the program's behavior was not affected
+24/07/2024 07:30;8;3-5 years;3;3;4;Behavior and Code Affected ÿ
+24/07/2024 16:19;9;5-10 years;3;3;5;First of all, we need to ensure that the goal of the proposed refactoring was achieved. Then, verify if the behavior remains unchanged without hindering code readability or unnecessarily increasing its complexity
+25/07/2024 16:21;5;3-5 years;3;3;4;Whether the behavior is maintained and whether complexity was reduced
+26/07/2024 03:32;3;5-10 years;4;3;3;First, check if it affects behavior. If it doesn't, then evaluate if it makes sense architecturally (it?s not too complex, cohesive, and follows other general quality attributes). If it does affect behavior, I mostly look for bugs first, as those can sneak in when you're doing multiple things at once.
+26/07/2024 13:47;10;10+ years;4;5;4;Behavior and affected code
+27/07/2024 15:12;1;10+ years;5;5;4;Code affected and complexity
+06/08/2024 15:25;11;5-10 years;5;4;4;Code behavior and impact

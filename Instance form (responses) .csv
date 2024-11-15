@@ -1,0 +1,221 @@
+Hour;Developer ID;Instance ID;Start time;Please specify your level of agreement with the occurrence of the refactoring indicated by the extension in the bottom.;List modifications related to the refactoring instance shown at the bottom, considering the three interactions (signature, shared variables, and calling main methods) and any other relevant relation or interaction.;End time;How difficult was it to identify and classify the refactoring-related modification?;How confident are you about your classification?;What factors made it challenging to determine the refactoring-related modifications?;Do you agree with the relationships proposed by the extension?;Is it possible to define a maximum distance value at which modifications are still exclusively related to the refactoring instance? If yes, what is the distance value?;Are there any refactoring-related not indicated by the extension (considering all distances) that you believe should be included? which ones?;Are there any refactoring-related indicated by the extension that you believe should not be included?;Have you changed your initial opinion about the refactoring-related modifications after observing the information provided by the extension?;Do you consider the visualization proposed by the extension reduces the effort to identify refactoring-related modifications?;
+22/07/2024 17:54;2;T1-F2;14:08:00;4;File: modules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java [51-61];14:29:00;5;5;The code of the involved elements does not appear on the screen completely.;5;2;No;No;1;5;
+22/07/2024 18:07;2;T2-F2;14:55:00;1;"File: moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java [239-249]
+File: moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java [226]
+File: moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java [82-86]
+File: moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java [230]";15:02:00;4;4;Nothing special.;3;2;Yes, File: moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java [82,86];Yes, File: moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java [229,240];2;5;
+22/07/2024 18:13;2;T4-M1;15:09:00;5;"File: APIJSON-Java-Server/APIJSONDemo/src/main/java/apijson/demo/server/DemoParser.java [128-133]
+File: APIJSON-Java-Server/APIJSONLibrary/src/main/java/zuo/biao/apijson/server/AbstractParser.java [343-345]";15:11:00;1;4;None in particular.;4;3;No;No;2;5;
+22/07/2024 18:23;2;T4-D1;15:18:00;5;"File: shenyu-admin/src/main/java/org/apache/shenyu/admin/spring/LocalDataSourceLoader.java [107-109]
+File: shenyu-admin/src/main/java/org/apache/shenyu/admin/spring/ScriptLoader.java [71-73]";15:20:00;4;4;The number of files modified in the commit.;4;3;No;No;3;5;
+22/07/2024 18:30;2;T5-F1;15:22:00;4;"File: modules/activiti-engine/src/main/java/org/activiti/Execution.java [35]
+File: modules/activiti-engine/src/main/java/org/activiti/ProcessInstance.java [37]";15:29:00;4;4;The change is just a method call, in addition to the number of modified files.;5;0;No;No;1;5;
+22/07/2024 20:06;2;T5-M1;17:00:00;4;"File: src/main/java/net/dv8tion/jda/core/managers/Presence.java [95-98]
+File: src/main/java/net/dv8tion/jda/core/managers/impl/PresenceImpl.java [53-56]";17:04:00;1;4;The number of files and lines modified.;4;2;No;No;1;5;
+22/07/2024 21:10;2;T5-D1;18:06:00;5;"File: modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java [181-195]
+File: modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java [326-340]";18:08:00;1;4;No major challenges.;5;1;No;No;5;5;
+22/07/2024 21:14;2;T6-F1;18:10:00;5;"File: core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java [98-147]
+File: core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java [97-134]
+";18:13:00;1;4;No additional difficulty.;4;1;No;No;2;5;
+22/07/2024 21:15;1;T1-F1;18:00:00;3;"File: modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java
+Lines: 39, [42-51], 60";18:04:00;3;3;I was not sure if the second evaluate method was related or not.;4;2;No;No;4;4;
+22/07/2024 21:21;2;T6-M1;18:15:00;5;"File: modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java [44-45]
+File: modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java [49-50, 62, 81, 88, 95, 124]";18:18:00;2;4;One difficulty, but not huge, is finding the renamed function calls.;4;0;No;Yes, File: modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java [111];2;5;
+22/07/2024 21:27;2;T6-D1;18:22:00;5;"File: qmui/src/main/java/com/qmuiteam/qmui/skin/QMUISkinManager.java [152]
+File: qmuidemo/src/main/java/com/qmuiteam/qmuidemo/manager/QDSkinManager.java [40-42]
+";18:25:00;2;4;The number of files and modified code.;4;1;No;No;3;5;
+22/07/2024 21:39;3;T1-F1;18:20:00;3;"File: modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java
+Lines: [42-63].";18:28:00;3;4;I think this refactoring is only marginally an extract method. The structural changes were made as a behavior-changing bug fix, so the method extraction is used more as a way to control flow rather than actually change the architecture.;5;0;No;Yes, line 39;1;4;
+22/07/2024 21:42;1;T1-M1;18:28:00;5;"File: src/main/java/com/github/abel533/mapperhelper/EntityHelper.java
+Lines: [534-565]";18:29:00;1;5;Check if the code was actually moved or just duplicated.;3;3;No;JavaDoc;4;4;
+22/07/2024 22:16;1;T1-D1;18:57:00;5;"File: src/java/azkaban/execapp/FlowRunner.java
+Lines: 370, [405-422]";18:59:00;2;5;Too many modifications in the class.;5;1;No;Distances 2 to up I think are not needed;1;4;
+23/07/2024 02:42;1;T2-F1;23:39:00;5;"File: src/main/java/net/dv8tion/jda/internal/entities/GuildVoiceStateImpl.java
+Lines: [52-53]";11:40:00;1;5;None;5;1;No;No;1;4;
+23/07/2024 02:49;1;T2-M1;11:42:00;5;"File: moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java
+Lines: [79-81]";23:46:00;4;4;The code was transformed into a lambda.;4;2;No;The code in lines 832-87 is not exactly related to that refactoring;1;4;
+23/07/2024 02:57;1;T2-D1;23:55:00;5;"File: value/src/main/java/com/google/auto/value/processor/TemplateVars.java
+Lines: [124-127]";23:57:00;2;5;Methods and contents too similar.;5;1;No;No;1;4;
+23/07/2024 03:01;1;T3-F1;23:58:00;5;"File: src/main/java/org/whispersystems/textsecuregcm/auth/AccountAuthenticator.java
+Lines: 30, 71, [82-87]";00:00:00;1;5;None;5;1;The if statement of the moved method is not highlighted.;No;1;4;
+23/07/2024 03:10;1;T3-M1;00:06:00;5;"File: modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java
+Lines: 88, [163-188]";00:08:00;4;5;Too many changes in the class.;4;1;No;No;1;4;
+23/07/2024 03:14;1;T3-D1;00:10:00;5;"File: modules/activiti-bpmn-model/src/main/java/org/activiti/bpmn/model/alfresco/AlfrescoUserTask.java
+Lines: [12-14]
+
+";00:12:00;3;4;Too many changes in the commit.;4;1;No;No;1;4;
+23/07/2024 03:16;1;T4-F1;00:14:00;5;"File: storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java
+Lines: 145, 146, [182-196]";00:15:00;1;5;None;5;2;None;None;1;4;
+23/07/2024 14:40;4;T1-F2;15:30:00;4;Nonemodules/activiti-engine/src/main/java/org/activiti/engine/impl/bpmn/behavior/TerminateEndEventActivityBehavior.java Lines 47, 50;15:35:00;3;3;The refactoring was made with another change.;4;1;Yes. Lines [52, 55, 60];Yes. Lines [32-45];1;3;
+23/07/2024 14:51;4;T2-F2;15:45:00;5;moco-core/src/main/java/com/github/dreamhead/moco/handler/AbstractProxyResponseHandler.java Lines: [82-86, 230];15:48:00;2;4;Method overloading (prepareRemoteRequest).;5;0;No;No;4;4;
+23/07/2024 15:01;4;T4-M1;15:52:00;5;"APIJSON-Java-Server/APIJSONDemo/src/main/java/apijson/demo/server/DemoParser.java Lines [32]
+APIJSON-Java-Server/APIJSONLibrary/src/main/java/zuo/biao/apijson/server/AbstractParser.java Lines [48, 343-347]";15:57:00;1;5;None;4;0;No;Yes. The removal of import statements from APIJSON-Java-Server/APIJSONDemo/src/main/java/apijson/demo/server/DemoParser.java;1;3;
+23/07/2024 15:14;4;T4-D1;15:58:00;2;shenyu-admin/src/main/java/org/apache/shenyu/admin/spring/ScriptLoader.java Lines[43-73];04:12:00;5;3;Too many changes in the same commit.;2;11;No;No;3;4;
+23/07/2024 15:24;4;T5-F1;16:16:00;5;modules/activiti-engine/src/main/java/org/activiti/ProcessInstance.java Lines [36-38];16:19:00;4;5;Too many changes in the same commit, and the diff scope shown was too narrow.;5;5;No;No;1;5;
+23/07/2024 15:30;7;T1-M2;16:03:00;5;File core/src/main/java/com/taobao/arthas/core/command/klass100/JadCommand.java Lines: 194;16:10:00;1;5;Creation of a new method.;5;7;no;no;1;5;
+23/07/2024 15:42;4;T5-M1;16:27:00;4;"src/main/java/net/dv8tion/jda/core/managers/Presence.java
+src/main/java/net/dv8tion/jda/core/managers/impl/PresenceImpl.java
+src/main/java/net/dv8tion/jda/core/requests/WebSocketClient.java [402, 406]
+src/main/java/net/dv8tion/jda/core/JDABuilder.java [350-354]
+src/main/java/net/dv8tion/jda/core/entities/impl/JDAImpl.java [81]";16:32:00;2;4;The changes were scattered in many files.;3;0;"""Yes. src/main/java/net/dv8tion/jda/core/JDABuilder.java [350-354] src/main/java/net/dv8tion/jda/core/entities/impl/JDAImpl.java [81] src/main/java/net/dv8tion/jda/core/requests/WebSocketClient.java [402, 406]"" ";No;2;3;
+23/07/2024 15:48;4;T5-D1;16:43:00;1;"modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java [326-340]
+modules/activiti-engine/src/main/java/org/activiti/engine/impl/pvm/process/ProcessDefinitionImpl.java";16:46:00;1;5;The extension missed some methods.;1;No;modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.java [334-340];No;1;2;
+23/07/2024 15:56;4;T6-F1;16:48:00;3;core/src/main/java/tk/mybatis/mapper/mapperhelper/MapperHelper.java [97, 145];16:53:00;3;3;The change wasn't only in the name but also in the returned type.;4;0;No;No;4;4;
+23/07/2024 15:56;7;T1-D2;16:33:00;2;File: azkaban-common/src/main/java/azkaban/project/DirectoryYamlFlowLoader.java Line: 109;16:45:00;3;4;The call to the new method in an old method.;1;1;no;yes, the azkaban-common/src/main/java/azkaban/project/DirectoryYamlFlowLoader.java line 143;3;5;
+23/07/2024 16:03;4;T6-M1;04:57:00;4;modules/activiti-spring/src/test/java/org/activiti/spring/test/autodeployment/SpringAutoDeployTest.java [49-50, 123-128];17:00:00;2;4;A new argument to the method was added.;4;3;No;No;4;4;
+23/07/2024 16:11;4;T6-D1;17:04:00;5;"qmui/src/main/java/com/qmuiteam/qmui/skin/QMUISkinManager.java [161-165,173]
+qmuidemo/src/main/java/com/qmuiteam/qmuidemo/manager/QDSkinManager.java [40-42]
+";05:08:00;3;4;Too many changes in the same commit.;5;0;Yes. qmuidemo/src/main/java/com/qmuiteam/qmuidemo/manager/QDSkinManager.java [40-42];No;1;2;
+23/07/2024 16:17;7;t2-m2;17:06:00;5;relay/src/main/java/com/genymobile/relay/Router.java Line:[77:80];17:14:00;3;5;The same code removed inline in the method.;1;1;no;relay/src/main/java/com/genymobile/relay/Router.java lines [77:81];1;1;
+23/07/2024 16:30;7;t2-d2;17:18:00;1;class com.google.googlejavaformat.java.JavaInputAstVisitor Lines 1110;17:24:00;4;5;He did not make the method inline because the behavior is different. He simply removed the method and replaced it with another behavior.;2;1;no;core/src/main/java/com/google/googlejavaformat/java/JavaInputAstVisitor.java Line 1110;1;3;
+24/07/2024 15:56;8;T1-F3;14:08:00;5;"File: lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java
+Lines: 283, [292, 293]";14:12:00;2;4;Understanding the code's context.;4;4;no;no;1;3;
+24/07/2024 16:14;8;T1-M3;16:57:00;5;"File: core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java
+Lines: 48, 62";17:00:00;2;4;No challenges.;4;3;No;Lines 99 and 72;4;5;
+24/07/2024 18:02;7;t3-f2;18:52:00;5;com.github.mikephil.charting.renderer.LegendRenderer Lines: [186:187], 207, 240, 245, 279, 284, 350, 355, 391, 396;18:59:00;1;5;The call to the refactored method.;3;1;no;all related code with the variable mLegendLabelPaint was indicated and should not be included;1;1;
+24/07/2024 18:07;7;T3-M2;19:02:00;5;"
+fe/fe-core/src/main/java/com/starrocks/system/HeartbeatMgr.java Line 108, 294";19:05:00;1;5;The call to the method.;5;2;no;no;1;1;
+24/07/2024 18:12;7;T4-F2;19:09:00;5;dont have;19:10:00;1;5;The call to the method.;1;1;no;QuorumZooKeeperServer Line 43;1;1;
+24/07/2024 18:15;7;T4-M2;19:12:00;5;don`t have;19:13:00;1;5;Method call.;1;1;no;AbstractExternalCache Line 16;1;1;
+24/07/2024 18:22;7;T5-F2;19:15:00;5;don`t have;19:20:00;4;3;Method call and variable used in the method.;1;1;no;To me, all occurrences are part of the refactoring and are not related code;1;3;
+24/07/2024 18:25;7;T6-F2;19:22:00;5;dont have;19:23:00;1;5;Method call.;5;3;no;no;5;1;
+25/07/2024 08:05;8;T2-F3;08:43:00;4;"(ex: File: modules/activiti-osgi/src/main/java/org/activiti/osgi/OsgiScriptingEngines.java
+Lines: [118, 128], [42-45])";09:00:00;4;3;Understanding the commit.;5;33;No;"The ""private"" modifier in line 61.";3;4;
+25/07/2024 09:26;8;T3-F3;10:18:00;5;"File: OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java
+Lines: 122
+
+File: OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java
+Lines: 690";10:23:00;3;4;Comparing both files.;4;2;Line 122 of file OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java;No;1;4;
+25/07/2024 09:46;8;T3-D2;10:31:00;5;"File: websocket/src/main/java/fi/iki/elonen/NanoWebSocketServer.java
+Line: 30
+
+File: websocket/src/main/java/fi/iki/elonen/WebSocketResponseHandler.java
+Line: 32";10:41:00;2;4;More than one refactoring in the same commit.;2;1;No;"""File: websocket/src/main/java/fi/iki/elonen/NanoWebSocketServer.java Lines: [48-69] ÿFile: websocket/src/main/java/fi/iki/elonen/WebSocketResponseHandler.java Lines: [33-54]""";2;4;
+25/07/2024 09:55;8;T4-F3;10:48:00;5;No Modifications;10:49:00;1;5;No challenges.;4;1;No;No;4;4;
+25/07/2024 10:20;8;T4-D2;10:50:00;5;"Files: shenyu-client/shenyu-client-dubbo/shenyu-client-alibaba-dubbo/src/main/java/org/apache/shenyu/client/alibaba/dubbo/AlibabaDubboServiceBeanListener.java
+
+shenyu-client/shenyu-client-dubbo/shenyu-client-apache-dubbo/src/main/java/org/apache/shenyu/client/apache/dubbo/ApacheDubboServiceBeanListener.java
+
+shenyu-client/shenyu-client-grpc/src/main/java/org/apache/shenyu/client/grpc/GrpcClientBeanPostProcessor.java
+Lines: 76
+
+shenyu-client/shenyu-client-grpc/src/main/java/org/apache/shenyu/client/grpc/GrpcContextRefreshedEventListener.java
+
+shenyu-client/shenyu-client-http/shenyu-client-springcloud/src/main/java/org/apache/shenyu/client/springcloud/init/ContextRegisterListener.java
+
+shenyu-client/shenyu-client-http/shenyu-client-springcloud/src/main/java/org/apache/shenyu/client/springcloud/init/SpringCloudClientBeanPostProcessor.java
+
+shenyu-client/shenyu-client-http/shenyu-client-springmvc/src/main/java/org/apache/shenyu/client/springmvc/init/ContextRegisterListener.java
+
+shenyu-client/shenyu-client-http/shenyu-client-springmvc/src/main/java/org/apache/shenyu/client/springmvc/init/SpringMvcClientBeanPostProcessor.java
+
+shenyu-client/shenyu-client-motan/src/main/java/org/apache/shenyu/client/motan/MotanServiceBeanPostProcessor.java
+
+shenyu-client/shenyu-client-sofa/src/main/java/org/apache/shenyu/client/sofa/SofaServiceBeanPostProcessor.java
+
+shenyu-client/shenyu-client-tars/src/main/java/org/apache/shenyu/client/tars/TarsContextRefreshedEventListener.java
+
+shenyu-client/shenyu-client-tars/src/main/java/org/apache/shenyu/client/tars/TarsServiceBeanPostProcessor.java
+
+shenyu-client/shenyu-client-tars/src/test/java/org/apache/shenyu/client/tars/TarsServiceBeanPostProcessorTest.java
+
+shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java
+Lines: [185, 210]
+";11:17:00;4;3;The number of files changed.;4;2;No;No;3;4;
+25/07/2024 13:28;8;T5-M2;14:14:00;5;"File: library/src/main/java/com/dueeeke/videoplayer/controller/GestureVideoController.java
+Lines: [25, 226] (excluding the method dispatchTouchEvent)";14:20:00;4;2;The amount of files changed and understanding the code's context.;4;1;No;No;3;5;
+25/07/2024 13:41;8;T6-M2;14:30:00;5;"src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java
+Line: 253, 251, [240-246]";14:38:00;2;4;Defining the consequences of the rename refactoring.;4;4;No;No;2;4;
+26/07/2024 03:44;3;T1-M1;00:33:00;5;"File: src/main/java/com/github/abel533/mapperhelper/EntityHelper.java
+Lines: [534-539], 563";00:37:00;2;4;The semi-related modifications (new behavior added to the extract method) make it difficult to differentiate things, especially in this case since the developer is reimplementing the extracted behavior in a different way.;4;2;No.;I get it since it was added alongside the extracted method, but [540,549] changed the behavior of some of the code that was extracted, so I?m not sure if they should be marked as related instead of part of the refactoring.;1;5;
+26/07/2024 03:48;3;T1-D1;00:44:00;5;"File: src/java/azkaban/execapp/FlowRunner.java
+Lines: 370, [405-422]";00:46:00;1;5;"Just that the file was very large. The extension could have a ""go to refactoring"" button.";5;0;No;No;2;5;
+26/07/2024 03:51;3;T2-F1;00:48:00;5;"File:src/main/java/net/dv8tion/jda/internal/entities/GuildVoiceStateImpl.java
+Lines: 52,53";00:49:00;1;5;n/a;5;1;No;No;2;5;
+26/07/2024 03:57;3;T2-M1;00:51:00;5;"File: moco-runner/src/main/java/com/github/dreamhead/moco/runner/watcher/WatcherService.java
+80";00:52:00;3;5;Inline methods are kind of hard to identify because they don't have clear markers like the creation of a method in an extract method. Especially in cases such as this when the implementation changed with the refactoring.;4;0;No;I get that lines 79 and 81 are part of the same call, but only line 80 actually implements the behavior that was inlined, since the inlined method only checked a simple condition, and most of the collection code was already outside the method, even if it was reimplemented. I would mark these two lines as refactoring-related.;1;5;
+26/07/2024 04:05;3;T2-D1;00:57:00;1;"File: value/src/main/java/com/google/auto/value/processor/TemplateVars.java
+Lines: 125";01:01:00;5;3;I do not think that this is a refactoring. I actually think that the developer removed the method and simply changed the parameter in the functional call later to change the behavior. It makes no sense to me that the developer would remove the entire retry behavior, keep that single line (which would be an inline), and then just remove the other call with the different parameter.;3;1;N/A;Yes, Line 127 is a completely different exception handling code than the previous one. I do not think this is a refactoring, but considering it was, it makes no sense to keep that line.;1;5;
+26/07/2024 04:11;3;T3-F1;01:05:00;5;"File: src/main/java/org/whispersystems/textsecuregcm/auth/AccountAuthenticator.java
+Lines: 30, 71, [82,87]";01:08:00;1;5;n/a;4;1;Yes, Line 30;No;2;5;
+26/07/2024 04:16;3;T3-M1;01:13:00;5;"File: modules/swagger-core/src/main/java/io/swagger/util/ParameterProcessor.java
+Lines: [163-188]";01:15:00;1;5;"Long file. Again a ""go to refactoring"" button would help.";5;3;No;No;1;5;
+26/07/2024 04:20;3;T3-D1;01:16:00;5;"File: modules/activiti-bpmn-model/src/main/java/org/activiti/bpmn/model/alfresco/AlfrescoStartEvent.java
+[10-12]
+
+File: modules/activiti-bpmn-model/src/main/java/org/activiti/bpmn/model/alfresco/AlfrescoUserTask.java
+[12-14]";01:18:00;1;5;The fact that the refactoring was reflected in two different files.;3;2;Yeah, the method was actually cloned to two different places in the same refactoring.;No;1;5;
+26/07/2024 04:28;3;T4-F1;01:20:00;5;"File: storm-server/src/main/java/org/apache/storm/scheduler/blacklist/strategies/DefaultBlacklistStrategy.java
+Lines: 145, [182-196]";01:22:00;4;5;Large file.;5;1;I think line 185 could be considered part of the refactoring. Since the entire subclass was removed, the behavior that called the moved method had to be moved as well.;No;1;5;
+26/07/2024 14:07;6;T1-F3;14:31:00;5;File: lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java Linhas: 245, [252-255],[292-293];14:47:00;3;4;I'm not sure if the classification criteria were clear.;2;4;"Yes, the addition of the ""close"" parameter in the extracted method and its usage in the finally block.";no;2;3;
+26/07/2024 14:42;5;T1-M2;02:31:00;5;"File: com.taobao.arthas.core.command.klass100.ClassDumpTransformer
+Line: 71";14:53:00;2;3;The GitHub tool itself for viewing commits because at first I thought only the method name had changed, then I saw the original method further down.;4;11;no;no;4;5;
+26/07/2024 14:51;6;T1-M3;15:40:00;5;Arquivo: core/src/main/java/com/taobao/arthas/core/command/basic1000/HelpCommand.java Linhas: 48, 62;15:44:00;2;4;It wasn't complicated.;4;3;no;Line 99, I think is part of the refactoring itself;1;5;
+26/07/2024 15:04;6;T2-F3;15:53:00;4;moco-core/src/main/java/com/github/dreamhead/moco/handler/ProxyResponseHandler.java Line: 42, [61-62];03:59:00;3;4;Existence of other methods with the same name that were not removed.;3;no;no;lines 120-124, as they already existed in the code and were not changed.;2;4;
+26/07/2024 15:04;10;T3-M3;15:43:00;2;Very difficult to list as the modification was very large.;15:51:00;5;1;The modification was too large. There are too many lines to analyze manually.;3;1;It's complicated to evaluate because it was a very large change.;It?s complicated to evaluate because it was a very large change.;3;4;
+26/07/2024 15:10;9;T3-M3;14:55:00;5;fe/fe-core/src/main/java/com/starrocks/server/OlapTableFactory.java Lines: [,365,548,629-648];15:30:00;5;2;The refactoring was too large to be sure of all the directly related parts.;3;no;I couldn't be sure;"""Yes. In the file fe/fe-core/src/main/java/com/starrocks/server/LocalMetastore.java Lines: [2467-2474], [2488-2490] were moved to fe/fe-core/src/main/java/com/starrocks/server/OlapTableFactory.java lines [575-582],[596-598] This move does not seem related to the move of processColocationProperties.""";3;4;
+26/07/2024 15:11;5;T1-D2;15:45:00;5;"File: azkaban-common/src/main/java/azkaban/project/DirectoryYamlFlowLoader.java
+Lines: 109, 118, [128-134]";03:49:00;5;3;None.;5;no;no;no;4;4;
+26/07/2024 15:15;6;T3-F3;04:04:00;5;"OsmAnd/src/net/osmand/plus/audionotes/AudioVideoNotesPlugin.java Line: 690, 726
+OsmAnd/src/net/osmand/plus/audionotes/AudioNotesLayer.java Line: 122";04:11:00;4;3;The size of the moved method.;4;1;The change in the signature of the moved method.;no;1;5;
+26/07/2024 15:29;9;T4-M3;16:19:00;4;"shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java
+Lines: 58, [158-169] 
+shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java 
+Lines: [37-39], [57-70]
+shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java
+Lines: 20, [35-37], [55-68]";16:23:00;1;5;It was simple because it was a specific change.;1;1;Yes. For me, the change in the file shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java Lines: [57-70] was missing. Since removing the abstract method from the extended class, this change was mandatory. Actually, I believe the tool did not identify that the method pull-up involved more than one class.;no;2;2;
+26/07/2024 15:32;6;T3-D2;04:16:00;4;websocket/src/main/java/fi/iki/elonen/WebSocket.java Line: [43-44];04:29:00;4;2;The size of the diff.;1;no;no;The change in the serve method, I think it was another refactoring to move the method to the superclass;2;3;
+26/07/2024 15:38;6;T4-F3;04:33:00;5;only the refactoring;04:35:00;1;5;It wasn't complicated.;4;1;no;no;3;4;
+26/07/2024 15:40;9;T5-F3;16:29:00;5;"src/main/java/net/dv8tion/jda/api/requests/restaction/MessageAction.java
+Lines: [600-606], 599 
+src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java
+Lines: [319-328]";16:38:00;1;5;Nothing.;5;0;No;No;1;3;
+26/07/2024 15:51;6;T4-D2;04:38:00;5;shenyu-register-center/shenyu-register-common/src/main/java/org/apache/shenyu/register/common/config/ShenyuRegisterCenterConfig.java Line: [28-39],[84-210], changes in yaml files;04:44:00;4;3;Understanding if the configuration files are related to the refactoring.;3;no;I think the configuration files are also related, and the changes in shenyu-client/shenyu-client-tars/src/test/java/org/apache/shenyu/client/tars/TarsServiceBeanPostProcessorTest.java.;I think the changes in setProperty are part of the same refactoring, which is actually moving the property itself and its access methods to the abstract class.;3;4;
+26/07/2024 15:59;6;T5-M2;04:52:00;5;I only found directly related changes;04:56:00;4;2;Size of the diff.;2;no;no;The other changes in library/src/main/java/com/dueeeke/videoplayer/controller/GestureVideoController.java;2;4;
+26/07/2024 16:07;6;T6-M2;17:00:00;2;src/main/java/org/apache/ibatis/datasource/pooled/PooledConnection.java Linha 240;05:03:00;3;3;I disagreed with the classification, so it was difficult to classify the refactoring.;2;no;I don't think it was a refactoring.;I don?t think it was a refactoring;1;4;
+26/07/2024 16:10;9;T5-M3;16:41:00;5;"modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/data/AbstractDataManager.java
+Lines: [39-41]
+modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/AbstractManager.java
+Lines: [71-73],[64-66]";16:55:00;3;4;Many unrelated changes, some generic methods that seemed to perform the same function as the function that was refactored.;4;3;I don't think so;"""Yes. modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/data/ProcessDefinitionDataManagerImpl.java Line: 102""";4;4;
+26/07/2024 16:26;9;T5-D2;17:11:00;5;I couldn't see it because of the number of changes in the code;17:22:00;5;2;Number of changes.;5;2;I believe not;"""modules/activiti-engine/src/main/java/org/activiti/engine/impl/jobexecutor/CallerRunsRejectedJobsHandler.java Lines[32-36]""";5;5;
+26/07/2024 18:06;10;T4-M3;18:50:00;4;"File: shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/AbstractHttpClientPlugin.java Lines: [158-169]
+File: shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/WebClientPlugin.java Lines: [55-68]
+File: shenyu-plugin/shenyu-plugin-httpclient/src/main/java/org/apache/shenyu/plugin/httpclient/NettyHttpClientPlugin.java Lines: [57-70]";19:00:00;2;4;The subclass methods should no longer be used since they became private in the superclass. It seems nonsensical without seeing the rest of the code.;1;1;"The abstract method no longer exists, so there shouldn't be any @Override methods, but the tool marked the @Override as ""Non-refactoring.""";"Some comment lines that were not modified were marked as ""Refactoring.""";1;3;
+26/07/2024 18:17;10;T5-F3;19:10:00;4;"File: src/main/java/net/dv8tion/jda/api/requests/restaction/MessageAction.java Lines: [600-606]
+File: src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java Lines: [319-328]";19:14:00;2;5;The method was moved, but along with that, there was a change in the moved code that could cause a change in behavior.;3;0;src/main/java/net/dv8tion/jda/internal/requests/restaction/MessageActionImpl.java Line: 324 -> there was a possible change in behavior.;No;1;1;
+26/07/2024 18:23;9;T6-F3;19:09:00;5;"src/main/java/com/lmax/disruptor/RingBuffer.java
+Lines: 154, 173, 179";19:17:00;3;4;Variable name changes besides the method signature change.;2;0;Yes. At least Line 154;There were no refactoring-related indications;3;2;
+26/07/2024 18:28;10;T5-M3;19:18:00;3;"File: modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/TableDataManagerImpl.java Lines: [138-141]
+Files: modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/AbstractManager.java Lines: [71-73]
+Files: [39-41]";19:23:00;5;5;There were many modifications in the commit and it involved renaming changes, which made it even more difficult.;3;2;File: modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/TableDataManagerImpl.java Lines: [139-141];File: modules/activiti-engine/src/main/java/org/activiti/engine/impl/persistence/entity/data/ProcessDefinitionDataManagerImpl.java Lines: [97-109] (Distance: 8);1;2;
+26/07/2024 18:34;9;T6-M3;19:23:00;5;It was just a rename on a test name;19:26:00;1;5;It was not.;3;0;No;"""src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java Line [57-99]""";2;2;
+26/07/2024 18:34;10;T5-D2;19:28:00;4;"File: modules/activiti-engine/src/main/java/org/activiti/engine/impl/jobexecutor/AcquireJobsRunnable.java Lines: [45-108]
+File: modules/activiti-engine/src/main/java/org/activiti/engine/impl/jobexecutor/AcquireJobsRunnableImpl.java Lines: 45-108]
+But the modification was very big, I couldn't evaluate all the lines.";19:31:00;4;3;The method is very large and it is not possible to be sure if it was just moved without spending a lot of time evaluating. Also, there are many other modifications.;3;no;I cannot evaluate it because the commit is too large.;I cannot evaluate it because the commit is too large.;1;2;
+26/07/2024 18:41;9;T6-D2;19:34:00;5;"qmui/src/main/java/com/qmuiteam/qmui/widget/section/QMUIStickySectionAdapter.java
+Linhes: 63";19:36:00;1;5;It was simple because the rename was in a function without implementation that was called in just one place.;4;0;"""qmui/src/main/java/com/qmuiteam/qmui/widget/section/QMUIStickySectionAdapter.java Lines: 63""";No change was categorized as related;1;1;
+26/07/2024 18:41;10;T6-F3;19:36:00;2;"File: src/main/java/com/lmax/disruptor/RingBuffer.java Lines: 148
+File: src/main/java/com/lmax/disruptor/RingBuffer.java Lines: [157-160]";19:39:00;2;4;There was not only a rename but also a change in parameters in the same renamed method.;1;0;File: src/main/java/com/lmax/disruptor/RingBuffer.java Lines: 154;File: src/main/java/com/lmax/disruptor/RingBuffer.java Lines: [161-185];1;1;
+26/07/2024 18:48;10;T6-M3;19:41:00;5;File: src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java Lines: [102->55];19:43:00;2;4;There are other modifications besides the one highlighted, and the new name seems unrelated to the old one.;1;0;File: src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java Lines: [59,63];"File: src/test/java/org/apache/ibatis/submitted/clearcache/PersonDAOTest.java : (1) Listed the entire test as refactoring instead of just the modified parts; (2) Listed the removal of the find() test as ""Refactoring-related""";1;1;
+26/07/2024 18:53;10;T6-D2;19:49:00;5;"File: qmui/src/main/java/com/qmuiteam/qmui/widget/section/QMUIStickySectionAdapter.java Lines: [60->63]
+File: qmui/src/main/java/com/qmuiteam/qmui/widget/section/QMUIStickySectionAdapter.java Lines: [64->67]";19:51:00;3;4;There are many other modifications in the commit.;3;0;File: qmui/src/main/java/com/qmuiteam/qmui/widget/section/QMUIStickySectionAdapter.java Lines: [60->63];No;1;2;
+27/07/2024 10:52;5;T2-M2;11:01:00;4;"File: relay/src/main/java/com/genymobile/relay/AbstractConnection.java
+Line: 79";11:47:00;5;2;Not having in the commit who calls the method to check other implications in the code.;2;no;no;no;5;4;
+27/07/2024 11:27;5;T2-D2;12:14:00;3;"File: core/src/main/java/com/google/googlejavaformat/java/JavaInputAstVisitor.java
+Lines: Complicado para identificar manualmente";12:21:00;5;1;Very large commit with different modifications.;3;no;no;no;1;3;
+28/07/2024 05:16;3;T3-M2;02:14:00;5;"File:fe/fe-core/src/main/java/com/starrocks/lake/vacuum/AutovacuumDaemon.java
+Lines: 125, [196-200]";02:16:00;1;5;None.;5;1;N/A;N/A;1;5;
+28/07/2024 05:18;3;T4-F2;02:16:00;5;"File: src/java/main/org/apache/zookeeper/server/quorum/LearnerZooKeeperServer.java
+Lines: [170-175]";02:18:00;1;5;None.;5;1;N/A;N/A;1;5;
+28/07/2024 05:21;3;T4-M2;02:18:00;5;"File: jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.java
+Lines: [31:50]";02:20:00;1;5;None.;5;0;N/A;"""File: jetcache-core/src/main/java/com/alicp/jetcache/external/AbstractExternalCache.javaLines: 16, 19""";1;5;
+28/07/2024 20:29;1;T2-M2;17:24:00;2;"File: relay/src/main/java/com/genymobile/relay/Router.java
+Lines: [76-82], [92-94]";17:26:00;3;3;Not so clear if refactoring or just changing logic.;4;2;No;No;2;3;
+28/07/2024 20:36;1;T2-D2;17:29:00;1;"File: core/src/main/java/com/google/googlejavaformat/java/JavaInputAstVisitor.java
+Lines: 1384, 2862";17:33:00;3;5;Since the method was swapped for nothing, it was hard to understand what could be the side effects of this.;2;0;No;JavaDoc and line 1115;1;4;
+28/07/2024 20:40;1;T3-F2;17:37:00;5;"File; MPChartLib/src/com/github/mikephil/charting/renderer/LegendRenderer.java
+Lines: 186, 207, 240, 245, 279, 284, 316, 350, 355, 391, 396, [452-454]";17:39:00;1;5;None.;4;1;No;JavaDoc;1;3;
+08/08/2024 18:53;11;T5-F2;19:48:00;5;"src/main/java/net/dv8tion/jda/core/events/user/UserActivityStartEvent.java [44,47]
+src/main/java/net/dv8tion/jda/core/events/user/UserActivityEndEvent.java [44,47]
+src/main/java/net/dv8tion/jda/core/events/user/update/GenericUserPresenceEvent.java [49:52]";19:50:00;2;5;Various subclasses received the change.;4;2;No, in the case of push down, only considers the method in one class;In the case of push down, only considers the method in one class;3;4;
+08/08/2024 18:57;11;T6-F2;19:54:00;5;src/main/java/the/bytecode/club/bytecodeviewer/translation/Language.java [94];19:55:00;1;5;Root refactoring facilitated.;5;2;no;no;3;4;
