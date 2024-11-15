@@ -9,9 +9,11 @@
 6. The extension should now appear. Make sure it is activated by checking the bottom right.
 
 
-OBS: This extension version will only work on the specified commits and only on chromium based browsers.
+OBS: Without running the server, this extension version will only work on the commits used in the experiment.
 
 
 ## Server Run
 
 mvn spring-boot:run 
+
+By default, the extension will expect the server to be running at localhost
